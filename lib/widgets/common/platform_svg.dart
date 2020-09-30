@@ -15,7 +15,6 @@ class PlatformSvg {
   }) {
     if (kIsWeb) {
       return Image.network(
-        // '/assets/$assetName',
         assetName,
         width: width,
         height: height,
