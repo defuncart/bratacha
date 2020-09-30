@@ -25,7 +25,7 @@ flutter:
   uses-material-design: true
 
 flappy_translator:
-  input_file_path: "assets_dev/loca/loca.csv"
+  input_file_path: "assets_dev/loca/loca_with_countries.csv"
   output_dir: "lib"
   file_name: "localizations"
   class_name: "AppLocalizations"
@@ -34,7 +34,9 @@ flappy_translator:
   depend_on_context: false
   use_single_quotes: true
   replace_no_break_spaces: false
-  expose_get_string: false
+  expose_get_string: true
+  expose_loca_strings: false
+  expose_locale_maps: false
 
 flutter_icons:
   image_path_android: "assets_dev/app_icon/app_icon.png"

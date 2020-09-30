@@ -9,22 +9,1180 @@ import 'package:flutter/material.dart';
 class AppLocalizations {
   static String get test => _getText('test');
 
+  static String get adCountry => _getText('adCountry');
+
+  static String get aeCountry => _getText('aeCountry');
+
+  static String get afCountry => _getText('afCountry');
+
+  static String get agCountry => _getText('agCountry');
+
+  static String get alCountry => _getText('alCountry');
+
+  static String get amCountry => _getText('amCountry');
+
+  static String get aoCountry => _getText('aoCountry');
+
+  static String get arCountry => _getText('arCountry');
+
+  static String get atCountry => _getText('atCountry');
+
+  static String get auCountry => _getText('auCountry');
+
+  static String get azCountry => _getText('azCountry');
+
+  static String get baCountry => _getText('baCountry');
+
+  static String get bbCountry => _getText('bbCountry');
+
+  static String get bdCountry => _getText('bdCountry');
+
+  static String get beCountry => _getText('beCountry');
+
+  static String get bfCountry => _getText('bfCountry');
+
+  static String get bgCountry => _getText('bgCountry');
+
+  static String get bhCountry => _getText('bhCountry');
+
+  static String get biCountry => _getText('biCountry');
+
+  static String get bjCountry => _getText('bjCountry');
+
+  static String get bnCountry => _getText('bnCountry');
+
+  static String get boCountry => _getText('boCountry');
+
+  static String get brCountry => _getText('brCountry');
+
+  static String get bsCountry => _getText('bsCountry');
+
+  static String get btCountry => _getText('btCountry');
+
+  static String get bwCountry => _getText('bwCountry');
+
+  static String get byCountry => _getText('byCountry');
+
+  static String get bzCountry => _getText('bzCountry');
+
+  static String get caCountry => _getText('caCountry');
+
+  static String get cdCountry => _getText('cdCountry');
+
+  static String get cfCountry => _getText('cfCountry');
+
+  static String get cgCountry => _getText('cgCountry');
+
+  static String get chCountry => _getText('chCountry');
+
+  static String get ciCountry => _getText('ciCountry');
+
+  static String get clCountry => _getText('clCountry');
+
+  static String get cmCountry => _getText('cmCountry');
+
+  static String get cnCountry => _getText('cnCountry');
+
+  static String get coCountry => _getText('coCountry');
+
+  static String get crCountry => _getText('crCountry');
+
+  static String get cuCountry => _getText('cuCountry');
+
+  static String get cvCountry => _getText('cvCountry');
+
+  static String get cyCountry => _getText('cyCountry');
+
+  static String get czCountry => _getText('czCountry');
+
+  static String get deCountry => _getText('deCountry');
+
+  static String get djCountry => _getText('djCountry');
+
+  static String get dkCountry => _getText('dkCountry');
+
+  static String get dmCountry => _getText('dmCountry');
+
+  static String get doCountry => _getText('doCountry');
+
+  static String get dzCountry => _getText('dzCountry');
+
+  static String get ecCountry => _getText('ecCountry');
+
+  static String get eeCountry => _getText('eeCountry');
+
+  static String get egCountry => _getText('egCountry');
+
+  static String get erCountry => _getText('erCountry');
+
+  static String get esCountry => _getText('esCountry');
+
+  static String get etCountry => _getText('etCountry');
+
+  static String get fiCountry => _getText('fiCountry');
+
+  static String get fjCountry => _getText('fjCountry');
+
+  static String get fmCountry => _getText('fmCountry');
+
+  static String get frCountry => _getText('frCountry');
+
+  static String get gaCountry => _getText('gaCountry');
+
+  static String get gbCountry => _getText('gbCountry');
+
+  static String get gdCountry => _getText('gdCountry');
+
+  static String get geCountry => _getText('geCountry');
+
+  static String get ghCountry => _getText('ghCountry');
+
+  static String get gmCountry => _getText('gmCountry');
+
+  static String get gnCountry => _getText('gnCountry');
+
+  static String get gqCountry => _getText('gqCountry');
+
+  static String get grCountry => _getText('grCountry');
+
+  static String get gtCountry => _getText('gtCountry');
+
+  static String get gwCountry => _getText('gwCountry');
+
+  static String get gyCountry => _getText('gyCountry');
+
+  static String get hnCountry => _getText('hnCountry');
+
+  static String get hrCountry => _getText('hrCountry');
+
+  static String get htCountry => _getText('htCountry');
+
+  static String get huCountry => _getText('huCountry');
+
+  static String get idCountry => _getText('idCountry');
+
+  static String get ieCountry => _getText('ieCountry');
+
+  static String get ilCountry => _getText('ilCountry');
+
+  static String get inCountry => _getText('inCountry');
+
+  static String get iqCountry => _getText('iqCountry');
+
+  static String get irCountry => _getText('irCountry');
+
+  static String get isCountry => _getText('isCountry');
+
+  static String get itCountry => _getText('itCountry');
+
+  static String get jmCountry => _getText('jmCountry');
+
+  static String get joCountry => _getText('joCountry');
+
+  static String get jpCountry => _getText('jpCountry');
+
+  static String get keCountry => _getText('keCountry');
+
+  static String get kgCountry => _getText('kgCountry');
+
+  static String get khCountry => _getText('khCountry');
+
+  static String get kiCountry => _getText('kiCountry');
+
+  static String get kmCountry => _getText('kmCountry');
+
+  static String get knCountry => _getText('knCountry');
+
+  static String get kpCountry => _getText('kpCountry');
+
+  static String get krCountry => _getText('krCountry');
+
+  static String get kwCountry => _getText('kwCountry');
+
+  static String get kzCountry => _getText('kzCountry');
+
+  static String get laCountry => _getText('laCountry');
+
+  static String get lbCountry => _getText('lbCountry');
+
+  static String get lcCountry => _getText('lcCountry');
+
+  static String get liCountry => _getText('liCountry');
+
+  static String get lkCountry => _getText('lkCountry');
+
+  static String get lrCountry => _getText('lrCountry');
+
+  static String get lsCountry => _getText('lsCountry');
+
+  static String get ltCountry => _getText('ltCountry');
+
+  static String get luCountry => _getText('luCountry');
+
+  static String get lvCountry => _getText('lvCountry');
+
+  static String get lyCountry => _getText('lyCountry');
+
+  static String get maCountry => _getText('maCountry');
+
+  static String get mcCountry => _getText('mcCountry');
+
+  static String get mdCountry => _getText('mdCountry');
+
+  static String get meCountry => _getText('meCountry');
+
+  static String get mgCountry => _getText('mgCountry');
+
+  static String get mhCountry => _getText('mhCountry');
+
+  static String get mkCountry => _getText('mkCountry');
+
+  static String get mlCountry => _getText('mlCountry');
+
+  static String get mmCountry => _getText('mmCountry');
+
+  static String get mnCountry => _getText('mnCountry');
+
+  static String get mrCountry => _getText('mrCountry');
+
+  static String get mtCountry => _getText('mtCountry');
+
+  static String get muCountry => _getText('muCountry');
+
+  static String get mvCountry => _getText('mvCountry');
+
+  static String get mwCountry => _getText('mwCountry');
+
+  static String get mxCountry => _getText('mxCountry');
+
+  static String get myCountry => _getText('myCountry');
+
+  static String get mzCountry => _getText('mzCountry');
+
+  static String get naCountry => _getText('naCountry');
+
+  static String get neCountry => _getText('neCountry');
+
+  static String get ngCountry => _getText('ngCountry');
+
+  static String get niCountry => _getText('niCountry');
+
+  static String get nlCountry => _getText('nlCountry');
+
+  static String get noCountry => _getText('noCountry');
+
+  static String get npCountry => _getText('npCountry');
+
+  static String get nrCountry => _getText('nrCountry');
+
+  static String get nzCountry => _getText('nzCountry');
+
+  static String get omCountry => _getText('omCountry');
+
+  static String get paCountry => _getText('paCountry');
+
+  static String get peCountry => _getText('peCountry');
+
+  static String get pgCountry => _getText('pgCountry');
+
+  static String get phCountry => _getText('phCountry');
+
+  static String get pkCountry => _getText('pkCountry');
+
+  static String get plCountry => _getText('plCountry');
+
+  static String get ptCountry => _getText('ptCountry');
+
+  static String get pwCountry => _getText('pwCountry');
+
+  static String get pyCountry => _getText('pyCountry');
+
+  static String get qaCountry => _getText('qaCountry');
+
+  static String get roCountry => _getText('roCountry');
+
+  static String get rsCountry => _getText('rsCountry');
+
+  static String get ruCountry => _getText('ruCountry');
+
+  static String get rwCountry => _getText('rwCountry');
+
+  static String get saCountry => _getText('saCountry');
+
+  static String get sbCountry => _getText('sbCountry');
+
+  static String get scCountry => _getText('scCountry');
+
+  static String get sdCountry => _getText('sdCountry');
+
+  static String get seCountry => _getText('seCountry');
+
+  static String get sgCountry => _getText('sgCountry');
+
+  static String get siCountry => _getText('siCountry');
+
+  static String get skCountry => _getText('skCountry');
+
+  static String get slCountry => _getText('slCountry');
+
+  static String get smCountry => _getText('smCountry');
+
+  static String get snCountry => _getText('snCountry');
+
+  static String get soCountry => _getText('soCountry');
+
+  static String get srCountry => _getText('srCountry');
+
+  static String get ssCountry => _getText('ssCountry');
+
+  static String get stCountry => _getText('stCountry');
+
+  static String get svCountry => _getText('svCountry');
+
+  static String get syCountry => _getText('syCountry');
+
+  static String get szCountry => _getText('szCountry');
+
+  static String get tdCountry => _getText('tdCountry');
+
+  static String get tgCountry => _getText('tgCountry');
+
+  static String get thCountry => _getText('thCountry');
+
+  static String get tjCountry => _getText('tjCountry');
+
+  static String get tlCountry => _getText('tlCountry');
+
+  static String get tmCountry => _getText('tmCountry');
+
+  static String get tnCountry => _getText('tnCountry');
+
+  static String get toCountry => _getText('toCountry');
+
+  static String get trCountry => _getText('trCountry');
+
+  static String get ttCountry => _getText('ttCountry');
+
+  static String get tvCountry => _getText('tvCountry');
+
+  static String get tzCountry => _getText('tzCountry');
+
+  static String get uaCountry => _getText('uaCountry');
+
+  static String get ugCountry => _getText('ugCountry');
+
+  static String get usCountry => _getText('usCountry');
+
+  static String get uyCountry => _getText('uyCountry');
+
+  static String get uzCountry => _getText('uzCountry');
+
+  static String get vcCountry => _getText('vcCountry');
+
+  static String get veCountry => _getText('veCountry');
+
+  static String get vnCountry => _getText('vnCountry');
+
+  static String get vuCountry => _getText('vuCountry');
+
+  static String get wsCountry => _getText('wsCountry');
+
+  static String get yeCountry => _getText('yeCountry');
+
+  static String get zaCountry => _getText('zaCountry');
+
+  static String get zmCountry => _getText('zmCountry');
+
+  static String get zwCountry => _getText('zwCountry');
+
   static Map<String, String> _localizedValues;
 
   static Map<String, String> _enValues = {
     'test': 'Hello World!',
+    'adCountry': 'Andorra',
+    'aeCountry': 'United Arab Emirates',
+    'afCountry': 'Afghanistan',
+    'agCountry': 'Antigua and Barbuda',
+    'alCountry': 'Albania',
+    'amCountry': 'Armenia',
+    'aoCountry': 'Angola',
+    'arCountry': 'Argentina',
+    'atCountry': 'Austria',
+    'auCountry': 'Australia',
+    'azCountry': 'Azerbaijan',
+    'baCountry': 'Bosnia and Herzegovina',
+    'bbCountry': 'Barbados',
+    'bdCountry': 'Bangladesh',
+    'beCountry': 'Belgium',
+    'bfCountry': 'Burkina Faso',
+    'bgCountry': 'Bulgaria',
+    'bhCountry': 'Bahrain',
+    'biCountry': 'Burundi',
+    'bjCountry': 'Benin',
+    'bnCountry': 'Brunei',
+    'boCountry': 'Bolivia',
+    'brCountry': 'Brazil',
+    'bsCountry': 'The Bahamas',
+    'btCountry': 'Bhutan',
+    'bwCountry': 'Botswana',
+    'byCountry': 'Belarus',
+    'bzCountry': 'Belize',
+    'caCountry': 'Canada',
+    'cdCountry': 'Congo (Democratic Republic of)',
+    'cfCountry': 'Central African Republic',
+    'cgCountry': 'Congo (Republic of)',
+    'chCountry': 'Switzerland',
+    'ciCountry': 'Ivory Coast',
+    'clCountry': 'Chile',
+    'cmCountry': 'Cameroon',
+    'cnCountry': 'China',
+    'coCountry': 'Colombia',
+    'crCountry': 'Costa Rica',
+    'cuCountry': 'Cuba',
+    'cvCountry': 'Cape Verde',
+    'cyCountry': 'Cyprus',
+    'czCountry': 'Czech Republic',
+    'deCountry': 'Germany',
+    'djCountry': 'Djibouti',
+    'dkCountry': 'Denmark',
+    'dmCountry': 'Dominica',
+    'doCountry': 'Dominican Republic',
+    'dzCountry': 'Algeria',
+    'ecCountry': 'Ecuador',
+    'eeCountry': 'Estonia',
+    'egCountry': 'Egypt',
+    'erCountry': 'Eritrea',
+    'esCountry': 'Spain',
+    'etCountry': 'Ethiopia',
+    'fiCountry': 'Finland',
+    'fjCountry': 'Fiji',
+    'fmCountry': 'Micronesia',
+    'frCountry': 'France',
+    'gaCountry': 'Gabon',
+    'gbCountry': 'United Kingdom',
+    'gdCountry': 'Grenada',
+    'geCountry': 'Georgia',
+    'ghCountry': 'Ghana',
+    'gmCountry': 'The Gambia',
+    'gnCountry': 'Guinea',
+    'gqCountry': 'Equatorial Guinea',
+    'grCountry': 'Greece',
+    'gtCountry': 'Guatemala',
+    'gwCountry': 'Guinea-Bissau',
+    'gyCountry': 'Guyana',
+    'hnCountry': 'Honduras',
+    'hrCountry': 'Croatia',
+    'htCountry': 'Haiti',
+    'huCountry': 'Hungary',
+    'idCountry': 'Indonesia',
+    'ieCountry': 'Ireland',
+    'ilCountry': 'Israel',
+    'inCountry': 'India',
+    'iqCountry': 'Iraq',
+    'irCountry': 'Iran',
+    'isCountry': 'Iceland',
+    'itCountry': 'Italy',
+    'jmCountry': 'Jamaica',
+    'joCountry': 'Jordan',
+    'jpCountry': 'Japan',
+    'keCountry': 'Kenya',
+    'kgCountry': 'Kyrgyzstan',
+    'khCountry': 'Cambodia',
+    'kiCountry': 'Kiribati',
+    'kmCountry': 'Comoros',
+    'knCountry': 'Saint Kitts and Nevis',
+    'kpCountry': 'North Korea',
+    'krCountry': 'South Korea',
+    'kwCountry': 'Kuwait',
+    'kzCountry': 'Kazakhstan',
+    'laCountry': 'Laos',
+    'lbCountry': 'Lebanon',
+    'lcCountry': 'Saint Lucia',
+    'liCountry': 'Liechtenstein',
+    'lkCountry': 'Sri Lanka',
+    'lrCountry': 'Liberia',
+    'lsCountry': 'Lesotho',
+    'ltCountry': 'Lithuania',
+    'luCountry': 'Luxembourg',
+    'lvCountry': 'Latvia',
+    'lyCountry': 'Libya',
+    'maCountry': 'Morocco',
+    'mcCountry': 'Monaco',
+    'mdCountry': 'Moldova',
+    'meCountry': 'Montenegro',
+    'mgCountry': 'Madagascar',
+    'mhCountry': 'Marshall Islands',
+    'mkCountry': 'North Macedonia',
+    'mlCountry': 'Mali',
+    'mmCountry': 'Myanmar',
+    'mnCountry': 'Mongolia',
+    'mrCountry': 'Mauritania',
+    'mtCountry': 'Malta',
+    'muCountry': 'Mauritius',
+    'mvCountry': 'Maldives',
+    'mwCountry': 'Malawi',
+    'mxCountry': 'Mexico',
+    'myCountry': 'Malaysia',
+    'mzCountry': 'Mozambique',
+    'naCountry': 'Namibia',
+    'neCountry': 'Niger',
+    'ngCountry': 'Nigeria',
+    'niCountry': 'Nicaragua',
+    'nlCountry': 'Netherlands',
+    'noCountry': 'Norway',
+    'npCountry': 'Nepal',
+    'nrCountry': 'Nauru',
+    'nzCountry': 'New Zealand',
+    'omCountry': 'Oman',
+    'paCountry': 'Panama',
+    'peCountry': 'Peru',
+    'pgCountry': 'Papua New Guinea',
+    'phCountry': 'Philippines',
+    'pkCountry': 'Pakistan',
+    'plCountry': 'Poland',
+    'ptCountry': 'Portugal',
+    'pwCountry': 'Palau',
+    'pyCountry': 'Paraguay',
+    'qaCountry': 'Qatar',
+    'roCountry': 'Romania',
+    'rsCountry': 'Serbia',
+    'ruCountry': 'Russia',
+    'rwCountry': 'Rwanda',
+    'saCountry': 'Saudi Arabia',
+    'sbCountry': 'Solomon Islands',
+    'scCountry': 'Seychelles',
+    'sdCountry': 'Sudan',
+    'seCountry': 'Sweden',
+    'sgCountry': 'Singapore',
+    'siCountry': 'Slovenia',
+    'skCountry': 'Slovakia',
+    'slCountry': 'Sierra Leone',
+    'smCountry': 'San Marino',
+    'snCountry': 'Senegal',
+    'soCountry': 'Somalia',
+    'srCountry': 'Suriname',
+    'ssCountry': 'South Sudan',
+    'stCountry': 'São Tomé and Príncipe',
+    'svCountry': 'El Salvador',
+    'syCountry': 'Syria',
+    'szCountry': 'Eswatini',
+    'tdCountry': 'Chad',
+    'tgCountry': 'Togo',
+    'thCountry': 'Thailand',
+    'tjCountry': 'Tajikistan',
+    'tlCountry': 'Timor-Leste',
+    'tmCountry': 'Turkmenistan',
+    'tnCountry': 'Tunisia',
+    'toCountry': 'Tonga',
+    'trCountry': 'Turkey',
+    'ttCountry': 'Trinidad and Tobago',
+    'tvCountry': 'Tuvalu',
+    'tzCountry': 'Tanzania',
+    'uaCountry': 'Ukraine',
+    'ugCountry': 'Uganda',
+    'usCountry': 'United States',
+    'uyCountry': 'Uruguay',
+    'uzCountry': 'Uzbekistan',
+    'vcCountry': 'Saint Vincent and the Grenadines',
+    'veCountry': 'Venezuela',
+    'vnCountry': 'Vietnam',
+    'vuCountry': 'Vanuatu',
+    'wsCountry': 'Samoa',
+    'yeCountry': 'Yemen',
+    'zaCountry': 'South Africa',
+    'zmCountry': 'Zambia',
+    'zwCountry': 'Zimbabwe',
   };
 
   static Map<String, String> _byValues = {
     'test': 'Здароўствуй свет!',
+    'adCountry': 'Андора',
+    'aeCountry': 'Аб’яднаныя Арабскія Эміраты',
+    'afCountry': 'Афганістан',
+    'agCountry': 'Антыгуа і Барбуда',
+    'alCountry': 'Албанія',
+    'amCountry': 'Арменія',
+    'aoCountry': 'Ангола',
+    'arCountry': 'Аргенціна',
+    'atCountry': 'Аўстрыя',
+    'auCountry': 'Аўстралія',
+    'azCountry': 'Азербайджан',
+    'baCountry': 'Боснія і Герцагавіна',
+    'bbCountry': 'Барбадас',
+    'bdCountry': 'Бангладэш',
+    'beCountry': 'Бельгія',
+    'bfCountry': 'Буркіна-Фасо',
+    'bgCountry': 'Балгарыя',
+    'bhCountry': 'Бахрэйн',
+    'biCountry': 'Бурундзі',
+    'bjCountry': 'Бенін',
+    'bnCountry': 'Бруней',
+    'boCountry': 'Балівія',
+    'brCountry': 'Бразілія',
+    'bsCountry': 'Багамскія Астравы',
+    'btCountry': 'Бутан',
+    'bwCountry': 'Батсвана',
+    'byCountry': 'Беларусь',
+    'bzCountry': 'Беліз',
+    'caCountry': 'Канада',
+    'cdCountry': 'Дэмакратычная Рэспубліка Конга',
+    'cfCountry': 'Цэнтральна-Афрыканская Рэспубліка',
+    'cgCountry': 'Рэспубліка Конга',
+    'chCountry': 'Швейцарыя',
+    'ciCountry': 'Кот-д’Івуар',
+    'clCountry': 'Чылі',
+    'cmCountry': 'Камерун',
+    'cnCountry': 'Кітай',
+    'coCountry': 'Калумбія',
+    'crCountry': 'Коста-Рыка',
+    'cuCountry': 'Куба',
+    'cvCountry': 'Каба-Вердэ',
+    'cyCountry': 'Кіпр',
+    'czCountry': 'Чэхія',
+    'deCountry': 'Германія',
+    'djCountry': 'Джыбуці',
+    'dkCountry': 'Данія',
+    'dmCountry': 'Дамініка',
+    'doCountry': 'Дамініканская Рэспубліка',
+    'dzCountry': 'Алжыр',
+    'ecCountry': 'Эквадор',
+    'eeCountry': 'Эстонія',
+    'egCountry': 'Егіпет',
+    'erCountry': 'Эрытрэя',
+    'esCountry': 'Іспанія',
+    'etCountry': 'Эфіопія',
+    'fiCountry': 'Фінляндыя',
+    'fjCountry': 'Фіджы',
+    'fmCountry': 'Мікранезія',
+    'frCountry': 'Францыя',
+    'gaCountry': 'Габон',
+    'gbCountry': 'Вялікабрытанія',
+    'gdCountry': 'Грэнада',
+    'geCountry': 'Грузія',
+    'ghCountry': 'Гана',
+    'gmCountry': 'Гамбія',
+    'gnCountry': 'Гвінея',
+    'gqCountry': 'Экватарыяльная Гвінея',
+    'grCountry': 'Грэцыя',
+    'gtCountry': 'Гватэмала',
+    'gwCountry': 'Гвінея-Бісаў',
+    'gyCountry': 'Гаяна',
+    'hnCountry': 'Гандурас',
+    'hrCountry': 'Харватыя',
+    'htCountry': 'Гаіці',
+    'huCountry': 'Венгрыя',
+    'idCountry': 'Інданезія',
+    'ieCountry': 'Ірландыя',
+    'ilCountry': 'Ізраіль',
+    'inCountry': 'Індыя',
+    'iqCountry': 'Ірак',
+    'irCountry': 'Іран',
+    'isCountry': 'Ісландыя',
+    'itCountry': 'Італія',
+    'jmCountry': 'Ямайка',
+    'joCountry': 'Іарданія',
+    'jpCountry': 'Японія',
+    'keCountry': 'Кенія',
+    'kgCountry': 'Кыргызстан',
+    'khCountry': 'Камбоджа',
+    'kiCountry': 'Кірыбаці',
+    'kmCountry': 'Каморскія Астравы',
+    'knCountry': 'Сент-Кітс і Невіс',
+    'kpCountry': 'Паўночная Карэя',
+    'krCountry': 'Паўднёвая Карэя',
+    'kwCountry': 'Кувейт',
+    'kzCountry': 'Казахстан',
+    'laCountry': 'Лаос',
+    'lbCountry': 'Ліван',
+    'lcCountry': 'Сент-Люсія',
+    'liCountry': 'Ліхтэнштэйн',
+    'lkCountry': 'Шры Ланка',
+    'lrCountry': 'Ліберыя',
+    'lsCountry': 'Лесота',
+    'ltCountry': 'Літва',
+    'luCountry': 'Люксембург',
+    'lvCountry': 'Латвія',
+    'lyCountry': 'Лівія',
+    'maCountry': 'Марока',
+    'mcCountry': 'Манака',
+    'mdCountry': 'Малдова',
+    'meCountry': 'Чарнагорыя',
+    'mgCountry': 'Мадагаскар',
+    'mhCountry': 'Маршалавы Астравы',
+    'mkCountry': 'Паўночная Македонія',
+    'mlCountry': 'Малі',
+    'mmCountry': 'М\'янма',
+    'mnCountry': 'Манголія',
+    'mrCountry': 'Маўрытанія',
+    'mtCountry': 'Мальта',
+    'muCountry': 'Маўрыкій',
+    'mvCountry': 'Мальдывы',
+    'mwCountry': 'Малаві',
+    'mxCountry': 'Мексіка',
+    'myCountry': 'Малайзія',
+    'mzCountry': 'Мазамбік',
+    'naCountry': 'Намібія',
+    'neCountry': 'Нігер',
+    'ngCountry': 'Нігерыя',
+    'niCountry': 'Нікарагуа',
+    'nlCountry': 'Нідэрланды',
+    'noCountry': 'Нарвегія',
+    'npCountry': 'Непал',
+    'nrCountry': 'Науру',
+    'nzCountry': 'Новая Зеландыя',
+    'omCountry': 'Аман',
+    'paCountry': 'Панама',
+    'peCountry': 'Перу',
+    'pgCountry': 'Папуа-Новая Гвінея',
+    'phCountry': 'Філіпіны',
+    'pkCountry': 'Пакістан',
+    'plCountry': 'Польшча',
+    'ptCountry': 'Партугалія',
+    'pwCountry': 'Палау',
+    'pyCountry': 'Парагвай',
+    'qaCountry': 'Катар',
+    'roCountry': 'Румынія',
+    'rsCountry': 'Сербія',
+    'ruCountry': 'Расія',
+    'rwCountry': 'Руанда',
+    'saCountry': 'Саўдаўская Аравія',
+    'sbCountry': 'Саламонавы Астравы',
+    'scCountry': 'Сейшэльскія Астравы',
+    'sdCountry': 'Судан',
+    'seCountry': 'Швецыя',
+    'sgCountry': 'Сінгапур',
+    'siCountry': 'Славенія',
+    'skCountry': 'Славакія',
+    'slCountry': 'Сьера-Леонэ',
+    'smCountry': 'Сан-Марына',
+    'snCountry': 'Сенегал',
+    'soCountry': 'Самалі',
+    'srCountry': 'Сурынам',
+    'ssCountry': 'Паўднёвы Судан',
+    'stCountry': 'Сан-Тамэ і Прынсіпі',
+    'svCountry': 'Сальвадор',
+    'syCountry': 'Сірыя',
+    'szCountry': 'Эсваціні',
+    'tdCountry': 'Чад',
+    'tgCountry': 'Тога',
+    'thCountry': 'Тайланд',
+    'tjCountry': 'Таджыкістан',
+    'tlCountry': 'Усходні Тымор',
+    'tmCountry': 'Туркменістан',
+    'tnCountry': 'Туніс',
+    'toCountry': 'Тонга',
+    'trCountry': 'Турцыя',
+    'ttCountry': 'Трынідад і Табага',
+    'tvCountry': 'Тувалу',
+    'tzCountry': 'Танзанія',
+    'uaCountry': 'Украіна',
+    'ugCountry': 'Уганда',
+    'usCountry': 'Злучаныя Штаты Амерыкі',
+    'uyCountry': 'Уругвай',
+    'uzCountry': 'Узбекістан',
+    'vcCountry': 'Сент-Вінсент і Грэнадзіны',
+    'veCountry': 'Венесуэла',
+    'vnCountry': 'В\'етнам',
+    'vuCountry': 'Вануату',
+    'wsCountry': 'Самоа',
+    'yeCountry': 'Емен',
+    'zaCountry': 'Паўднёва-Афрыканская Рэспубліка',
+    'zmCountry': 'Замбія',
+    'zwCountry': 'Зімбабвэ',
   };
 
   static Map<String, String> _cyValues = {
     'test': 'Helo Byd!',
+    'adCountry': 'Andorra',
+    'aeCountry': 'Yr Emiradau Arabaidd Unedig',
+    'afCountry': 'Affganistan',
+    'agCountry': 'Antigwa a Barbiwda',
+    'alCountry': 'Albania',
+    'amCountry': 'Armenia',
+    'aoCountry': 'Angola',
+    'arCountry': 'Yr Ariannin',
+    'atCountry': 'Awstria',
+    'auCountry': 'Awstralia',
+    'azCountry': 'Aserbaijan',
+    'baCountry': 'Bosnia a Hertsegofina',
+    'bbCountry': 'Barbados',
+    'bdCountry': 'Bangladesh',
+    'beCountry': 'Gwlad Belg',
+    'bfCountry': 'Bwrcina Ffaso',
+    'bgCountry': 'Bwlgaria',
+    'bhCountry': 'Bahrain',
+    'biCountry': 'Bwrwndi',
+    'bjCountry': 'Benin',
+    'bnCountry': 'Brwnei',
+    'boCountry': 'Bolifia',
+    'brCountry': 'Brasil',
+    'bsCountry': 'Y Bahamas',
+    'btCountry': 'Bhwtan',
+    'bwCountry': 'Botswana',
+    'byCountry': 'Belarws',
+    'bzCountry': 'Belîs',
+    'caCountry': 'Canada',
+    'cdCountry': 'Gweriniaeth Ddemocrataidd y Congo',
+    'cfCountry': 'Gweriniaeth Canolbarth Affrica',
+    'cgCountry': 'Gweriniaeth y Congo',
+    'chCountry': 'Y Swistir',
+    'ciCountry': 'Arfordir Ifori',
+    'clCountry': 'Tsile',
+    'cmCountry': 'Camerŵn',
+    'cnCountry': 'Tsieina',
+    'coCountry': 'Colombia',
+    'crCountry': 'Costa Rica',
+    'cuCountry': 'Ciwba',
+    'cvCountry': 'Cabo Verde',
+    'cyCountry': 'Cyprus',
+    'czCountry': 'Y Weriniaeth Tsiec',
+    'deCountry': 'Yr Almaen',
+    'djCountry': 'Jibwti',
+    'dkCountry': 'Denmarc',
+    'dmCountry': 'Dominica',
+    'doCountry': 'Gweriniaeth Dominica',
+    'dzCountry': 'Algeria',
+    'ecCountry': 'Ecwador',
+    'eeCountry': 'Estonia',
+    'egCountry': 'Yr Aifft',
+    'erCountry': 'Eritrea',
+    'esCountry': 'Sbaen',
+    'etCountry': 'Ethiopia',
+    'fiCountry': 'Y Ffindir',
+    'fjCountry': 'Ffiji',
+    'fmCountry': 'Micronesia',
+    'frCountry': 'Ffrainc',
+    'gaCountry': 'Gabon',
+    'gbCountry': 'Y Deyrnas Unedig',
+    'gdCountry': 'Grenada',
+    'geCountry': 'Georgia',
+    'ghCountry': 'Ghana',
+    'gmCountry': 'Y Gambia',
+    'gnCountry': 'Gini',
+    'gqCountry': 'Gini Cyhydeddol',
+    'grCountry': 'Gwlad Groeg',
+    'gtCountry': 'Gwatemala',
+    'gwCountry': 'Gini Bisaw',
+    'gyCountry': 'Gaiana',
+    'hnCountry': 'Hondwras',
+    'hrCountry': 'Croatia',
+    'htCountry': 'Haiti',
+    'huCountry': 'Hwngari',
+    'idCountry': 'Indonesia',
+    'ieCountry': 'Iwerddon',
+    'ilCountry': 'Israel',
+    'inCountry': 'India',
+    'iqCountry': 'Irac',
+    'irCountry': 'Iran',
+    'isCountry': 'Gwlad yr Iâ',
+    'itCountry': 'Yr Eidal',
+    'jmCountry': 'Jamaica',
+    'joCountry': 'Gwlad Iorddonen',
+    'jpCountry': 'Japan',
+    'keCountry': 'Cenia',
+    'kgCountry': 'Cirgistan',
+    'khCountry': 'Cambodia',
+    'kiCountry': 'Ciribati',
+    'kmCountry': 'Y Comoros',
+    'knCountry': 'Sant Kitts-Nevis',
+    'kpCountry': 'Gogledd Corea',
+    'krCountry': 'De Corea',
+    'kwCountry': 'Coweit',
+    'kzCountry': 'Casachstan',
+    'laCountry': 'Laos',
+    'lbCountry': 'Libanus',
+    'lcCountry': 'Sant Lwsia',
+    'liCountry': 'Liechtenstein',
+    'lkCountry': 'Sri Lanka',
+    'lrCountry': 'Liberia',
+    'lsCountry': 'Lesotho',
+    'ltCountry': 'Lithwania',
+    'luCountry': 'Lwcsembwrg',
+    'lvCountry': 'Latfia',
+    'lyCountry': 'Libia',
+    'maCountry': 'Moroco',
+    'mcCountry': 'Monaco',
+    'mdCountry': 'Moldofa',
+    'meCountry': 'Montenegro',
+    'mgCountry': 'Madagascar',
+    'mhCountry': 'Ynysoedd Marshall',
+    'mkCountry': 'Gogledd Macedonia',
+    'mlCountry': 'Mali',
+    'mmCountry': 'Myanmar',
+    'mnCountry': 'Mongolia',
+    'mrCountry': 'Mawritania',
+    'mtCountry': 'Malta',
+    'muCountry': 'Mawrisiws',
+    'mvCountry': 'Maldives',
+    'mwCountry': 'Malawi',
+    'mxCountry': 'Mecsico',
+    'myCountry': 'Maleisia',
+    'mzCountry': 'Mosambic',
+    'naCountry': 'Namibia',
+    'neCountry': 'Niger',
+    'ngCountry': 'Nigeria',
+    'niCountry': 'Nicaragwa',
+    'nlCountry': 'Yr Iseldiroedd',
+    'noCountry': 'Norwy',
+    'npCountry': 'Nepal',
+    'nrCountry': 'Nawrw',
+    'nzCountry': 'Seland Newydd',
+    'omCountry': 'Oman',
+    'paCountry': 'Panama',
+    'peCountry': 'Periw',
+    'pgCountry': 'Papua Gini Newydd',
+    'phCountry': 'Y Philipinau',
+    'pkCountry': 'Pacistan',
+    'plCountry': 'Gwlad Pwyl',
+    'ptCountry': 'Portiwgal',
+    'pwCountry': 'Palaw',
+    'pyCountry': 'Paragwâi',
+    'qaCountry': 'Qatar',
+    'roCountry': 'Rwmania',
+    'rsCountry': 'Serbia',
+    'ruCountry': 'Rwsia',
+    'rwCountry': 'Rwanda',
+    'saCountry': 'Sawdi Arabia',
+    'sbCountry': 'Ynysoedd Solomon',
+    'scCountry': 'Seychelles',
+    'sdCountry': 'Swdan',
+    'seCountry': 'Sweden',
+    'sgCountry': 'Singapôr',
+    'siCountry': 'Slofenia',
+    'skCountry': 'Slofacia',
+    'slCountry': 'Sierra Leone',
+    'smCountry': 'San Marino',
+    'snCountry': 'Senegal',
+    'soCountry': 'Somalia',
+    'srCountry': 'Swrinam',
+    'ssCountry': 'De Swdan',
+    'stCountry': 'São Tomé a Príncipe',
+    'svCountry': 'El Salfador',
+    'syCountry': 'Syria',
+    'szCountry': 'Eswatini',
+    'tdCountry': 'Tsiad',
+    'tgCountry': 'Togo',
+    'thCountry': 'Gwlad Tai',
+    'tjCountry': 'Tajicistan',
+    'tlCountry': 'Dwyrain Timor',
+    'tmCountry': 'Tyrcmenistan',
+    'tnCountry': 'Tiwnisia',
+    'toCountry': 'Tonga',
+    'trCountry': 'Twrci',
+    'ttCountry': 'Trinidad a Thobago',
+    'tvCountry': 'Twfalw',
+    'tzCountry': 'Tansanïa',
+    'uaCountry': 'Yr Wcráin',
+    'ugCountry': 'Wganda',
+    'usCountry': 'Unol Daleithiau',
+    'uyCountry': 'Wrwgwái',
+    'uzCountry': 'Wsbecistan',
+    'vcCountry': 'Saint Vincent a\'r Grenadines',
+    'veCountry': 'Feneswela',
+    'vnCountry': 'Fietnam',
+    'vuCountry': 'Fanwatw',
+    'wsCountry': 'Samoa',
+    'yeCountry': 'Iemen',
+    'zaCountry': 'De Affrica',
+    'zmCountry': 'Sambia',
+    'zwCountry': 'Simbabwe',
   };
 
   static Map<String, String> _gaValues = {
     'test': 'Dia duit domhan!',
+    'adCountry': 'Andóra',
+    'aeCountry': 'Aontas na nÉimíríochtaí Arabacha',
+    'afCountry': 'An Afganastáin',
+    'agCountry': 'Antigua agus Barbúda',
+    'alCountry': 'An Albáin',
+    'amCountry': 'An Airméin',
+    'aoCountry': 'Angóla',
+    'arCountry': 'An Airgintín',
+    'atCountry': 'An Ostair',
+    'auCountry': 'An Astráil',
+    'azCountry': 'An Asarbaiseáin',
+    'baCountry': 'An Bhoisnia agus an Heirseagaivéin',
+    'bbCountry': 'Barbadós',
+    'bdCountry': 'An Bhanglaidéis',
+    'beCountry': 'An Bheilg',
+    'bfCountry': 'Buircíne Fasó',
+    'bgCountry': 'An Bhulgáir',
+    'bhCountry': 'Bairéin',
+    'biCountry': 'An Bhurúin',
+    'bjCountry': 'Beinin',
+    'bnCountry': 'Brúiné',
+    'boCountry': 'An Bholaiv',
+    'brCountry': 'An Bhrasaíl',
+    'bsCountry': 'Na Bahámaí',
+    'btCountry': 'Bhútáin',
+    'bwCountry': 'Bhotsuáin',
+    'byCountry': 'An Bhealarúis',
+    'bzCountry': 'An Bheilís',
+    'caCountry': 'Ceanada',
+    'cdCountry': 'Chongó (Poblacht Dhaonlathach an)',
+    'cfCountry': 'Poblacht na hAfraice Láir',
+    'cgCountry': 'Chongó (Poblacht an)',
+    'chCountry': 'An Eilvéis',
+    'ciCountry': 'An Cósta Eabhair',
+    'clCountry': 'An tSile',
+    'cmCountry': 'Camarún',
+    'cnCountry': 'An tSín',
+    'coCountry': 'An Cholóim',
+    'crCountry': 'Cósta Ríce',
+    'cuCountry': 'Cúba',
+    'cvCountry': 'Rinn Verde',
+    'cyCountry': 'An Chipir',
+    'czCountry': 'Poblacht na Seice',
+    'deCountry': 'An Ghearmáin',
+    'djCountry': 'Djibouti',
+    'dkCountry': 'An Danmhairg',
+    'dmCountry': 'Doiminice',
+    'doCountry': 'An Phoblacht Dhoiminiceach',
+    'dzCountry': 'An Ailgéir',
+    'ecCountry': 'Eacuadór',
+    'eeCountry': 'An Eastóin',
+    'egCountry': 'An Éigipt',
+    'erCountry': 'An Eiritré',
+    'esCountry': 'An Spáinn',
+    'etCountry': 'An Aetóip',
+    'fiCountry': 'An Fhionlainn',
+    'fjCountry': 'Fidsí',
+    'fmCountry': 'An Mhicrinéis',
+    'frCountry': 'An Fhrainc',
+    'gaCountry': 'An Ghabúin',
+    'gbCountry': 'An Ríocht Aontaithe',
+    'gdCountry': 'Greanáda',
+    'geCountry': 'An tSeoirsia',
+    'ghCountry': 'Gána',
+    'gmCountry': 'An Ghaimbia',
+    'gnCountry': 'An Guine',
+    'gqCountry': 'An Ghuine Mheánchriosach',
+    'grCountry': 'An Ghréig',
+    'gtCountry': 'Guatamala',
+    'gwCountry': 'Guine Bissau',
+    'gyCountry': 'An Ghuáin',
+    'hnCountry': 'Hondúras',
+    'hrCountry': 'An Chróit',
+    'htCountry': 'Háití',
+    'huCountry': 'An Ungáir',
+    'idCountry': 'An Indinéis',
+    'ieCountry': 'Éire',
+    'ilCountry': 'Iosrael',
+    'inCountry': 'An India',
+    'iqCountry': 'Iaráic',
+    'irCountry': 'An Iaráin',
+    'isCountry': 'An Íoslainn',
+    'itCountry': 'An Iodáil',
+    'jmCountry': 'Iamáice',
+    'joCountry': 'An Iordáin',
+    'jpCountry': 'An tSeapáin',
+    'keCountry': 'An Chéinia',
+    'kgCountry': 'An Chirgeastáin',
+    'khCountry': 'An Chambóid',
+    'kiCountry': 'Cireabaití',
+    'kmCountry': 'Oileáin Chomóra',
+    'knCountry': 'San Críostóir-Nimheas',
+    'kpCountry': 'An Chóiré Thuaidh',
+    'krCountry': 'An Chóiré Theas',
+    'kwCountry': 'Cuáit',
+    'kzCountry': 'An Chasacstáin',
+    'laCountry': 'Laos',
+    'lbCountry': 'An Liobáin',
+    'lcCountry': 'Saint Lucia',
+    'liCountry': 'Lichtinstéin',
+    'lkCountry': 'Srí Lanca',
+    'lrCountry': 'An Libéir',
+    'lsCountry': 'Leosóta',
+    'ltCountry': 'An Liotuáin',
+    'luCountry': 'Lucsamburg',
+    'lvCountry': 'An Laitvia',
+    'lyCountry': 'An Libia',
+    'maCountry': 'Maracó',
+    'mcCountry': 'Monacó',
+    'mdCountry': 'An Mholdóiv',
+    'meCountry': 'Montainéagró',
+    'mgCountry': 'Madagascar',
+    'mhCountry': 'Oileáin Marshall',
+    'mkCountry': 'Poblacht na Macadóine',
+    'mlCountry': 'Mailí',
+    'mmCountry': 'Maenmar',
+    'mnCountry': 'An Mhongóil',
+    'mrCountry': 'An Mháratáin',
+    'mtCountry': 'Málta',
+    'muCountry': 'Oileán Mhuirís',
+    'mvCountry': 'Oileáin Mhaildíve',
+    'mwCountry': 'An Mhaláiv',
+    'mxCountry': 'Meicsiceo',
+    'myCountry': 'An Mhalaeisia',
+    'mzCountry': 'Mósaimbíc',
+    'naCountry': 'An Namaib',
+    'neCountry': 'An Nígir',
+    'ngCountry': 'An Nigéir',
+    'niCountry': 'Nicearagua',
+    'nlCountry': 'An Ísiltír',
+    'noCountry': 'An Iorua',
+    'npCountry': 'Neipeal',
+    'nrCountry': 'Nárú',
+    'nzCountry': 'An Nua-Shéalainn',
+    'omCountry': 'Óman',
+    'paCountry': 'Panama',
+    'peCountry': 'Peiriú',
+    'pgCountry': 'Nua-Ghuine Phapua',
+    'phCountry': 'Na hOileáin Fhilipíneacha',
+    'pkCountry': 'An Phacastáin',
+    'plCountry': 'An Pholainn',
+    'ptCountry': 'An Phortaingéil',
+    'pwCountry': 'Oileáin Palau',
+    'pyCountry': 'Paragua',
+    'qaCountry': 'Catar',
+    'roCountry': 'An Rómáin',
+    'rsCountry': 'An tSeirbia',
+    'ruCountry': 'An Rúis',
+    'rwCountry': 'Ruanda',
+    'saCountry': 'An Araib Shádach',
+    'sbCountry': 'Oileáin Sholamón',
+    'scCountry': 'Na Séiséil',
+    'sdCountry': 'An tSúdáin',
+    'seCountry': 'An tSualainn',
+    'sgCountry': 'Singeapór',
+    'siCountry': 'An tSlóivéin',
+    'skCountry': 'An tSlóvaic',
+    'slCountry': 'Siarra Leon',
+    'smCountry': 'San Mairíne',
+    'snCountry': 'An tSeineagáil',
+    'soCountry': 'An tSomáil',
+    'srCountry': 'Suranam',
+    'ssCountry': 'An tSúdáin Theas',
+    'stCountry': 'São Tomé agus Príncipe',
+    'svCountry': 'An tSalvadóir',
+    'syCountry': 'An tSiria',
+    'szCountry': 'An tSuasalainn',
+    'tdCountry': 'Sead',
+    'tgCountry': 'Tóga',
+    'thCountry': 'An Téalainn',
+    'tjCountry': 'An Táidsíceastáin',
+    'tlCountry': 'Tíomór-Leste',
+    'tmCountry': 'An Tuircméanastáin',
+    'tnCountry': 'An Túinéis',
+    'toCountry': 'Tonga',
+    'trCountry': 'An Tuirc',
+    'ttCountry': 'Oileán na Tríonóide agus Tobága',
+    'tvCountry': 'Túvalú',
+    'tzCountry': 'An Tansáin',
+    'uaCountry': 'An Úcráin',
+    'ugCountry': 'Uganda',
+    'usCountry': 'Stáit Aontaithe Mheiriceá',
+    'uyCountry': 'Uragua',
+    'uzCountry': 'An Úisbéiceastáin',
+    'vcCountry': 'San Uinseann agus na Greanáidíní',
+    'veCountry': 'Veiniséala',
+    'vnCountry': 'Vítneam',
+    'vuCountry': 'Vanuatú',
+    'wsCountry': 'Samó',
+    'yeCountry': 'Éimin',
+    'zaCountry': 'An Afraic Theas',
+    'zmCountry': 'An tSaimbia',
+    'zwCountry': 'An tSiombáib',
   };
 
   static Map<String, Map<String, String>> _allValues = {
@@ -48,6 +1206,9 @@ class AppLocalizations {
   static Locale get currentLocale => _locale;
 
   static String get currentLanguage => _locale.languageCode;
+
+  /// Returns the corresponding string for a given key
+  static String getString(String key) => _getText(key);
 
   static Future<AppLocalizations> load(Locale locale) async {
     final translations = AppLocalizations(locale);
