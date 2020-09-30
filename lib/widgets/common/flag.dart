@@ -1,5 +1,5 @@
+import 'package:bratacha/widgets/common/platform_svg.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class Flag extends StatelessWidget {
   final String countryCode;
@@ -19,7 +19,7 @@ class Flag extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SvgPicture.asset(
+    return PlatformSvg.asset(
       _path,
       width: width,
       height: height,
