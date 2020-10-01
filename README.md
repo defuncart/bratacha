@@ -18,10 +18,18 @@ If you would like to build the app yourself, then you simply need:
 - Android SDK >= 29.0.4
 - Chrome
 
+### Asset Generation
+
 To generate the app icons, run:
 
 ```dart
 flutter pub run flutter_launcher_icons:main
+```
+
+To download flag assets, run:
+
+```dart
+dart bin/flag_downloader.dart
 ```
 
 ## Contributing
@@ -31,3 +39,5 @@ If you'd like to help translating the app into Irish/Welsh/Belarusian, please ge
 ## Credits
 
 Concept, Design and Programming by James Leahy.
+
+Flags by [jackiboy](https://github.com/jackiboy/flagpack).

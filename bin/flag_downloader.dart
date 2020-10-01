@@ -1,50 +1,37 @@
-import 'package:bratacha/localizations.dart';
-import 'package:bratacha/widgets/common/flag.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
+import 'dart:convert';
+import 'dart:io';
 
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      localizationsDelegates: [
-        const AppLocalizationsDelegate(),
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
-      ],
-      supportedLocales: AppLocalizationsDelegate.supportedLocals,
-      home: _HomeScreen(),
-    );
+void main() async {
+  const outputDir = 'assets/flags/';
+  const fileExtension = '.svg';
+
+  for (final id in _flagIds) {
+    print('Downloading $id...');
+    final url = _urlForFlagId(id, fileExtension);
+
+    try {
+      final request = await HttpClient().getUrl(Uri.parse(url));
+      final response = await request.close();
+      response.transform(utf8.decoder).listen((contents) {
+        final file = File('$outputDir$id$fileExtension');
+        try {
+          file.writeAsStringSync(contents);
+        } catch (_) {
+          print('Could not save $id. Aborting.');
+          return;
+        }
+      });
+    } catch (_) {
+      print('Could not download $id. Aborting.');
+      break;
+    }
   }
 }
 
-class _HomeScreen extends StatelessWidget {
-  const _HomeScreen({
-    Key key,
-  }) : super(key: key);
+String _urlForFlagId(String id, String fileExtension) {
+  const baseUrl = 'https://raw.githubusercontent.com/jackiboy/flagpack/master/flags/1x1/';
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Bratacha'),
-      ),
-      body: SafeArea(
-        child: ListView.separated(
-          separatorBuilder: (_, __) => Divider(),
-          itemCount: _flagIds.length,
-          itemBuilder: (_, index) => ListTile(
-            title: Flag(
-              _flagIds[index],
-              height: 100,
-              width: 100,
-            ),
-          ),
-        ),
-      ),
-    );
-  }
+  return '$baseUrl$id$fileExtension';
 }
 
 const _flagIds = [
