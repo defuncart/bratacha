@@ -10,16 +10,10 @@ class CountryLocalizations with _$CountryLocalizations {
 
   static Map<String, Map<String, String>> get _locales => _$CountryLocalizations._locales;
 
-  CountryLocalizations(Locale locale) {
-    _currentLocale = null;
-  }
-
   static String getString(String key) => _currentLocale[key] ?? '** $key not found';
 
-  static Future<CountryLocalizations> load(Locale locale) async {
-    final translations = CountryLocalizations(locale);
+  CountryLocalizations.load(Locale locale) {
     _currentLocale = _locales[locale.toString()];
-    return translations;
   }
 }
 
@@ -32,7 +26,7 @@ class CountryLocalizationsDelegate extends LocalizationsDelegate<CountryLocaliza
   bool isSupported(Locale locale) => supportedLocales.contains(locale);
 
   @override
-  Future<CountryLocalizations> load(Locale locale) => CountryLocalizations.load(locale);
+  Future<CountryLocalizations> load(Locale locale) async => CountryLocalizations.load(locale);
 
   @override
   bool shouldReload(CountryLocalizationsDelegate old) => false;
