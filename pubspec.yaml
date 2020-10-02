@@ -38,7 +38,7 @@ flappy_translator:
   depend_on_context: false
   use_single_quotes: true
   replace_no_break_spaces: false
-  expose_get_string: true
+  expose_get_string: false
   expose_loca_strings: false
   expose_locale_maps: false
 

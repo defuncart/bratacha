@@ -1,3 +1,4 @@
+// ignore: always_use_package_imports
 import '../enums/continent.dart';
 
 /// A model representing a country

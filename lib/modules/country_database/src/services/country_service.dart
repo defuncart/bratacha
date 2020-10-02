@@ -1,3 +1,4 @@
+// ignore_for_file: always_use_package_imports
 import '../enums/continent.dart';
 import '../models/country.dart';
 
