@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:bratacha/modules/country_database/country_database.dart';
+import 'package:bratacha/modules/country_database/country_database.dart' show Continent;
 import 'package:meta/meta.dart';
 
 void main() async {
@@ -38,7 +38,7 @@ void main() async {
   await Process.run('dartfmt', ['-w', countriesConfigOutputPath]);
 
   // loca
-  const locaOutputPath = 'lib/country_localizations.g.dart';
+  const locaOutputPath = 'lib/modules/country_database/src/country_localizations.g.dart';
   final locales = ['en', 'by', 'cy', 'ga'];
   final mapLocalesIndeces = {
     'en': 0,

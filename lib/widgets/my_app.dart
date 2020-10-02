@@ -1,4 +1,3 @@
-import 'package:bratacha/country_localizations.dart';
 import 'package:bratacha/extensions/country_extensions.dart';
 import 'package:bratacha/localizations.dart';
 import 'package:bratacha/modules/country_database/country_database.dart';
