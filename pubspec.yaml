@@ -39,6 +39,8 @@ flappy_translator:
   use_single_quotes: true
   replace_no_break_spaces: false
   expose_get_string: false
+  expose_loca_strings: false
+  expose_locale_maps: false
 
 flutter_icons:
   image_path_android: "assets_dev/app_icon/app_icon.png"
