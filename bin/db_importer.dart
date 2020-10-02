@@ -41,28 +41,49 @@ void main() async {
   outputFile.writeAsStringSync(sb.toString());
 
   // loca
-  final baseLocaFile = File('assets_dev/loca/loca.csv');
-  if (!baseLocaFile.existsSync()) {
-    print('File $baseLocaFile does not exist. Aborting.');
-  }
-  final locaWithCountriesFile = File('assets_dev/loca/loca_with_countries.csv');
-  if (!locaWithCountriesFile.existsSync()) {
-    locaWithCountriesFile.createSync(recursive: true);
-  }
+  final locales = ['en', 'by', 'cy', 'ga'];
+  final mapLocalesIndeces = {
+    'en': 0,
+    'by': 1,
+    'cy': 2,
+    'ga': 3,
+  };
 
-  final languageIndecesOrder = [0, 1, 2, 3]; //en, by, cy, ga
-  var lines = baseLocaFile.readAsLinesSync();
-  for (final country in countries) {
-    var line = '${country.key}Country';
-    for (final orderedIndex in languageIndecesOrder) {
-      line += ';${country.names[orderedIndex]}';
+  sb.clear();
+  sb.writeln('// GENERATED CODE - DO NOT MODIFY BY HAND');
+  sb.writeln('part of \'country_localizations.dart\';');
+  sb.writeln();
+  sb.writeln('mixin _\$CountryLocalizations {');
+  for (final locale in locales) {
+    final index = mapLocalesIndeces[locale];
+    sb.writeln('\tstatic const _$locale = {');
+    for (final country in countries) {
+      final countryName = country.names[index].replaceAll('\'', '\\\'');
+      sb.writeln('\t\t\'${country.key}\': \'$countryName\',');
     }
-    lines.add(line);
+    sb.writeln('\t};\n');
   }
+  sb.writeln('\tstatic final _locales = {');
+  for (final locale in locales) {
+    sb.writeln('\t\t\'$locale\': _$locale,');
+  }
+  sb.writeln('\t};');
+  sb.writeln('}');
+  sb.writeln();
+  sb.writeln('class _\$CountryLocalizationsDelegate {');
+  sb.writeln('\tstatic final _supportedLocales = {');
+  for (final locale in locales) {
+    sb.writeln('\t\tLocale(\'$locale\'),');
+  }
+  sb.writeln('\t};');
+  sb.writeln('}');
 
-  var contents = '';
-  lines.forEach((element) => contents += '$element\n');
-  locaWithCountriesFile.writeAsStringSync(contents);
+  outputFile = File('lib/country_localizations.g.dart');
+  if (!outputFile.existsSync()) {
+    outputFile.createSync(recursive: true);
+  }
+  outputFile.writeAsStringSync(sb.toString());
+  await Process.run('dartfmt', ['-w', 'lib/country_localizations.g.dart']);
 
   // levels
   const levelsDBFilepath = 'assets_dev/database/levels.json';
