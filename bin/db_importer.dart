@@ -41,6 +41,7 @@ void main() async {
   outputFile.writeAsStringSync(sb.toString());
 
   // loca
+  const locaOutputPath = 'lib/country_localizations.g.dart';
   final locales = ['en', 'by', 'cy', 'ga'];
   final mapLocalesIndeces = {
     'en': 0,
@@ -78,16 +79,16 @@ void main() async {
   sb.writeln('\t};');
   sb.writeln('}');
 
-  outputFile = File('lib/country_localizations.g.dart');
+  outputFile = File(locaOutputPath);
   if (!outputFile.existsSync()) {
     outputFile.createSync(recursive: true);
   }
   outputFile.writeAsStringSync(sb.toString());
-  await Process.run('dartfmt', ['-w', 'lib/country_localizations.g.dart']);
+  await Process.run('dartfmt', ['-w', locaOutputPath]);
 
   // levels
   const levelsDBFilepath = 'assets_dev/database/levels.json';
-  const levelsServiceOutputPath = 'lib/modules/level_database/src/services/level_service.dart';
+  const levelsServiceOutputPath = 'lib/modules/level_database/src/services/level_service.g.dart';
 
   importFile = File(levelsDBFilepath);
   if (!importFile.existsSync()) {
@@ -99,24 +100,15 @@ void main() async {
   final levels = (json.decode(data) as List).map((model) => _LevelImportModel.fromJson(model)).toList();
 
   sb.clear();
-  sb.writeln('class LevelsService {');
+  sb.writeln('// GENERATED CODE - DO NOT MODIFY BY HAND');
+  sb.writeln('part of \'level_service.dart\';');
+  sb.writeln();
+  sb.writeln('mixin _\$LevelService {');
   sb.writeln('\tstatic const _levels = [');
   for (final level in levels) {
     sb.writeln('\t\t${_listToCodeString(level.countries)},');
   }
   sb.writeln('\t];');
-  sb.writeln();
-  sb.writeln('\t/// Retuns the number of levels');
-  sb.writeln('\tint get numberLevels => _levels.length;');
-  sb.writeln('');
-  sb.writeln('\t/// Retuns the countries for a given level index (beginning at zero)');
-  sb.writeln('\tList<String> countryIdsForLevel(int level){');
-  sb.writeln('\t\tif(level >= 0 && level < _levels.length) {');
-  sb.writeln('\t\t\treturn _levels[level];');
-  sb.writeln('\t\t}');
-  sb.writeln('\t\t');
-  sb.writeln('\t\treturn null;');
-  sb.writeln('\t}');
   sb.writeln('}');
 
   outputFile = File(levelsServiceOutputPath);
@@ -124,6 +116,7 @@ void main() async {
     outputFile.createSync(recursive: true);
   }
   outputFile.writeAsStringSync(sb.toString());
+  await Process.run('dartfmt', ['-w', levelsServiceOutputPath]);
 }
 
 class _CountryImportModel {
