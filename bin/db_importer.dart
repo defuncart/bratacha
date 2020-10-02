@@ -85,7 +85,6 @@ void main() async {
 
   // levels
   const levelsDBFilepath = 'assets_dev/database/levels.json';
-  const levelsServiceOutputPath = 'lib/modules/level_database/src/services/level_service.g.dart';
 
   importFile = File(levelsDBFilepath);
   if (!importFile.existsSync()) {
@@ -96,17 +95,18 @@ void main() async {
   data = importFile.readAsStringSync();
   final levels = (json.decode(data) as List).map((model) => _LevelImportModel.fromJson(model)).toList();
 
+  // level_service
+  const levelsServiceOutputPath = 'lib/modules/level_database/src/services/level_service.g.dart';
+
   sb.clear();
   sb.writeln('// GENERATED CODE - DO NOT MODIFY BY HAND');
   sb.writeln('part of \'level_service.dart\';');
   sb.writeln();
-  sb.writeln('mixin _\$LevelService {');
-  sb.writeln('\tstatic const _levels = [');
+  sb.writeln('const _levels = [');
   for (final level in levels) {
-    sb.writeln('\t\t${_listToCodeString(level.countries)},');
+    sb.writeln('\t${_listToCodeString(level.countries)},');
   }
-  sb.writeln('\t];');
-  sb.writeln('}');
+  sb.writeln('];');
 
   outputFile = File(levelsServiceOutputPath);
   if (!outputFile.existsSync()) {

@@ -1,8 +1,6 @@
 part 'level_service.g.dart';
 
 class LevelsService {
-  List<List<String>> get _levels => _$LevelService._levels;
-
   /// Retuns the number of levels
   int get numberLevels => _levels.length;
 
