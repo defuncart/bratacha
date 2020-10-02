@@ -7,7 +7,6 @@ import 'package:meta/meta.dart';
 void main() async {
   // countries
   const countriesDBFilepath = 'assets_dev/database/countries.json';
-  const countriesConfigOutputPath = 'lib/modules/country_database/src/services/country_service.dart';
 
   var importFile = File(countriesDBFilepath);
   if (!importFile.existsSync()) {
@@ -18,27 +17,25 @@ void main() async {
   var data = importFile.readAsStringSync();
   final countries = (json.decode(data) as List).map((model) => _CountryImportModel.fromJson(model)).toList();
 
-  // config
+  // country_service
+  const countriesConfigOutputPath = 'lib/modules/country_database/src/services/country_service.g.dart';
+
   final sb = StringBuffer();
-  sb.writeln('import \'../enums/continent.dart\';');
-  sb.writeln('import \'../models/country.dart\';');
+  sb.writeln('// GENERATED CODE - DO NOT MODIFY BY HAND');
+  sb.writeln('part of \'country_service.dart\';');
   sb.writeln();
-  sb.writeln('class CountryService {');
-  sb.writeln('\tstatic const _countries = [');
+  sb.writeln('const _countries = [');
   for (final country in countries) {
-    sb.writeln('\t\tCountry(key: \'${country.key}\', continent: ${country.continent.toString()}),');
+    sb.writeln('\tCountry(key: \'${country.key}\', continent: ${country.continent.toString()}),');
   }
-  sb.writeln('\t];');
-  sb.writeln();
-  sb.writeln('\t/// Retuns all countries');
-  sb.writeln('\tstatic List<Country> get countries => _countries;');
-  sb.writeln('}');
+  sb.writeln('];');
 
   var outputFile = File(countriesConfigOutputPath);
   if (!outputFile.existsSync()) {
     outputFile.createSync(recursive: true);
   }
   outputFile.writeAsStringSync(sb.toString());
+  await Process.run('dartfmt', ['-w', countriesConfigOutputPath]);
 
   // loca
   const locaOutputPath = 'lib/country_localizations.g.dart';
