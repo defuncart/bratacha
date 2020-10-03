@@ -198,7 +198,7 @@ mixin _$CountryLocalizations {
     'zw': 'Zimbabwe',
   };
 
-  static const _by = {
+  static const _be = {
     'ad': 'Андора',
     'ae': 'Аб’яднаныя Арабскія Эміраты',
     'af': 'Афганістан',
@@ -788,7 +788,7 @@ mixin _$CountryLocalizations {
 
   static final _locales = {
     'en': _en,
-    'by': _by,
+    'be': _be,
     'cy': _cy,
     'ga': _ga,
   };
@@ -797,7 +797,7 @@ mixin _$CountryLocalizations {
 class _$CountryLocalizationsDelegate {
   static final _supportedLocales = {
     Locale('en'),
-    Locale('by'),
+    Locale('be'),
     Locale('cy'),
     Locale('ga'),
   };

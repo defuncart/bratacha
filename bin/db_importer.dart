@@ -39,10 +39,10 @@ void main() async {
 
   // loca
   const locaOutputPath = 'lib/country_localizations.g.dart';
-  final locales = ['en', 'by', 'cy', 'ga'];
+  final locales = ['en', 'be', 'cy', 'ga'];
   final mapLocalesIndeces = {
     'en': 0,
-    'by': 1,
+    'be': 1,
     'cy': 2,
     'ga': 3,
   };

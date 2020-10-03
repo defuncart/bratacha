@@ -29,7 +29,7 @@ class AppLocalizations {
     'settingsTabLanguageLabel': 'Language',
   };
 
-  static Map<String, String> _byValues = {
+  static Map<String, String> _beValues = {
     'test': 'Здароўствуй свет!',
     'homeTabLabelText': 'Home',
     'settingsTabLabelText': 'Settings',
@@ -55,7 +55,7 @@ class AppLocalizations {
 
   static Map<String, Map<String, String>> _allValues = {
     'en': _enValues,
-    'by': _byValues,
+    'be': _beValues,
     'cy': _cyValues,
     'ga': _gaValues,
   };
@@ -87,7 +87,7 @@ class AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
 
   static final Set<Locale> supportedLocals = {
     Locale('en'),
-    Locale('by'),
+    Locale('be'),
     Locale('cy'),
     Locale('ga'),
   };
