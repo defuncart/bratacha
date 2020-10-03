@@ -1,5 +1,6 @@
 import 'package:bratacha/intl/localizations.dart';
 import 'package:bratacha/managers/level_manager.dart';
+import 'package:bratacha/widgets/game_screen/game_screen.dart';
 import 'package:bratacha/widgets/learn_screen/learn_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -26,7 +27,10 @@ class HomeTab extends StatelessWidget {
                   children: [
                     for (var i = 0; i < levelManager.numberLevels; i++)
                       ElevatedButton(
-                        onPressed: null,
+                        onPressed: () => Navigator.of(context).pushNamed(
+                          GameScreen.routeName,
+                          arguments: GameScreenArguments(level: i),
+                        ),
                         child: Text(AppLocalizations.homeTabLevelButtonText(level: i + 1)),
                       ),
                   ],

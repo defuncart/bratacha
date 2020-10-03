@@ -5,6 +5,7 @@ import 'package:bratacha/intl/ga_material_localizations.dart';
 import 'package:bratacha/intl/localizations.dart';
 import 'package:bratacha/managers/level_manager.dart';
 import 'package:bratacha/modules/settings_database/settings_database.dart';
+import 'package:bratacha/widgets/game_screen/game_screen.dart';
 import 'package:bratacha/widgets/home_screen/home_screen.dart';
 import 'package:bratacha/widgets/home_screen/settings_tab/dark_mode_cubit.dart';
 import 'package:bratacha/widgets/home_screen/settings_tab/language_cubit.dart';
@@ -85,6 +86,7 @@ class __MyApp extends StatelessWidget {
           home: HomeScreen(),
           routes: {
             LearnScreen.routeName: (_) => LearnScreen(),
+            GameScreen.routeName: (_) => GameScreen(),
           },
         ),
       ),
