@@ -8,6 +8,7 @@ import 'package:bratacha/modules/settings_database/settings_database.dart';
 import 'package:bratacha/widgets/home_screen/home_screen.dart';
 import 'package:bratacha/widgets/home_screen/settings_tab/dark_mode_cubit.dart';
 import 'package:bratacha/widgets/home_screen/settings_tab/language_cubit.dart';
+import 'package:bratacha/widgets/learn_screen/learn_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -82,6 +83,9 @@ class __MyApp extends StatelessWidget {
           darkTheme: AppThemes.dark,
           themeMode: isDarkMode ? ThemeMode.dark : ThemeMode.light,
           home: HomeScreen(),
+          routes: {
+            LearnScreen.routeName: (_) => LearnScreen(),
+          },
         ),
       ),
     );
