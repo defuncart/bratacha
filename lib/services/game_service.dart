@@ -21,7 +21,7 @@ class GameService {
 
   Country get questionCountry => _countries[_index];
 
-  List<String> get answerCountries => _countriesDisplayed.map((index) => _countries[index].key).toList();
+  List<String> get answerCountries => _countriesDisplayed.map((index) => _countries[index].id).toList();
 
   bool get levelCompleted => _index >= _countries.length;
 
@@ -38,7 +38,7 @@ class GameService {
   }
 
   bool answerWithId(String id) {
-    final correct = questionCountry.key == id;
+    final correct = questionCountry.id == id;
     if (++_index < _countries.length) {
       _nextRound();
     }
