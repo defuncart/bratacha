@@ -1,3 +1,4 @@
+import 'package:bratacha/localizations.dart';
 import 'package:bratacha/widgets/home_screen/home_tab/home_tab.dart';
 import 'package:bratacha/widgets/home_screen/settings_tab/settings_tab.dart';
 import 'package:flutter/material.dart';
@@ -26,11 +27,11 @@ class _HomeScreenState extends State<HomeScreen> {
         items: [
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
-            label: 'Bla',
+            label: AppLocalizations.homeTabLabelText,
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.settings),
-            label: 'Bla',
+            label: AppLocalizations.settingsTabLabelText,
           )
         ],
         currentIndex: _currentIndex,
