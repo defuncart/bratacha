@@ -3,6 +3,7 @@ import 'package:bratacha/intl/country_localizations.dart';
 import 'package:bratacha/intl/cy_material_localizations.dart';
 import 'package:bratacha/intl/ga_material_localizations.dart';
 import 'package:bratacha/intl/localizations.dart';
+import 'package:bratacha/managers/level_manager.dart';
 import 'package:bratacha/modules/settings_database/settings_database.dart';
 import 'package:bratacha/widgets/home_screen/home_screen.dart';
 import 'package:bratacha/widgets/home_screen/settings_tab/dark_mode_cubit.dart';
@@ -25,6 +26,9 @@ class MyApp extends StatelessWidget {
       providers: [
         RepositoryProvider<ISettingsDatabase>(
           create: (_) => settingsDatabase,
+        ),
+        RepositoryProvider<LevelManager>(
+          create: (_) => LevelManager(),
         ),
       ],
       child: _MyApp(),
