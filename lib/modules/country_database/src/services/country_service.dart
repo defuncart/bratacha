@@ -8,6 +8,12 @@ class CountryService {
   /// Returns all countries
   static List<Country> get countries => _countries;
 
+  /// Returns a country by id
+  static Country countryWithId(String id) => _countries.firstWhere(
+        (country) => country.key == id,
+        orElse: () => null,
+      );
+
   /// Returns a selection of countries by ids
   static List<Country> countriesWithIds(List<String> ids) =>
       _countries.where((country) => ids.contains(country.key)).toList();

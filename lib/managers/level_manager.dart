@@ -10,7 +10,10 @@ class LevelManager {
   /// Retuns the countries for a given level index (beginning at zero)
   List<Country> countriesForLevel(int level) {
     if (level >= 0 && level < numberLevels) {
-      return CountryService.countriesWithIds(_levelService.countryIdsForLevel(level));
+      final countryIds = _levelService.countryIdsForLevel(level);
+      final countries = <Country>[];
+      countryIds.forEach((id) => countries.add(CountryService.countryWithId(id)));
+      return countries;
     }
 
     return null;
