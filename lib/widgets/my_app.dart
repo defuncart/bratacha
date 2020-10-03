@@ -1,5 +1,7 @@
 import 'package:bratacha/configs/app_themes.dart';
 import 'package:bratacha/intl/country_localizations.dart';
+import 'package:bratacha/intl/cy_material_localizations.dart';
+import 'package:bratacha/intl/ga_material_localizations.dart';
 import 'package:bratacha/intl/localizations.dart';
 import 'package:bratacha/modules/settings_database/settings_database.dart';
 import 'package:bratacha/widgets/home_screen/home_screen.dart';
@@ -62,6 +64,8 @@ class __MyApp extends StatelessWidget {
           GlobalMaterialLocalizations.delegate,
           GlobalWidgetsLocalizations.delegate,
           GlobalCupertinoLocalizations.delegate,
+          CyMaterialLocalizations.delegate,
+          GaMaterialLocalizations.delegate,
         ],
         supportedLocales: AppLocalizationsDelegate.supportedLocals,
         theme: AppThemes.light,
