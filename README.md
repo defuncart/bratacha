@@ -32,6 +32,12 @@ To download flag assets, run:
 dart bin/flag_downloader.dart
 ```
 
+To generate database assets, run:
+
+```dart
+dart bin/db_importer.dart
+```
+
 ## Contributing
 
 If you'd like to help translating the app into Irish/Welsh/Belarusian, please get in touch! Likewise if you'd like to work on another language!

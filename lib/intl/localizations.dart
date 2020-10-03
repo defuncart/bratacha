@@ -9,27 +9,53 @@ import 'package:flutter/material.dart';
 class AppLocalizations {
   static String get test => _getText('test');
 
+  static String get homeTabLabelText => _getText('homeTabLabelText');
+
+  static String get settingsTabLabelText => _getText('settingsTabLabelText');
+
+  static String get settingsTabDarkModeLabel =>
+      _getText('settingsTabDarkModeLabel');
+
+  static String get settingsTabLanguageLabel =>
+      _getText('settingsTabLanguageLabel');
+
   static Map<String, String> _localizedValues;
 
   static Map<String, String> _enValues = {
     'test': 'Hello World!',
+    'homeTabLabelText': 'Home',
+    'settingsTabLabelText': 'Settings',
+    'settingsTabDarkModeLabel': 'Dark Mode',
+    'settingsTabLanguageLabel': 'Language',
   };
 
-  static Map<String, String> _byValues = {
+  static Map<String, String> _beValues = {
     'test': 'Здароўствуй свет!',
+    'homeTabLabelText': 'Галоўная',
+    'settingsTabLabelText': 'Налады',
+    'settingsTabDarkModeLabel': 'Цёмны рэжым',
+    'settingsTabLanguageLabel': 'Мова',
   };
 
   static Map<String, String> _cyValues = {
     'test': 'Helo Byd!',
+    'homeTabLabelText': 'Home',
+    'settingsTabLabelText': 'Settings',
+    'settingsTabDarkModeLabel': 'Dark Mode',
+    'settingsTabLanguageLabel': 'Language',
   };
 
   static Map<String, String> _gaValues = {
     'test': 'Dia duit domhan!',
+    'homeTabLabelText': 'Home',
+    'settingsTabLabelText': 'Settings',
+    'settingsTabDarkModeLabel': 'Dark Mode',
+    'settingsTabLanguageLabel': 'Language',
   };
 
   static Map<String, Map<String, String>> _allValues = {
     'en': _enValues,
-    'by': _byValues,
+    'be': _beValues,
     'cy': _cyValues,
     'ga': _gaValues,
   };
@@ -61,7 +87,7 @@ class AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
 
   static final Set<Locale> supportedLocals = {
     Locale('en'),
-    Locale('by'),
+    Locale('be'),
     Locale('cy'),
     Locale('ga'),
   };

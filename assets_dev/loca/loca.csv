@@ -1,2 +1,6 @@
-key;en;by;cy;ga
+key;en;be;cy;ga
 test;Hello World!;Здароўствуй свет!;Helo Byd!;Dia duit domhan!
+homeTabLabelText;Home;Галоўная;;
+settingsTabLabelText;Settings;Налады;;
+settingsTabDarkModeLabel;Dark Mode;Цёмны рэжым;;
+settingsTabLanguageLabel;Language;Мова;;
