@@ -1,6 +1,6 @@
 import 'package:bratacha/configs/app_themes.dart';
-import 'package:bratacha/country_localizations.dart';
-import 'package:bratacha/localizations.dart';
+import 'package:bratacha/intl/country_localizations.dart';
+import 'package:bratacha/intl/localizations.dart';
 import 'package:bratacha/modules/settings_database/settings_database.dart';
 import 'package:bratacha/widgets/home_screen/home_screen.dart';
 import 'package:bratacha/widgets/home_screen/settings_tab/dark_mode_cubit.dart';

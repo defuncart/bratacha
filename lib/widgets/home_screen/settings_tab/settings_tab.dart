@@ -1,4 +1,4 @@
-import 'package:bratacha/localizations.dart';
+import 'package:bratacha/intl/localizations.dart';
 import 'package:bratacha/widgets/home_screen/settings_tab/dark_mode_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

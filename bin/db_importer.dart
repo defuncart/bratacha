@@ -38,7 +38,7 @@ void main() async {
   await Process.run('dartfmt', ['-w', countriesConfigOutputPath]);
 
   // loca
-  const locaOutputPath = 'lib/country_localizations.g.dart';
+  const locaOutputPath = 'lib/intl/country_localizations.g.dart';
   final locales = ['en', 'be', 'cy', 'ga'];
   final mapLocalesIndeces = {
     'en': 0,

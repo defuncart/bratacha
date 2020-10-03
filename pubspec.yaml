@@ -33,7 +33,7 @@ flutter:
 
 flappy_translator:
   input_file_path: "assets_dev/loca/loca.csv"
-  output_dir: "lib"
+  output_dir: "lib/intl"
   file_name: "localizations"
   class_name: "AppLocalizations"
   delimiter: ";"

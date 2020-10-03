@@ -1,4 +1,4 @@
-import 'package:bratacha/localizations.dart';
+import 'package:bratacha/intl/localizations.dart';
 import 'package:bratacha/widgets/home_screen/home_tab/home_tab.dart';
 import 'package:bratacha/widgets/home_screen/settings_tab/settings_tab.dart';
 import 'package:flutter/material.dart';

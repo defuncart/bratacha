@@ -1,5 +1,5 @@
 import 'package:bratacha/extensions/country_extensions.dart';
-import 'package:bratacha/localizations.dart';
+import 'package:bratacha/intl/localizations.dart';
 import 'package:bratacha/modules/country_database/country_database.dart';
 import 'package:bratacha/widgets/common/flag.dart';
 import 'package:flutter/material.dart';
