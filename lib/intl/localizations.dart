@@ -31,10 +31,10 @@ class AppLocalizations {
 
   static Map<String, String> _beValues = {
     'test': 'Здароўствуй свет!',
-    'homeTabLabelText': 'Home',
-    'settingsTabLabelText': 'Settings',
-    'settingsTabDarkModeLabel': 'Dark Mode',
-    'settingsTabLanguageLabel': 'Language',
+    'homeTabLabelText': 'Галоўная',
+    'settingsTabLabelText': 'Налады',
+    'settingsTabDarkModeLabel': 'Цёмны рэжым',
+    'settingsTabLanguageLabel': 'Мова',
   };
 
   static Map<String, String> _cyValues = {
