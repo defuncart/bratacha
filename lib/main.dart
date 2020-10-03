@@ -1,3 +1,4 @@
+import 'package:bratacha/intl/intl_helper.dart';
 import 'package:bratacha/modules/settings_database/settings_database.dart';
 import 'package:bratacha/widgets/my_app.dart';
 import 'package:flutter/material.dart';
@@ -7,6 +8,8 @@ void main() async {
 
   final ISettingsDatabase _settingsDatabase = SettingsDatabase();
   await _settingsDatabase.initialize();
+
+  await IntlHelper.ensureDelegatesLoaded();
 
   return runApp(
     MyApp(
