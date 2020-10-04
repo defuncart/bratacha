@@ -5,6 +5,16 @@ import '../models/country.dart';
 part 'country_service.g.dart';
 
 class CountryService {
-  /// Retuns all countries
+  /// Returns all countries
   static List<Country> get countries => _countries;
+
+  /// Returns a country by id
+  static Country countryWithId(String id) => _countries.firstWhere(
+        (country) => country.id == id,
+        orElse: () => null,
+      );
+
+  /// Returns a selection of countries by ids
+  static List<Country> countriesWithIds(List<String> ids) =>
+      _countries.where((country) => ids.contains(country.id)).toList();
 }

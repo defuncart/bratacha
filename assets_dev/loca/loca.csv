@@ -1,6 +1,8 @@
 key;en;be;cy;ga
 test;Hello World!;Здароўствуй свет!;Helo Byd!;Dia duit domhan!
 homeTabLabelText;Home;Галоўная;;
+homeTabLevelButtonText;Level %level$d;;;
+homeTabLeanFlagsButtonText;See all flags;;;
 settingsTabLabelText;Settings;Налады;;
 settingsTabDarkModeLabel;Dark Mode;Цёмны рэжым;;
 settingsTabLanguageLabel;Language;Мова;;

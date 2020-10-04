@@ -26,7 +26,7 @@ void main() async {
   sb.writeln();
   sb.writeln('const _countries = [');
   for (final country in countries) {
-    sb.writeln('\tCountry(key: \'${country.key}\', continent: ${country.continent.toString()}),');
+    sb.writeln('\tCountry(id: \'${country.id}\', continent: ${country.continent.toString()}),');
   }
   sb.writeln('];');
 
@@ -57,7 +57,7 @@ void main() async {
     sb.writeln('\tstatic const _$locale = {');
     for (final country in countries) {
       final countryName = country.names[index].replaceAll('\'', '\\\'');
-      sb.writeln('\t\t\'${country.key}\': \'$countryName\',');
+      sb.writeln('\t\t\'${country.id}\': \'$countryName\',');
     }
     sb.writeln('\t};\n');
   }
@@ -117,20 +117,20 @@ void main() async {
 }
 
 class _CountryImportModel {
-  final String key;
+  final String id;
 
   final Continent continent;
 
   final List<String> names;
 
   const _CountryImportModel({
-    this.key,
+    this.id,
     this.continent,
     this.names,
   });
 
   factory _CountryImportModel.fromJson(Map<String, dynamic> json) => _CountryImportModel(
-        key: json['key'],
+        id: json['id'],
         continent: Continent.values[json['continent']],
         names: List<String>.from(json['names'].map((item) => item)),
       );
