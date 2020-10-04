@@ -5,7 +5,6 @@ import 'package:bratacha/intl/ga_material_localizations.dart';
 import 'package:bratacha/intl/localizations.dart';
 import 'package:bratacha/modules/settings_database/settings_database.dart';
 import 'package:bratacha/widgets/home_screen/home_screen.dart';
-import 'package:bratacha/widgets/home_screen/settings_tab/dark_mode_cubit.dart';
 import 'package:bratacha/widgets/home_screen/settings_tab/language_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -41,9 +40,6 @@ class _MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider<DarkModeCubit>(
-          create: (_) => DarkModeCubit(context.repository<ISettingsDatabase>()),
-        ),
         BlocProvider<LanguageCubit>(
           create: (_) => LanguageCubit(context.repository<ISettingsDatabase>()),
         ),
@@ -60,25 +56,23 @@ class __MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<DarkModeCubit, bool>(
-      builder: (_, isDarkMode) => BlocBuilder<LanguageCubit, String>(
-        builder: (_, language) => MaterialApp(
-          localizationsDelegates: [
-            const AppLocalizationsDelegate(),
-            const CountryLocalizationsDelegate(),
-            GlobalMaterialLocalizations.delegate,
-            GlobalWidgetsLocalizations.delegate,
-            GlobalCupertinoLocalizations.delegate,
-            CyMaterialLocalizations.delegate,
-            GaMaterialLocalizations.delegate,
-          ],
-          locale: Locale(language),
-          supportedLocales: AppLocalizationsDelegate.supportedLocals,
-          theme: AppThemes.light,
-          darkTheme: AppThemes.dark,
-          themeMode: isDarkMode ? ThemeMode.dark : ThemeMode.light,
-          home: HomeScreen(),
-        ),
+    return BlocBuilder<LanguageCubit, String>(
+      builder: (_, language) => MaterialApp(
+        localizationsDelegates: [
+          const AppLocalizationsDelegate(),
+          const CountryLocalizationsDelegate(),
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+          CyMaterialLocalizations.delegate,
+          GaMaterialLocalizations.delegate,
+        ],
+        locale: Locale(language),
+        supportedLocales: AppLocalizationsDelegate.supportedLocals,
+        theme: AppThemes.dark,
+        darkTheme: AppThemes.dark,
+        themeMode: ThemeMode.dark,
+        home: HomeScreen(),
       ),
     );
   }
