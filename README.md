@@ -28,13 +28,13 @@ flutter pub run flutter_launcher_icons:main
 
 To download flag assets, run:
 
-```dart
+```sh
 dart bin/flag_downloader.dart
 ```
 
 To generate database assets, run:
 
-```dart
+```sh
 dart bin/db_importer.dart
 ```
 

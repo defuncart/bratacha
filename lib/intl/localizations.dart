@@ -11,6 +11,19 @@ class AppLocalizations {
 
   static String get homeTabLabelText => _getText('homeTabLabelText');
 
+  static String homeTabLevelButtonText({
+    @required int level,
+  }) {
+    String text = _getText('homeTabLevelButtonText');
+    if (level != null) {
+      text = text.replaceAll("%level\$d", level.toString());
+    }
+    return text;
+  }
+
+  static String get homeTabLeanFlagsButtonText =>
+      _getText('homeTabLeanFlagsButtonText');
+
   static String get settingsTabLabelText => _getText('settingsTabLabelText');
 
   static String get settingsTabDarkModeLabel =>
@@ -24,6 +37,8 @@ class AppLocalizations {
   static Map<String, String> _enValues = {
     'test': 'Hello World!',
     'homeTabLabelText': 'Home',
+    'homeTabLevelButtonText': 'Level %level\$d',
+    'homeTabLeanFlagsButtonText': 'See all flags',
     'settingsTabLabelText': 'Settings',
     'settingsTabDarkModeLabel': 'Dark Mode',
     'settingsTabLanguageLabel': 'Language',
@@ -32,6 +47,8 @@ class AppLocalizations {
   static Map<String, String> _beValues = {
     'test': 'Здароўствуй свет!',
     'homeTabLabelText': 'Галоўная',
+    'homeTabLevelButtonText': 'Level %level\$d',
+    'homeTabLeanFlagsButtonText': 'See all flags',
     'settingsTabLabelText': 'Налады',
     'settingsTabDarkModeLabel': 'Цёмны рэжым',
     'settingsTabLanguageLabel': 'Мова',
@@ -40,6 +57,8 @@ class AppLocalizations {
   static Map<String, String> _cyValues = {
     'test': 'Helo Byd!',
     'homeTabLabelText': 'Home',
+    'homeTabLevelButtonText': 'Level %level\$d',
+    'homeTabLeanFlagsButtonText': 'See all flags',
     'settingsTabLabelText': 'Settings',
     'settingsTabDarkModeLabel': 'Dark Mode',
     'settingsTabLanguageLabel': 'Language',
@@ -48,6 +67,8 @@ class AppLocalizations {
   static Map<String, String> _gaValues = {
     'test': 'Dia duit domhan!',
     'homeTabLabelText': 'Home',
+    'homeTabLevelButtonText': 'Level %level\$d',
+    'homeTabLeanFlagsButtonText': 'See all flags',
     'settingsTabLabelText': 'Settings',
     'settingsTabDarkModeLabel': 'Dark Mode',
     'settingsTabLanguageLabel': 'Language',

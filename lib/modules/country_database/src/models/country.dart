@@ -3,17 +3,17 @@ import '../enums/continent.dart';
 
 /// A model representing a country
 class Country {
-  /// The country's two-letter key (i.e. de)
-  final String key;
+  /// The country's two-letter id (i.e. de)
+  final String id;
 
   /// The continent to which the country belongs (i.e. Continent.europe)
   final Continent continent;
 
   const Country({
-    this.key,
+    this.id,
     this.continent,
   });
 
   @override
-  String toString() => '{key: $key, continent: $continent}';
+  String toString() => '{id: $id, continent: $continent}';
 }
