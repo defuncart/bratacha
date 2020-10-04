@@ -6,6 +6,7 @@ abstract class AppThemes {
     scaffoldBackgroundColor: _AppColors.primary,
     appBarTheme: AppBarTheme(
       color: _AppColors.primaryDark,
+      elevation: 0,
     ),
   );
 }
