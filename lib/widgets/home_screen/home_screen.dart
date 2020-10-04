@@ -24,6 +24,11 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       body: _tabs[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.shifting,
+        backgroundColor: Theme.of(context).appBarTheme.color,
+        selectedItemColor: Theme.of(context).accentColor,
+        unselectedItemColor: Theme.of(context).disabledColor,
+        elevation: 16.0,
         items: [
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
