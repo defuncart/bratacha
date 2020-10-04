@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import 'package:bratacha/extensions/country_extensions.dart';
 import 'package:bratacha/managers/level_manager.dart';
 import 'package:bratacha/services/game_service.dart';
 import 'package:bratacha/widgets/common/flag.dart';
@@ -55,7 +54,7 @@ class _GameScreenState extends State<GameScreen> {
                     Expanded(
                       child: Center(
                         child: Text(
-                          _gameService.questionCountry.localizedName,
+                          _gameService.questionCountry,
                           style: Theme.of(context).textTheme.headline3,
                           textAlign: TextAlign.center,
                         ),
