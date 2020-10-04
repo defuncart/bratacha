@@ -23,26 +23,28 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: _tabs[_currentIndex],
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.shifting,
-        backgroundColor: Theme.of(context).appBarTheme.color,
-        selectedItemColor: Theme.of(context).accentColor,
-        unselectedItemColor: Theme.of(context).disabledColor,
-        elevation: 16.0,
-        items: [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: AppLocalizations.homeTabLabelText,
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
-            label: AppLocalizations.settingsTabLabelText,
-          )
-        ],
-        currentIndex: _currentIndex,
-        onTap: (newIndex) => setState(() {
-          _currentIndex = newIndex;
-        }),
+      bottomNavigationBar: Theme(
+        data: Theme.of(context).copyWith(canvasColor: Theme.of(context).appBarTheme.color),
+        child: BottomNavigationBar(
+          type: BottomNavigationBarType.shifting,
+          selectedItemColor: Theme.of(context).accentColor,
+          unselectedItemColor: Theme.of(context).disabledColor,
+          elevation: 16.0,
+          items: [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              label: AppLocalizations.homeTabLabelText,
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.settings),
+              label: AppLocalizations.settingsTabLabelText,
+            )
+          ],
+          currentIndex: _currentIndex,
+          onTap: (newIndex) => setState(() {
+            _currentIndex = newIndex;
+          }),
+        ),
       ),
     );
   }
