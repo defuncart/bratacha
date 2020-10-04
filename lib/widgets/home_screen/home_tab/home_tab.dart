@@ -27,17 +27,26 @@ class HomeTab extends StatelessWidget {
                   children: [
                     for (var i = 0; i < levelManager.numberLevels; i++)
                       ElevatedButton(
+                        style: ButtonStyle(
+                          backgroundColor: MaterialStateColor.resolveWith((states) => Theme.of(context).accentColor),
+                        ),
                         onPressed: () => Navigator.of(context).pushNamed(
                           GameScreen.routeName,
                           arguments: GameScreenArguments(level: i),
                         ),
-                        child: Text(AppLocalizations.homeTabLevelButtonText(level: i + 1)),
+                        child: Text(
+                          AppLocalizations.homeTabLevelButtonText(level: i + 1),
+                          style: TextStyle(color: Theme.of(context).scaffoldBackgroundColor),
+                        ),
                       ),
                   ],
                 ),
                 TextButton(
                   onPressed: () => Navigator.of(context).pushNamed(LearnScreen.routeName),
-                  child: Text(AppLocalizations.homeTabLeanFlagsButtonText),
+                  child: Text(
+                    AppLocalizations.homeTabLeanFlagsButtonText,
+                    style: TextStyle(color: Theme.of(context).accentColor),
+                  ),
                 ),
               ],
             ),
