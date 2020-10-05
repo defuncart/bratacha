@@ -8,6 +8,7 @@ import 'package:bratacha/modules/settings_database/settings_database.dart';
 import 'package:bratacha/widgets/game_screen/game_screen.dart';
 import 'package:bratacha/widgets/home_screen/home_screen.dart';
 import 'package:bratacha/widgets/home_screen/settings_tab/dark_mode_cubit.dart';
+import 'package:bratacha/widgets/home_screen/settings_tab/hard_difficulty_cubit.dart';
 import 'package:bratacha/widgets/home_screen/settings_tab/language_cubit.dart';
 import 'package:bratacha/widgets/learn_screen/learn_screen.dart';
 import 'package:flutter/material.dart';
@@ -52,6 +53,9 @@ class _MyApp extends StatelessWidget {
         ),
         BlocProvider<LanguageCubit>(
           create: (_) => LanguageCubit(context.repository<ISettingsDatabase>()),
+        ),
+        BlocProvider<HardDifficultyCubit>(
+          create: (_) => HardDifficultyCubit(context.repository<ISettingsDatabase>()),
         ),
       ],
       child: __MyApp(),
