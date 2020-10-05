@@ -704,7 +704,7 @@ mixin _$CountryLocalizations {
     'me': 'Montainéagró',
     'mg': 'Madagascar',
     'mh': 'Oileáin Marshall',
-    'mk': 'Poblacht na Macadóine',
+    'mk': 'An Mhacadóin Thuaidh',
     'ml': 'Mailí',
     'mm': 'Maenmar',
     'mn': 'An Mhongóil',
