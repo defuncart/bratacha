@@ -29,6 +29,14 @@ class SettingsDatabase implements ISettingsDatabase {
   @override
   set language(String value) => _box.put(_Keys.language, value);
 
+  /// Returns whether hard difficulty is enabled
+  @override
+  bool get isHardDifficulty => _box.get(_Keys.isHardDifficulty, defaultValue: _Defaults.isHardDifficulty);
+
+  /// Sets whether hard difficulty is enabled
+  @override
+  set isHardDifficulty(bool value) => _box.put(_Keys.isHardDifficulty, value);
+
   /// Initializes the database
   @override
   Future<void> initialize() async {
@@ -49,10 +57,12 @@ class SettingsDatabase implements ISettingsDatabase {
 class _Keys {
   static const isDarkMode = 'isDarkMode';
   static const language = 'language';
+  static const isHardDifficulty = 'isHardDifficulty';
 }
 
 /// A class of defaults for each key
 class _Defaults {
   static const isDarkMode = false;
   static const language = 'en';
+  static const isHardDifficulty = false;
 }
