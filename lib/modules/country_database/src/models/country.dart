@@ -1,3 +1,5 @@
+import 'package:meta/meta.dart';
+
 // ignore: always_use_package_imports
 import '../enums/continent.dart';
 
@@ -9,11 +11,15 @@ class Country {
   /// The continent to which the country belongs (i.e. Continent.europe)
   final Continent continent;
 
+  /// A list of flag ids which are similar to the country
+  final List<String> similarFlags;
+
   const Country({
-    this.id,
-    this.continent,
+    @required this.id,
+    @required this.continent,
+    @required this.similarFlags,
   });
 
   @override
-  String toString() => '{id: $id, continent: $continent}';
+  String toString() => '{id: $id, continent: $continent, similarFlags: $similarFlags}';
 }

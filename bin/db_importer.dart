@@ -26,7 +26,11 @@ void main() async {
   sb.writeln();
   sb.writeln('const _countries = [');
   for (final country in countries) {
-    sb.writeln('\tCountry(id: \'${country.id}\', continent: ${country.continent.toString()}),');
+    sb.write('\tCountry(');
+    sb.write('id: \'${country.id}\',');
+    sb.write('continent: ${country.continent.toString()},');
+    sb.write('similarFlags: ${_listToCodeString(country.similarFlags)},');
+    sb.write('),');
   }
   sb.writeln('];');
 
@@ -116,16 +120,16 @@ class _CountryImportModel {
 
   final Map<String, String> names;
 
-  const _CountryImportModel({
-    this.id,
-    this.continent,
-    this.names,
-  });
+  final List<String> similarFlags;
+
+  const _CountryImportModel(
+      {@required this.id, @required this.continent, @required this.names, @required this.similarFlags});
 
   factory _CountryImportModel.fromJson(Map<String, dynamic> json) => _CountryImportModel(
         id: json['id'],
         continent: Continent.values[json['continent']],
         names: Map<String, String>.from(json['names']),
+        similarFlags: List<String>.from(json['similarFlags'].map((item) => item)),
       );
 }
 
