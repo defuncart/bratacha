@@ -1,6 +1,4 @@
-import 'package:flutter/foundation.dart';
 import 'package:hive/hive.dart';
-import 'package:path_provider/path_provider.dart';
 
 // ignore: always_use_package_imports
 import 'i_settings_database.dart';
@@ -40,11 +38,6 @@ class SettingsDatabase implements ISettingsDatabase {
   /// Initializes the database
   @override
   Future<void> initialize() async {
-    if (!kIsWeb) {
-      final dir = await getApplicationDocumentsDirectory();
-      Hive.init(dir.path);
-    }
-
     _box ??= await Hive.openBox<dynamic>(_boxName);
   }
 
