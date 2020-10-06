@@ -26,7 +26,6 @@ class GameScreen extends StatefulWidget {
 }
 
 class _GameScreenState extends State<GameScreen> {
-  final _scaffoldKey = GlobalKey<ScaffoldState>();
   var _isLoading = true;
   GameService _gameService;
 
@@ -50,27 +49,24 @@ class _GameScreenState extends State<GameScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      key: _scaffoldKey,
       appBar: AppBar(),
       body: _isLoading
           ? Container()
           : RepositoryProvider<IGameService>(
               create: (_) => _gameService,
-              child: Builder(
-                builder: (_) => MultiBlocProvider(
-                  providers: [
-                    BlocProvider<QuestionCubit>(
-                      create: (_) => QuestionCubit(gameService: _.repository<IGameService>()),
-                    ),
-                    BlocProvider<AnswersCubit>(
-                      create: (_) => AnswersCubit(gameService: _.repository<IGameService>()),
-                    ),
-                  ],
-                  child: Builder(
-                    builder: (_) => SafeArea(
-                      child: Center(
-                        child: QuestionAnswerPanel(),
-                      ),
+              child: MultiBlocProvider(
+                providers: [
+                  BlocProvider<QuestionCubit>(
+                    create: (_) => QuestionCubit(gameService: _.repository<IGameService>()),
+                  ),
+                  BlocProvider<AnswersCubit>(
+                    create: (_) => AnswersCubit(gameService: _.repository<IGameService>()),
+                  ),
+                ],
+                child: Builder(
+                  builder: (_) => SafeArea(
+                    child: Center(
+                      child: QuestionAnswerPanel(),
                     ),
                   ),
                 ),
@@ -117,20 +113,13 @@ class QuestionAnswerPanel extends StatelessWidget {
                           width: size,
                           height: size,
                         ),
-                        // onTap: () {
-                        //   final correct = _gameService.answerWithId(id);
-                        //   _scaffoldKey.currentState.showSnackBar(
-                        //     SnackBar(
-                        //       content: Icon(correct ? Icons.check : Icons.close),
-                        //       duration: Duration(seconds: 1),
-                        //     ),
-                        //   );
-                        //   if (_gameService.levelCompleted) {
-                        //     Navigator.of(context).pop();
-                        //   } else {
-                        //     setState(() {});
-                        //   }
-                        // },
+                        onTap: () {
+                          final gameService = context.repository<IGameService>();
+                          gameService.answerWithId(id);
+                          if (gameService.levelCompleted) {
+                            Navigator.of(context).pop();
+                          }
+                        },
                       ),
                   ],
                 ),
