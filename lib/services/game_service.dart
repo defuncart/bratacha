@@ -1,11 +1,13 @@
+import 'dart:async';
 import 'dart:math';
 
 import 'package:bratacha/extensions/country_extensions.dart';
 import 'package:bratacha/managers/level_manager.dart';
 import 'package:bratacha/modules/country_database/country_database.dart';
+import 'package:bratacha/services/i_game_service.dart';
 import 'package:meta/meta.dart';
 
-class GameService {
+class GameService implements IGameService {
   final List<Country> _countries = CountryService.countries;
   List<int> _indecesCountriesForLevel;
   int _numberRounds;
@@ -39,10 +41,17 @@ class GameService {
 
   Country get _questionCountry => _countries[_indexForCurrentQuestion];
 
-  String get questionCountry => _questionCountry.localizedName;
+  final _questionController = StreamController<String>();
 
-  List<String> get answerCountries => _countriesDisplayed.map((index) => _countries[index].id).toList();
+  @override
+  Stream<String> get questionCountry => _questionController.stream;
 
+  final _answersController = StreamController<List<String>>();
+
+  @override
+  Stream<List<String>> get answerCountries => _answersController.stream;
+
+  @override
   bool get levelCompleted => _index >= _numberRounds;
 
   void _nextRound() {
@@ -71,8 +80,12 @@ class GameService {
 
     _countriesDisplayed.shuffle();
     _countriesDisplayedLastRound = _countriesDisplayed;
+
+    _questionController.add(_questionCountry.localizedName);
+    _answersController.add(_countriesDisplayed.map((index) => _countries[index].id).toList());
   }
 
+  @override
   bool answerWithId(String id) {
     final correct = _questionCountry.id == id;
     if (++_index < _numberRounds) {
