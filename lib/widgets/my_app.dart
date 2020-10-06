@@ -7,7 +7,6 @@ import 'package:bratacha/managers/level_manager.dart';
 import 'package:bratacha/modules/settings_database/settings_database.dart';
 import 'package:bratacha/widgets/game_screen/game_screen.dart';
 import 'package:bratacha/widgets/home_screen/home_screen.dart';
-import 'package:bratacha/widgets/home_screen/settings_tab/dark_mode_cubit.dart';
 import 'package:bratacha/widgets/home_screen/settings_tab/language_cubit.dart';
 import 'package:bratacha/widgets/learn_screen/learn_screen.dart';
 import 'package:flutter/material.dart';
@@ -47,9 +46,6 @@ class _MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider<DarkModeCubit>(
-          create: (_) => DarkModeCubit(context.repository<ISettingsDatabase>()),
-        ),
         BlocProvider<LanguageCubit>(
           create: (_) => LanguageCubit(context.repository<ISettingsDatabase>()),
         ),
@@ -60,35 +56,31 @@ class _MyApp extends StatelessWidget {
 }
 
 class __MyApp extends StatelessWidget {
-  const __MyApp({
-    Key key,
-  }) : super(key: key);
+  const __MyApp({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<DarkModeCubit, bool>(
-      builder: (_, isDarkMode) => BlocBuilder<LanguageCubit, String>(
-        builder: (_, language) => MaterialApp(
-          localizationsDelegates: [
-            const AppLocalizationsDelegate(),
-            const CountryLocalizationsDelegate(),
-            GlobalMaterialLocalizations.delegate,
-            GlobalWidgetsLocalizations.delegate,
-            GlobalCupertinoLocalizations.delegate,
-            CyMaterialLocalizations.delegate,
-            GaMaterialLocalizations.delegate,
-          ],
-          locale: Locale(language),
-          supportedLocales: AppLocalizationsDelegate.supportedLocals,
-          theme: AppThemes.light,
-          darkTheme: AppThemes.dark,
-          themeMode: isDarkMode ? ThemeMode.dark : ThemeMode.light,
-          home: HomeScreen(),
-          routes: {
-            LearnScreen.routeName: (_) => LearnScreen(),
-            GameScreen.routeName: (_) => GameScreen(),
-          },
-        ),
+    return BlocBuilder<LanguageCubit, String>(
+      builder: (_, language) => MaterialApp(
+        localizationsDelegates: [
+          const AppLocalizationsDelegate(),
+          const CountryLocalizationsDelegate(),
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+          CyMaterialLocalizations.delegate,
+          GaMaterialLocalizations.delegate,
+        ],
+        locale: Locale(language),
+        supportedLocales: AppLocalizationsDelegate.supportedLocals,
+        theme: AppThemes.theme,
+        darkTheme: AppThemes.theme,
+        themeMode: ThemeMode.dark,
+        home: HomeScreen(),
+        routes: {
+          LearnScreen.routeName: (_) => LearnScreen(),
+          GameScreen.routeName: (_) => GameScreen(),
+        },
       ),
     );
   }
