@@ -1,5 +1,4 @@
 import 'package:bratacha/intl/localizations.dart';
-import 'package:bratacha/widgets/home_screen/settings_tab/dark_mode_cubit.dart';
 import 'package:bratacha/widgets/home_screen/settings_tab/hard_difficulty_panel.dart';
 import 'package:bratacha/widgets/home_screen/settings_tab/language_cubit.dart';
 import 'package:flutter/material.dart';
@@ -19,21 +18,6 @@ class SettingsTab extends StatelessWidget {
           child: Column(
             children: <Widget>[
               SizedBox(height: 16.0),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    Text(AppLocalizations.settingsTabDarkModeLabel),
-                    BlocBuilder<DarkModeCubit, bool>(
-                      builder: (_, isDarkMode) => Switch(
-                        value: isDarkMode,
-                        onChanged: (_) => context.bloc<DarkModeCubit>().toggle(),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
                 child: Row(
