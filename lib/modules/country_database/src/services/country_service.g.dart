@@ -8,38 +8,56 @@ const _countries = [
     similarFlags: [
       'md',
       'ro',
-      'ml',
+      'co',
     ],
   ),
   Country(
     id: 'ae',
     continent: Continent.americas,
-    similarFlags: [],
+    similarFlags: [
+      'kw',
+      'jo',
+      'sd',
+    ],
   ),
   Country(
     id: 'af',
     continent: Continent.americas,
-    similarFlags: [],
+    similarFlags: [
+      'ly',
+      'ke',
+      'mw',
+    ],
   ),
   Country(
     id: 'ag',
     continent: Continent.asia,
-    similarFlags: [],
+    similarFlags: [
+      'mw',
+      'ao',
+    ],
   ),
   Country(
     id: 'al',
     continent: Continent.europe,
-    similarFlags: [],
+    similarFlags: [
+      'me',
+    ],
   ),
   Country(
     id: 'am',
     continent: Continent.americas,
-    similarFlags: [],
+    similarFlags: [
+      'az',
+    ],
   ),
   Country(
     id: 'ao',
     continent: Continent.africa,
-    similarFlags: [],
+    similarFlags: [
+      'ly',
+      'ag',
+    ],
   ),
   Country(
     id: 'ar',
@@ -54,7 +72,7 @@ const _countries = [
     id: 'at',
     continent: Continent.europe,
     similarFlags: [
-      'lv',
+      'lb',
       'mc',
       'pl',
     ],
@@ -71,23 +89,32 @@ const _countries = [
   Country(
     id: 'az',
     continent: Continent.americas,
-    similarFlags: [],
+    similarFlags: [
+      'am',
+    ],
   ),
   Country(
     id: 'ba',
     continent: Continent.europe,
-    similarFlags: [],
+    similarFlags: [
+      'bb',
+    ],
   ),
   Country(
     id: 'bb',
     continent: Continent.asia,
-    similarFlags: [],
+    similarFlags: [
+      'ba',
+      'bs',
+    ],
   ),
   Country(
     id: 'bd',
     continent: Continent.americas,
     similarFlags: [
       'jp',
+      'pw',
+      'la',
     ],
   ),
   Country(
@@ -100,7 +127,12 @@ const _countries = [
   Country(
     id: 'bf',
     continent: Continent.africa,
-    similarFlags: [],
+    similarFlags: [
+      'by',
+      'cm',
+      'mm',
+      'sn',
+    ],
   ),
   Country(
     id: 'bg',
@@ -113,28 +145,42 @@ const _countries = [
   Country(
     id: 'bh',
     continent: Continent.americas,
-    similarFlags: [],
+    similarFlags: [
+      'qa',
+      'mt',
+    ],
   ),
   Country(
     id: 'bi',
     continent: Continent.africa,
-    similarFlags: [],
+    similarFlags: [
+      'jm',
+      'mk',
+    ],
   ),
   Country(
     id: 'bj',
     continent: Continent.africa,
-    similarFlags: [],
+    similarFlags: [
+      'gw',
+      'cg',
+      'mg',
+    ],
   ),
   Country(
     id: 'bn',
     continent: Continent.americas,
-    similarFlags: [],
+    similarFlags: [
+      'bt',
+    ],
   ),
   Country(
     id: 'bo',
     continent: Continent.asia,
     similarFlags: [
       'gh',
+      'lt',
+      'mm',
     ],
   ),
   Country(
@@ -145,27 +191,43 @@ const _countries = [
   Country(
     id: 'bs',
     continent: Continent.asia,
-    similarFlags: [],
+    similarFlags: [
+      'bb',
+      'bw',
+      'lc',
+    ],
   ),
   Country(
     id: 'bt',
     continent: Continent.americas,
-    similarFlags: [],
+    similarFlags: [
+      'bn',
+    ],
   ),
   Country(
     id: 'bw',
     continent: Continent.africa,
-    similarFlags: [],
+    similarFlags: [
+      'bs',
+      'ee',
+      'sl',
+    ],
   ),
   Country(
     id: 'by',
     continent: Continent.europe,
-    similarFlags: [],
+    similarFlags: [
+      'bf',
+      'mg',
+      'vu',
+    ],
   ),
   Country(
     id: 'bz',
     continent: Continent.asia,
-    similarFlags: [],
+    similarFlags: [
+      'ws',
+    ],
   ),
   Country(
     id: 'ca',
@@ -175,17 +237,28 @@ const _countries = [
   Country(
     id: 'cd',
     continent: Continent.africa,
-    similarFlags: [],
+    similarFlags: [
+      'cg',
+      'sb',
+      'na',
+    ],
   ),
   Country(
     id: 'cf',
     continent: Continent.africa,
-    similarFlags: [],
+    similarFlags: [
+      'sc',
+      'mu',
+    ],
   ),
   Country(
     id: 'cg',
     continent: Continent.africa,
-    similarFlags: [],
+    similarFlags: [
+      'cd',
+      'cm',
+      'kn',
+    ],
   ),
   Country(
     id: 'ch',
@@ -193,6 +266,7 @@ const _countries = [
     similarFlags: [
       'ge',
       'to',
+      'mt',
     ],
   ),
   Country(
@@ -206,12 +280,20 @@ const _countries = [
   Country(
     id: 'cl',
     continent: Continent.asia,
-    similarFlags: [],
+    similarFlags: [
+      'pa',
+      'cu',
+      'cz',
+    ],
   ),
   Country(
     id: 'cm',
     continent: Continent.africa,
-    similarFlags: [],
+    similarFlags: [
+      'gn',
+      'ml',
+      'sn',
+    ],
   ),
   Country(
     id: 'cn',
@@ -238,22 +320,35 @@ const _countries = [
   Country(
     id: 'cu',
     continent: Continent.asia,
-    similarFlags: [],
+    similarFlags: [
+      'cl',
+      'pa',
+      'cv',
+    ],
   ),
   Country(
     id: 'cv',
     continent: Continent.africa,
-    similarFlags: [],
+    similarFlags: [
+      'cu',
+      'kp',
+    ],
   ),
   Country(
     id: 'cy',
     continent: Continent.americas,
-    similarFlags: [],
+    similarFlags: [
+      'kr',
+    ],
   ),
   Country(
     id: 'cz',
     continent: Continent.europe,
-    similarFlags: [],
+    similarFlags: [
+      'ru',
+      'fr',
+      'nl',
+    ],
   ),
   Country(
     id: 'de',
@@ -266,7 +361,9 @@ const _countries = [
   Country(
     id: 'dj',
     continent: Continent.africa,
-    similarFlags: [],
+    similarFlags: [
+      'sl',
+    ],
   ),
   Country(
     id: 'dk',
@@ -280,12 +377,19 @@ const _countries = [
   Country(
     id: 'dm',
     continent: Continent.asia,
-    similarFlags: [],
+    similarFlags: [
+      'do',
+      'zm',
+    ],
   ),
   Country(
     id: 'do',
     continent: Continent.asia,
-    similarFlags: [],
+    similarFlags: [
+      'pa',
+      'dm',
+      'is',
+    ],
   ),
   Country(
     id: 'dz',
@@ -307,7 +411,11 @@ const _countries = [
   Country(
     id: 'ee',
     continent: Continent.europe,
-    similarFlags: [],
+    similarFlags: [
+      'sl',
+      'bw',
+      'ls',
+    ],
   ),
   Country(
     id: 'eg',
@@ -321,22 +429,38 @@ const _countries = [
   Country(
     id: 'er',
     continent: Continent.africa,
-    similarFlags: [],
+    similarFlags: [
+      'gq',
+      'vu',
+      'za',
+    ],
   ),
   Country(
     id: 'es',
     continent: Continent.europe,
-    similarFlags: [],
+    similarFlags: [
+      'pt',
+    ],
   ),
   Country(
     id: 'et',
     continent: Continent.africa,
-    similarFlags: [],
+    similarFlags: [
+      'lt',
+      'mu',
+      'mm',
+      'st',
+    ],
   ),
   Country(
     id: 'fi',
     continent: Continent.europe,
-    similarFlags: [],
+    similarFlags: [
+      'dk',
+      'is',
+      'se',
+      'no',
+    ],
   ),
   Country(
     id: 'fj',
@@ -350,27 +474,48 @@ const _countries = [
   Country(
     id: 'fm',
     continent: Continent.oceania,
-    similarFlags: [],
+    similarFlags: [
+      'so',
+      'hn',
+    ],
   ),
   Country(
     id: 'fr',
     continent: Continent.europe,
-    similarFlags: [],
+    similarFlags: [
+      'ru',
+      'cz',
+      'nl',
+    ],
   ),
   Country(
     id: 'ga',
     continent: Continent.africa,
-    similarFlags: [],
+    similarFlags: [
+      'sl',
+      'sb',
+      'rw',
+      'mr',
+    ],
   ),
   Country(
     id: 'gb',
     continent: Continent.europe,
-    similarFlags: [],
+    similarFlags: [
+      'au',
+      'nz',
+      'jm',
+    ],
   ),
   Country(
     id: 'gd',
     continent: Continent.asia,
-    similarFlags: [],
+    similarFlags: [
+      'gw',
+      'cm',
+      'sn',
+      'gh',
+    ],
   ),
   Country(
     id: 'ge',
@@ -385,42 +530,68 @@ const _countries = [
     continent: Continent.africa,
     similarFlags: [
       'bo',
+      'et',
+      'mm',
     ],
   ),
   Country(
     id: 'gm',
     continent: Continent.africa,
-    similarFlags: [],
+    similarFlags: [
+      'mu',
+      'na',
+      'za',
+    ],
   ),
   Country(
     id: 'gn',
     continent: Continent.africa,
-    similarFlags: [],
+    similarFlags: [
+      'cm',
+      'ml',
+      'sn',
+    ],
   ),
   Country(
     id: 'gq',
     continent: Continent.africa,
-    similarFlags: [],
+    similarFlags: [
+      'er',
+    ],
   ),
   Country(
     id: 'gr',
     continent: Continent.europe,
-    similarFlags: [],
+    similarFlags: [
+      'uy',
+      'il',
+      'fi',
+    ],
   ),
   Country(
     id: 'gt',
     continent: Continent.asia,
-    similarFlags: [],
+    similarFlags: [
+      'ni',
+      'sv',
+      'sm',
+    ],
   ),
   Country(
     id: 'gw',
     continent: Continent.africa,
-    similarFlags: [],
+    similarFlags: [
+      'bj',
+    ],
   ),
   Country(
     id: 'gy',
     continent: Continent.asia,
-    similarFlags: [],
+    similarFlags: [
+      'km',
+      'mz',
+      'zw',
+    ],
   ),
   Country(
     id: 'hn',
@@ -428,18 +599,25 @@ const _countries = [
     similarFlags: [
       'ni',
       'sv',
+      'fm',
     ],
   ),
   Country(
     id: 'hr',
     continent: Continent.europe,
-    similarFlags: [],
+    similarFlags: [
+      'si',
+      'sk',
+      'py',
+    ],
   ),
   Country(
     id: 'ht',
     continent: Continent.asia,
     similarFlags: [
       'li',
+      'mn',
+      'la',
     ],
   ),
   Country(
@@ -453,7 +631,11 @@ const _countries = [
   Country(
     id: 'id',
     continent: Continent.americas,
-    similarFlags: [],
+    similarFlags: [
+      'pl',
+      'sg',
+      'mt',
+    ],
   ),
   Country(
     id: 'ie',
@@ -461,12 +643,16 @@ const _countries = [
     similarFlags: [
       'ci',
       'ng',
+      'it',
     ],
   ),
   Country(
     id: 'il',
     continent: Continent.americas,
-    similarFlags: [],
+    similarFlags: [
+      'gr',
+      'uy',
+    ],
   ),
   Country(
     id: 'in',
@@ -505,95 +691,155 @@ const _countries = [
     continent: Continent.europe,
     similarFlags: [
       'mx',
+      'ie',
     ],
   ),
   Country(
     id: 'jm',
     continent: Continent.asia,
-    similarFlags: [],
+    similarFlags: [
+      'bi',
+      'mk',
+      'gb',
+    ],
   ),
   Country(
     id: 'jo',
     continent: Continent.americas,
-    similarFlags: [],
+    similarFlags: [
+      'ae',
+      'kw',
+      'sd',
+    ],
   ),
   Country(
     id: 'jp',
     continent: Continent.americas,
     similarFlags: [
       'bd',
+      'kr',
     ],
   ),
   Country(
     id: 'ke',
     continent: Continent.africa,
-    similarFlags: [],
+    similarFlags: [
+      'af',
+      'ly',
+      'mw',
+    ],
   ),
   Country(
     id: 'kg',
     continent: Continent.americas,
-    similarFlags: [],
+    similarFlags: [
+      'ki',
+      'vn',
+      'tn',
+    ],
   ),
   Country(
     id: 'kh',
     continent: Continent.americas,
-    similarFlags: [],
+    similarFlags: [
+      'mn',
+      'la',
+      'ws',
+    ],
   ),
   Country(
     id: 'ki',
     continent: Continent.oceania,
-    similarFlags: [],
+    similarFlags: [
+      'kg',
+    ],
   ),
   Country(
     id: 'km',
     continent: Continent.africa,
-    similarFlags: [],
+    similarFlags: [
+      'gy',
+      'zw',
+      'mz',
+    ],
   ),
   Country(
     id: 'kn',
     continent: Continent.asia,
-    similarFlags: [],
+    similarFlags: [
+      'cg',
+      'cd',
+      'tt',
+    ],
   ),
   Country(
     id: 'kp',
     continent: Continent.americas,
-    similarFlags: [],
+    similarFlags: [
+      'cg',
+      'kh',
+      'li',
+    ],
   ),
   Country(
     id: 'kr',
     continent: Continent.americas,
-    similarFlags: [],
+    similarFlags: [
+      'cy',
+      'jp',
+    ],
   ),
   Country(
     id: 'kw',
     continent: Continent.americas,
-    similarFlags: [],
+    similarFlags: [
+      'ae',
+      'jo',
+      'sd',
+    ],
   ),
   Country(
     id: 'kz',
     continent: Continent.americas,
-    similarFlags: [],
+    similarFlags: [
+      'lc',
+      'pw',
+      'rw',
+    ],
   ),
   Country(
     id: 'la',
     continent: Continent.americas,
-    similarFlags: [],
+    similarFlags: [
+      'kh',
+      'mn',
+      'ws',
+    ],
   ),
   Country(
     id: 'lb',
     continent: Continent.americas,
-    similarFlags: [],
+    similarFlags: [
+      'at',
+      'bh',
+    ],
   ),
   Country(
     id: 'lc',
     continent: Continent.asia,
-    similarFlags: [],
+    similarFlags: [
+      'kz',
+      'pw',
+      'rw',
+    ],
   ),
   Country(
     id: 'li',
     continent: Continent.europe,
     similarFlags: [
       'ht',
+      'mn',
+      'la',
     ],
   ),
   Country(
@@ -607,39 +853,57 @@ const _countries = [
     similarFlags: [
       'us',
       'my',
+      'cl',
     ],
   ),
   Country(
     id: 'ls',
     continent: Continent.africa,
-    similarFlags: [],
+    similarFlags: [
+      'sl',
+      'ee',
+    ],
   ),
   Country(
     id: 'lt',
     continent: Continent.europe,
-    similarFlags: [],
+    similarFlags: [
+      'et',
+      'mm',
+      'bo',
+    ],
   ),
   Country(
     id: 'lu',
     continent: Continent.europe,
     similarFlags: [
       'nl',
+      'ru',
     ],
   ),
   Country(
     id: 'lv',
     continent: Continent.europe,
-    similarFlags: [],
+    similarFlags: [
+      'at',
+      'lb',
+    ],
   ),
   Country(
     id: 'ly',
     continent: Continent.africa,
-    similarFlags: [],
+    similarFlags: [
+      'af',
+      'ke',
+      'mw',
+    ],
   ),
   Country(
     id: 'ma',
     continent: Continent.africa,
-    similarFlags: [],
+    similarFlags: [
+      'vn',
+    ],
   ),
   Country(
     id: 'mc',
@@ -647,47 +911,75 @@ const _countries = [
     similarFlags: [
       'pl',
       'sg',
+      'mt',
     ],
   ),
   Country(
     id: 'md',
     continent: Continent.europe,
-    similarFlags: [],
+    similarFlags: [
+      'ad',
+      'ro',
+      'ec',
+    ],
   ),
   Country(
     id: 'me',
     continent: Continent.europe,
-    similarFlags: [],
+    similarFlags: [
+      'al',
+    ],
   ),
   Country(
     id: 'mg',
     continent: Continent.africa,
-    similarFlags: [],
+    similarFlags: [
+      'by',
+      'om',
+    ],
   ),
   Country(
     id: 'mh',
     continent: Continent.oceania,
-    similarFlags: [],
+    similarFlags: [
+      'nr',
+      'sb',
+    ],
   ),
   Country(
     id: 'mk',
     continent: Continent.europe,
-    similarFlags: [],
+    similarFlags: [
+      'bi',
+      'jm',
+    ],
   ),
   Country(
     id: 'ml',
     continent: Continent.africa,
-    similarFlags: [],
+    similarFlags: [
+      'cm',
+      'gn',
+      'sn',
+    ],
   ),
   Country(
     id: 'mm',
     continent: Continent.americas,
-    similarFlags: [],
+    similarFlags: [
+      'lt',
+      'et',
+      'bo',
+    ],
   ),
   Country(
     id: 'mn',
     continent: Continent.americas,
-    similarFlags: [],
+    similarFlags: [
+      'kh',
+      'la',
+      'ws',
+    ],
   ),
   Country(
     id: 'mr',
@@ -696,33 +988,48 @@ const _countries = [
       'dz',
       'pk',
       'tm',
+      'mv',
     ],
   ),
   Country(
     id: 'mt',
     continent: Continent.europe,
-    similarFlags: [],
+    similarFlags: [
+      'to',
+      'ch',
+      'bh',
+    ],
   ),
   Country(
     id: 'mu',
     continent: Continent.africa,
-    similarFlags: [],
+    similarFlags: [
+      'sc',
+      'cf',
+    ],
   ),
   Country(
     id: 'mv',
     continent: Continent.americas,
-    similarFlags: [],
+    similarFlags: [
+      'mr',
+      'km',
+      'tn',
+    ],
   ),
   Country(
     id: 'mw',
     continent: Continent.africa,
-    similarFlags: [],
+    similarFlags: [
+      'ly',
+    ],
   ),
   Country(
     id: 'mx',
     continent: Continent.asia,
     similarFlags: [
       'it',
+      'pe',
     ],
   ),
   Country(
@@ -731,23 +1038,32 @@ const _countries = [
     similarFlags: [
       'us',
       'lr',
+      'cl',
     ],
   ),
   Country(
     id: 'mz',
     continent: Continent.africa,
-    similarFlags: [],
+    similarFlags: [
+      'gy',
+      'km',
+      'zw',
+    ],
   ),
   Country(
     id: 'na',
     continent: Continent.africa,
-    similarFlags: [],
+    similarFlags: [
+      'cd',
+    ],
   ),
   Country(
     id: 'ne',
     continent: Continent.africa,
     similarFlags: [
       'in',
+      'la',
+      'bd',
     ],
   ),
   Country(
@@ -792,7 +1108,9 @@ const _countries = [
   Country(
     id: 'nr',
     continent: Continent.oceania,
-    similarFlags: [],
+    similarFlags: [
+      'mh',
+    ],
   ),
   Country(
     id: 'nz',
@@ -806,27 +1124,41 @@ const _countries = [
   Country(
     id: 'om',
     continent: Continent.americas,
-    similarFlags: [],
+    similarFlags: [
+      'mg',
+    ],
   ),
   Country(
     id: 'pa',
     continent: Continent.asia,
-    similarFlags: [],
+    similarFlags: [
+      'cl',
+      'cu',
+      'pg',
+    ],
   ),
   Country(
     id: 'pe',
     continent: Continent.asia,
-    similarFlags: [],
+    similarFlags: [
+      'mx',
+    ],
   ),
   Country(
     id: 'pg',
     continent: Continent.oceania,
-    similarFlags: [],
+    similarFlags: [
+      'tt',
+    ],
   ),
   Country(
     id: 'ph',
     continent: Continent.americas,
-    similarFlags: [],
+    similarFlags: [
+      'cu',
+      'cv',
+      'cr',
+    ],
   ),
   Country(
     id: 'pk',
@@ -842,32 +1174,49 @@ const _countries = [
     continent: Continent.europe,
     similarFlags: [
       'mc',
+      'sg',
+      'mt',
     ],
   ),
   Country(
     id: 'pt',
     continent: Continent.europe,
-    similarFlags: [],
+    similarFlags: [
+      'es',
+    ],
   ),
   Country(
     id: 'pw',
     continent: Continent.oceania,
-    similarFlags: [],
+    similarFlags: [
+      'bd',
+      'kz',
+      'jp',
+    ],
   ),
   Country(
     id: 'py',
     continent: Continent.asia,
-    similarFlags: [],
+    similarFlags: [
+      'nl',
+      'hr',
+    ],
   ),
   Country(
     id: 'qa',
     continent: Continent.americas,
-    similarFlags: [],
+    similarFlags: [
+      'bh',
+    ],
   ),
   Country(
     id: 'ro',
     continent: Continent.europe,
-    similarFlags: [],
+    similarFlags: [
+      'ad',
+      'md',
+      've',
+    ],
   ),
   Country(
     id: 'rs',
@@ -890,7 +1239,11 @@ const _countries = [
   Country(
     id: 'rw',
     continent: Continent.africa,
-    similarFlags: [],
+    similarFlags: [
+      'kz',
+      'lc',
+      'pw',
+    ],
   ),
   Country(
     id: 'sa',
@@ -900,17 +1253,28 @@ const _countries = [
   Country(
     id: 'sb',
     continent: Continent.oceania,
-    similarFlags: [],
+    similarFlags: [
+      'tz',
+      'sc',
+    ],
   ),
   Country(
     id: 'sc',
     continent: Continent.africa,
-    similarFlags: [],
+    similarFlags: [
+      'sb',
+      'cf',
+    ],
   ),
   Country(
     id: 'sd',
     continent: Continent.africa,
-    similarFlags: [],
+    similarFlags: [
+      'ss',
+      'ae',
+      'kw',
+      'jo',
+    ],
   ),
   Country(
     id: 'se',
@@ -952,37 +1316,61 @@ const _countries = [
   Country(
     id: 'sl',
     continent: Continent.africa,
-    similarFlags: [],
+    similarFlags: [
+      'ee',
+      'ls',
+    ],
   ),
   Country(
     id: 'sm',
     continent: Continent.europe,
-    similarFlags: [],
+    similarFlags: [
+      'gt',
+      'ni',
+      'sv',
+    ],
   ),
   Country(
     id: 'sn',
     continent: Continent.africa,
-    similarFlags: [],
+    similarFlags: [
+      'cm',
+      'gn',
+      'ml',
+    ],
   ),
   Country(
     id: 'so',
     continent: Continent.africa,
-    similarFlags: [],
+    similarFlags: [
+      'fm',
+    ],
   ),
   Country(
     id: 'sr',
     continent: Continent.asia,
-    similarFlags: [],
+    similarFlags: [
+      'st',
+      'tg',
+      'bf',
+    ],
   ),
   Country(
     id: 'ss',
     continent: Continent.africa,
-    similarFlags: [],
+    similarFlags: [
+      'sd',
+      'gq',
+      'jo',
+    ],
   ),
   Country(
     id: 'st',
     continent: Continent.africa,
-    similarFlags: [],
+    similarFlags: [
+      'sr',
+      'et',
+    ],
   ),
   Country(
     id: 'sv',
@@ -990,6 +1378,8 @@ const _countries = [
     similarFlags: [
       'hn',
       'ni',
+      'sm',
+      'gt',
     ],
   ),
   Country(
@@ -1004,17 +1394,24 @@ const _countries = [
   Country(
     id: 'sz',
     continent: Continent.africa,
-    similarFlags: [],
+    similarFlags: [
+      'ke',
+    ],
   ),
   Country(
     id: 'td',
     continent: Continent.africa,
-    similarFlags: [],
+    similarFlags: [
+      'ad',
+      'md',
+    ],
   ),
   Country(
     id: 'tg',
     continent: Continent.africa,
-    similarFlags: [],
+    similarFlags: [
+      'sr',
+    ],
   ),
   Country(
     id: 'th',
@@ -1034,7 +1431,9 @@ const _countries = [
   Country(
     id: 'tl',
     continent: Continent.americas,
-    similarFlags: [],
+    similarFlags: [
+      'tt',
+    ],
   ),
   Country(
     id: 'tm',
@@ -1051,6 +1450,7 @@ const _countries = [
     similarFlags: [
       'tr',
       'sg',
+      'kg',
     ],
   ),
   Country(
@@ -1059,6 +1459,7 @@ const _countries = [
     similarFlags: [
       'ch',
       'ge',
+      'mt',
     ],
   ),
   Country(
@@ -1072,7 +1473,11 @@ const _countries = [
   Country(
     id: 'tt',
     continent: Continent.asia,
-    similarFlags: [],
+    similarFlags: [
+      'kn',
+      'pg',
+      'ag',
+    ],
   ),
   Country(
     id: 'tv',
@@ -1086,17 +1491,26 @@ const _countries = [
   Country(
     id: 'tz',
     continent: Continent.africa,
-    similarFlags: [],
+    similarFlags: [
+      'sb',
+      'kn',
+      'mh',
+      'cd',
+    ],
   ),
   Country(
     id: 'ua',
     continent: Continent.europe,
-    similarFlags: [],
+    similarFlags: [
+      'rw',
+    ],
   ),
   Country(
     id: 'ug',
     continent: Continent.africa,
-    similarFlags: [],
+    similarFlags: [
+      'de',
+    ],
   ),
   Country(
     id: 'us',
@@ -1104,6 +1518,7 @@ const _countries = [
     similarFlags: [
       'lr',
       'my',
+      'cl',
     ],
   ),
   Country(
@@ -1111,17 +1526,23 @@ const _countries = [
     continent: Continent.asia,
     similarFlags: [
       'ar',
+      'gr',
+      'cu',
     ],
   ),
   Country(
     id: 'uz',
     continent: Continent.americas,
-    similarFlags: [],
+    similarFlags: [
+      'tm',
+    ],
   ),
   Country(
     id: 'vc',
     continent: Continent.asia,
-    similarFlags: [],
+    similarFlags: [
+      'bb',
+    ],
   ),
   Country(
     id: 've',
@@ -1136,17 +1557,24 @@ const _countries = [
     continent: Continent.americas,
     similarFlags: [
       'cn',
+      'ma',
+      'kg',
     ],
   ),
   Country(
     id: 'vu',
     continent: Continent.oceania,
-    similarFlags: [],
+    similarFlags: [
+      'er',
+      'za',
+    ],
   ),
   Country(
     id: 'ws',
     continent: Continent.oceania,
-    similarFlags: [],
+    similarFlags: [
+      'bz',
+    ],
   ),
   Country(
     id: 'ye',
@@ -1170,11 +1598,15 @@ const _countries = [
   Country(
     id: 'zm',
     continent: Continent.africa,
-    similarFlags: [],
+    similarFlags: [
+      'dm',
+    ],
   ),
   Country(
     id: 'zw',
     continent: Continent.africa,
-    similarFlags: [],
+    similarFlags: [
+      'gy',
+    ],
   ),
 ];
