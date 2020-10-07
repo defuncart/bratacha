@@ -57,7 +57,7 @@ class GameScreen extends StatelessWidget {
               icon: Icon(Icons.close),
               onPressed: () => Navigator.of(context).pop(),
             ),
-            title: Text(AppLocalizations.homeTabLevelButtonText(level: level + 1)),
+            title: Text(AppLocalizations.generalLevelLabel(level: level + 1)),
             actions: [
               Center(
                 child: Padding(
