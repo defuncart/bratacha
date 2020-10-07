@@ -33,58 +33,36 @@ class MyApp extends StatelessWidget {
           create: (_) => LevelManager(),
         ),
       ],
-      child: _MyApp(),
-    );
-  }
-}
-
-class _MyApp extends StatelessWidget {
-  const _MyApp({
-    Key key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return MultiBlocProvider(
-      providers: [
-        BlocProvider<LanguageCubit>(
-          create: (_) => LanguageCubit(context.repository<ISettingsDatabase>()),
-        ),
-        BlocProvider<HardDifficultyCubit>(
-          create: (_) => HardDifficultyCubit(context.repository<ISettingsDatabase>()),
-        ),
-      ],
-      child: __MyApp(),
-    );
-  }
-}
-
-class __MyApp extends StatelessWidget {
-  const __MyApp({Key key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return BlocBuilder<LanguageCubit, String>(
-      builder: (_, language) => MaterialApp(
-        localizationsDelegates: [
-          const AppLocalizationsDelegate(),
-          const CountryLocalizationsDelegate(),
-          GlobalMaterialLocalizations.delegate,
-          GlobalWidgetsLocalizations.delegate,
-          GlobalCupertinoLocalizations.delegate,
-          CyMaterialLocalizations.delegate,
-          GaMaterialLocalizations.delegate,
+      child: MultiBlocProvider(
+        providers: [
+          BlocProvider<LanguageCubit>(
+            create: (contextRepositories) => LanguageCubit(contextRepositories.repository<ISettingsDatabase>()),
+          ),
+          BlocProvider<HardDifficultyCubit>(
+            create: (contextRepositories) => HardDifficultyCubit(contextRepositories.repository<ISettingsDatabase>()),
+          ),
         ],
-        locale: Locale(language),
-        supportedLocales: AppLocalizationsDelegate.supportedLocals,
-        theme: AppThemes.theme,
-        darkTheme: AppThemes.theme,
-        themeMode: ThemeMode.dark,
-        home: HomeScreen(),
-        routes: {
-          LearnScreen.routeName: (_) => LearnScreen(),
-          GameScreen.routeName: (_) => GameScreen(),
-        },
+        child: BlocBuilder<LanguageCubit, String>(
+          builder: (_, language) => MaterialApp(
+            localizationsDelegates: [
+              const AppLocalizationsDelegate(),
+              const CountryLocalizationsDelegate(),
+              GlobalMaterialLocalizations.delegate,
+              GlobalWidgetsLocalizations.delegate,
+              GlobalCupertinoLocalizations.delegate,
+              CyMaterialLocalizations.delegate,
+              GaMaterialLocalizations.delegate,
+            ],
+            locale: Locale(language),
+            supportedLocales: AppLocalizationsDelegate.supportedLocals,
+            theme: AppThemes.theme,
+            home: HomeScreen(),
+            routes: {
+              LearnScreen.routeName: (_) => LearnScreen(),
+              GameScreen.routeName: (_) => GameScreen(),
+            },
+          ),
+        ),
       ),
     );
   }
