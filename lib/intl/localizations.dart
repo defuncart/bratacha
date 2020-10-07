@@ -26,9 +26,6 @@ class AppLocalizations {
 
   static String get settingsTabLabelText => _getText('settingsTabLabelText');
 
-  static String get settingsTabDarkModeLabel =>
-      _getText('settingsTabDarkModeLabel');
-
   static String get settingsTabLanguageLabel =>
       _getText('settingsTabLanguageLabel');
 
@@ -43,7 +40,6 @@ class AppLocalizations {
     'homeTabLevelButtonText': 'Level %level\$d',
     'homeTabLeanFlagsButtonText': 'See all flags',
     'settingsTabLabelText': 'Settings',
-    'settingsTabDarkModeLabel': 'Dark Mode',
     'settingsTabLanguageLabel': 'Language',
     'settingsTabDifficultyLabel': 'Hard Difficulty',
   };
@@ -54,7 +50,6 @@ class AppLocalizations {
     'homeTabLevelButtonText': 'Level %level\$d',
     'homeTabLeanFlagsButtonText': 'See all flags',
     'settingsTabLabelText': 'Налады',
-    'settingsTabDarkModeLabel': 'Цёмны рэжым',
     'settingsTabLanguageLabel': 'Мова',
     'settingsTabDifficultyLabel': 'Складаная складанасць',
   };
@@ -65,7 +60,6 @@ class AppLocalizations {
     'homeTabLevelButtonText': 'Level %level\$d',
     'homeTabLeanFlagsButtonText': 'See all flags',
     'settingsTabLabelText': 'Settings',
-    'settingsTabDarkModeLabel': 'Dark Mode',
     'settingsTabLanguageLabel': 'Language',
     'settingsTabDifficultyLabel': 'Hard Difficulty',
   };
@@ -76,7 +70,6 @@ class AppLocalizations {
     'homeTabLevelButtonText': 'Level %level\$d',
     'homeTabLeanFlagsButtonText': 'See all flags',
     'settingsTabLabelText': 'Settings',
-    'settingsTabDarkModeLabel': 'Dark Mode',
     'settingsTabLanguageLabel': 'Language',
     'settingsTabDifficultyLabel': 'Hard Difficulty',
   };

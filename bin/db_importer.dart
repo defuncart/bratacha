@@ -122,8 +122,12 @@ class _CountryImportModel {
 
   final List<String> similarFlags;
 
-  const _CountryImportModel(
-      {@required this.id, @required this.continent, @required this.names, @required this.similarFlags});
+  const _CountryImportModel({
+    @required this.id,
+    @required this.continent,
+    @required this.names,
+    @required this.similarFlags,
+  });
 
   factory _CountryImportModel.fromJson(Map<String, dynamic> json) => _CountryImportModel(
         id: json['id'],
