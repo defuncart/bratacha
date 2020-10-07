@@ -1,6 +1,4 @@
-import 'package:flutter/foundation.dart';
 import 'package:hive/hive.dart';
-import 'package:path_provider/path_provider.dart';
 
 // ignore: always_use_package_imports
 import 'i_settings_database.dart';
@@ -21,14 +19,17 @@ class SettingsDatabase implements ISettingsDatabase {
   @override
   set language(String value) => _box.put(_Keys.language, value);
 
+  /// Returns whether hard difficulty is enabled
+  @override
+  bool get isHardDifficulty => _box.get(_Keys.isHardDifficulty, defaultValue: _Defaults.isHardDifficulty);
+
+  /// Sets whether hard difficulty is enabled
+  @override
+  set isHardDifficulty(bool value) => _box.put(_Keys.isHardDifficulty, value);
+
   /// Initializes the database
   @override
   Future<void> initialize() async {
-    if (!kIsWeb) {
-      final dir = await getApplicationDocumentsDirectory();
-      Hive.init(dir.path);
-    }
-
     _box ??= await Hive.openBox<dynamic>(_boxName);
   }
 
@@ -40,9 +41,11 @@ class SettingsDatabase implements ISettingsDatabase {
 /// A class of keys used to store values
 class _Keys {
   static const language = 'language';
+  static const isHardDifficulty = 'isHardDifficulty';
 }
 
 /// A class of defaults for each key
 class _Defaults {
   static const language = 'en';
+  static const isHardDifficulty = false;
 }

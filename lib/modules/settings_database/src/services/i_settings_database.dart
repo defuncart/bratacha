@@ -6,6 +6,12 @@ abstract class ISettingsDatabase {
   /// Sets the selected language for the ui
   set language(String value);
 
+  /// Returns whether hard difficulty is enabled
+  bool get isHardDifficulty;
+
+  /// Sets whether hard difficulty is enabled
+  set isHardDifficulty(bool value);
+
   /// Initializes the database
   Future<void> initialize();
 

@@ -26,11 +26,11 @@ class AppLocalizations {
 
   static String get settingsTabLabelText => _getText('settingsTabLabelText');
 
-  static String get settingsTabDarkModeLabel =>
-      _getText('settingsTabDarkModeLabel');
-
   static String get settingsTabLanguageLabel =>
       _getText('settingsTabLanguageLabel');
+
+  static String get settingsTabDifficultyLabel =>
+      _getText('settingsTabDifficultyLabel');
 
   static Map<String, String> _localizedValues;
 
@@ -40,8 +40,8 @@ class AppLocalizations {
     'homeTabLevelButtonText': 'Level %level\$d',
     'homeTabLeanFlagsButtonText': 'See all flags',
     'settingsTabLabelText': 'Settings',
-    'settingsTabDarkModeLabel': 'Dark Mode',
     'settingsTabLanguageLabel': 'Language',
+    'settingsTabDifficultyLabel': 'Hard Difficulty',
   };
 
   static Map<String, String> _beValues = {
@@ -50,8 +50,8 @@ class AppLocalizations {
     'homeTabLevelButtonText': 'Level %level\$d',
     'homeTabLeanFlagsButtonText': 'See all flags',
     'settingsTabLabelText': 'Налады',
-    'settingsTabDarkModeLabel': 'Цёмны рэжым',
     'settingsTabLanguageLabel': 'Мова',
+    'settingsTabDifficultyLabel': 'Складаная складанасць',
   };
 
   static Map<String, String> _cyValues = {
@@ -60,8 +60,8 @@ class AppLocalizations {
     'homeTabLevelButtonText': 'Level %level\$d',
     'homeTabLeanFlagsButtonText': 'See all flags',
     'settingsTabLabelText': 'Settings',
-    'settingsTabDarkModeLabel': 'Dark Mode',
     'settingsTabLanguageLabel': 'Language',
+    'settingsTabDifficultyLabel': 'Hard Difficulty',
   };
 
   static Map<String, String> _gaValues = {
@@ -70,8 +70,8 @@ class AppLocalizations {
     'homeTabLevelButtonText': 'Level %level\$d',
     'homeTabLeanFlagsButtonText': 'See all flags',
     'settingsTabLabelText': 'Settings',
-    'settingsTabDarkModeLabel': 'Dark Mode',
     'settingsTabLanguageLabel': 'Language',
+    'settingsTabDifficultyLabel': 'Hard Difficulty',
   };
 
   static Map<String, Map<String, String>> _allValues = {

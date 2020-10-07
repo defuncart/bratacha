@@ -26,7 +26,11 @@ void main() async {
   sb.writeln();
   sb.writeln('const _countries = [');
   for (final country in countries) {
-    sb.writeln('\tCountry(id: \'${country.id}\', continent: ${country.continent.toString()}),');
+    sb.write('\tCountry(');
+    sb.write('id: \'${country.id}\',');
+    sb.write('continent: ${country.continent.toString()},');
+    sb.write('similarFlags: ${_listToCodeString(country.similarFlags)},');
+    sb.write('),');
   }
   sb.writeln('];');
 
@@ -40,12 +44,6 @@ void main() async {
   // loca
   const locaOutputPath = 'lib/intl/country_localizations.g.dart';
   final locales = ['en', 'be', 'cy', 'ga'];
-  final mapLocalesIndeces = {
-    'en': 0,
-    'be': 1,
-    'cy': 2,
-    'ga': 3,
-  };
 
   sb.clear();
   sb.writeln('// GENERATED CODE - DO NOT MODIFY BY HAND');
@@ -53,10 +51,9 @@ void main() async {
   sb.writeln();
   sb.writeln('mixin _\$CountryLocalizations {');
   for (final locale in locales) {
-    final index = mapLocalesIndeces[locale];
     sb.writeln('\tstatic const _$locale = {');
     for (final country in countries) {
-      final countryName = country.names[index].replaceAll('\'', '\\\'');
+      final countryName = country.names[locale].replaceAll('\'', '\\\'');
       sb.writeln('\t\t\'${country.id}\': \'$countryName\',');
     }
     sb.writeln('\t};\n');
@@ -121,18 +118,22 @@ class _CountryImportModel {
 
   final Continent continent;
 
-  final List<String> names;
+  final Map<String, String> names;
+
+  final List<String> similarFlags;
 
   const _CountryImportModel({
-    this.id,
-    this.continent,
-    this.names,
+    @required this.id,
+    @required this.continent,
+    @required this.names,
+    @required this.similarFlags,
   });
 
   factory _CountryImportModel.fromJson(Map<String, dynamic> json) => _CountryImportModel(
         id: json['id'],
         continent: Continent.values[json['continent']],
-        names: List<String>.from(json['names'].map((item) => item)),
+        names: Map<String, String>.from(json['names']),
+        similarFlags: List<String>.from(json['similarFlags'].map((item) => item)),
       );
 }
 

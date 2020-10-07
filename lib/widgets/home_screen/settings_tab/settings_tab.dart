@@ -1,4 +1,5 @@
 import 'package:bratacha/intl/localizations.dart';
+import 'package:bratacha/widgets/home_screen/settings_tab/hard_difficulty_panel.dart';
 import 'package:bratacha/widgets/home_screen/settings_tab/language_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -41,6 +42,10 @@ class SettingsTab extends StatelessWidget {
                     ),
                   ],
                 ),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                child: HardDifficultyPanel(),
               ),
             ],
           ),
