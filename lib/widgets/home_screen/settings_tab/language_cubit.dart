@@ -1,13 +1,13 @@
-import 'package:bratacha/modules/settings_database/settings_database.dart';
+import 'package:bratacha/modules/player_data/player_data.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class LanguageCubit extends Cubit<String> {
-  final ISettingsDatabase _settingsDatabase;
+  final IPlayerDataService _playerDataService;
 
-  LanguageCubit(this._settingsDatabase) : super(_settingsDatabase.language);
+  LanguageCubit(this._playerDataService) : super(_playerDataService.language);
 
   void setLanguage(String language) {
-    _settingsDatabase.language = language;
-    emit(language);
+    _playerDataService.language = language;
+    emit(_playerDataService.language);
   }
 }

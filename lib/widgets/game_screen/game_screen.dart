@@ -1,5 +1,5 @@
 import 'package:bratacha/managers/level_manager.dart';
-import 'package:bratacha/modules/settings_database/settings_database.dart';
+import 'package:bratacha/modules/player_data/player_data.dart';
 import 'package:bratacha/services/game_service.dart';
 import 'package:bratacha/services/i_game_service.dart';
 import 'package:bratacha/widgets/common/flag.dart';
@@ -28,7 +28,7 @@ class GameScreen extends StatelessWidget {
       appBar: AppBar(),
       body: RepositoryProvider<IGameService>(
         create: (_) => GameService(
-          isHardDifficulty: context.repository<ISettingsDatabase>().isHardDifficulty,
+          isHardDifficulty: context.repository<IPlayerDataService>().isHardDifficulty,
           level: level,
           levelManager: context.repository<LevelManager>(),
         )..initialize(),

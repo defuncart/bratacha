@@ -1,5 +1,5 @@
 import 'package:bloc_test/bloc_test.dart';
-import 'package:bratacha/modules/settings_database/settings_database.dart';
+import 'package:bratacha/modules/player_data/player_data.dart';
 import 'package:bratacha/widgets/home_screen/settings_tab/language_cubit.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
@@ -8,30 +8,30 @@ void main() {
   group('LanguageCubit', () {
     blocTest(
       'emits [] when nothing is added',
-      build: () => LanguageCubit(_MockSettingsDatabase()),
+      build: () => LanguageCubit(_MockPlayerDataService()),
       expect: [],
     );
 
     blocTest(
       'emits [en] when en is set',
-      build: () => LanguageCubit(_MockSettingsDatabase(language: 'en')),
+      build: () => LanguageCubit(_MockPlayerDataService(language: 'en')),
       act: (cubit) => cubit.setLanguage('en'),
       expect: ['en'],
     );
 
     blocTest(
       'emits [en, ga] when en and then ga are set',
-      build: () => LanguageCubit(_MockSettingsDatabase(language: 'en')),
+      build: () => LanguageCubit(_MockPlayerDataService(language: 'en')),
       act: (cubit) => cubit..setLanguage('en')..setLanguage('ga'),
       expect: ['en', 'ga'],
     );
   });
 }
 
-class _MockSettingsDatabase extends Mock implements ISettingsDatabase {
+class _MockPlayerDataService extends Mock implements IPlayerDataService {
   String _langauge;
 
-  _MockSettingsDatabase({String language = 'en'}) : _langauge = language;
+  _MockPlayerDataService({String language = 'en'}) : _langauge = language;
 
   @override
   String get language => _langauge;
