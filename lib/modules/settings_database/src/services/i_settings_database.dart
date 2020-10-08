@@ -1,16 +1,10 @@
 /// A database of the user's device settings
 abstract class ISettingsDatabase {
-  /// Returns the selected language for the ui
-  String get language;
+  /// Returns whether the player has seen onboarding
+  bool get hasSeenOnboarding;
 
-  /// Sets the selected language for the ui
-  set language(String value);
-
-  /// Returns whether hard difficulty is enabled
-  bool get isHardDifficulty;
-
-  /// Sets whether hard difficulty is enabled
-  set isHardDifficulty(bool value);
+  /// Sets whether the player has seen onboarding
+  set hasSeenOnboarding(bool value);
 
   /// Initializes the database
   Future<void> initialize();

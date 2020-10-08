@@ -11,27 +11,17 @@ class SettingsDatabase implements ISettingsDatabase {
   /// A name for the box
   static const _boxName = 'settings';
 
-  /// Returns the selected language for the ui
+  /// Returns whether the player has seen onboarding
   @override
-  String get language => _box.get(_Keys.language, defaultValue: _Defaults.language);
+  bool get hasSeenOnboarding => _box.get(_Keys.hasSeenOnboarding, defaultValue: _Defaults.hasSeenOnboarding);
 
-  /// Sets the selected language for the ui
+  /// Sets whether the player has seen onboarding
   @override
-  set language(String value) => _box.put(_Keys.language, value);
-
-  /// Returns whether hard difficulty is enabled
-  @override
-  bool get isHardDifficulty => _box.get(_Keys.isHardDifficulty, defaultValue: _Defaults.isHardDifficulty);
-
-  /// Sets whether hard difficulty is enabled
-  @override
-  set isHardDifficulty(bool value) => _box.put(_Keys.isHardDifficulty, value);
+  set hasSeenOnboarding(bool value) => _box.put(_Keys.hasSeenOnboarding, value);
 
   /// Initializes the database
   @override
-  Future<void> initialize() async {
-    _box ??= await Hive.openBox<dynamic>(_boxName);
-  }
+  Future<void> initialize() async => _box ??= await Hive.openBox<dynamic>(_boxName);
 
   /// Resets the database
   @override
@@ -40,12 +30,10 @@ class SettingsDatabase implements ISettingsDatabase {
 
 /// A class of keys used to store values
 class _Keys {
-  static const language = 'language';
-  static const isHardDifficulty = 'isHardDifficulty';
+  static const hasSeenOnboarding = 'hasSeenOnboarding';
 }
 
 /// A class of defaults for each key
 class _Defaults {
-  static const language = 'en';
-  static const isHardDifficulty = false;
+  static const hasSeenOnboarding = false;
 }
