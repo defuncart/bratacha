@@ -9,17 +9,17 @@ import 'package:flutter/material.dart';
 class AppLocalizations {
   static String get test => _getText('test');
 
-  static String get homeTabLabelText => _getText('homeTabLabelText');
-
-  static String homeTabLevelButtonText({
+  static String generalLevelLabel({
     @required int level,
   }) {
-    String text = _getText('homeTabLevelButtonText');
+    String text = _getText('generalLevelLabel');
     if (level != null) {
       text = text.replaceAll("%level\$d", level.toString());
     }
     return text;
   }
+
+  static String get homeTabLabelText => _getText('homeTabLabelText');
 
   static String get homeTabLeanFlagsButtonText =>
       _getText('homeTabLeanFlagsButtonText');
@@ -36,8 +36,8 @@ class AppLocalizations {
 
   static Map<String, String> _enValues = {
     'test': 'Hello World!',
+    'generalLevelLabel': 'Level %level\$d',
     'homeTabLabelText': 'Home',
-    'homeTabLevelButtonText': 'Level %level\$d',
     'homeTabLeanFlagsButtonText': 'See all flags',
     'settingsTabLabelText': 'Settings',
     'settingsTabLanguageLabel': 'Language',
@@ -46,8 +46,8 @@ class AppLocalizations {
 
   static Map<String, String> _beValues = {
     'test': 'Здароўствуй свет!',
+    'generalLevelLabel': 'Level %level\$d',
     'homeTabLabelText': 'Галоўная',
-    'homeTabLevelButtonText': 'Level %level\$d',
     'homeTabLeanFlagsButtonText': 'See all flags',
     'settingsTabLabelText': 'Налады',
     'settingsTabLanguageLabel': 'Мова',
@@ -56,8 +56,8 @@ class AppLocalizations {
 
   static Map<String, String> _cyValues = {
     'test': 'Helo Byd!',
+    'generalLevelLabel': 'Level %level\$d',
     'homeTabLabelText': 'Home',
-    'homeTabLevelButtonText': 'Level %level\$d',
     'homeTabLeanFlagsButtonText': 'See all flags',
     'settingsTabLabelText': 'Settings',
     'settingsTabLanguageLabel': 'Language',
@@ -66,8 +66,8 @@ class AppLocalizations {
 
   static Map<String, String> _gaValues = {
     'test': 'Dia duit domhan!',
+    'generalLevelLabel': 'Level %level\$d',
     'homeTabLabelText': 'Home',
-    'homeTabLevelButtonText': 'Level %level\$d',
     'homeTabLeanFlagsButtonText': 'See all flags',
     'settingsTabLabelText': 'Settings',
     'settingsTabLanguageLabel': 'Language',
