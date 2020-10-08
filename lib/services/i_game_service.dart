@@ -3,6 +3,8 @@ abstract class IGameService {
 
   Stream<List<String>> get answerCountries;
 
+  Stream<int> get currentScore;
+
   bool get levelCompleted;
 
   bool answerWithId(String id);

@@ -12,6 +12,7 @@ class GameService implements IGameService {
   List<int> _indecesCountriesForLevel;
   int _numberRounds;
   final bool isHardDifficulty;
+  int _score;
   int _index;
   List<int> _countriesDisplayed;
   List<int> _countriesDisplayedLastRound;
@@ -32,6 +33,9 @@ class GameService implements IGameService {
   }
 
   void initialize() {
+    _score = 0;
+    _scoreController.add(_score);
+
     _index = 0;
     _countriesDisplayedLastRound = [];
     _nextRound();
@@ -50,6 +54,11 @@ class GameService implements IGameService {
 
   @override
   Stream<List<String>> get answerCountries => _answersController.stream;
+
+  final _scoreController = StreamController<int>();
+
+  @override
+  Stream<int> get currentScore => _scoreController.stream;
 
   @override
   bool get levelCompleted => _index >= _numberRounds;
@@ -88,6 +97,11 @@ class GameService implements IGameService {
   @override
   bool answerWithId(String id) {
     final correct = _questionCountry.id == id;
+    if (correct) {
+      _score++;
+      _scoreController.add(_score);
+    }
+
     if (++_index < _numberRounds) {
       _nextRound();
     }

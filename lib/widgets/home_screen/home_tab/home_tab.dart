@@ -35,7 +35,7 @@ class HomeTab extends StatelessWidget {
                           arguments: GameScreenArguments(level: i),
                         ),
                         child: Text(
-                          AppLocalizations.homeTabLevelButtonText(level: i + 1),
+                          AppLocalizations.generalLevelLabel(level: i + 1),
                           style: TextStyle(color: Theme.of(context).scaffoldBackgroundColor),
                         ),
                       ),
