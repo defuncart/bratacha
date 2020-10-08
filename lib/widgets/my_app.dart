@@ -15,20 +15,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
 class MyApp extends StatelessWidget {
-  final ISettingsDatabase settingsDatabase;
-
-  const MyApp({
-    @required this.settingsDatabase,
-    Key key,
-  }) : super(key: key);
+  const MyApp({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return MultiRepositoryProvider(
       providers: [
-        RepositoryProvider<ISettingsDatabase>(
-          create: (_) => settingsDatabase,
-        ),
         RepositoryProvider<LevelManager>(
           create: (_) => LevelManager(),
         ),

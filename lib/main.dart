@@ -27,13 +27,14 @@ void main() async {
   return runApp(
     MultiRepositoryProvider(
       providers: [
+        RepositoryProvider<ISettingsDatabase>(
+          create: (_) => _settingsDatabase,
+        ),
         RepositoryProvider<IPlayerDataService>(
           create: (_) => _playerDataService,
         ),
       ],
-      child: MyApp(
-        settingsDatabase: _settingsDatabase,
-      ),
+      child: MyApp(),
     ),
   );
 }
