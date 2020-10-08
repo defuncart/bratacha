@@ -12,8 +12,8 @@ Note that only flags of countries recognized by the UN are present.
 
 If you would like to build the app yourself, then you simply need:
 
-- Flutter >= 1.20
-- Dart >= 2.9
+- Flutter >= 1.22
+- Dart >= 2.10
 - Xcode >= 11.5
 - Android SDK >= 29.0.4
 - Chrome
@@ -36,6 +36,12 @@ To generate database assets, run:
 
 ```sh
 dart bin/db_importer.dart
+```
+
+To generate default player data database, run:
+
+```sh
+dart bin/player_data_exporter.dart
 ```
 
 ## Contributing
