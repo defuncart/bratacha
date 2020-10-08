@@ -1,5 +1,6 @@
 import 'package:bratacha/modules/player_data/src/utils/utils.dart';
 import 'package:hive/hive.dart';
+import 'package:meta/meta.dart';
 
 // ignore_for_file: always_use_package_imports
 import '../configs/hive_adapter_type.dart';
@@ -23,7 +24,10 @@ class PlayerDataService implements IPlayerDataService {
 
   /// Sets the selected game language
   @override
-  set language(String value) => _box.put(_Keys.language, value);
+  set language(String value) {
+    _box.put(_Keys.language, value);
+    resetAllCountryProgress();
+  }
 
   /// Returns whether hard difficulty is enabled
   @override
@@ -44,9 +48,26 @@ class PlayerDataService implements IPlayerDataService {
   /// A map of [CountryData] by id
   Map<String, CountryData> _countriesData;
 
-  /// Returns [CountryData] for a given id
+  /// Updates the progress for a given id
   @override
-  CountryData countryData({String id}) => _countriesData[id];
+  void updateProgress({@required String id, @required bool answeredCorrectly}) {
+    final countryData = _countriesData[id];
+    countryData.updateProgress(answeredCorrectly: answeredCorrectly);
+
+    _saveCountriesData();
+  }
+
+  /// Resets all the player's country progress
+  @override
+  void resetAllCountryProgress() {
+    for (final kvp in _countriesData.entries) {
+      kvp.value.reset();
+    }
+
+    _saveCountriesData();
+  }
+
+  void _saveCountriesData() => _box.put(_Keys.countriesData, _countriesData);
 
   /// Initializes the database
   @override

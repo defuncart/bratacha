@@ -1,8 +1,5 @@
 import 'package:meta/meta.dart';
 
-// ignore: always_use_package_imports
-import '../../player_data.dart';
-
 /// A service which interacts with player data databases
 abstract class IPlayerDataService {
   /// Returns the selected game language
@@ -23,8 +20,11 @@ abstract class IPlayerDataService {
   /// Sets the player's score
   set score(int value);
 
-  /// Returns [CountryData] for a given id
-  CountryData countryData({@required String id});
+  /// Updates the progress for a given id
+  void updateProgress({@required String id, @required bool answeredCorrectly});
+
+  /// Resets all the player's country progress
+  void resetAllCountryProgress();
 
   /// Initializes the database
   Future<void> initialize();
