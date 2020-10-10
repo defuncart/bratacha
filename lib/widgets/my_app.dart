@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
     return MultiRepositoryProvider(
       providers: [
         RepositoryProvider<LevelManager>(
-          create: (_) => LevelManager(),
+          create: (_) => LevelManager(_.repository<IPlayerDataService>()),
         ),
       ],
       child: MultiBlocProvider(
