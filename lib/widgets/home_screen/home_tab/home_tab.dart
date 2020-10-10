@@ -21,26 +21,36 @@ class HomeTab extends StatelessWidget {
           child: Center(
             child: Column(
               children: [
-                Wrap(
-                  spacing: 8.0,
-                  runSpacing: 8.0,
-                  children: [
-                    for (var i = 0; i < levelManager.numberLevels; i++)
-                      ElevatedButton(
-                        style: ButtonStyle(
-                          backgroundColor: MaterialStateColor.resolveWith((states) => Theme.of(context).accentColor),
-                        ),
-                        onPressed: () => Navigator.of(context).pushNamed(
-                          GameScreen.routeName,
-                          arguments: GameScreenArguments(level: i),
-                        ),
-                        child: Text(
-                          AppLocalizations.generalLevelLabel(level: i + 1),
-                          style: TextStyle(color: Theme.of(context).scaffoldBackgroundColor),
+                SizedBox(height: 4.0),
+                for (var i = 0; i < levelManager.numberLevels; i++)
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
+                    child: GestureDetector(
+                      child: Card(
+                        color: levelManager.isLevelUnlocked(i)
+                            ? Theme.of(context).cardColor
+                            : Theme.of(context).cardColor.withAlpha(128),
+                        child: Padding(
+                          padding: const EdgeInsets.all(16.0),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.stretch,
+                            children: [
+                              Text(
+                                AppLocalizations.generalLevelLabel(level: i + 1),
+                                style: TextStyle(color: Theme.of(context).scaffoldBackgroundColor),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
-                  ],
-                ),
+                      onTap: levelManager.isLevelUnlocked(i)
+                          ? () => Navigator.of(context).pushNamed(
+                                GameScreen.routeName,
+                                arguments: GameScreenArguments(level: i),
+                              )
+                          : null,
+                    ),
+                  ),
                 TextButton(
                   onPressed: () => Navigator.of(context).pushNamed(LearnScreen.routeName),
                   child: Text(
