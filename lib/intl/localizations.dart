@@ -32,6 +32,9 @@ class AppLocalizations {
   static String get settingsTabDifficultyLabel =>
       _getText('settingsTabDifficultyLabel');
 
+  static String get settingsTabResetProgressLabel =>
+      _getText('settingsTabResetProgressLabel');
+
   static Map<String, String> _localizedValues;
 
   static Map<String, String> _enValues = {
@@ -42,6 +45,7 @@ class AppLocalizations {
     'settingsTabLabelText': 'Settings',
     'settingsTabLanguageLabel': 'Language',
     'settingsTabDifficultyLabel': 'Hard Difficulty',
+    'settingsTabResetProgressLabel': 'Reset Progress',
   };
 
   static Map<String, String> _beValues = {
@@ -52,6 +56,7 @@ class AppLocalizations {
     'settingsTabLabelText': 'Налады',
     'settingsTabLanguageLabel': 'Мова',
     'settingsTabDifficultyLabel': 'Складаная складанасць',
+    'settingsTabResetProgressLabel': 'Скід прагрэсу',
   };
 
   static Map<String, String> _cyValues = {
@@ -62,6 +67,7 @@ class AppLocalizations {
     'settingsTabLabelText': 'Settings',
     'settingsTabLanguageLabel': 'Language',
     'settingsTabDifficultyLabel': 'Hard Difficulty',
+    'settingsTabResetProgressLabel': 'Reset Progress',
   };
 
   static Map<String, String> _gaValues = {
@@ -72,6 +78,7 @@ class AppLocalizations {
     'settingsTabLabelText': 'Settings',
     'settingsTabLanguageLabel': 'Language',
     'settingsTabDifficultyLabel': 'Hard Difficulty',
+    'settingsTabResetProgressLabel': 'Reset Progress',
   };
 
   static Map<String, Map<String, String>> _allValues = {
