@@ -50,6 +50,7 @@ class MyApp extends StatelessWidget {
             theme: AppThemes.theme,
             home: HomeScreen(),
             routes: {
+              HomeScreen.routeName: (_) => HomeScreen(),
               LearnScreen.routeName: (_) => LearnScreen(),
               GameScreen.routeName: (_) => GameScreen(),
             },

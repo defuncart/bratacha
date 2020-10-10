@@ -7,6 +7,7 @@ import 'package:bratacha/widgets/common/flag.dart';
 import 'package:bratacha/widgets/game_screen/answers_cubit.dart';
 import 'package:bratacha/widgets/game_screen/question_cubit.dart';
 import 'package:bratacha/widgets/game_screen/score_cubit.dart';
+import 'package:bratacha/widgets/home_screen/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -56,7 +57,7 @@ class GameScreen extends StatelessWidget {
           appBar: AppBar(
             leading: IconButton(
               icon: Icon(Icons.close),
-              onPressed: () => Navigator.of(context).pop(),
+              onPressed: () => Navigator.of(context).pushReplacementNamed(HomeScreen.routeName),
             ),
             title: Text(AppLocalizations.generalLevelLabel(level: level + 1)),
             actions: [
@@ -125,7 +126,7 @@ class QuestionAnswerPanel extends StatelessWidget {
                           final gameService = context.repository<IGameService>();
                           gameService.answerWithId(id);
                           if (gameService.levelCompleted) {
-                            Navigator.of(context).pop();
+                            Navigator.of(context).pushReplacementNamed(HomeScreen.routeName);
                           }
                         },
                       ),

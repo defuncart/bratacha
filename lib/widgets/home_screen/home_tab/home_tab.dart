@@ -56,7 +56,7 @@ class HomeTab extends StatelessWidget {
                         ),
                       ),
                       onTap: levelManager.isLevelUnlocked(i)
-                          ? () => Navigator.of(context).pushNamed(
+                          ? () => Navigator.of(context).pushReplacementNamed(
                                 GameScreen.routeName,
                                 arguments: GameScreenArguments(level: i),
                               )
