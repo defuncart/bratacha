@@ -25,4 +25,7 @@ class LevelManager {
 
   /// Returns whether a given level index (beginning at zero) is unlocked
   bool isLevelUnlocked(int level) => _playerDataService.score >= _levelService.scoreToUnlock(level);
+
+  /// Returns the points required to unlock a given level index (beginning at zero)
+  int scoreToUnlock(int level) => _levelService.scoreToUnlock(level);
 }
