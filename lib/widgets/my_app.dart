@@ -4,7 +4,7 @@ import 'package:bratacha/intl/cy_material_localizations.dart';
 import 'package:bratacha/intl/ga_material_localizations.dart';
 import 'package:bratacha/intl/localizations.dart';
 import 'package:bratacha/managers/level_manager.dart';
-import 'package:bratacha/modules/settings_database/settings_database.dart';
+import 'package:bratacha/modules/player_data/player_data.dart';
 import 'package:bratacha/widgets/game_screen/game_screen.dart';
 import 'package:bratacha/widgets/home_screen/home_screen.dart';
 import 'package:bratacha/widgets/home_screen/settings_tab/hard_difficulty_cubit.dart';
@@ -15,20 +15,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
 class MyApp extends StatelessWidget {
-  final ISettingsDatabase settingsDatabase;
-
-  const MyApp({
-    @required this.settingsDatabase,
-    Key key,
-  }) : super(key: key);
+  const MyApp({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return MultiRepositoryProvider(
       providers: [
-        RepositoryProvider<ISettingsDatabase>(
-          create: (_) => settingsDatabase,
-        ),
         RepositoryProvider<LevelManager>(
           create: (_) => LevelManager(),
         ),
@@ -36,10 +28,10 @@ class MyApp extends StatelessWidget {
       child: MultiBlocProvider(
         providers: [
           BlocProvider<LanguageCubit>(
-            create: (contextRepositories) => LanguageCubit(contextRepositories.repository<ISettingsDatabase>()),
+            create: (contextRepositories) => LanguageCubit(contextRepositories.repository<IPlayerDataService>()),
           ),
           BlocProvider<HardDifficultyCubit>(
-            create: (contextRepositories) => HardDifficultyCubit(contextRepositories.repository<ISettingsDatabase>()),
+            create: (contextRepositories) => HardDifficultyCubit(contextRepositories.repository<IPlayerDataService>()),
           ),
         ],
         child: BlocBuilder<LanguageCubit, String>(

@@ -17,18 +17,13 @@ void main() async {
   await settingsDatabase.initialize();
 
   test('Expect default values', () {
-    expect(settingsDatabase.language, 'en');
-    expect(settingsDatabase.isHardDifficulty, false);
-  });
-
-  test('Update language, expect new value', () {
-    settingsDatabase.language = 'be';
-    expect(settingsDatabase.language, 'be');
+    expect(settingsDatabase.hasSeenOnboarding, false);
   });
 
   test('Update isHardDifficulty, expect new value', () {
-    settingsDatabase.isHardDifficulty = true;
-    expect(settingsDatabase.isHardDifficulty, true);
+    expect(settingsDatabase.hasSeenOnboarding, false);
+    settingsDatabase.hasSeenOnboarding = true;
+    expect(settingsDatabase.hasSeenOnboarding, true);
   });
 
   // ensure all temp files are removed

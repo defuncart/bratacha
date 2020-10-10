@@ -5,7 +5,7 @@ version: 0.0.1+1
 
 environment:
   sdk: ">=2.10.0 <3.0.0"
-  flutter: ">=1.22.0 <2.0.0"
+  flutter: ">=1.22.0-12.3.pre <2.0.0" #TODO to allow workflow to succeed
 
 dependencies:
   flutter:
@@ -23,10 +23,12 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   pedantic: ^1.9.0
+  build_runner: ^1.10.3
   # third party
   flappy_translator: ^1.4.0
   flutter_launcher_icons: ^0.8.0
   bloc_test: ^7.0.4
+  hive_generator: ^0.8.0
 
 flutter:
   uses-material-design: true
