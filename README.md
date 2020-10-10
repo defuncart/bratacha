@@ -38,12 +38,6 @@ To generate database assets, run:
 dart bin/db_importer.dart
 ```
 
-To generate default player data database, run:
-
-```sh
-dart bin/player_data_exporter.dart
-```
-
 ## Contributing
 
 If you'd like to help translating the app into Irish/Welsh/Belarusian, please get in touch! Likewise if you'd like to work on another language!

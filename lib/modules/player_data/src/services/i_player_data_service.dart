@@ -1,6 +1,6 @@
 import 'package:meta/meta.dart';
 
-/// A service which interacts with player data databases
+/// A database of the player's progress
 abstract class IPlayerDataService {
   /// Returns the selected game language
   String get language;
@@ -29,6 +29,12 @@ abstract class IPlayerDataService {
   /// Initializes the database
   Future<void> initialize();
 
+  /// Resyncs the database for a list of ids
+  Future<void> resync({@required List<String> ids});
+
   /// Resets the database
   Future<void> reset();
+
+  /// DEBUG: Prints contents of db to the console
+  void debugPrint();
 }

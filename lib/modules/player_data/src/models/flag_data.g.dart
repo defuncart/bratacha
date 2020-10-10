@@ -1,22 +1,22 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'country_data.dart';
+part of 'flag_data.dart';
 
 // **************************************************************************
 // TypeAdapterGenerator
 // **************************************************************************
 
-class CountryDataAdapter extends TypeAdapter<CountryData> {
+class FlagDataAdapter extends TypeAdapter<FlagData> {
   @override
   final int typeId = 1;
 
   @override
-  CountryData read(BinaryReader reader) {
+  FlagData read(BinaryReader reader) {
     final numOfFields = reader.readByte();
     final fields = <int, dynamic>{
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
-    return CountryData(
+    return FlagData(
       id: fields[0] as String,
     )
       ..attempts = fields[1] as int
@@ -24,7 +24,7 @@ class CountryDataAdapter extends TypeAdapter<CountryData> {
   }
 
   @override
-  void write(BinaryWriter writer, CountryData obj) {
+  void write(BinaryWriter writer, FlagData obj) {
     writer
       ..writeByte(3)
       ..writeByte(0)
@@ -41,7 +41,7 @@ class CountryDataAdapter extends TypeAdapter<CountryData> {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is CountryDataAdapter &&
+      other is FlagDataAdapter &&
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }

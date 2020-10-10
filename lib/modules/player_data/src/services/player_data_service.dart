@@ -1,13 +1,12 @@
-import 'package:bratacha/modules/player_data/src/utils/utils.dart';
 import 'package:hive/hive.dart';
 import 'package:meta/meta.dart';
 
 // ignore_for_file: always_use_package_imports
-import '../configs/hive_adapter_type.dart';
-import '../models/country_data.dart';
+import 'flag_data_service.dart';
+import 'i_flag_data_service.dart';
 import 'i_player_data_service.dart';
 
-/// A database of the player's device settings
+/// A database of the player's progress
 class PlayerDataService implements IPlayerDataService {
   /// A box to store objects
   Box<dynamic> _box;
@@ -15,8 +14,8 @@ class PlayerDataService implements IPlayerDataService {
   /// A name for the box
   static const _boxName = 'player_data';
 
-  /// Asset path for where the default db is located
-  static String get defaultAssetPath => 'assets/db/$_boxName.hive';
+  /// A database of player's progress on flags
+  IFlagDataService _flagDataService;
 
   /// Returns the selected game language
   @override
@@ -45,48 +44,42 @@ class PlayerDataService implements IPlayerDataService {
   @override
   set score(int value) => _box.put(_Keys.score, value);
 
-  /// A map of [CountryData] by id
-  Map<String, CountryData> _countriesData;
-
   /// Updates the progress for a given id
   @override
-  void updateProgress({@required String id, @required bool answeredCorrectly}) {
-    final countryData = _countriesData[id];
-    countryData.updateProgress(answeredCorrectly: answeredCorrectly);
-
-    _saveCountriesData();
-  }
+  void updateProgress({@required String id, @required bool answeredCorrectly}) =>
+      _flagDataService.updateProgress(id: id, answeredCorrectly: answeredCorrectly);
 
   /// Resets all the player's country progress
   @override
-  void resetAllCountryProgress() {
-    for (final kvp in _countriesData.entries) {
-      kvp.value.reset();
-    }
-
-    _saveCountriesData();
-  }
-
-  void _saveCountriesData() => _box.put(_Keys.countriesData, _countriesData);
+  void resetAllCountryProgress() => _flagDataService.reset();
 
   /// Initializes the database
   @override
   Future<void> initialize() async {
-    if (!await Hive.isAdapterRegistered(HiveAdapterType.countryData)) {
-      await Hive.registerAdapter(CountryDataAdapter());
-    }
-
-    if (!await Hive.boxExists(_boxName)) {
-      await reset();
-    }
+    _flagDataService = FlagDataService();
+    await _flagDataService.initialize();
 
     _box = await Hive.openBox(_boxName);
-    _countriesData = _box.get(_Keys.countriesData).cast<String, CountryData>();
   }
+
+  /// Resyncs the database for a list of ids
+  @override
+  Future<void> resync({@required List<String> ids}) async => await _flagDataService.resync(ids: ids);
 
   /// Resets the database
   @override
-  Future<void> reset() async => await Utils.copyInitialDBToDocuments(filename: _boxName);
+  Future<void> reset() async => _box.deleteAll(_box.keys);
+
+  /// DEBUG: Prints contents of db to the console
+  @override
+  void debugPrint() {
+    print('---- PlayerDataService ----');
+    for (final kvp in _box.toMap().entries) {
+      print('${kvp.key} : ${kvp.value}');
+    }
+    _flagDataService.debugPrint();
+    print('---------------------------');
+  }
 }
 
 /// A class of keys used to store values
@@ -94,7 +87,6 @@ class _Keys {
   static const language = 'language';
   static const isHardDifficulty = 'isHardDifficulty';
   static const score = 'score';
-  static const countriesData = 'countriesData';
 }
 
 /// A class of defaults for each key

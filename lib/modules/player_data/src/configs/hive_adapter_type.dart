@@ -1,4 +1,4 @@
 /// A config of adapter types for hive
 class HiveAdapterType {
-  static const countryData = 1;
+  static const flagData = 1;
 }

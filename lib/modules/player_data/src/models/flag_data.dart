@@ -4,11 +4,11 @@ import 'package:meta/meta.dart';
 // ignore: always_use_package_imports
 import '../configs/hive_adapter_type.dart';
 
-part 'country_data.g.dart';
+part 'flag_data.g.dart';
 
 /// A model represeting a player's data on a given country
-@HiveType(typeId: HiveAdapterType.countryData)
-class CountryData {
+@HiveType(typeId: HiveAdapterType.flagData)
+class FlagData extends HiveObject {
   /// The country's id
   @HiveField(0)
   final String id;
@@ -21,7 +21,7 @@ class CountryData {
   @HiveField(2)
   int timesCorrect;
 
-  CountryData({@required this.id});
+  FlagData({@required this.id});
 
   /// The percentage (between 0 and 1) that the player was correct
   double get percentageCorrect => attempts > 0 ? timesCorrect / attempts : 0;

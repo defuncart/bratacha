@@ -1,4 +1,5 @@
 import 'package:bratacha/intl/intl_helper.dart';
+import 'package:bratacha/modules/country_database/src/services/country_service.dart';
 import 'package:bratacha/modules/player_data/player_data.dart';
 import 'package:bratacha/modules/settings_database/settings_database.dart';
 import 'package:bratacha/widgets/my_app.dart';
@@ -21,6 +22,7 @@ void main() async {
 
   final IPlayerDataService _playerDataService = PlayerDataService();
   await _playerDataService.initialize();
+  await _playerDataService.resync(ids: CountryService.countries.map((country) => country.id).toList());
 
   await IntlHelper.ensureDelegatesLoaded();
 
