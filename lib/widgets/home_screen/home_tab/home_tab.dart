@@ -1,6 +1,7 @@
 import 'package:bratacha/intl/localizations.dart';
 import 'package:bratacha/managers/level_manager.dart';
 import 'package:bratacha/modules/player_data/player_data.dart';
+import 'package:bratacha/widgets/common/score.dart';
 import 'package:bratacha/widgets/game_screen/game_screen.dart';
 import 'package:bratacha/widgets/learn_screen/learn_screen.dart';
 import 'package:flutter/material.dart';
@@ -20,9 +21,10 @@ class HomeTab extends StatelessWidget {
           Center(
             child: Padding(
               padding: const EdgeInsets.only(right: 16),
-              child: Text(
-                context.repository<IPlayerDataService>().score.toString(),
-                style: Theme.of(context).textTheme.headline6,
+              child: Score(
+                score: context.repository<IPlayerDataService>().score,
+                color: const Color(0xffFFE391),
+                fontSize: 20.0,
               ),
             ),
           ),
@@ -37,30 +39,10 @@ class HomeTab extends StatelessWidget {
                 for (var i = 0; i < levelManager.numberLevels; i++)
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
-                    child: GestureDetector(
-                      child: Card(
-                        color: levelManager.isLevelUnlocked(i)
-                            ? Theme.of(context).cardColor
-                            : Theme.of(context).cardColor.withAlpha(128),
-                        child: Padding(
-                          padding: const EdgeInsets.all(16.0),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.stretch,
-                            children: [
-                              Text(
-                                AppLocalizations.generalLevelLabel(level: i + 1),
-                                style: TextStyle(color: Theme.of(context).scaffoldBackgroundColor),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                      onTap: levelManager.isLevelUnlocked(i)
-                          ? () => Navigator.of(context).pushReplacementNamed(
-                                GameScreen.routeName,
-                                arguments: GameScreenArguments(level: i),
-                              )
-                          : null,
+                    child: _LevelButton(
+                      levelIndex: i,
+                      isLevelUnlocked: levelManager.isLevelUnlocked(i),
+                      pointsRequired: levelManager.scoreToUnlock(i),
                     ),
                   ),
                 TextButton(
@@ -75,6 +57,62 @@ class HomeTab extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+}
+
+class _LevelButton extends StatelessWidget {
+  final bool isLevelUnlocked;
+  final int levelIndex;
+  final int pointsRequired;
+
+  const _LevelButton({
+    Key key,
+    @required this.isLevelUnlocked,
+    @required this.levelIndex,
+    @required this.pointsRequired,
+  })  : assert(isLevelUnlocked != null),
+        assert(levelIndex != null),
+        assert(pointsRequired != null),
+        super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      child: Opacity(
+        opacity: isLevelUnlocked ? 1 : 0.4,
+        child: Card(
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      AppLocalizations.generalLevelLabel(level: levelIndex + 1),
+                      style: TextStyle(color: Theme.of(context).scaffoldBackgroundColor),
+                    ),
+                    if (!isLevelUnlocked)
+                      Score(
+                        score: pointsRequired,
+                        color: Theme.of(context).accentColor,
+                        fontSize: 16.0,
+                      ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+      onTap: isLevelUnlocked
+          ? () => Navigator.of(context).pushReplacementNamed(
+                GameScreen.routeName,
+                arguments: GameScreenArguments(level: levelIndex),
+              )
+          : null,
     );
   }
 }
