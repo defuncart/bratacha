@@ -29,6 +29,7 @@ class GameScreen extends StatelessWidget {
     return RepositoryProvider<IGameService>(
       create: (_) => GameService(
         isHardDifficulty: context.repository<IPlayerDataService>().isHardDifficulty,
+        playerDataService: context.repository<IPlayerDataService>(),
         level: level,
         levelManager: context.repository<LevelManager>(),
       )..initialize(),
