@@ -25,6 +25,7 @@ class PlayerDataService implements IPlayerDataService {
   @override
   set language(String value) {
     _box.put(_Keys.language, value);
+    _box.put(_Keys.score, _Defaults.score);
     resetAllCountryProgress();
   }
 
@@ -68,7 +69,7 @@ class PlayerDataService implements IPlayerDataService {
 
   /// Resets the database
   @override
-  Future<void> reset() async => _box.deleteAll(_box.keys);
+  Future<void> reset() async => await _box.deleteAll(_box.keys);
 
   /// DEBUG: Prints contents of db to the console
   @override

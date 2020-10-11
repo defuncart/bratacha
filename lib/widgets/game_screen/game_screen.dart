@@ -4,9 +4,11 @@ import 'package:bratacha/modules/player_data/player_data.dart';
 import 'package:bratacha/services/game_service.dart';
 import 'package:bratacha/services/i_game_service.dart';
 import 'package:bratacha/widgets/common/flag.dart';
+import 'package:bratacha/widgets/common/score.dart';
 import 'package:bratacha/widgets/game_screen/answers_cubit.dart';
 import 'package:bratacha/widgets/game_screen/question_cubit.dart';
 import 'package:bratacha/widgets/game_screen/score_cubit.dart';
+import 'package:bratacha/widgets/home_screen/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -29,6 +31,7 @@ class GameScreen extends StatelessWidget {
     return RepositoryProvider<IGameService>(
       create: (_) => GameService(
         isHardDifficulty: context.repository<IPlayerDataService>().isHardDifficulty,
+        playerDataService: context.repository<IPlayerDataService>(),
         level: level,
         levelManager: context.repository<LevelManager>(),
       )..initialize(),
@@ -55,7 +58,7 @@ class GameScreen extends StatelessWidget {
           appBar: AppBar(
             leading: IconButton(
               icon: Icon(Icons.close),
-              onPressed: () => Navigator.of(context).pop(),
+              onPressed: () => Navigator.of(context).pushReplacementNamed(HomeScreen.routeName),
             ),
             title: Text(AppLocalizations.generalLevelLabel(level: level + 1)),
             actions: [
@@ -63,9 +66,10 @@ class GameScreen extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.only(right: 16),
                   child: BlocBuilder<ScoreCubit, int>(
-                    builder: (_, score) => Text(
-                      score.toString(),
-                      style: Theme.of(context).textTheme.headline6,
+                    builder: (_, score) => Score(
+                      score: score,
+                      color: Colors.white,
+                      fontSize: 20.0,
                     ),
                   ),
                 ),
@@ -124,7 +128,7 @@ class QuestionAnswerPanel extends StatelessWidget {
                           final gameService = context.repository<IGameService>();
                           gameService.answerWithId(id);
                           if (gameService.levelCompleted) {
-                            Navigator.of(context).pop();
+                            Navigator.of(context).pushReplacementNamed(HomeScreen.routeName);
                           }
                         },
                       ),

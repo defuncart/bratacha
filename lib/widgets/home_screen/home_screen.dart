@@ -4,6 +4,8 @@ import 'package:bratacha/widgets/home_screen/settings_tab/settings_tab.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
+  static const routeName = 'HomeScreen';
+
   const HomeScreen({
     Key key,
   }) : super(key: key);

@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
     return MultiRepositoryProvider(
       providers: [
         RepositoryProvider<LevelManager>(
-          create: (_) => LevelManager(),
+          create: (_) => LevelManager(_.repository<IPlayerDataService>()),
         ),
       ],
       child: MultiBlocProvider(
@@ -50,6 +50,7 @@ class MyApp extends StatelessWidget {
             theme: AppThemes.theme,
             home: HomeScreen(),
             routes: {
+              HomeScreen.routeName: (_) => HomeScreen(),
               LearnScreen.routeName: (_) => LearnScreen(),
               GameScreen.routeName: (_) => GameScreen(),
             },

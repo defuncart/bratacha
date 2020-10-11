@@ -1,13 +1,17 @@
 import 'package:bratacha/modules/country_database/country_database.dart';
 import 'package:bratacha/modules/level_database/level_database.dart';
+import 'package:bratacha/modules/player_data/player_data.dart';
 
 class LevelManager {
-  static final _levelService = LevelService();
+  final _levelService = LevelService();
+  final IPlayerDataService _playerDataService;
 
-  /// Retuns the number of levels
+  LevelManager(this._playerDataService);
+
+  /// Returns the number of levels
   int get numberLevels => _levelService.numberLevels;
 
-  /// Retuns the countries for a given level index (beginning at zero)
+  /// Returns the countries for a given level index (beginning at zero)
   List<Country> countriesForLevel(int level) {
     if (level >= 0 && level < numberLevels) {
       final countryIds = _levelService.countryIdsForLevel(level);
@@ -18,4 +22,10 @@ class LevelManager {
 
     return null;
   }
+
+  /// Returns whether a given level index (beginning at zero) is unlocked
+  bool isLevelUnlocked(int level) => _playerDataService.score >= _levelService.scoreToUnlock(level);
+
+  /// Returns the points required to unlock a given level index (beginning at zero)
+  int scoreToUnlock(int level) => _levelService.scoreToUnlock(level);
 }

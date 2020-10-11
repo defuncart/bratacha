@@ -4,6 +4,7 @@ import 'dart:math';
 import 'package:bratacha/extensions/country_extensions.dart';
 import 'package:bratacha/managers/level_manager.dart';
 import 'package:bratacha/modules/country_database/country_database.dart';
+import 'package:bratacha/modules/player_data/player_data.dart';
 import 'package:bratacha/services/i_game_service.dart';
 import 'package:meta/meta.dart';
 
@@ -12,6 +13,7 @@ class GameService implements IGameService {
   List<int> _indecesCountriesForLevel;
   int _numberRounds;
   final bool isHardDifficulty;
+  final IPlayerDataService playerDataService;
   int _score;
   int _index;
   List<int> _countriesDisplayed;
@@ -19,6 +21,7 @@ class GameService implements IGameService {
 
   GameService({
     @required this.isHardDifficulty,
+    @required this.playerDataService,
     @required int level,
     @required LevelManager levelManager,
   }) {
@@ -98,12 +101,16 @@ class GameService implements IGameService {
   bool answerWithId(String id) {
     final correct = _questionCountry.id == id;
     if (correct) {
-      _score++;
+      _score += (isHardDifficulty ? 2 : 1);
       _scoreController.add(_score);
     }
+    playerDataService.updateProgress(id: id, answeredCorrectly: correct);
 
     if (++_index < _numberRounds) {
       _nextRound();
+    } else {
+      // only update score on level completion
+      playerDataService.score += _score;
     }
 
     return correct;
