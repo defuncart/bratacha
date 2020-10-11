@@ -201,8 +201,8 @@ packages:
     dependency: "direct dev"
     description:
       path: "."
-      ref: HEAD
-      resolved-ref: "5b8a079b94e5d7abbe7b29db1cd89e2155956c3c"
+      ref: "bugfix/add-main-to-generate-dart-file"
+      resolved-ref: "144aef7f5a67fb32e31a739087e503aa2c11b0a7"
       url: "https://github.com/defuncart/dart_code_coverage"
     source: git
     version: "0.0.1"
