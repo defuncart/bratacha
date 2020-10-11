@@ -68,6 +68,5 @@ class _WebApp extends StatelessWidget {
         );
       },
     );
-    ;
   }
 }
