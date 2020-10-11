@@ -1,5 +1,7 @@
 # bratacha
 
+[![codecov](https://codecov.io/gh/defuncart/bratacha/branch/master/graph/badge.svg)](https://codecov.io/gh/defuncart/bratacha)
+
 A fun flag quiz game as Gaeilge (and other languages)!
 
 ## About
