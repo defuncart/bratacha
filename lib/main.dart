@@ -36,7 +36,37 @@ void main() async {
           create: (_) => _playerDataService,
         ),
       ],
-      child: MyApp(),
+      child: kIsWeb ? _WebApp() : MyApp(),
     ),
   );
+}
+
+class _WebApp extends StatelessWidget {
+  const _WebApp({Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return LayoutBuilder(
+      builder: (_, constraints) {
+        final isMobile = constraints.smallest.shortestSide < 600;
+        if (isMobile) {
+          return MyApp();
+        }
+
+        final height = constraints.maxHeight;
+        final width = height / 2;
+
+        return Container(
+          color: Colors.black,
+          child: Center(
+            child: SizedBox(
+              height: height,
+              width: width,
+              child: MyApp(),
+            ),
+          ),
+        );
+      },
+    );
+  }
 }
