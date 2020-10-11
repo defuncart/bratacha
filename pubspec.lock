@@ -197,6 +197,15 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.1.3"
+  dart_code_coverage:
+    dependency: "direct dev"
+    description:
+      path: "."
+      ref: "bugfix/add-main-to-generate-dart-file"
+      resolved-ref: "144aef7f5a67fb32e31a739087e503aa2c11b0a7"
+      url: "https://github.com/defuncart/dart_code_coverage"
+    source: git
+    version: "0.0.1"
   dart_style:
     dependency: transitive
     description:

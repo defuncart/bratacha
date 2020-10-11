@@ -1,0 +1,27 @@
+name: publish_codecov
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+jobs:
+  build:
+    name: Generate + Publish Code Coverage Report
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: subosito/flutter-action@v1.4.0
+        with:
+          channel: 'beta'
+      - name: Install packages
+        run: flutter pub get
+      - name: Generate coverage_report_test.dart
+        run: flutter pub run dart_code_coverage:generate_dart_file -r ".*\.g\.dart","localizations.dart"
+      - name: Generate coverage/lcov.info
+        run: flutter test --coverage
+      - name: Clean up coverage/lcov.info
+        run: flutter pub run dart_code_coverage:edit_lcov -r ".*\.g\.dart","localizations.dart"
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v1.0.13
+        with:
+          file: coverage/lcov.info

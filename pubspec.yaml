@@ -29,6 +29,10 @@ dev_dependencies:
   flutter_launcher_icons: ^0.8.0
   bloc_test: ^7.0.4
   hive_generator: ^0.8.0
+  dart_code_coverage:
+    git:
+      url: https://github.com/defuncart/dart_code_coverage
+      ref: bugfix/add-main-to-generate-dart-file
 
 flutter:
   uses-material-design: true
