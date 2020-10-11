@@ -1,9 +1,9 @@
 name: publish_codecov
 on:
   push:
-    # branches:
-      # - master
-  # pull_request:
+    branches:
+      - master
+  pull_request:
 jobs:
   build:
     name: Generate + Publish Code Coverage Report
