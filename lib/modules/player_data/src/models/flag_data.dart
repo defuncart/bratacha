@@ -24,7 +24,7 @@ class FlagData extends HiveObject {
   FlagData({@required this.id});
 
   /// The percentage (between 0 and 1) that the player was correct
-  double get percentageCorrect => attempts > 0 ? timesCorrect / attempts : 0;
+  double get percentageCorrect => attempts != null ? (attempts > 0 ? timesCorrect / attempts : 0) : null;
 
   /// Updates the progress
   void updateProgress({@required bool answeredCorrectly}) {

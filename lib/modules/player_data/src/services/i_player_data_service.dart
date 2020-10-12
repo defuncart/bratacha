@@ -1,5 +1,8 @@
 import 'package:meta/meta.dart';
 
+// ignore: always_use_package_imports
+import 'i_flag_data_service.dart';
+
 /// A database of the player's progress
 abstract class IPlayerDataService {
   /// Returns the selected game language
@@ -27,7 +30,7 @@ abstract class IPlayerDataService {
   void resetAllCountryProgress();
 
   /// Initializes the database
-  Future<void> initialize();
+  Future<void> initialize({IFlagDataService flagDataService});
 
   /// Resyncs the database for a list of ids
   Future<void> resync({@required List<String> ids});

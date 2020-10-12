@@ -19,7 +19,11 @@ class Score extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Icon(Icons.star, color: color, size: fontSize * 1.5),
+        Icon(
+          Icons.star,
+          color: color,
+          size: fontSize * 1.5,
+        ),
         SizedBox(width: 2.0),
         Text(
           score.toString(),
