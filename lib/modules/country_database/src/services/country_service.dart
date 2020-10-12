@@ -4,7 +4,7 @@ import '../models/country.dart';
 
 part 'country_service.g.dart';
 
-class CountryService {
+abstract class CountryService {
   /// Returns all countries
   static List<Country> get countries => _countries;
 
@@ -13,8 +13,4 @@ class CountryService {
         (country) => country.id == id,
         orElse: () => null,
       );
-
-  /// Returns a selection of countries by ids
-  static List<Country> countriesWithIds(List<String> ids) =>
-      _countries.where((country) => ids.contains(country.id)).toList();
 }
