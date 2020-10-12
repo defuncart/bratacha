@@ -17,8 +17,22 @@ class FlagDataService implements IFlagDataService {
   /// Updates the progress for a given id
   @override
   void updateProgress({@required String id, @required bool answeredCorrectly}) {
-    _box.get(id).updateProgress(answeredCorrectly: answeredCorrectly);
-    _box.get(id).save();
+    try {
+      final flagData = flagDataWithId(id);
+      flagData.updateProgress(answeredCorrectly: answeredCorrectly);
+      flagData.save();
+    } catch (_) {}
+  }
+
+  @override
+  @visibleForTesting
+  FlagData flagDataWithId(String id) {
+    final flagData = _box.get(id);
+    if (flagData == null) {
+      throw Exception('FlagData with id $id does not exists!');
+    }
+
+    return flagData;
   }
 
   /// Initializes the database
@@ -50,6 +64,7 @@ class FlagDataService implements IFlagDataService {
     }
   }
 
+  // coverage:ignore-start
   /// DEBUG: Prints contents of db to the console
   @override
   void debugPrint() {
@@ -57,4 +72,5 @@ class FlagDataService implements IFlagDataService {
       print(flagData);
     }
   }
+  // coverage:ignore-end
 }

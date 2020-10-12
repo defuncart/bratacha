@@ -56,8 +56,8 @@ class PlayerDataService implements IPlayerDataService {
 
   /// Initializes the database
   @override
-  Future<void> initialize() async {
-    _flagDataService = FlagDataService();
+  Future<void> initialize({IFlagDataService flagDataService}) async {
+    _flagDataService = flagDataService ?? FlagDataService();
     await _flagDataService.initialize();
 
     _box = await Hive.openBox(_boxName);
@@ -71,6 +71,7 @@ class PlayerDataService implements IPlayerDataService {
   @override
   Future<void> reset() async => await _box.deleteAll(_box.keys);
 
+  // coverage:ignore-start
   /// DEBUG: Prints contents of db to the console
   @override
   void debugPrint() {
@@ -81,6 +82,7 @@ class PlayerDataService implements IPlayerDataService {
     _flagDataService.debugPrint();
     print('---------------------------');
   }
+  // coverage:ignore-end
 }
 
 /// A class of keys used to store values

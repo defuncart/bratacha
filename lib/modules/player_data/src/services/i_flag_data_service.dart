@@ -1,9 +1,17 @@
 import 'package:meta/meta.dart';
 
+// ignore: always_use_package_imports
+import '../models/flag_data.dart';
+
 /// A database of player's progress on flags
 abstract class IFlagDataService {
   /// Updates the progress for a given id
   void updateProgress({@required String id, @required bool answeredCorrectly});
+
+  /// Returns the [FlagData] for a given id.
+  @protected
+  @visibleForTesting
+  FlagData flagDataWithId(String id);
 
   /// Initializes the database
   Future<void> initialize();
