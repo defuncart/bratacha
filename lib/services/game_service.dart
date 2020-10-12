@@ -81,6 +81,7 @@ class GameService implements IGameService {
       }
     }
 
+    // TODO: When easy mode, this assumes that the number of countries is at least 8
     // randomly select flags from this level which weren't shown last round
     while (_countriesDisplayed.contains(-1)) {
       final randomIndex = _indecesCountriesForLevel[Random().nextInt(_indecesCountriesForLevel.length)];
