@@ -1,5 +1,6 @@
 import 'package:bratacha/intl/localizations.dart';
 import 'package:bratacha/managers/level_manager.dart';
+import 'package:bratacha/modules/dialog_manager/dialog_manager.dart';
 import 'package:bratacha/modules/player_data/player_data.dart';
 import 'package:bratacha/services/game_service.dart';
 import 'package:bratacha/services/i_game_service.dart';
@@ -58,7 +59,17 @@ class GameScreen extends StatelessWidget {
           appBar: AppBar(
             leading: IconButton(
               icon: Icon(Icons.close),
-              onPressed: () => Navigator.of(context).pushReplacementNamed(HomeScreen.routeName),
+              onPressed: () async {
+                final response = await context.repository<IDialogService>().requestConfirmDialog(ConfirmDialogRequest(
+                      title: AppLocalizations.quitGameDialogTitle,
+                      description: AppLocalizations.quitGameDialogDescription,
+                      negativeButtonText: AppLocalizations.generalNo,
+                      positiveButtonText: AppLocalizations.generalYes,
+                    ));
+                if (response == ConfirmDialogResponseType.positive) {
+                  await Navigator.of(context).pushReplacementNamed(HomeScreen.routeName);
+                }
+              },
             ),
             title: Text(AppLocalizations.generalLevelLabel(level: level + 1)),
             actions: [
