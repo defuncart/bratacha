@@ -9,6 +9,14 @@ abstract class AppThemes {
       elevation: 0,
     ),
     cardColor: _AppColors.card,
+    textButtonTheme: TextButtonThemeData(
+      style: TextButton.styleFrom(
+        primary: _AppColors.accent,
+      ),
+    ),
+    dialogTheme: DialogTheme(
+      backgroundColor: _AppColors.primary,
+    ),
   );
 }
 
