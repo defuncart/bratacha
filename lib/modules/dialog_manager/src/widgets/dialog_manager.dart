@@ -36,8 +36,8 @@ class _DialogManagerState extends State<DialogManager> {
   }
 
   @override
-  void dispose() async {
-    await _subscription.cancel();
+  void dispose() {
+    _subscription.cancel();
 
     super.dispose();
   }
@@ -61,14 +61,14 @@ class _DialogManagerState extends State<DialogManager> {
         TextButton(
           onPressed: () {
             responseType = ConfirmDialogResponseType.negative;
-            Navigator.of(context).pop(false);
+            Navigator.of(context).pop();
           },
           child: Text(request.negativeButtonText.toUpperCase()),
         ),
         TextButton(
           onPressed: () {
             responseType = ConfirmDialogResponseType.positive;
-            Navigator.of(context).pop(true);
+            Navigator.of(context).pop();
           },
           child: Text(request.positiveButtonText.toUpperCase()),
         ),

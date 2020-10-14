@@ -1,5 +1,7 @@
 import 'dart:async';
 
+import 'package:meta/meta.dart';
+
 // ignore_for_file: always_use_package_imports
 import '../enums/confirm_dialog_response_type.dart';
 import '../models/base_dialog_request.dart';
@@ -18,38 +20,29 @@ class DialogService implements IDialogService {
   Stream<BaseDialogRequest> get requestStream => _requestStreamController.stream;
 
   @override
-  Future<void> requestInformativeDialog() {
+  Future<void> requestInformativeDialog(InformativeDialogRequest request) {
     if (_isCurrentlyPresenting) {
       _dialogCompleter.completeError(Error());
     }
 
     _dialogCompleter = Completer();
-    _requestStreamController.add(InformativeDialogRequest(
-      title: 'A',
-      description: 'B',
-      buttonText: 'Ok',
-    ));
+    _requestStreamController.add(request);
     return _dialogCompleter.future;
   }
 
   @override
-  Future<ConfirmDialogResponseType> requestConfirmDialog() {
+  Future<ConfirmDialogResponseType> requestConfirmDialog(ConfirmDialogRequest request) {
     if (_isCurrentlyPresenting) {
       _dialogCompleter.completeError(Error());
     }
 
     _dialogCompleter = Completer<ConfirmDialogResponseType>();
-    _requestStreamController.add(ConfirmDialogRequest(
-      title: 'A',
-      description: 'B',
-      negativeButtonText: 'No',
-      positiveButtonText: 'Yes',
-    ));
+    _requestStreamController.add(request);
     return _dialogCompleter.future;
   }
 
   @override
-  void dialogClosedByUser({Type type, dynamic data}) {
+  void dialogClosedByUser({@required Type type, dynamic data}) {
     if (type == InformativeDialogRequest) {
       _dialogCompleter.complete();
     } else if (type == ConfirmDialogRequest) {
