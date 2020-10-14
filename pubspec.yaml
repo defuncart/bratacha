@@ -32,7 +32,6 @@ dev_dependencies:
   dart_code_coverage:
     git:
       url: https://github.com/defuncart/dart_code_coverage
-      ref: bugfix/add-main-to-generate-dart-file
 
 flutter:
   uses-material-design: true
