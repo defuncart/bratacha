@@ -15,36 +15,36 @@ void main() {
         await hiveWrapper(
             cleanUpOnSetUp: false,
             callback: () async {
-              final playerDataService = PlayerDataService();
-              await playerDataService.initialize();
-
-              expect(playerDataService.language, isNotNull);
-              expect(playerDataService.isHardDifficulty, isNotNull);
-              expect(playerDataService.score, isNotNull);
-
-              // language
-              playerDataService.language = 'de';
-              expect(playerDataService.language, 'de');
-
-              // isHardDifficulty
-              playerDataService.isHardDifficulty = true;
-              expect(playerDataService.isHardDifficulty, true);
-
-              // score
-              playerDataService.score = 100;
-              expect(playerDataService.score, 100);
-
-              // reset
-              await playerDataService.reset();
-              expect(playerDataService.language, isNot('de'));
-              expect(playerDataService.isHardDifficulty, isNot(true));
-              expect(playerDataService.score, isNot(100));
-
-              await playerDataService.resync(ids: ['de']);
+              final flagDataService = FlagDataService();
+              await flagDataService.initialize();
             });
 
-        final flagDataService = FlagDataService();
-        await flagDataService.initialize();
+        final playerDataService = PlayerDataService();
+        await playerDataService.initialize();
+
+        expect(playerDataService.language, isNotNull);
+        expect(playerDataService.isHardDifficulty, isNotNull);
+        expect(playerDataService.score, isNotNull);
+
+        // language
+        playerDataService.language = 'de';
+        expect(playerDataService.language, 'de');
+
+        // isHardDifficulty
+        playerDataService.isHardDifficulty = true;
+        expect(playerDataService.isHardDifficulty, true);
+
+        // score
+        playerDataService.score = 100;
+        expect(playerDataService.score, 100);
+
+        // reset
+        await playerDataService.reset();
+        expect(playerDataService.language, isNot('de'));
+        expect(playerDataService.isHardDifficulty, isNot(true));
+        expect(playerDataService.score, isNot(100));
+
+        await playerDataService.resync(ids: ['de']);
       },
     );
   });
