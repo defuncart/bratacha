@@ -1,5 +1,5 @@
 import 'package:bratacha/intl/localizations.dart';
-import 'package:bratacha/widgets/home_screen/settings_tab/language_cubit.dart';
+import 'package:bratacha/widgets/common/panels/language_panel/language_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
