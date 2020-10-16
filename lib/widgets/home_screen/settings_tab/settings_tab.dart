@@ -1,4 +1,5 @@
 import 'package:bratacha/intl/localizations.dart';
+import 'package:bratacha/modules/dialog_manager/dialog_manager.dart';
 import 'package:bratacha/modules/player_data/player_data.dart';
 import 'package:bratacha/widgets/home_screen/settings_tab/hard_difficulty_panel.dart';
 import 'package:bratacha/widgets/home_screen/settings_tab/language_panel.dart';
@@ -31,7 +32,17 @@ class SettingsTab extends StatelessWidget {
                 style: ButtonStyle(
                   backgroundColor: MaterialStateColor.resolveWith((states) => Theme.of(context).accentColor),
                 ),
-                onPressed: () => context.repository<IPlayerDataService>().reset(),
+                onPressed: () async {
+                  final response = await context.repository<IDialogService>().requestConfirmDialog(ConfirmDialogRequest(
+                        title: AppLocalizations.resetProgressDialogTitle,
+                        description: AppLocalizations.resetProgressDialogDescription,
+                        negativeButtonText: AppLocalizations.generalNo,
+                        positiveButtonText: AppLocalizations.generalYes,
+                      ));
+                  if (response == ConfirmDialogResponseType.positive) {
+                    await context.repository<IPlayerDataService>().reset();
+                  }
+                },
                 child: Text(
                   AppLocalizations.settingsTabResetProgressLabel,
                   style: TextStyle(color: Theme.of(context).scaffoldBackgroundColor),

@@ -4,6 +4,7 @@ import 'package:bratacha/intl/cy_material_localizations.dart';
 import 'package:bratacha/intl/ga_material_localizations.dart';
 import 'package:bratacha/intl/localizations.dart';
 import 'package:bratacha/managers/level_manager.dart';
+import 'package:bratacha/modules/dialog_manager/dialog_manager.dart';
 import 'package:bratacha/modules/player_data/player_data.dart';
 import 'package:bratacha/widgets/game_screen/game_screen.dart';
 import 'package:bratacha/widgets/home_screen/home_screen.dart';
@@ -24,6 +25,9 @@ class MyApp extends StatelessWidget {
         RepositoryProvider<LevelManager>(
           create: (_) => LevelManager(_.repository<IPlayerDataService>()),
         ),
+        RepositoryProvider<IDialogService>(
+          create: (_) => DialogService(),
+        ),
       ],
       child: MultiBlocProvider(
         providers: [
@@ -36,6 +40,14 @@ class MyApp extends StatelessWidget {
         ],
         child: BlocBuilder<LanguageCubit, String>(
           builder: (_, language) => MaterialApp(
+            builder: (context, widget) => Navigator(
+              onGenerateRoute: (settings) => MaterialPageRoute(
+                builder: (context) => DialogManager(
+                  dialogService: context.repository<IDialogService>(),
+                  child: widget,
+                ),
+              ),
+            ),
             localizationsDelegates: [
               const AppLocalizationsDelegate(),
               const CountryLocalizationsDelegate(),

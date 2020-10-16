@@ -35,6 +35,21 @@ class AppLocalizations {
   static String get settingsTabResetProgressLabel =>
       _getText('settingsTabResetProgressLabel');
 
+  static String get resetProgressDialogTitle =>
+      _getText('resetProgressDialogTitle');
+
+  static String get resetProgressDialogDescription =>
+      _getText('resetProgressDialogDescription');
+
+  static String get generalNo => _getText('generalNo');
+
+  static String get generalYes => _getText('generalYes');
+
+  static String get quitGameDialogTitle => _getText('quitGameDialogTitle');
+
+  static String get quitGameDialogDescription =>
+      _getText('quitGameDialogDescription');
+
   static Map<String, String> _localizedValues;
 
   static Map<String, String> _enValues = {
@@ -46,6 +61,13 @@ class AppLocalizations {
     'settingsTabLanguageLabel': 'Language',
     'settingsTabDifficultyLabel': 'Hard Difficulty',
     'settingsTabResetProgressLabel': 'Reset Progress',
+    'resetProgressDialogTitle': 'Reset progress?',
+    'resetProgressDialogDescription':
+        'Your progress will be permantely deleted and cannot be recovered.',
+    'generalNo': 'No',
+    'generalYes': 'Yes',
+    'quitGameDialogTitle': 'Quit Game?',
+    'quitGameDialogDescription': 'Your current progress will be lost.',
   };
 
   static Map<String, String> _beValues = {
@@ -57,6 +79,13 @@ class AppLocalizations {
     'settingsTabLanguageLabel': 'Мова',
     'settingsTabDifficultyLabel': 'Складаная складанасць',
     'settingsTabResetProgressLabel': 'Скід прагрэсу',
+    'resetProgressDialogTitle': 'Reset progress?',
+    'resetProgressDialogDescription':
+        'Your progress will be permantely deleted and cannot be recovered.',
+    'generalNo': 'Не',
+    'generalYes': 'Так',
+    'quitGameDialogTitle': 'Quit Game?',
+    'quitGameDialogDescription': 'Your current progress will be lost.',
   };
 
   static Map<String, String> _cyValues = {
@@ -68,6 +97,13 @@ class AppLocalizations {
     'settingsTabLanguageLabel': 'Language',
     'settingsTabDifficultyLabel': 'Hard Difficulty',
     'settingsTabResetProgressLabel': 'Reset Progress',
+    'resetProgressDialogTitle': 'Reset progress?',
+    'resetProgressDialogDescription':
+        'Your progress will be permantely deleted and cannot be recovered.',
+    'generalNo': 'Na',
+    'generalYes': 'Ie',
+    'quitGameDialogTitle': 'Quit Game?',
+    'quitGameDialogDescription': 'Your current progress will be lost.',
   };
 
   static Map<String, String> _gaValues = {
@@ -79,6 +115,13 @@ class AppLocalizations {
     'settingsTabLanguageLabel': 'Language',
     'settingsTabDifficultyLabel': 'Hard Difficulty',
     'settingsTabResetProgressLabel': 'Reset Progress',
+    'resetProgressDialogTitle': ' ',
+    'resetProgressDialogDescription':
+        'Your progress will be permantely deleted and cannot be recovered.',
+    'generalNo': 'No',
+    'generalYes': 'Yes',
+    'quitGameDialogTitle': 'Quit Game?',
+    'quitGameDialogDescription': 'Your current progress will be lost.',
   };
 
   static Map<String, Map<String, String>> _allValues = {

@@ -1,0 +1,4 @@
+enum ConfirmDialogResponseType {
+  positive,
+  negative,
+}
