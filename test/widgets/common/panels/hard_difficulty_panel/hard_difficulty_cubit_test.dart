@@ -1,6 +1,6 @@
 import 'package:bloc_test/bloc_test.dart';
 import 'package:bratacha/modules/player_data/player_data.dart';
-import 'package:bratacha/widgets/home_screen/settings_tab/hard_difficulty_cubit.dart';
+import 'package:bratacha/widgets/common/panels/hard_difficulty_panel/hard_difficulty_cubit.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 

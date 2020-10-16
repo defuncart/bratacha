@@ -1,7 +1,7 @@
 import 'package:bratacha/intl/localizations.dart';
 import 'package:bratacha/modules/player_data/player_data.dart';
-import 'package:bratacha/widgets/home_screen/settings_tab/hard_difficulty_cubit.dart';
-import 'package:bratacha/widgets/home_screen/settings_tab/hard_difficulty_panel.dart';
+import 'package:bratacha/widgets/common/panels/hard_difficulty_panel/hard_difficulty_cubit.dart';
+import 'package:bratacha/widgets/common/panels/hard_difficulty_panel/hard_difficulty_panel.dart';
 import 'package:bratacha/widgets/home_screen/settings_tab/language_cubit.dart';
 import 'package:bratacha/widgets/home_screen/settings_tab/language_panel.dart';
 import 'package:bratacha/widgets/home_screen/settings_tab/settings_tab.dart';
