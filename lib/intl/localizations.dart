@@ -9,6 +9,8 @@ import 'package:flutter/material.dart';
 class AppLocalizations {
   static String get test => _getText('test');
 
+  static String get generalContinue => _getText('generalContinue');
+
   static String generalLevelLabel({
     @required int level,
   }) {
@@ -54,6 +56,7 @@ class AppLocalizations {
 
   static Map<String, String> _enValues = {
     'test': 'Hello World!',
+    'generalContinue': 'Continue',
     'generalLevelLabel': 'Level %level\$d',
     'homeTabLabelText': 'Home',
     'homeTabLeanFlagsButtonText': 'See all flags',
@@ -72,6 +75,7 @@ class AppLocalizations {
 
   static Map<String, String> _beValues = {
     'test': 'Здароўствуй свет!',
+    'generalContinue': 'Continue',
     'generalLevelLabel': 'Level %level\$d',
     'homeTabLabelText': 'Галоўная',
     'homeTabLeanFlagsButtonText': 'See all flags',
@@ -90,6 +94,7 @@ class AppLocalizations {
 
   static Map<String, String> _cyValues = {
     'test': 'Helo Byd!',
+    'generalContinue': 'Continue',
     'generalLevelLabel': 'Level %level\$d',
     'homeTabLabelText': 'Home',
     'homeTabLeanFlagsButtonText': 'See all flags',
@@ -108,6 +113,7 @@ class AppLocalizations {
 
   static Map<String, String> _gaValues = {
     'test': 'Dia duit domhan!',
+    'generalContinue': 'Continue',
     'generalLevelLabel': 'Level %level\$d',
     'homeTabLabelText': 'Home',
     'homeTabLeanFlagsButtonText': 'See all flags',

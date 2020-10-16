@@ -1,5 +1,6 @@
 key;en;be;cy;ga
 test;Hello World!;Здароўствуй свет!;Helo Byd!;Dia duit domhan!
+generalContinue;Continue;;;
 generalLevelLabel;Level %level$d;;;
 homeTabLabelText;Home;Галоўная;;
 homeTabLeanFlagsButtonText;See all flags;;;
