@@ -72,6 +72,12 @@ class AppLocalizations {
 
   static String get developerPanelLabel => _getText('developerPanelLabel');
 
+  static String get dataPrivacyPanelLabel1 =>
+      _getText('dataPrivacyPanelLabel1');
+
+  static String get dataPrivacyPanelLabel2 =>
+      _getText('dataPrivacyPanelLabel2');
+
   static Map<String, String> _localizedValues;
 
   static Map<String, String> _enValues = {
@@ -102,6 +108,10 @@ class AppLocalizations {
         'Earn extra points by enabling hard difficulty!',
     'developerPanelLabel':
         'Developed with \u2764 in Berlin. [Source Code](https://github.com/defuncart/bratacha).',
+    'dataPrivacyPanelLabel1':
+        'By using this application, you agree to the terms and conditions stated in the [privacy policy](https://github.com/defuncart/bratacha/blob/master/privacy_policy.md).',
+    'dataPrivacyPanelLabel2':
+        'No data is collected on how you use the app, nor is any data sent onto third parties.',
   };
 
   static Map<String, String> _beValues = {
@@ -132,6 +142,10 @@ class AppLocalizations {
         'Earn extra points by enabling hard difficulty!',
     'developerPanelLabel':
         'Developed with \u2764 in Berlin. [Source Code](https://github.com/defuncart/bratacha).',
+    'dataPrivacyPanelLabel1':
+        'By using this application, you agree to the terms and conditions stated in the [privacy policy](https://github.com/defuncart/bratacha/blob/master/privacy_policy.md).',
+    'dataPrivacyPanelLabel2':
+        'No data is collected on how you use the app, nor is any data sent onto third parties.',
   };
 
   static Map<String, String> _cyValues = {
@@ -162,6 +176,10 @@ class AppLocalizations {
         'Earn extra points by enabling hard difficulty!',
     'developerPanelLabel':
         'Developed with \u2764 in Berlin. [Source Code](https://github.com/defuncart/bratacha).',
+    'dataPrivacyPanelLabel1':
+        'By using this application, you agree to the terms and conditions stated in the [privacy policy](https://github.com/defuncart/bratacha/blob/master/privacy_policy.md).',
+    'dataPrivacyPanelLabel2':
+        'No data is collected on how you use the app, nor is any data sent onto third parties.',
   };
 
   static Map<String, String> _gaValues = {
@@ -192,6 +210,10 @@ class AppLocalizations {
         'Earn extra points by enabling hard difficulty!',
     'developerPanelLabel':
         'Developed with \u2764 in Berlin. [Source Code](https://github.com/defuncart/bratacha).',
+    'dataPrivacyPanelLabel1':
+        'By using this application, you agree to the terms and conditions stated in the [privacy policy](https://github.com/defuncart/bratacha/blob/master/privacy_policy.md).',
+    'dataPrivacyPanelLabel2':
+        'No data is collected on how you use the app, nor is any data sent onto third parties.',
   };
 
   static Map<String, Map<String, String>> _allValues = {

@@ -21,3 +21,5 @@ onboardingGeneralSettingLabel;This can be changed anything in the settings menu.
 onboardingPage2TextLabel1;Fancy a challenge?;;;
 onboardingPage2TextLabel2;Earn extra points by enabling hard difficulty!;;;
 developerPanelLabel;Developed with \u2764 in Berlin. [Source Code](https://github.com/defuncart/bratacha).;;;
+dataPrivacyPanelLabel1;By using this application, you agree to the terms and conditions stated in the [privacy policy](https://github.com/defuncart/bratacha/blob/master/privacy_policy.md).;;;
+dataPrivacyPanelLabel2;No data is collected on how you use the app, nor is any data sent onto third parties.;;;
