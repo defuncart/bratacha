@@ -64,6 +64,12 @@ class AppLocalizations {
   static String get onboardingGeneralSettingLabel =>
       _getText('onboardingGeneralSettingLabel');
 
+  static String get onboardingPage2TextLabel1 =>
+      _getText('onboardingPage2TextLabel1');
+
+  static String get onboardingPage2TextLabel2 =>
+      _getText('onboardingPage2TextLabel2');
+
   static Map<String, String> _localizedValues;
 
   static Map<String, String> _enValues = {
@@ -89,6 +95,9 @@ class AppLocalizations {
     'onboardingPage1TextLabel3': 'What language would you like to use?',
     'onboardingGeneralSettingLabel':
         'This can be changed anything in the settings menu.',
+    'onboardingPage2TextLabel1': 'Fancy a challenge?',
+    'onboardingPage2TextLabel2':
+        'Earn extra points by enabling hard difficulty!',
   };
 
   static Map<String, String> _beValues = {
@@ -114,6 +123,9 @@ class AppLocalizations {
     'onboardingPage1TextLabel3': 'What language would you like to use?',
     'onboardingGeneralSettingLabel':
         'This can be changed anything in the settings menu.',
+    'onboardingPage2TextLabel1': 'Fancy a challenge?',
+    'onboardingPage2TextLabel2':
+        'Earn extra points by enabling hard difficulty!',
   };
 
   static Map<String, String> _cyValues = {
@@ -139,6 +151,9 @@ class AppLocalizations {
     'onboardingPage1TextLabel3': 'What language would you like to use?',
     'onboardingGeneralSettingLabel':
         'This can be changed anything in the settings menu.',
+    'onboardingPage2TextLabel1': 'Fancy a challenge?',
+    'onboardingPage2TextLabel2':
+        'Earn extra points by enabling hard difficulty!',
   };
 
   static Map<String, String> _gaValues = {
@@ -164,6 +179,9 @@ class AppLocalizations {
     'onboardingPage1TextLabel3': 'What language would you like to use?',
     'onboardingGeneralSettingLabel':
         'This can be changed anything in the settings menu.',
+    'onboardingPage2TextLabel1': 'Fancy a challenge?',
+    'onboardingPage2TextLabel2':
+        'Earn extra points by enabling hard difficulty!',
   };
 
   static Map<String, Map<String, String>> _allValues = {
