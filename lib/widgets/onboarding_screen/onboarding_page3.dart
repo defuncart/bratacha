@@ -1,3 +1,6 @@
+import 'package:bratacha/intl/localizations.dart';
+import 'package:bratacha/widgets/common/panels/data_privacy_panel.dart';
+import 'package:bratacha/widgets/common/panels/developer_panel.dart';
 import 'package:flutter/material.dart';
 
 class OnboardingPage3 extends StatelessWidget {
@@ -6,12 +9,14 @@ class OnboardingPage3 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        Center(
-          child: Text(
-            'Page3',
-          ),
-        ),
+        Text(AppLocalizations.onboardingPage3TextLabel1),
+        Text(AppLocalizations.onboardingPage3TextLabel2),
+        Text(AppLocalizations.onboardingPage3TextLabel3),
+        DataPrivacyPanel(),
+        DeveloperPanel(),
       ],
     );
   }

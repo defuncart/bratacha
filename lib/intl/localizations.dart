@@ -70,6 +70,15 @@ class AppLocalizations {
   static String get onboardingPage2TextLabel2 =>
       _getText('onboardingPage2TextLabel2');
 
+  static String get onboardingPage3TextLabel1 =>
+      _getText('onboardingPage3TextLabel1');
+
+  static String get onboardingPage3TextLabel2 =>
+      _getText('onboardingPage3TextLabel2');
+
+  static String get onboardingPage3TextLabel3 =>
+      _getText('onboardingPage3TextLabel3');
+
   static String get developerPanelLabel => _getText('developerPanelLabel');
 
   static String get dataPrivacyPanelLabel1 =>
@@ -106,6 +115,12 @@ class AppLocalizations {
     'onboardingPage2TextLabel1': 'Fancy a challenge?',
     'onboardingPage2TextLabel2':
         'Earn extra points by enabling hard difficulty!',
+    'onboardingPage3TextLabel1':
+        'Bratacha is an open source project targeting languages which are often ignored within the flag quiz space.',
+    'onboardingPage3TextLabel2':
+        'If you\'d like to help translating the app into Irish/Welsh/Belarusian, please get in touch! Likewise if you\'d like to work on another language!',
+    'onboardingPage3TextLabel3':
+        'As the game is presently in development, all content is subject to change. Your feedback is greatly appreciated!',
     'developerPanelLabel':
         'Developed with \u2764 in Berlin. [Source Code](https://github.com/defuncart/bratacha).',
     'dataPrivacyPanelLabel1':
@@ -140,6 +155,12 @@ class AppLocalizations {
     'onboardingPage2TextLabel1': 'Fancy a challenge?',
     'onboardingPage2TextLabel2':
         'Earn extra points by enabling hard difficulty!',
+    'onboardingPage3TextLabel1':
+        'Bratacha is an open source project targeting languages which are often ignored within the flag quiz space.',
+    'onboardingPage3TextLabel2':
+        'If you\'d like to help translating the app into Irish/Welsh/Belarusian, please get in touch! Likewise if you\'d like to work on another language!',
+    'onboardingPage3TextLabel3':
+        'As the game is presently in development, all content is subject to change. Your feedback is greatly appreciated!',
     'developerPanelLabel':
         'Developed with \u2764 in Berlin. [Source Code](https://github.com/defuncart/bratacha).',
     'dataPrivacyPanelLabel1':
@@ -174,6 +195,12 @@ class AppLocalizations {
     'onboardingPage2TextLabel1': 'Fancy a challenge?',
     'onboardingPage2TextLabel2':
         'Earn extra points by enabling hard difficulty!',
+    'onboardingPage3TextLabel1':
+        'Bratacha is an open source project targeting languages which are often ignored within the flag quiz space.',
+    'onboardingPage3TextLabel2':
+        'If you\'d like to help translating the app into Irish/Welsh/Belarusian, please get in touch! Likewise if you\'d like to work on another language!',
+    'onboardingPage3TextLabel3':
+        'As the game is presently in development, all content is subject to change. Your feedback is greatly appreciated!',
     'developerPanelLabel':
         'Developed with \u2764 in Berlin. [Source Code](https://github.com/defuncart/bratacha).',
     'dataPrivacyPanelLabel1':
@@ -208,6 +235,12 @@ class AppLocalizations {
     'onboardingPage2TextLabel1': 'Fancy a challenge?',
     'onboardingPage2TextLabel2':
         'Earn extra points by enabling hard difficulty!',
+    'onboardingPage3TextLabel1':
+        'Bratacha is an open source project targeting languages which are often ignored within the flag quiz space.',
+    'onboardingPage3TextLabel2':
+        'If you\'d like to help translating the app into Irish/Welsh/Belarusian, please get in touch! Likewise if you\'d like to work on another language!',
+    'onboardingPage3TextLabel3':
+        'As the game is presently in development, all content is subject to change. Your feedback is greatly appreciated!',
     'developerPanelLabel':
         'Developed with \u2764 in Berlin. [Source Code](https://github.com/defuncart/bratacha).',
     'dataPrivacyPanelLabel1':
