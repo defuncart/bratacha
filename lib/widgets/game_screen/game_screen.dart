@@ -4,9 +4,9 @@ import 'package:bratacha/modules/dialog_manager/dialog_manager.dart';
 import 'package:bratacha/modules/player_data/player_data.dart';
 import 'package:bratacha/services/game_service.dart';
 import 'package:bratacha/services/i_game_service.dart';
-import 'package:bratacha/widgets/common/flag.dart';
 import 'package:bratacha/widgets/common/score.dart';
 import 'package:bratacha/widgets/game_screen/answers_cubit.dart';
+import 'package:bratacha/widgets/game_screen/question_answer_panel.dart';
 import 'package:bratacha/widgets/game_screen/question_cubit.dart';
 import 'package:bratacha/widgets/game_screen/score_cubit.dart';
 import 'package:bratacha/widgets/home_screen/home_screen.dart';
@@ -94,62 +94,6 @@ class GameScreen extends StatelessWidget {
           ),
         ),
       ),
-    );
-  }
-}
-
-class QuestionAnswerPanel extends StatelessWidget {
-  const QuestionAnswerPanel({Key key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        SizedBox(height: 16.0),
-        BlocBuilder<QuestionCubit, String>(
-          builder: (_, question) => Expanded(
-            child: Center(
-              child: Text(
-                question,
-                style: Theme.of(context).textTheme.headline3,
-                textAlign: TextAlign.center,
-              ),
-            ),
-          ),
-        ),
-        BlocBuilder<AnswersCubit, List<String>>(
-          builder: (_, answers) => LayoutBuilder(
-            builder: (_, constraints) {
-              final size = (constraints.maxWidth - 16.0 - 16.0 - 16.0) / 2;
-
-              return Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Wrap(
-                  spacing: 16.0,
-                  runSpacing: 16.0,
-                  children: [
-                    for (final id in answers)
-                      GestureDetector(
-                        child: Flag(
-                          id,
-                          width: size,
-                          height: size,
-                        ),
-                        onTap: () {
-                          final gameService = context.repository<IGameService>();
-                          gameService.answerWithId(id);
-                          if (gameService.levelCompleted) {
-                            Navigator.of(context).pushReplacementNamed(HomeScreen.routeName);
-                          }
-                        },
-                      ),
-                  ],
-                ),
-              );
-            },
-          ),
-        ),
-      ],
     );
   }
 }
