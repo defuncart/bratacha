@@ -1,5 +1,7 @@
 key;en;be;cy;ga
 test;Hello World!;Здароўствуй свет!;Helo Byd!;Dia duit domhan!
+generalNo;No;Не;Na;
+generalYes;Yes;Так;Ie;
 generalContinue;Continue;;;
 generalLevelLabel;Level %level$d;;;
 homeTabLabelText;Home;Галоўная;;
@@ -10,7 +12,9 @@ settingsTabResetProgressLabel;Reset Progress;Скід прагрэсу;;
 hardDifficultyPanelLabel;Hard Difficulty;Складаная складанасць;;
 resetProgressDialogTitle;Reset progress?;;; 
 resetProgressDialogDescription;Your progress will be permantely deleted and cannot be recovered.;;;
-generalNo;No;Не;Na;
-generalYes;Yes;Так;Ie;
 quitGameDialogTitle;Quit Game?;;;
 quitGameDialogDescription;Your current progress will be lost.;;;
+onboardingPage1TextLabel1;Bratacha;;;
+onboardingPage1TextLabel2;A fun flag quiz game with an emphasis on often overlooked languages.;;;
+onboardingPage1TextLabel3;What language would you like to use?;;;
+onboardingGeneralSettingLabel;This can be changed anything in the settings menu.;;;

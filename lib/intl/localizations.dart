@@ -9,6 +9,10 @@ import 'package:flutter/material.dart';
 class AppLocalizations {
   static String get test => _getText('test');
 
+  static String get generalNo => _getText('generalNo');
+
+  static String get generalYes => _getText('generalYes');
+
   static String get generalContinue => _getText('generalContinue');
 
   static String generalLevelLabel({
@@ -43,19 +47,29 @@ class AppLocalizations {
   static String get resetProgressDialogDescription =>
       _getText('resetProgressDialogDescription');
 
-  static String get generalNo => _getText('generalNo');
-
-  static String get generalYes => _getText('generalYes');
-
   static String get quitGameDialogTitle => _getText('quitGameDialogTitle');
 
   static String get quitGameDialogDescription =>
       _getText('quitGameDialogDescription');
 
+  static String get onboardingPage1TextLabel1 =>
+      _getText('onboardingPage1TextLabel1');
+
+  static String get onboardingPage1TextLabel2 =>
+      _getText('onboardingPage1TextLabel2');
+
+  static String get onboardingPage1TextLabel3 =>
+      _getText('onboardingPage1TextLabel3');
+
+  static String get onboardingGeneralSettingLabel =>
+      _getText('onboardingGeneralSettingLabel');
+
   static Map<String, String> _localizedValues;
 
   static Map<String, String> _enValues = {
     'test': 'Hello World!',
+    'generalNo': 'No',
+    'generalYes': 'Yes',
     'generalContinue': 'Continue',
     'generalLevelLabel': 'Level %level\$d',
     'homeTabLabelText': 'Home',
@@ -67,14 +81,20 @@ class AppLocalizations {
     'resetProgressDialogTitle': 'Reset progress?',
     'resetProgressDialogDescription':
         'Your progress will be permantely deleted and cannot be recovered.',
-    'generalNo': 'No',
-    'generalYes': 'Yes',
     'quitGameDialogTitle': 'Quit Game?',
     'quitGameDialogDescription': 'Your current progress will be lost.',
+    'onboardingPage1TextLabel1': 'Bratacha',
+    'onboardingPage1TextLabel2':
+        'A fun flag quiz game with an emphasis on often overlooked languages.',
+    'onboardingPage1TextLabel3': 'What language would you like to use?',
+    'onboardingGeneralSettingLabel':
+        'This can be changed anything in the settings menu.',
   };
 
   static Map<String, String> _beValues = {
     'test': 'Здароўствуй свет!',
+    'generalNo': 'Не',
+    'generalYes': 'Так',
     'generalContinue': 'Continue',
     'generalLevelLabel': 'Level %level\$d',
     'homeTabLabelText': 'Галоўная',
@@ -86,14 +106,20 @@ class AppLocalizations {
     'resetProgressDialogTitle': 'Reset progress?',
     'resetProgressDialogDescription':
         'Your progress will be permantely deleted and cannot be recovered.',
-    'generalNo': 'Не',
-    'generalYes': 'Так',
     'quitGameDialogTitle': 'Quit Game?',
     'quitGameDialogDescription': 'Your current progress will be lost.',
+    'onboardingPage1TextLabel1': 'Bratacha',
+    'onboardingPage1TextLabel2':
+        'A fun flag quiz game with an emphasis on often overlooked languages.',
+    'onboardingPage1TextLabel3': 'What language would you like to use?',
+    'onboardingGeneralSettingLabel':
+        'This can be changed anything in the settings menu.',
   };
 
   static Map<String, String> _cyValues = {
     'test': 'Helo Byd!',
+    'generalNo': 'Na',
+    'generalYes': 'Ie',
     'generalContinue': 'Continue',
     'generalLevelLabel': 'Level %level\$d',
     'homeTabLabelText': 'Home',
@@ -105,14 +131,20 @@ class AppLocalizations {
     'resetProgressDialogTitle': 'Reset progress?',
     'resetProgressDialogDescription':
         'Your progress will be permantely deleted and cannot be recovered.',
-    'generalNo': 'Na',
-    'generalYes': 'Ie',
     'quitGameDialogTitle': 'Quit Game?',
     'quitGameDialogDescription': 'Your current progress will be lost.',
+    'onboardingPage1TextLabel1': 'Bratacha',
+    'onboardingPage1TextLabel2':
+        'A fun flag quiz game with an emphasis on often overlooked languages.',
+    'onboardingPage1TextLabel3': 'What language would you like to use?',
+    'onboardingGeneralSettingLabel':
+        'This can be changed anything in the settings menu.',
   };
 
   static Map<String, String> _gaValues = {
     'test': 'Dia duit domhan!',
+    'generalNo': 'No',
+    'generalYes': 'Yes',
     'generalContinue': 'Continue',
     'generalLevelLabel': 'Level %level\$d',
     'homeTabLabelText': 'Home',
@@ -124,10 +156,14 @@ class AppLocalizations {
     'resetProgressDialogTitle': ' ',
     'resetProgressDialogDescription':
         'Your progress will be permantely deleted and cannot be recovered.',
-    'generalNo': 'No',
-    'generalYes': 'Yes',
     'quitGameDialogTitle': 'Quit Game?',
     'quitGameDialogDescription': 'Your current progress will be lost.',
+    'onboardingPage1TextLabel1': 'Bratacha',
+    'onboardingPage1TextLabel2':
+        'A fun flag quiz game with an emphasis on often overlooked languages.',
+    'onboardingPage1TextLabel3': 'What language would you like to use?',
+    'onboardingGeneralSettingLabel':
+        'This can be changed anything in the settings menu.',
   };
 
   static Map<String, Map<String, String>> _allValues = {

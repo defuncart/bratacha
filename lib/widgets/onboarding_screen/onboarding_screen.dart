@@ -32,37 +32,35 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(8.0),
-          child: Stack(
+          child: Column(
             children: <Widget>[
-              _pages[_index],
-              Positioned(
-                child: Align(
-                  alignment: FractionalOffset.bottomCenter,
-                  child: ElevatedButton(
-                    style: ButtonStyle(
-                      backgroundColor: MaterialStateColor.resolveWith((states) => Theme.of(context).accentColor),
-                      minimumSize: MaterialStateProperty.all(
-                        Size(
-                          MediaQuery.of(context).size.width * 0.5,
-                          40,
-                        ),
-                      ),
+              Expanded(
+                child: _pages[_index],
+              ),
+              SizedBox(height: 16),
+              ElevatedButton(
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateColor.resolveWith((states) => Theme.of(context).accentColor),
+                  minimumSize: MaterialStateProperty.all(
+                    Size(
+                      MediaQuery.of(context).size.width * 0.5,
+                      40,
                     ),
-                    child: Text(
-                      AppLocalizations.generalContinue,
-                      style: TextStyle(
-                        color: Theme.of(context).scaffoldBackgroundColor,
-                        fontSize: 20,
-                      ),
-                    ),
-                    onPressed: _isLastPage
-                        ? () {
-                            context.repository<ISettingsDatabase>().hasSeenOnboarding = true;
-                            Navigator.of(context).pushReplacementNamed(HomeScreen.routeName);
-                          }
-                        : () => setState(() => _index++),
                   ),
                 ),
+                child: Text(
+                  AppLocalizations.generalContinue,
+                  style: TextStyle(
+                    color: Theme.of(context).scaffoldBackgroundColor,
+                    fontSize: 20,
+                  ),
+                ),
+                onPressed: _isLastPage
+                    ? () {
+                        context.repository<ISettingsDatabase>().hasSeenOnboarding = true;
+                        Navigator.of(context).pushReplacementNamed(HomeScreen.routeName);
+                      }
+                    : () => setState(() => _index++),
               ),
             ],
           ),
