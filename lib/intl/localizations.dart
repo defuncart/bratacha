@@ -70,6 +70,8 @@ class AppLocalizations {
   static String get onboardingPage2TextLabel2 =>
       _getText('onboardingPage2TextLabel2');
 
+  static String get developerPanelLabel => _getText('developerPanelLabel');
+
   static Map<String, String> _localizedValues;
 
   static Map<String, String> _enValues = {
@@ -98,6 +100,8 @@ class AppLocalizations {
     'onboardingPage2TextLabel1': 'Fancy a challenge?',
     'onboardingPage2TextLabel2':
         'Earn extra points by enabling hard difficulty!',
+    'developerPanelLabel':
+        'Developed with \u2764 in Berlin. [Source Code](https://github.com/defuncart/bratacha).',
   };
 
   static Map<String, String> _beValues = {
@@ -126,6 +130,8 @@ class AppLocalizations {
     'onboardingPage2TextLabel1': 'Fancy a challenge?',
     'onboardingPage2TextLabel2':
         'Earn extra points by enabling hard difficulty!',
+    'developerPanelLabel':
+        'Developed with \u2764 in Berlin. [Source Code](https://github.com/defuncart/bratacha).',
   };
 
   static Map<String, String> _cyValues = {
@@ -154,6 +160,8 @@ class AppLocalizations {
     'onboardingPage2TextLabel1': 'Fancy a challenge?',
     'onboardingPage2TextLabel2':
         'Earn extra points by enabling hard difficulty!',
+    'developerPanelLabel':
+        'Developed with \u2764 in Berlin. [Source Code](https://github.com/defuncart/bratacha).',
   };
 
   static Map<String, String> _gaValues = {
@@ -182,6 +190,8 @@ class AppLocalizations {
     'onboardingPage2TextLabel1': 'Fancy a challenge?',
     'onboardingPage2TextLabel2':
         'Earn extra points by enabling hard difficulty!',
+    'developerPanelLabel':
+        'Developed with \u2764 in Berlin. [Source Code](https://github.com/defuncart/bratacha).',
   };
 
   static Map<String, Map<String, String>> _allValues = {
