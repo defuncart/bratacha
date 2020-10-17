@@ -31,11 +31,11 @@ class AppLocalizations {
   static String get settingsTabLanguageLabel =>
       _getText('settingsTabLanguageLabel');
 
-  static String get settingsTabDifficultyLabel =>
-      _getText('settingsTabDifficultyLabel');
-
   static String get settingsTabResetProgressLabel =>
       _getText('settingsTabResetProgressLabel');
+
+  static String get hardDifficultyPanelLabel =>
+      _getText('hardDifficultyPanelLabel');
 
   static String get resetProgressDialogTitle =>
       _getText('resetProgressDialogTitle');
@@ -62,8 +62,8 @@ class AppLocalizations {
     'homeTabLeanFlagsButtonText': 'See all flags',
     'settingsTabLabelText': 'Settings',
     'settingsTabLanguageLabel': 'Language',
-    'settingsTabDifficultyLabel': 'Hard Difficulty',
     'settingsTabResetProgressLabel': 'Reset Progress',
+    'hardDifficultyPanelLabel': 'Hard Difficulty',
     'resetProgressDialogTitle': 'Reset progress?',
     'resetProgressDialogDescription':
         'Your progress will be permantely deleted and cannot be recovered.',
@@ -81,8 +81,8 @@ class AppLocalizations {
     'homeTabLeanFlagsButtonText': 'See all flags',
     'settingsTabLabelText': 'Налады',
     'settingsTabLanguageLabel': 'Мова',
-    'settingsTabDifficultyLabel': 'Складаная складанасць',
     'settingsTabResetProgressLabel': 'Скід прагрэсу',
+    'hardDifficultyPanelLabel': 'Складаная складанасць',
     'resetProgressDialogTitle': 'Reset progress?',
     'resetProgressDialogDescription':
         'Your progress will be permantely deleted and cannot be recovered.',
@@ -99,9 +99,9 @@ class AppLocalizations {
     'homeTabLabelText': 'Home',
     'homeTabLeanFlagsButtonText': 'See all flags',
     'settingsTabLabelText': 'Settings',
-    'settingsTabLanguageLabel': 'Language',
-    'settingsTabDifficultyLabel': 'Hard Difficulty',
+    'settingsTabLanguageLabel': 'Iaith',
     'settingsTabResetProgressLabel': 'Reset Progress',
+    'hardDifficultyPanelLabel': 'Hard Difficulty',
     'resetProgressDialogTitle': 'Reset progress?',
     'resetProgressDialogDescription':
         'Your progress will be permantely deleted and cannot be recovered.',
@@ -118,9 +118,9 @@ class AppLocalizations {
     'homeTabLabelText': 'Home',
     'homeTabLeanFlagsButtonText': 'See all flags',
     'settingsTabLabelText': 'Settings',
-    'settingsTabLanguageLabel': 'Language',
-    'settingsTabDifficultyLabel': 'Hard Difficulty',
+    'settingsTabLanguageLabel': 'Teanga',
     'settingsTabResetProgressLabel': 'Reset Progress',
+    'hardDifficultyPanelLabel': 'Hard Difficulty',
     'resetProgressDialogTitle': ' ',
     'resetProgressDialogDescription':
         'Your progress will be permantely deleted and cannot be recovered.',

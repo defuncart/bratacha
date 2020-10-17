@@ -35,8 +35,9 @@ void main() {
     expect(find.byType(Scaffold), findsOneWidget);
     expect(find.byType(AppBar), findsOneWidget);
     expect(find.byType(Column), findsOneWidget);
-    expect(find.byType(HardDifficultyPanel), findsOneWidget);
+    expect(find.text(AppLocalizations.settingsTabLanguageLabel), findsOneWidget);
     expect(find.byType(LanguagePanel), findsOneWidget);
+    expect(find.byType(HardDifficultyPanel), findsOneWidget);
   });
 }
 

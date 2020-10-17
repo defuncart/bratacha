@@ -25,7 +25,6 @@ void main() {
     );
 
     expect(find.byType(LanguagePanel), findsOneWidget);
-    expect(find.byType(Column), findsOneWidget);
     expect(find.byType(Row), findsOneWidget);
     expect(find.byType(LanguageButton), findsNWidgets(AppLocalizationsDelegate.supportedLocals.length));
   });

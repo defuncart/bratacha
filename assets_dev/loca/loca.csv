@@ -5,9 +5,9 @@ generalLevelLabel;Level %level$d;;;
 homeTabLabelText;Home;Галоўная;;
 homeTabLeanFlagsButtonText;See all flags;;;
 settingsTabLabelText;Settings;Налады;;
-settingsTabLanguageLabel;Language;Мова;;
-settingsTabDifficultyLabel;Hard Difficulty;Складаная складанасць;;
+settingsTabLanguageLabel;Language;Мова;Iaith;Teanga
 settingsTabResetProgressLabel;Reset Progress;Скід прагрэсу;;
+hardDifficultyPanelLabel;Hard Difficulty;Складаная складанасць;;
 resetProgressDialogTitle;Reset progress?;;; 
 resetProgressDialogDescription;Your progress will be permantely deleted and cannot be recovered.;;;
 generalNo;No;Не;Na;

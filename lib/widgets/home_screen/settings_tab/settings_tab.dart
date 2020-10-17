@@ -16,36 +16,39 @@ class SettingsTab extends StatelessWidget {
         title: Text(AppLocalizations.settingsTabLabelText),
       ),
       body: SafeArea(
-        child: Center(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16.0),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               SizedBox(height: 16.0),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                child: LanguagePanel(),
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                child: HardDifficultyPanel(),
-              ),
-              ElevatedButton(
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateColor.resolveWith((states) => Theme.of(context).accentColor),
-                ),
-                onPressed: () async {
-                  final response = await context.repository<IDialogService>().requestConfirmDialog(ConfirmDialogRequest(
-                        title: AppLocalizations.resetProgressDialogTitle,
-                        description: AppLocalizations.resetProgressDialogDescription,
-                        negativeButtonText: AppLocalizations.generalNo,
-                        positiveButtonText: AppLocalizations.generalYes,
-                      ));
-                  if (response == ConfirmDialogResponseType.positive) {
-                    await context.repository<IPlayerDataService>().reset();
-                  }
-                },
-                child: Text(
-                  AppLocalizations.settingsTabResetProgressLabel,
-                  style: TextStyle(color: Theme.of(context).scaffoldBackgroundColor),
+              Text(AppLocalizations.settingsTabLanguageLabel),
+              SizedBox(height: 8.0),
+              LanguagePanel(),
+              HardDifficultyPanel(),
+              Center(
+                child: ElevatedButton(
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateColor.resolveWith((states) => Theme.of(context).accentColor),
+                  ),
+                  onPressed: () async {
+                    final response =
+                        await context.repository<IDialogService>().requestConfirmDialog(ConfirmDialogRequest(
+                              title: AppLocalizations.resetProgressDialogTitle,
+                              description: AppLocalizations.resetProgressDialogDescription,
+                              negativeButtonText: AppLocalizations.generalNo,
+                              positiveButtonText: AppLocalizations.generalYes,
+                            ));
+                    if (response == ConfirmDialogResponseType.positive) {
+                      await context.repository<IPlayerDataService>().reset();
+                    }
+                  },
+                  child: Text(
+                    AppLocalizations.settingsTabResetProgressLabel,
+                    style: TextStyle(
+                      color: Theme.of(context).scaffoldBackgroundColor,
+                    ),
+                  ),
                 ),
               ),
             ],

@@ -25,6 +25,7 @@ void main() {
 
     expect(find.byType(HardDifficultyPanel), findsOneWidget);
     expect(find.byType(Text), findsOneWidget);
+    expect(find.text(AppLocalizations.hardDifficultyPanelLabel), findsOneWidget);
     expect(find.byType(Switch), findsOneWidget);
   });
 
