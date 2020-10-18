@@ -1,5 +1,5 @@
 import 'package:bratacha/intl/country_localizations.dart';
-import 'package:bratacha/services/i_game_service.dart';
+import 'package:bratacha/services/game_service/i_game_service.dart';
 import 'package:bratacha/widgets/game_screen/answers_cubit.dart';
 import 'package:bratacha/widgets/game_screen/question_answer_panel.dart';
 import 'package:bratacha/widgets/game_screen/question_cubit.dart';

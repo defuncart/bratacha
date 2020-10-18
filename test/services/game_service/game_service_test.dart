@@ -5,7 +5,7 @@ import 'package:bratacha/intl/country_localizations.dart';
 import 'package:bratacha/managers/level_manager.dart';
 import 'package:bratacha/modules/country_database/country_database.dart';
 import 'package:bratacha/modules/player_data/player_data.dart';
-import 'package:bratacha/services/game_service.dart';
+import 'package:bratacha/services/game_service/game_service.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 

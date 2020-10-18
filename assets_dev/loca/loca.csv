@@ -3,15 +3,22 @@ test;Hello World!;Здароўствуй свет!;Helo Byd!;Dia duit domhan!
 generalNo;No;Не;Na;
 generalYes;Yes;Так;Ie;
 generalContinue;Continue;;;
+generalClose;Close;;;
 generalLevelLabel;Level %level$d;;;
 homeTabLabelText;Home;Галоўная;;
 homeTabLeanFlagsButtonText;See all flags;;;
 settingsTabLabelText;Settings;Налады;;
 settingsTabLanguageLabel;Language;Мова;Iaith;Teanga
 settingsTabResetProgressLabel;Reset Progress;Скід прагрэсу;;
+settingsTabDataPrivacyLabel;Data Privacy;;;
+settingsTabCreditsLabel;Credits;;;
 hardDifficultyPanelLabel;Hard Difficulty;Складаная складанасць;;
 resetProgressDialogTitle;Reset progress?;;; 
 resetProgressDialogDescription;Your progress will be permantely deleted and cannot be recovered.;;;
+creditsDialogTitle;Credits;;;
+creditsDialogDescriptionLabel1;Concept, Design and Programming by James Leahy.;;;
+dataPrivacyDialogTitle;Data Privacy;;;
+dataPrivacyDialogViewLicensesLabel;View Licenses;;;
 quitGameDialogTitle;Quit Game?;;;
 quitGameDialogDescription;Your current progress will be lost.;;;
 onboardingPage1TextLabel1;Bratacha;;;

@@ -1,6 +1,5 @@
 import 'package:meta/meta.dart';
 
-// ignore: always_use_package_imports
 import '../models/flag_data.dart';
 
 /// A database of player's progress on flags

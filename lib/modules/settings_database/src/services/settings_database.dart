@@ -1,6 +1,5 @@
 import 'package:hive/hive.dart';
 
-// ignore: always_use_package_imports
 import 'i_settings_database.dart';
 
 /// A database of the player's device settings

@@ -1,7 +1,6 @@
 import 'package:hive/hive.dart';
 import 'package:meta/meta.dart';
 
-// ignore_for_file: always_use_package_imports
 import 'flag_data_service.dart';
 import 'i_flag_data_service.dart';
 import 'i_player_data_service.dart';

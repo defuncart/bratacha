@@ -1,17 +1,22 @@
 import 'package:meta/meta.dart';
 
-// ignore_for_file: always_use_package_imports
-import '../enums/confirm_dialog_response_type.dart';
-import '../models/base_dialog_request.dart';
-import '../models/confirm_dialog_request.dart';
-import '../models/informative_dialog_request.dart';
+import '../models/requests/base_dialog_request.dart';
+import '../models/requests/confirm_dialog_request.dart';
+import '../models/requests/custom_dialog_request.dart';
+import '../models/requests/informative_dialog_request.dart';
+import '../models/responses/base_dialog_response.dart';
+import '../models/responses/confirm_dialog_response.dart';
+import '../models/responses/custom_dialog_response.dart';
+import '../models/responses/informative_dialog_response.dart';
 
 abstract class IDialogService {
   Stream<BaseDialogRequest> get requestStream;
 
-  Future<void> requestInformativeDialog(InformativeDialogRequest request);
+  Future<InformativeDialogResponse> requestInformativeDialog(InformativeDialogRequest request);
 
-  Future<ConfirmDialogResponseType> requestConfirmDialog(ConfirmDialogRequest request);
+  Future<ConfirmDialogResponse> requestConfirmDialog(ConfirmDialogRequest request);
 
-  void dialogClosedByUser({@required Type type, dynamic data});
+  Future<CustomDialogResponse> requestCustomDialog(CustomDialogRequest request);
+
+  void dialogClosedByUser({@required BaseDialogResponse response});
 }

@@ -15,6 +15,8 @@ class AppLocalizations {
 
   static String get generalContinue => _getText('generalContinue');
 
+  static String get generalClose => _getText('generalClose');
+
   static String generalLevelLabel({
     @required int level,
   }) {
@@ -38,6 +40,12 @@ class AppLocalizations {
   static String get settingsTabResetProgressLabel =>
       _getText('settingsTabResetProgressLabel');
 
+  static String get settingsTabDataPrivacyLabel =>
+      _getText('settingsTabDataPrivacyLabel');
+
+  static String get settingsTabCreditsLabel =>
+      _getText('settingsTabCreditsLabel');
+
   static String get hardDifficultyPanelLabel =>
       _getText('hardDifficultyPanelLabel');
 
@@ -46,6 +54,17 @@ class AppLocalizations {
 
   static String get resetProgressDialogDescription =>
       _getText('resetProgressDialogDescription');
+
+  static String get creditsDialogTitle => _getText('creditsDialogTitle');
+
+  static String get creditsDialogDescriptionLabel1 =>
+      _getText('creditsDialogDescriptionLabel1');
+
+  static String get dataPrivacyDialogTitle =>
+      _getText('dataPrivacyDialogTitle');
+
+  static String get dataPrivacyDialogViewLicensesLabel =>
+      _getText('dataPrivacyDialogViewLicensesLabel');
 
   static String get quitGameDialogTitle => _getText('quitGameDialogTitle');
 
@@ -94,16 +113,24 @@ class AppLocalizations {
     'generalNo': 'No',
     'generalYes': 'Yes',
     'generalContinue': 'Continue',
+    'generalClose': 'Close',
     'generalLevelLabel': 'Level %level\$d',
     'homeTabLabelText': 'Home',
     'homeTabLeanFlagsButtonText': 'See all flags',
     'settingsTabLabelText': 'Settings',
     'settingsTabLanguageLabel': 'Language',
     'settingsTabResetProgressLabel': 'Reset Progress',
+    'settingsTabDataPrivacyLabel': 'Data Privacy',
+    'settingsTabCreditsLabel': 'Credits',
     'hardDifficultyPanelLabel': 'Hard Difficulty',
     'resetProgressDialogTitle': 'Reset progress?',
     'resetProgressDialogDescription':
         'Your progress will be permantely deleted and cannot be recovered.',
+    'creditsDialogTitle': 'Credits',
+    'creditsDialogDescriptionLabel1':
+        'Concept, Design and Programming by James Leahy.',
+    'dataPrivacyDialogTitle': 'Data Privacy',
+    'dataPrivacyDialogViewLicensesLabel': 'View Licenses',
     'quitGameDialogTitle': 'Quit Game?',
     'quitGameDialogDescription': 'Your current progress will be lost.',
     'onboardingPage1TextLabel1': 'Bratacha',
@@ -134,16 +161,24 @@ class AppLocalizations {
     'generalNo': 'Не',
     'generalYes': 'Так',
     'generalContinue': 'Continue',
+    'generalClose': 'Close',
     'generalLevelLabel': 'Level %level\$d',
     'homeTabLabelText': 'Галоўная',
     'homeTabLeanFlagsButtonText': 'See all flags',
     'settingsTabLabelText': 'Налады',
     'settingsTabLanguageLabel': 'Мова',
     'settingsTabResetProgressLabel': 'Скід прагрэсу',
+    'settingsTabDataPrivacyLabel': 'Data Privacy',
+    'settingsTabCreditsLabel': 'Credits',
     'hardDifficultyPanelLabel': 'Складаная складанасць',
     'resetProgressDialogTitle': 'Reset progress?',
     'resetProgressDialogDescription':
         'Your progress will be permantely deleted and cannot be recovered.',
+    'creditsDialogTitle': 'Credits',
+    'creditsDialogDescriptionLabel1':
+        'Concept, Design and Programming by James Leahy.',
+    'dataPrivacyDialogTitle': 'Data Privacy',
+    'dataPrivacyDialogViewLicensesLabel': 'View Licenses',
     'quitGameDialogTitle': 'Quit Game?',
     'quitGameDialogDescription': 'Your current progress will be lost.',
     'onboardingPage1TextLabel1': 'Bratacha',
@@ -174,16 +209,24 @@ class AppLocalizations {
     'generalNo': 'Na',
     'generalYes': 'Ie',
     'generalContinue': 'Continue',
+    'generalClose': 'Close',
     'generalLevelLabel': 'Level %level\$d',
     'homeTabLabelText': 'Home',
     'homeTabLeanFlagsButtonText': 'See all flags',
     'settingsTabLabelText': 'Settings',
     'settingsTabLanguageLabel': 'Iaith',
     'settingsTabResetProgressLabel': 'Reset Progress',
+    'settingsTabDataPrivacyLabel': 'Data Privacy',
+    'settingsTabCreditsLabel': 'Credits',
     'hardDifficultyPanelLabel': 'Hard Difficulty',
     'resetProgressDialogTitle': 'Reset progress?',
     'resetProgressDialogDescription':
         'Your progress will be permantely deleted and cannot be recovered.',
+    'creditsDialogTitle': 'Credits',
+    'creditsDialogDescriptionLabel1':
+        'Concept, Design and Programming by James Leahy.',
+    'dataPrivacyDialogTitle': 'Data Privacy',
+    'dataPrivacyDialogViewLicensesLabel': 'View Licenses',
     'quitGameDialogTitle': 'Quit Game?',
     'quitGameDialogDescription': 'Your current progress will be lost.',
     'onboardingPage1TextLabel1': 'Bratacha',
@@ -214,16 +257,24 @@ class AppLocalizations {
     'generalNo': 'No',
     'generalYes': 'Yes',
     'generalContinue': 'Continue',
+    'generalClose': 'Close',
     'generalLevelLabel': 'Level %level\$d',
     'homeTabLabelText': 'Home',
     'homeTabLeanFlagsButtonText': 'See all flags',
     'settingsTabLabelText': 'Settings',
     'settingsTabLanguageLabel': 'Teanga',
     'settingsTabResetProgressLabel': 'Reset Progress',
+    'settingsTabDataPrivacyLabel': 'Data Privacy',
+    'settingsTabCreditsLabel': 'Credits',
     'hardDifficultyPanelLabel': 'Hard Difficulty',
     'resetProgressDialogTitle': ' ',
     'resetProgressDialogDescription':
         'Your progress will be permantely deleted and cannot be recovered.',
+    'creditsDialogTitle': 'Credits',
+    'creditsDialogDescriptionLabel1':
+        'Concept, Design and Programming by James Leahy.',
+    'dataPrivacyDialogTitle': 'Data Privacy',
+    'dataPrivacyDialogViewLicensesLabel': 'View Licenses',
     'quitGameDialogTitle': 'Quit Game?',
     'quitGameDialogDescription': 'Your current progress will be lost.',
     'onboardingPage1TextLabel1': 'Bratacha',

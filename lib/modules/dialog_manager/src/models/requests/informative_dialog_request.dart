@@ -1,9 +1,8 @@
 import 'package:meta/meta.dart';
 
-// ignore: always_use_package_imports
-import 'base_dialog_request.dart';
+import 'description_dialog_request.dart';
 
-class InformativeDialogRequest extends BaseDialogRequest {
+class InformativeDialogRequest extends DescriptionDialogRequest {
   final String buttonText;
 
   const InformativeDialogRequest({
