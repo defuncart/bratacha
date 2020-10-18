@@ -1,4 +1,4 @@
-import 'package:bratacha/modules/dialog_manager/src/models/base_dialog_request.dart';
+import 'package:bratacha/modules/dialog_manager/src/models/requests/base_dialog_request.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:meta/meta.dart';
 
