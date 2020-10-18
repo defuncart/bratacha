@@ -1,6 +1,7 @@
 import 'package:bratacha/intl/localizations.dart';
 import 'package:bratacha/modules/dialog_manager/dialog_manager.dart';
 import 'package:bratacha/modules/player_data/player_data.dart';
+import 'package:bratacha/widgets/common/buttons/custom_elevated_button.dart';
 import 'package:bratacha/widgets/common/panels/hard_difficulty_panel/hard_difficulty_panel.dart';
 import 'package:bratacha/widgets/common/panels/language_panel/language_panel.dart';
 import 'package:flutter/material.dart';
@@ -27,10 +28,7 @@ class SettingsTab extends StatelessWidget {
               LanguagePanel(),
               HardDifficultyPanel(),
               Center(
-                child: ElevatedButton(
-                  style: ButtonStyle(
-                    backgroundColor: MaterialStateColor.resolveWith((states) => Theme.of(context).accentColor),
-                  ),
+                child: CustomElevatedButton(
                   onPressed: () async {
                     final response =
                         await context.repository<IDialogService>().requestConfirmDialog(ConfirmDialogRequest(
@@ -43,12 +41,7 @@ class SettingsTab extends StatelessWidget {
                       await context.repository<IPlayerDataService>().reset();
                     }
                   },
-                  child: Text(
-                    AppLocalizations.settingsTabResetProgressLabel,
-                    style: TextStyle(
-                      color: Theme.of(context).scaffoldBackgroundColor,
-                    ),
-                  ),
+                  buttonText: AppLocalizations.settingsTabResetProgressLabel,
                 ),
               ),
             ],
