@@ -2,6 +2,7 @@ import 'package:bratacha/intl/localizations.dart';
 import 'package:bratacha/modules/dialog_manager/dialog_manager.dart';
 import 'package:bratacha/modules/dialog_manager/src/models/responses/base_dialog_response.dart';
 import 'package:bratacha/modules/player_data/player_data.dart';
+import 'package:bratacha/services/app_info_service/i_app_info_service.dart';
 import 'package:bratacha/widgets/common/buttons/custom_elevated_button.dart';
 import 'package:bratacha/widgets/common/panels/hard_difficulty_panel/hard_difficulty_cubit.dart';
 import 'package:bratacha/widgets/common/panels/hard_difficulty_panel/hard_difficulty_panel.dart';
@@ -81,8 +82,8 @@ void main() {
           RepositoryProvider<IDialogService>(
             create: (_) => dialogService,
           ),
-          RepositoryProvider<IPlayerDataService>(
-            create: (_) => playerDataService,
+          RepositoryProvider<IAppInfoService>(
+            create: (_) => _MockAppInfoService(),
           ),
         ],
         child: MaterialApp(home: widget),
@@ -94,6 +95,10 @@ void main() {
     dialogService.setResponse(CustomDialogResponse(buttonIndexPressed: 1));
 
     await tester.tap(button);
+
+    dialogService.setResponse(CustomDialogResponse(buttonIndexPressed: 0));
+
+    await tester.tap(button);
   });
 
   testWidgets('Ensure credits button is clickable', (tester) async {
@@ -102,9 +107,6 @@ void main() {
         providers: [
           RepositoryProvider<IDialogService>(
             create: (_) => dialogService,
-          ),
-          RepositoryProvider<IPlayerDataService>(
-            create: (_) => playerDataService,
           ),
         ],
         child: MaterialApp(home: widget),
@@ -144,3 +146,5 @@ class _MockDialogService extends Mock implements IDialogService {
   Future<CustomDialogResponse> requestCustomDialog(CustomDialogRequest request) async =>
       await Future.value(_response as CustomDialogResponse);
 }
+
+class _MockAppInfoService extends Mock implements IAppInfoService {}

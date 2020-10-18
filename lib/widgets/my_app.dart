@@ -7,6 +7,8 @@ import 'package:bratacha/managers/level_manager.dart';
 import 'package:bratacha/modules/dialog_manager/dialog_manager.dart';
 import 'package:bratacha/modules/player_data/player_data.dart';
 import 'package:bratacha/modules/settings_database/settings_database.dart';
+import 'package:bratacha/services/app_info_service/app_info_service.dart';
+import 'package:bratacha/services/app_info_service/i_app_info_service.dart';
 import 'package:bratacha/widgets/common/panels/hard_difficulty_panel/hard_difficulty_cubit.dart';
 import 'package:bratacha/widgets/common/panels/language_panel/language_cubit.dart';
 import 'package:bratacha/widgets/game_screen/game_screen.dart';
@@ -29,6 +31,9 @@ class MyApp extends StatelessWidget {
         ),
         RepositoryProvider<IDialogService>(
           create: (_) => DialogService(),
+        ),
+        RepositoryProvider<IAppInfoService>(
+          create: (_) => AppInfoService(),
         ),
       ],
       child: MultiBlocProvider(

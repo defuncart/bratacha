@@ -1,6 +1,7 @@
 import 'package:bratacha/intl/localizations.dart';
 import 'package:bratacha/modules/dialog_manager/dialog_manager.dart';
 import 'package:bratacha/modules/player_data/player_data.dart';
+import 'package:bratacha/services/app_info_service/i_app_info_service.dart';
 import 'package:bratacha/widgets/common/buttons/custom_elevated_button.dart';
 import 'package:bratacha/widgets/common/panels/data_privacy_panel.dart';
 import 'package:bratacha/widgets/common/panels/hard_difficulty_panel/hard_difficulty_panel.dart';
@@ -63,12 +64,13 @@ class SettingsTab extends StatelessWidget {
                         );
 
                     if (response.buttonIndexPressed == 0) {
+                      final appInfoService = context.repository<IAppInfoService>();
                       showLicensePage(
                         context: context,
-                        applicationName: 'Bratacha',
-                        applicationVersion: '0.0.1', //TODO use getVersion
-                        applicationIcon: Image.asset('assets/settings/app_icon.png'),
-                        applicationLegalese: '© 2020 defuncart',
+                        applicationName: appInfoService.applicationName,
+                        applicationVersion: appInfoService.applicationVersion,
+                        applicationIcon: appInfoService.applicationIcon,
+                        applicationLegalese: appInfoService.applicationLegalese,
                       );
                     }
                   },
