@@ -66,7 +66,7 @@ class GameScreen extends StatelessWidget {
                       negativeButtonText: AppLocalizations.generalNo,
                       positiveButtonText: AppLocalizations.generalYes,
                     ));
-                if (response == ConfirmDialogResponseType.positive) {
+                if (response.isPositive) {
                   await Navigator.of(context).pushReplacementNamed(HomeScreen.routeName);
                 }
               },

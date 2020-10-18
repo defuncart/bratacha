@@ -2,11 +2,14 @@ import 'dart:async';
 
 import 'package:meta/meta.dart';
 
-import '../enums/confirm_dialog_response_type.dart';
 import '../models/requests/base_dialog_request.dart';
 import '../models/requests/confirm_dialog_request.dart';
 import '../models/requests/custom_dialog_request.dart';
 import '../models/requests/informative_dialog_request.dart';
+import '../models/responses/base_dialog_response.dart';
+import '../models/responses/confirm_dialog_response.dart';
+import '../models/responses/custom_dialog_response.dart';
+import '../models/responses/informative_dialog_response.dart';
 import 'i_dialog_service.dart';
 
 class DialogService implements IDialogService {
@@ -20,35 +23,41 @@ class DialogService implements IDialogService {
   Stream<BaseDialogRequest> get requestStream => _requestStreamController.stream;
 
   @override
-  Future<void> requestInformativeDialog(InformativeDialogRequest request) {
+  Future<InformativeDialogResponse> requestInformativeDialog(InformativeDialogRequest request) {
     if (_isCurrentlyPresenting) {
-      _dialogCompleter.completeError(Error());
+      return Future.value(InformativeDialogResponse.hasError());
     }
 
-    _dialogCompleter = Completer();
+    _dialogCompleter = Completer<InformativeDialogResponse>();
     _requestStreamController.add(request);
     return _dialogCompleter.future;
   }
 
   @override
-  Future<ConfirmDialogResponseType> requestConfirmDialog(ConfirmDialogRequest request) {
+  Future<ConfirmDialogResponse> requestConfirmDialog(ConfirmDialogRequest request) {
     if (_isCurrentlyPresenting) {
-      _dialogCompleter.completeError(Error());
+      return Future.value(ConfirmDialogResponse.hasError());
     }
 
-    _dialogCompleter = Completer<ConfirmDialogResponseType>();
+    _dialogCompleter = Completer<ConfirmDialogResponse>();
     _requestStreamController.add(request);
     return _dialogCompleter.future;
   }
 
   @override
-  void dialogClosedByUser({@required Type type, dynamic data}) {
-    if (type == InformativeDialogRequest) {
-      _dialogCompleter.complete();
-    } else if (type == ConfirmDialogRequest) {
-      _dialogCompleter.complete(data as ConfirmDialogResponseType);
+  Future<CustomDialogResponse> requestCustomDialog(CustomDialogRequest request) {
+    if (_isCurrentlyPresenting) {
+      return Future.value(CustomDialogResponse.hasError());
     }
 
+    _dialogCompleter = Completer<CustomDialogResponse>();
+    _requestStreamController.add(request);
+    return _dialogCompleter.future;
+  }
+
+  @override
+  void dialogClosedByUser({@required BaseDialogResponse response}) {
+    _dialogCompleter.complete(response);
     _dialogCompleter = null;
   }
 }

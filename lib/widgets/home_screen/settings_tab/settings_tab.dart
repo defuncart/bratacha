@@ -30,14 +30,15 @@ class SettingsTab extends StatelessWidget {
               Center(
                 child: CustomElevatedButton(
                   onPressed: () async {
-                    final response =
-                        await context.repository<IDialogService>().requestConfirmDialog(ConfirmDialogRequest(
-                              title: AppLocalizations.resetProgressDialogTitle,
-                              description: AppLocalizations.resetProgressDialogDescription,
-                              negativeButtonText: AppLocalizations.generalNo,
-                              positiveButtonText: AppLocalizations.generalYes,
-                            ));
-                    if (response == ConfirmDialogResponseType.positive) {
+                    final response = await context.repository<IDialogService>().requestConfirmDialog(
+                          ConfirmDialogRequest(
+                            title: AppLocalizations.resetProgressDialogTitle,
+                            description: AppLocalizations.resetProgressDialogDescription,
+                            negativeButtonText: AppLocalizations.generalNo,
+                            positiveButtonText: AppLocalizations.generalYes,
+                          ),
+                        );
+                    if (response.isPositive) {
                       await context.repository<IPlayerDataService>().reset();
                     }
                   },

@@ -2,11 +2,14 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 
-import '../enums/confirm_dialog_response_type.dart';
 import '../models/requests/base_dialog_request.dart';
 import '../models/requests/confirm_dialog_request.dart';
 import '../models/requests/custom_dialog_request.dart';
 import '../models/requests/informative_dialog_request.dart';
+import '../models/responses/base_dialog_response.dart';
+import '../models/responses/confirm_dialog_response.dart';
+import '../models/responses/custom_dialog_response.dart';
+import '../models/responses/informative_dialog_response.dart';
 import '../services/i_dialog_service.dart';
 
 class DialogManager extends StatefulWidget {
@@ -48,13 +51,16 @@ class _DialogManagerState extends State<DialogManager> {
   Future<void> _processRequest(BaseDialogRequest request) async {
     Widget content;
     List<Widget> actions;
-    ConfirmDialogResponseType responseType;
+    BaseDialogResponse response;
 
     if (request is InformativeDialogRequest) {
       content = Text(request.description);
       actions = [
         TextButton(
-          onPressed: () => Navigator.of(context).pop(),
+          onPressed: () {
+            response = InformativeDialogResponse();
+            Navigator.of(context).pop();
+          },
           child: Text(request.buttonText.toUpperCase()),
         ),
       ];
@@ -63,18 +69,30 @@ class _DialogManagerState extends State<DialogManager> {
       actions = [
         TextButton(
           onPressed: () {
-            responseType = ConfirmDialogResponseType.negative;
+            response = ConfirmDialogResponse.negative();
             Navigator.of(context).pop();
           },
           child: Text(request.negativeButtonText.toUpperCase()),
         ),
         TextButton(
           onPressed: () {
-            responseType = ConfirmDialogResponseType.positive;
+            response = ConfirmDialogResponse.positive();
             Navigator.of(context).pop();
           },
           child: Text(request.positiveButtonText.toUpperCase()),
         ),
+      ];
+    } else if (request is CustomDialogRequest) {
+      content = request.content;
+      actions = [
+        for (final buttonText in request.buttonTexts)
+          TextButton(
+            onPressed: () {
+              response = CustomDialogResponse(buttonIndexPressed: 0);
+              Navigator.of(context).pop();
+            },
+            child: Text(buttonText.toUpperCase()),
+          ),
       ];
     }
 
@@ -88,10 +106,17 @@ class _DialogManagerState extends State<DialogManager> {
       barrierDismissible: !request.isModal,
     );
 
-    if (request is ConfirmDialogRequest) {
-      responseType ??= ConfirmDialogResponseType.negative;
+    // account for the fact that dialog may be dismiss if !isModal
+    if (response == null) {
+      if (request is InformativeDialogRequest) {
+        response = InformativeDialogResponse();
+      } else if (request is ConfirmDialogRequest) {
+        response = ConfirmDialogResponse.negative();
+      } else if (request is CustomDialogRequest) {
+        response = CustomDialogResponse(buttonIndexPressed: null);
+      }
     }
 
-    widget.dialogService.dialogClosedByUser(type: request.runtimeType, data: responseType);
+    widget.dialogService.dialogClosedByUser(response: response);
   }
 }
