@@ -85,13 +85,13 @@ class _DialogManagerState extends State<DialogManager> {
     } else if (request is CustomDialogRequest) {
       content = request.content;
       actions = [
-        for (final buttonText in request.buttonTexts)
+        for (var i = 0; i < request.buttonTexts.length; i++)
           TextButton(
             onPressed: () {
-              response = CustomDialogResponse(buttonIndexPressed: 0);
+              response = CustomDialogResponse(buttonIndexPressed: i);
               Navigator.of(context).pop();
             },
-            child: Text(buttonText.toUpperCase()),
+            child: Text(request.buttonTexts[i].toUpperCase()),
           ),
       ];
     }
