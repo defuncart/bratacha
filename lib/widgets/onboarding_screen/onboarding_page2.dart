@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:bratacha/extensions/country_extensions.dart';
 import 'package:bratacha/intl/localizations.dart';
 import 'package:bratacha/modules/country_database/country_database.dart';
-import 'package:bratacha/services/i_game_service.dart';
+import 'package:bratacha/services/game_service/i_game_service.dart';
 import 'package:bratacha/widgets/common/panels/hard_difficulty_panel/hard_difficulty_cubit.dart';
 import 'package:bratacha/widgets/common/panels/hard_difficulty_panel/hard_difficulty_panel.dart';
 import 'package:bratacha/widgets/game_screen/answers_cubit.dart';

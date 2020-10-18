@@ -5,7 +5,7 @@ import 'package:bratacha/extensions/country_extensions.dart';
 import 'package:bratacha/managers/level_manager.dart';
 import 'package:bratacha/modules/country_database/country_database.dart';
 import 'package:bratacha/modules/player_data/player_data.dart';
-import 'package:bratacha/services/i_game_service.dart';
+import 'package:bratacha/services/game_service/i_game_service.dart';
 import 'package:meta/meta.dart';
 
 class GameService implements IGameService {

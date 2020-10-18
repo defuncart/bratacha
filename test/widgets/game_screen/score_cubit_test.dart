@@ -1,5 +1,5 @@
 import 'package:bloc_test/bloc_test.dart';
-import 'package:bratacha/services/i_game_service.dart';
+import 'package:bratacha/services/game_service/i_game_service.dart';
 import 'package:bratacha/widgets/game_screen/score_cubit.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:meta/meta.dart';

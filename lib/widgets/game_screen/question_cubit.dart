@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:bratacha/services/i_game_service.dart';
+import 'package:bratacha/services/game_service/i_game_service.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meta/meta.dart';
 
