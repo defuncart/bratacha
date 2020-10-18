@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 
-// ignore_for_file: always_use_package_imports
 import '../enums/confirm_dialog_response_type.dart';
 import '../models/base_dialog_request.dart';
 import '../models/confirm_dialog_request.dart';

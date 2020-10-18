@@ -1,7 +1,6 @@
 import 'package:hive/hive.dart';
 import 'package:meta/meta.dart';
 
-// ignore: always_use_package_imports
 import '../configs/hive_adapter_type.dart';
 
 part 'flag_data.g.dart';
