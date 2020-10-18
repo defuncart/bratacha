@@ -5,34 +5,56 @@ import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   testWidgets('Ensure widget tree is correct', (tester) async {
-    final flagWidget = Flag(
+    final widget = Flag(
       'de',
       width: 100,
       height: 100,
     );
 
-    await tester.pumpWidget(MaterialApp(home: flagWidget));
+    await tester.pumpWidget(MaterialApp(home: widget));
 
     expect(find.byType(Flag), findsOneWidget);
     expect(find.byType(SvgPicture), findsOneWidget);
   });
 
   testWidgets('Ensure widget properties are correct', (tester) async {
-    final flagWidget = Flag(
+    final width = 100.0;
+    final height = 100.0;
+    final widget = Flag(
       'de',
-      width: 100,
-      height: 100,
+      width: width,
+      height: height,
     );
 
-    await tester.pumpWidget(MaterialApp(home: flagWidget));
+    await tester.pumpWidget(MaterialApp(home: widget));
 
-    final fWidget = tester.firstWidget(find.byType(Flag)) as Flag;
+    final flagWidget = tester.firstWidget(find.byType(Flag)) as Flag;
     final svgPictureWidget = tester.firstWidget(find.byType(SvgPicture)) as SvgPicture;
 
-    expect(fWidget.width, 100);
-    expect(fWidget.height, 100);
+    expect(widget.width, width);
+    expect(widget.height, width);
+    expect(flagWidget.width, width);
+    expect(flagWidget.height, width);
 
-    expect(svgPictureWidget.width, fWidget.width);
-    expect(svgPictureWidget.height, fWidget.height);
+    expect(svgPictureWidget.width, flagWidget.width);
+    expect(svgPictureWidget.height, flagWidget.height);
+  });
+
+  test('countryCode null value triggers assertion', () {
+    expect(
+      () => Flag(null),
+      throwsAssertionError,
+    );
+  });
+
+  test('width != height triggers assertion', () {
+    expect(
+      () => Flag(
+        'de',
+        width: 100,
+        height: 200,
+      ),
+      throwsAssertionError,
+    );
   });
 }
