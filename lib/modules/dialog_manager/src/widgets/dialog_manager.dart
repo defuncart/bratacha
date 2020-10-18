@@ -45,10 +45,12 @@ class _DialogManagerState extends State<DialogManager> {
   Widget build(BuildContext context) => widget.child;
 
   Future<void> _processRequest(BaseDialogRequest request) async {
+    Widget content;
     List<Widget> actions;
     ConfirmDialogResponseType responseType;
 
     if (request is InformativeDialogRequest) {
+      content = Text(request.description);
       actions = [
         TextButton(
           onPressed: () => Navigator.of(context).pop(),
@@ -56,6 +58,7 @@ class _DialogManagerState extends State<DialogManager> {
         ),
       ];
     } else if (request is ConfirmDialogRequest) {
+      content = Text(request.description);
       actions = [
         TextButton(
           onPressed: () {
@@ -78,7 +81,7 @@ class _DialogManagerState extends State<DialogManager> {
       context: context,
       builder: (_) => AlertDialog(
         title: Text(request.title),
-        content: Text(request.description),
+        content: content,
         actions: actions,
       ),
       barrierDismissible: !request.isModal,

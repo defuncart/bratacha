@@ -7,17 +7,6 @@ void main() {
     expect(
       () => _MockRequest(
         title: null,
-        description: 'Description',
-      ),
-      throwsAssertionError,
-    );
-  });
-
-  test('All subclasses must supply non-null description', () {
-    expect(
-      () => _MockRequest(
-        title: 'Title',
-        description: null,
       ),
       throwsAssertionError,
     );
@@ -26,7 +15,6 @@ void main() {
   test('isModal defaults to false, even if null is passed', () {
     final request = _MockRequest(
       title: 'Title',
-      description: 'Description',
       isModal: null,
     );
     expect(request.isModal, isFalse);
@@ -36,11 +24,9 @@ void main() {
 class _MockRequest extends BaseDialogRequest {
   const _MockRequest({
     @required String title,
-    @required String description,
     bool isModal = false,
   }) : super(
           title: title,
-          description: description,
           isModal: isModal,
         );
 }
