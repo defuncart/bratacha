@@ -1,5 +1,5 @@
 import 'package:bratacha/intl/localizations.dart';
-import 'package:bratacha/widgets/home_screen/settings_tab/hard_difficulty_cubit.dart';
+import 'package:bratacha/widgets/common/panels/hard_difficulty_panel/hard_difficulty_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -11,7 +11,7 @@ class HardDifficultyPanel extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: <Widget>[
-        Text(AppLocalizations.settingsTabDifficultyLabel),
+        Text(AppLocalizations.hardDifficultyPanelLabel),
         BlocBuilder<HardDifficultyCubit, bool>(
           builder: (_, isHardDifficulty) => Switch(
             value: isHardDifficulty,

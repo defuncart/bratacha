@@ -1,15 +1,28 @@
 key;en;be;cy;ga
 test;Hello World!;Здароўствуй свет!;Helo Byd!;Dia duit domhan!
+generalNo;No;Не;Na;
+generalYes;Yes;Так;Ie;
+generalContinue;Continue;;;
 generalLevelLabel;Level %level$d;;;
 homeTabLabelText;Home;Галоўная;;
 homeTabLeanFlagsButtonText;See all flags;;;
 settingsTabLabelText;Settings;Налады;;
-settingsTabLanguageLabel;Language;Мова;;
-settingsTabDifficultyLabel;Hard Difficulty;Складаная складанасць;;
+settingsTabLanguageLabel;Language;Мова;Iaith;Teanga
 settingsTabResetProgressLabel;Reset Progress;Скід прагрэсу;;
+hardDifficultyPanelLabel;Hard Difficulty;Складаная складанасць;;
 resetProgressDialogTitle;Reset progress?;;; 
 resetProgressDialogDescription;Your progress will be permantely deleted and cannot be recovered.;;;
-generalNo;No;Не;Na;
-generalYes;Yes;Так;Ie;
 quitGameDialogTitle;Quit Game?;;;
 quitGameDialogDescription;Your current progress will be lost.;;;
+onboardingPage1TextLabel1;Bratacha;;;
+onboardingPage1TextLabel2;A fun flag quiz game with an emphasis on often overlooked languages.;;;
+onboardingPage1TextLabel3;What language would you like to use?;;;
+onboardingGeneralSettingLabel;This can be changed anything in the settings menu.;;;
+onboardingPage2TextLabel1;Fancy a challenge?;;;
+onboardingPage2TextLabel2;Earn extra points by enabling hard difficulty!;;;
+onboardingPage3TextLabel1;Bratacha is an open source project targeting languages which are often ignored within the flag quiz space.;;;
+onboardingPage3TextLabel2;If you'd like to help translating the app into Irish/Welsh/Belarusian, please get in touch! Likewise if you'd like to work on another language!;;;
+onboardingPage3TextLabel3;As the game is presently in development, all content is subject to change. Your feedback is greatly appreciated!;;;
+developerPanelLabel;Developed with \u2764 in Berlin. [Source Code](https://github.com/defuncart/bratacha).;;;
+dataPrivacyPanelLabel1;By using this application, you agree to the terms and conditions stated in the [privacy policy](https://github.com/defuncart/bratacha/blob/master/privacy_policy.md).;;;
+dataPrivacyPanelLabel2;No data is collected on how you use the app, nor is any data sent onto third parties.;;;
