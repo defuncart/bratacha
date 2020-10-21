@@ -95,9 +95,6 @@ class AppLocalizations {
   static String get onboardingPage3TextLabel2 =>
       _getText('onboardingPage3TextLabel2');
 
-  static String get onboardingPage3TextLabel3 =>
-      _getText('onboardingPage3TextLabel3');
-
   static String get developerPanelLabel => _getText('developerPanelLabel');
 
   static String get dataPrivacyPanelLabel1 =>
@@ -105,6 +102,11 @@ class AppLocalizations {
 
   static String get dataPrivacyPanelLabel2 =>
       _getText('dataPrivacyPanelLabel2');
+
+  static String get feedbackPanelLabel1 => _getText('feedbackPanelLabel1');
+
+  static String get feedbackPanelGiveFeedbackButtonText =>
+      _getText('feedbackPanelGiveFeedbackButtonText');
 
   static Map<String, String> _localizedValues;
 
@@ -146,14 +148,15 @@ class AppLocalizations {
         'Bratacha is an open source project targeting languages which are often ignored within the flag quiz space.',
     'onboardingPage3TextLabel2':
         'If you\'d like to help translating the app into Irish/Welsh/Belarusian, please get in touch! Likewise if you\'d like to work on another language!',
-    'onboardingPage3TextLabel3':
-        'As the game is presently in development, all content is subject to change. Your feedback is greatly appreciated!',
     'developerPanelLabel':
         'Developed with \u2764 in Berlin. [Source Code](https://github.com/defuncart/bratacha).',
     'dataPrivacyPanelLabel1':
         'By using this application, you agree to the terms and conditions stated in the [privacy policy](https://github.com/defuncart/bratacha/blob/master/privacy_policy.md).',
     'dataPrivacyPanelLabel2':
         'No data is collected on how you use the app, nor is any data sent onto third parties.',
+    'feedbackPanelLabel1':
+        'As the game is presently in development, all content is subject to change. Your feedback is greatly appreciated!',
+    'feedbackPanelGiveFeedbackButtonText': 'Give Feedback',
   };
 
   static Map<String, String> _beValues = {
@@ -194,14 +197,15 @@ class AppLocalizations {
         'Bratacha is an open source project targeting languages which are often ignored within the flag quiz space.',
     'onboardingPage3TextLabel2':
         'If you\'d like to help translating the app into Irish/Welsh/Belarusian, please get in touch! Likewise if you\'d like to work on another language!',
-    'onboardingPage3TextLabel3':
-        'As the game is presently in development, all content is subject to change. Your feedback is greatly appreciated!',
     'developerPanelLabel':
         'Developed with \u2764 in Berlin. [Source Code](https://github.com/defuncart/bratacha).',
     'dataPrivacyPanelLabel1':
         'By using this application, you agree to the terms and conditions stated in the [privacy policy](https://github.com/defuncart/bratacha/blob/master/privacy_policy.md).',
     'dataPrivacyPanelLabel2':
         'No data is collected on how you use the app, nor is any data sent onto third parties.',
+    'feedbackPanelLabel1':
+        'As the game is presently in development, all content is subject to change. Your feedback is greatly appreciated!',
+    'feedbackPanelGiveFeedbackButtonText': 'Give Feedback',
   };
 
   static Map<String, String> _cyValues = {
@@ -242,14 +246,15 @@ class AppLocalizations {
         'Bratacha is an open source project targeting languages which are often ignored within the flag quiz space.',
     'onboardingPage3TextLabel2':
         'If you\'d like to help translating the app into Irish/Welsh/Belarusian, please get in touch! Likewise if you\'d like to work on another language!',
-    'onboardingPage3TextLabel3':
-        'As the game is presently in development, all content is subject to change. Your feedback is greatly appreciated!',
     'developerPanelLabel':
         'Developed with \u2764 in Berlin. [Source Code](https://github.com/defuncart/bratacha).',
     'dataPrivacyPanelLabel1':
         'By using this application, you agree to the terms and conditions stated in the [privacy policy](https://github.com/defuncart/bratacha/blob/master/privacy_policy.md).',
     'dataPrivacyPanelLabel2':
         'No data is collected on how you use the app, nor is any data sent onto third parties.',
+    'feedbackPanelLabel1':
+        'As the game is presently in development, all content is subject to change. Your feedback is greatly appreciated!',
+    'feedbackPanelGiveFeedbackButtonText': 'Give Feedback',
   };
 
   static Map<String, String> _gaValues = {
@@ -290,14 +295,15 @@ class AppLocalizations {
         'Bratacha is an open source project targeting languages which are often ignored within the flag quiz space.',
     'onboardingPage3TextLabel2':
         'If you\'d like to help translating the app into Irish/Welsh/Belarusian, please get in touch! Likewise if you\'d like to work on another language!',
-    'onboardingPage3TextLabel3':
-        'As the game is presently in development, all content is subject to change. Your feedback is greatly appreciated!',
     'developerPanelLabel':
         'Developed with \u2764 in Berlin. [Source Code](https://github.com/defuncart/bratacha).',
     'dataPrivacyPanelLabel1':
         'By using this application, you agree to the terms and conditions stated in the [privacy policy](https://github.com/defuncart/bratacha/blob/master/privacy_policy.md).',
     'dataPrivacyPanelLabel2':
         'No data is collected on how you use the app, nor is any data sent onto third parties.',
+    'feedbackPanelLabel1':
+        'As the game is presently in development, all content is subject to change. Your feedback is greatly appreciated!',
+    'feedbackPanelGiveFeedbackButtonText': 'Give Feedback',
   };
 
   static Map<String, Map<String, String>> _allValues = {

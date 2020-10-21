@@ -14,7 +14,7 @@ class OnboardingPage3 extends StatelessWidget {
       children: <Widget>[
         Text(AppLocalizations.onboardingPage3TextLabel1),
         Text(AppLocalizations.onboardingPage3TextLabel2),
-        Text(AppLocalizations.onboardingPage3TextLabel3),
+        Text(AppLocalizations.feedbackPanelLabel1),
         DataPrivacyPanel(),
         DeveloperPanel(),
       ],
