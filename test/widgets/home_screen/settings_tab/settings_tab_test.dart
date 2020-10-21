@@ -2,11 +2,13 @@ import 'package:bratacha/intl/localizations.dart';
 import 'package:bratacha/modules/dialog_manager/dialog_manager.dart';
 import 'package:bratacha/modules/dialog_manager/src/models/responses/base_dialog_response.dart';
 import 'package:bratacha/modules/player_data/player_data.dart';
+import 'package:bratacha/services/url_launcher_service/i_url_launcher_service.dart';
 import 'package:bratacha/widgets/common/buttons/custom_elevated_button.dart';
 import 'package:bratacha/widgets/common/panels/hard_difficulty_panel/hard_difficulty_cubit.dart';
 import 'package:bratacha/widgets/common/panels/hard_difficulty_panel/hard_difficulty_panel.dart';
 import 'package:bratacha/widgets/common/panels/language_panel/language_cubit.dart';
 import 'package:bratacha/widgets/common/panels/language_panel/language_panel.dart';
+import 'package:bratacha/widgets/home_screen/settings_tab/feedback_panel.dart';
 import 'package:bratacha/widgets/home_screen/settings_tab/settings_popup_menu_button.dart';
 import 'package:bratacha/widgets/home_screen/settings_tab/settings_tab.dart';
 import 'package:flutter/material.dart';
@@ -29,7 +31,10 @@ void main() {
         create: (_) => LanguageCubit(playerDataService),
       ),
     ],
-    child: SettingsTab(),
+    child: RepositoryProvider<IUrlLaucherService>(
+      create: (_) => _MockUrlLauncherService(),
+      child: SettingsTab(),
+    ),
   );
 
   testWidgets('Ensure widget tree is correct', (tester) async {
@@ -39,11 +44,12 @@ void main() {
     expect(find.byType(Scaffold), findsOneWidget);
     expect(find.byType(AppBar), findsOneWidget);
     expect(find.byType(SettingsPopupMenuButton), findsOneWidget);
-    expect(find.byType(Column), findsOneWidget);
+    expect(find.byType(Column), findsNWidgets(2));
     expect(find.text(AppLocalizations.settingsTabLanguageLabel), findsOneWidget);
     expect(find.byType(LanguagePanel), findsOneWidget);
     expect(find.byType(HardDifficultyPanel), findsOneWidget);
     expect(find.byType(CustomElevatedButton), findsOneWidget);
+    expect(find.byType(FeedbackPanel), findsOneWidget);
   });
 
   testWidgets('Ensure reset progress button is clickable', (tester) async {
@@ -102,3 +108,5 @@ class _MockDialogService extends Mock implements IDialogService {
   Future<CustomDialogResponse> requestCustomDialog(CustomDialogRequest request) async =>
       await Future.value(_response as CustomDialogResponse);
 }
+
+class _MockUrlLauncherService extends Mock implements IUrlLaucherService {}
