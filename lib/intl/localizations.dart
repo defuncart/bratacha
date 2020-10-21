@@ -49,6 +49,12 @@ class AppLocalizations {
   static String get hardDifficultyPanelLabel =>
       _getText('hardDifficultyPanelLabel');
 
+  static String get changeLanguageDialogTitle =>
+      _getText('changeLanguageDialogTitle');
+
+  static String get changeLanguageDialogDescription =>
+      _getText('changeLanguageDialogDescription');
+
   static String get resetProgressDialogTitle =>
       _getText('resetProgressDialogTitle');
 
@@ -125,6 +131,9 @@ class AppLocalizations {
     'settingsTabDataPrivacyLabel': 'Data Privacy',
     'settingsTabCreditsLabel': 'Credits',
     'hardDifficultyPanelLabel': 'Hard Difficulty',
+    'changeLanguageDialogTitle': 'Change Language?',
+    'changeLanguageDialogDescription':
+        'Your progress will be permantely deleted and cannot be recovered.',
     'resetProgressDialogTitle': 'Reset progress?',
     'resetProgressDialogDescription':
         'Your progress will be permantely deleted and cannot be recovered.',
@@ -174,6 +183,9 @@ class AppLocalizations {
     'settingsTabDataPrivacyLabel': 'Data Privacy',
     'settingsTabCreditsLabel': 'Credits',
     'hardDifficultyPanelLabel': 'Складаная складанасць',
+    'changeLanguageDialogTitle': 'Change Language?',
+    'changeLanguageDialogDescription':
+        'Your progress will be permantely deleted and cannot be recovered.',
     'resetProgressDialogTitle': 'Reset progress?',
     'resetProgressDialogDescription':
         'Your progress will be permantely deleted and cannot be recovered.',
@@ -223,6 +235,9 @@ class AppLocalizations {
     'settingsTabDataPrivacyLabel': 'Data Privacy',
     'settingsTabCreditsLabel': 'Credits',
     'hardDifficultyPanelLabel': 'Hard Difficulty',
+    'changeLanguageDialogTitle': 'Change Language?',
+    'changeLanguageDialogDescription':
+        'Your progress will be permantely deleted and cannot be recovered.',
     'resetProgressDialogTitle': 'Reset progress?',
     'resetProgressDialogDescription':
         'Your progress will be permantely deleted and cannot be recovered.',
@@ -272,6 +287,9 @@ class AppLocalizations {
     'settingsTabDataPrivacyLabel': 'Data Privacy',
     'settingsTabCreditsLabel': 'Credits',
     'hardDifficultyPanelLabel': 'Hard Difficulty',
+    'changeLanguageDialogTitle': ' ',
+    'changeLanguageDialogDescription':
+        'Your progress will be permantely deleted and cannot be recovered.',
     'resetProgressDialogTitle': ' ',
     'resetProgressDialogDescription':
         'Your progress will be permantely deleted and cannot be recovered.',

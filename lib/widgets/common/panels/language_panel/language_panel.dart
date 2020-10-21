@@ -1,11 +1,18 @@
 import 'package:bratacha/intl/localizations.dart';
+import 'package:bratacha/modules/dialog_manager/dialog_manager.dart';
 import 'package:bratacha/widgets/common/panels/language_panel/langauge_button.dart';
 import 'package:bratacha/widgets/common/panels/language_panel/language_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class LanguagePanel extends StatelessWidget {
-  const LanguagePanel({Key key}) : super(key: key);
+  final bool presentConfirmationDialog;
+
+  const LanguagePanel({
+    Key key,
+    this.presentConfirmationDialog = true,
+  })  : assert(presentConfirmationDialog != null),
+        super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +29,23 @@ class LanguagePanel extends StatelessWidget {
                 LanguageButton(
                   languageCode: languageCode,
                   isSelected: languageCode == language,
-                  onPressed: () => context.bloc<LanguageCubit>().setLanguage(languageCode),
+                  onPressed: () async {
+                    if (presentConfirmationDialog) {
+                      final response =
+                          await context.repository<IDialogService>().requestConfirmDialog(ConfirmDialogRequest(
+                                title: AppLocalizations.changeLanguageDialogTitle,
+                                description: AppLocalizations.changeLanguageDialogDescription,
+                                negativeButtonText: AppLocalizations.generalNo,
+                                positiveButtonText: AppLocalizations.generalYes,
+                              ));
+
+                      if (!response.isPositive) {
+                        return;
+                      }
+                    }
+
+                    context.bloc<LanguageCubit>().setLanguage(languageCode);
+                  },
                   size: size,
                 )
             ],

@@ -23,7 +23,7 @@ class OnboardingPage1 extends StatelessWidget {
           children: [
             Text(AppLocalizations.onboardingPage1TextLabel3),
             SizedBox(height: 8),
-            LanguagePanel(),
+            LanguagePanel(presentConfirmationDialog: false),
           ],
         ),
         Center(

@@ -28,6 +28,19 @@ void main() {
     expect(find.byType(Row), findsOneWidget);
     expect(find.byType(LanguageButton), findsNWidgets(AppLocalizationsDelegate.supportedLocals.length));
   });
+
+  test('presentConfirmationDialog null value triggers assertion', () {
+    expect(
+      () => LanguagePanel(
+        presentConfirmationDialog: null,
+      ),
+      throwsAssertionError,
+    );
+  });
+
+  test('no presentConfirmationDialog value does not trigger assertion', () {
+    expect(() => LanguagePanel(), returnsNormally);
+  });
 }
 
 class _MockPlayerDataService extends Mock implements IPlayerDataService {

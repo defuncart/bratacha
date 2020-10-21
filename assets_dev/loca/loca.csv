@@ -13,6 +13,8 @@ settingsTabResetProgressLabel;Reset Progress;Скід прагрэсу;;
 settingsTabDataPrivacyLabel;Data Privacy;;;
 settingsTabCreditsLabel;Credits;;;
 hardDifficultyPanelLabel;Hard Difficulty;Складаная складанасць;;
+changeLanguageDialogTitle;Change Language?;;; 
+changeLanguageDialogDescription;Your progress will be permantely deleted and cannot be recovered.;;;
 resetProgressDialogTitle;Reset progress?;;; 
 resetProgressDialogDescription;Your progress will be permantely deleted and cannot be recovered.;;;
 creditsDialogTitle;Credits;;;
