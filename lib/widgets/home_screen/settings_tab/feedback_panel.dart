@@ -3,7 +3,7 @@ import 'package:bratacha/services/url_launcher_service/i_url_launcher_service.da
 import 'package:flutter/material.dart';
 
 class FeedbackPanel extends StatelessWidget {
-  static const _url = 'https://github.com/defuncart/bratacha';
+  static const _url = 'https://forms.gle/UL2nhvt8oeRH361E6';
 
   final IUrlLaucherService urlLaucherService;
 
