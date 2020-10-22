@@ -17,6 +17,13 @@ void main() {
     expect(find.byType(Text), findsOneWidget);
     expect(find.byType(SizedBox), findsOneWidget);
     expect(find.byType(DeveloperPanel), findsOneWidget);
+  });
+
+  testWidgets('Ensure content is correct', (tester) async {
+    await tester.pumpWidget(
+      MaterialApp(home: CreditsPanel()),
+    );
+
     expect(find.text(AppLocalizations.creditsDialogDescriptionLabel1), findsOneWidget);
   });
 }

@@ -84,4 +84,61 @@ void main() {
     expect(languageButtonWidget.size, 100);
     expect(languageButtonWidget.size, 100);
   });
+
+  test('languageCode null value triggers assertion', () {
+    expect(
+      () => LanguageButton(
+        languageCode: null,
+        size: 100,
+        isSelected: true,
+        onPressed: () {},
+      ),
+      throwsAssertionError,
+    );
+  });
+
+  test('isSelected null value triggers assertion', () {
+    expect(
+      () => LanguageButton(
+        languageCode: 'en',
+        size: 100,
+        isSelected: null,
+        onPressed: () {},
+      ),
+      throwsAssertionError,
+    );
+  });
+
+  test('onPressed null value triggers assertion', () {
+    expect(
+      () => LanguageButton(
+        languageCode: 'en',
+        size: 100,
+        isSelected: true,
+        onPressed: null,
+      ),
+      throwsAssertionError,
+    );
+  });
+
+  test('size null or size <= 0 value triggers assertion', () {
+    expect(
+      () => LanguageButton(
+        languageCode: 'en',
+        size: null,
+        isSelected: true,
+        onPressed: () {},
+      ),
+      throwsAssertionError,
+    );
+    expect(
+      () => LanguageButton(
+        languageCode: 'en',
+        size: 0,
+        isSelected: true,
+        onPressed: () {},
+      ),
+      throwsAssertionError,
+    );
+  });
 }
