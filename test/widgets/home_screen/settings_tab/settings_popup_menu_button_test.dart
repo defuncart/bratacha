@@ -1,8 +1,8 @@
 import 'package:bratacha/intl/localizations.dart';
-import 'package:bratacha/modules/dialog_manager/dialog_manager.dart';
-import 'package:bratacha/modules/dialog_manager/src/models/responses/base_dialog_response.dart';
+// import 'package:bratacha/modules/dialog_manager/dialog_manager.dart';
+// import 'package:bratacha/modules/dialog_manager/src/models/responses/base_dialog_response.dart';
 import 'package:bratacha/modules/player_data/player_data.dart';
-import 'package:bratacha/services/app_info_service/i_app_info_service.dart';
+// import 'package:bratacha/services/app_info_service/i_app_info_service.dart';
 import 'package:bratacha/widgets/common/panels/hard_difficulty_panel/hard_difficulty_cubit.dart';
 import 'package:bratacha/widgets/common/panels/language_panel/language_cubit.dart';
 import 'package:bratacha/widgets/home_screen/settings_tab/settings_popup_menu_button.dart';
@@ -16,7 +16,6 @@ void main() {
   AppLocalizations.load(Locale('en'));
 
   final playerDataService = _MockPlayerDataService();
-  final dialogService = _MockDialogService();
   final widget = MultiBlocProvider(
     providers: [
       BlocProvider<HardDifficultyCubit>(
@@ -110,24 +109,24 @@ class _MockPlayerDataService extends Mock implements IPlayerDataService {
   bool get isHardDifficulty => false;
 }
 
-class _MockDialogService extends Mock implements IDialogService {
-  BaseDialogResponse _response;
+// class _MockDialogService extends Mock implements IDialogService {
+//   BaseDialogResponse _response;
 
-  void setResponse(BaseDialogResponse response) => _response = response;
+//   void setResponse(BaseDialogResponse response) => _response = response;
 
-  @override
-  Future<InformativeDialogResponse> requestInformativeDialog(InformativeDialogRequest request) async =>
-      await Future.value(_response as InformativeDialogResponse);
+//   @override
+//   Future<InformativeDialogResponse> requestInformativeDialog(InformativeDialogRequest request) async =>
+//       await Future.value(_response as InformativeDialogResponse);
 
-  @override
-  Future<ConfirmDialogResponse> requestConfirmDialog(ConfirmDialogRequest request) async =>
-      await Future.value(_response as ConfirmDialogResponse);
+//   @override
+//   Future<ConfirmDialogResponse> requestConfirmDialog(ConfirmDialogRequest request) async =>
+//       await Future.value(_response as ConfirmDialogResponse);
 
-  @override
-  Future<CustomDialogResponse> requestCustomDialog(CustomDialogRequest request) async =>
-      await Future.value(_response as CustomDialogResponse);
-}
+//   @override
+//   Future<CustomDialogResponse> requestCustomDialog(CustomDialogRequest request) async =>
+//       await Future.value(_response as CustomDialogResponse);
+// }
 
-class _MockAppInfoService extends Mock implements IAppInfoService {}
+// class _MockAppInfoService extends Mock implements IAppInfoService {}
 
 class _MockBuildContext extends Mock implements BuildContext {}

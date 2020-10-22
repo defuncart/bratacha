@@ -26,15 +26,14 @@ class SettingsPopupMenuButton extends StatelessWidget {
       _Option.credits: AppLocalizations.settingsTabCreditsLabel,
     };
 
-    // final mapOptionCallback = {
-    //   _Option.dataPrivacy: (BuildContext context) async => _onDataPrivacySelected(parentContext),
-    //   _Option.credits: (BuildContext context) async => _onCreditsSelected(parentContext),
-    // };
+    final mapOptionCallback = {
+      _Option.dataPrivacy: (BuildContext context) async => _onDataPrivacySelected(parentContext),
+      _Option.credits: (BuildContext context) async => _onCreditsSelected(parentContext),
+    };
 
     return PopupMenuButton<_Option>(
       icon: Icon(Icons.info),
-      // onSelected: (option) => mapOptionCallback[option](context),
-      onSelected: (option) => _onSelected(option, context),
+      onSelected: (option) => mapOptionCallback[option](context),
       color: Theme.of(context).scaffoldBackgroundColor,
       itemBuilder: (_) => [
         for (final option in _Option.values)
@@ -44,16 +43,6 @@ class SettingsPopupMenuButton extends StatelessWidget {
           )
       ],
     );
-  }
-
-  void _onSelected(_Option option, BuildContext context) {
-    switch (option) {
-      case _Option.dataPrivacy:
-        _onDataPrivacySelected(context);
-        break;
-      case _Option.credits:
-        _onCreditsSelected(context);
-    }
   }
 
   Future<void> _onDataPrivacySelected(BuildContext context) async {
