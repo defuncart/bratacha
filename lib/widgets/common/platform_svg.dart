@@ -13,7 +13,7 @@ class PlatformSvg {
     alignment = Alignment.center,
     String semanticsLabel,
   }) {
-    if (kIsWeb) {
+    if (kIsWeb && kDebugMode) {
       return Image.network(
         assetName,
         width: width,
