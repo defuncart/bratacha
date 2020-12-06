@@ -1,9 +1,10 @@
 name: publish_github_pages
-on:
+# on:
   # push:
   #   branches:
   #     - main
-  workflow_dispatch:
+  # workflow_dispatch:
+on: push
 jobs:
   build:
     name: Build for Web
