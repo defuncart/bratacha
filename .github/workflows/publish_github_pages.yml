@@ -1,8 +1,9 @@
 name: publish_github_pages
-on:
-  push:
-    branches:
-      - master
+# on:
+#   push:
+#     branches:
+#       - master
+on: push
 jobs:
   build:
     name: Build for Web
