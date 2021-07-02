@@ -31,27 +31,27 @@ class GameScreen extends StatelessWidget {
 
     return RepositoryProvider<IGameService>(
       create: (_) => GameService(
-        isHardDifficulty: context.repository<IPlayerDataService>().isHardDifficulty,
-        playerDataService: context.repository<IPlayerDataService>(),
+        isHardDifficulty: context.read<IPlayerDataService>().isHardDifficulty,
+        playerDataService: context.read<IPlayerDataService>(),
         level: level,
-        levelManager: context.repository<LevelManager>(),
+        levelManager: context.read<LevelManager>(),
       )..initialize(),
       lazy: false,
       child: MultiBlocProvider(
         providers: [
           BlocProvider<QuestionCubit>(
             create: (contextRepository) => QuestionCubit(
-              gameService: contextRepository.repository<IGameService>(),
+              gameService: contextRepository.read<IGameService>(),
             ),
           ),
           BlocProvider<AnswersCubit>(
             create: (contextRepository) => AnswersCubit(
-              gameService: contextRepository.repository<IGameService>(),
+              gameService: contextRepository.read<IGameService>(),
             ),
           ),
           BlocProvider<ScoreCubit>(
             create: (contextRepository) => ScoreCubit(
-              gameService: contextRepository.repository<IGameService>(),
+              gameService: contextRepository.read<IGameService>(),
             ),
           ),
         ],
@@ -60,7 +60,7 @@ class GameScreen extends StatelessWidget {
             leading: IconButton(
               icon: Icon(Icons.close),
               onPressed: () async {
-                final response = await context.repository<IDialogService>().requestConfirmDialog(ConfirmDialogRequest(
+                final response = await context.read<IDialogService>().requestConfirmDialog(ConfirmDialogRequest(
                       title: AppLocalizations.quitGameDialogTitle,
                       description: AppLocalizations.quitGameDialogDescription,
                       negativeButtonText: AppLocalizations.generalNo,

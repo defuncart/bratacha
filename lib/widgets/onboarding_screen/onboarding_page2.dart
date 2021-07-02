@@ -17,7 +17,7 @@ class OnboardingPage2 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final gameService = _MockGameService(context.bloc<HardDifficultyCubit>());
+    final gameService = _MockGameService(context.read<HardDifficultyCubit>());
     return LayoutBuilder(
       builder: (_, constraints) => Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -73,7 +73,7 @@ class _MockGameService implements IGameService {
   _MockGameService(HardDifficultyCubit cubit) {
     _answersController.add(cubit.state ? _answersHard : _answersEasy);
 
-    cubit.listen((isHardDifficulty) {
+    cubit.stream.listen((isHardDifficulty) {
       _answersController.add(isHardDifficulty ? _answersHard : _answersEasy);
     });
   }

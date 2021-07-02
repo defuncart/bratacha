@@ -3,7 +3,7 @@ import 'package:bratacha/services/url_launcher_service/i_url_launcher_service.da
 import 'package:bratacha/widgets/home_screen/settings_tab/feedback_panel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:mockito/mockito.dart';
+import 'package:mocktail/mocktail.dart';
 
 void main() {
   // ensure localizations are setup

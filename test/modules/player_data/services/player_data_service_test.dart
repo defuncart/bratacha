@@ -3,7 +3,7 @@ import 'package:bratacha/modules/player_data/src/services/flag_data_service.dart
 import 'package:bratacha/modules/player_data/src/services/i_flag_data_service.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:meta/meta.dart';
-import 'package:mockito/mockito.dart';
+import 'package:mocktail/mocktail.dart';
 
 import '../../hive_wrapper.dart';
 

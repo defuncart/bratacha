@@ -3,26 +3,26 @@ import 'package:bratacha/services/game_service/i_game_service.dart';
 import 'package:bratacha/widgets/game_screen/question_cubit.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:meta/meta.dart';
-import 'package:mockito/mockito.dart';
+import 'package:mocktail/mocktail.dart';
 
 void main() {
   group('QuestionCubit', () {
     blocTest(
       'emits [] when nothing is added',
       build: () => QuestionCubit(gameService: _MockGameService(questions: [])),
-      expect: [],
+      expect: () => [],
     );
 
     blocTest(
       'emits [a] when IGameService emits question a',
       build: () => QuestionCubit(gameService: _MockGameService(questions: ['a'])),
-      expect: ['a'],
+      expect: () => ['a'],
     );
 
     blocTest(
       'emits [a, b] when IGameService emits questions a and b',
       build: () => QuestionCubit(gameService: _MockGameService(questions: ['a', 'b'])),
-      expect: ['a', 'b'],
+      expect: () => ['a', 'b'],
     );
   });
 }

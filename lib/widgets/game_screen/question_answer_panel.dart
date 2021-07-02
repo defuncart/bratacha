@@ -55,7 +55,7 @@ class QuestionAnswerPanel extends StatelessWidget {
                               height: size,
                             ),
                             onTap: () {
-                              final gameService = context.repository<IGameService>();
+                              final gameService = context.read<IGameService>();
                               gameService.answerWithId(id);
                               if (gameService.levelCompleted) {
                                 Navigator.of(context).pushReplacementNamed(HomeScreen.routeName);

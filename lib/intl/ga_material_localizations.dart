@@ -330,4 +330,10 @@ class GaMaterialLocalizations extends GlobalMaterialLocalizations {
 
   @override
   String get unspecifiedDateRange => 'Date Range';
+
+  @override
+  String get firstPageTooltip => 'First';
+
+  @override
+  String get lastPageTooltip => 'Last';
 }

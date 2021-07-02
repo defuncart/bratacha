@@ -7,7 +7,7 @@ import 'package:bratacha/modules/country_database/country_database.dart';
 import 'package:bratacha/modules/player_data/player_data.dart';
 import 'package:bratacha/services/game_service/game_service.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:mockito/mockito.dart';
+import 'package:mocktail/mocktail.dart';
 
 void main() {
   // ensure localizations are setup

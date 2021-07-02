@@ -2,7 +2,7 @@ import 'package:bratacha/managers/level_manager.dart';
 import 'package:bratacha/modules/level_database/level_database.dart';
 import 'package:bratacha/modules/player_data/player_data.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:mockito/mockito.dart';
+import 'package:mocktail/mocktail.dart';
 
 void main() {
   final levelService = LevelService();

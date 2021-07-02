@@ -5,7 +5,7 @@ import 'package:bratacha/modules/dialog_manager/src/models/requests/base_dialog_
 import 'package:bratacha/modules/dialog_manager/src/models/responses/base_dialog_response.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:mockito/mockito.dart';
+import 'package:mocktail/mocktail.dart';
 
 void main() {
   test('dialogService null value triggers assertion', () {

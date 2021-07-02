@@ -2,28 +2,28 @@ import 'package:bloc_test/bloc_test.dart';
 import 'package:bratacha/modules/player_data/player_data.dart';
 import 'package:bratacha/widgets/common/panels/language_panel/language_cubit.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:mockito/mockito.dart';
+import 'package:mocktail/mocktail.dart';
 
 void main() {
   group('LanguageCubit', () {
     blocTest(
       'emits [] when nothing is added',
       build: () => LanguageCubit(_MockPlayerDataService()),
-      expect: [],
+      expect: () => [],
     );
 
     blocTest(
       'emits [en] when en is set',
       build: () => LanguageCubit(_MockPlayerDataService(language: 'en')),
       act: (cubit) => cubit.setLanguage('en'),
-      expect: ['en'],
+      expect: () => ['en'],
     );
 
     blocTest(
       'emits [en, ga] when en and then ga are set',
       build: () => LanguageCubit(_MockPlayerDataService(language: 'en')),
       act: (cubit) => cubit..setLanguage('en')..setLanguage('ga'),
-      expect: ['en', 'ga'],
+      expect: () => ['en', 'ga'],
     );
   });
 }

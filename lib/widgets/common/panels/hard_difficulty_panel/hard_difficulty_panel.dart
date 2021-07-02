@@ -15,7 +15,7 @@ class HardDifficultyPanel extends StatelessWidget {
         BlocBuilder<HardDifficultyCubit, bool>(
           builder: (_, isHardDifficulty) => Switch(
             value: isHardDifficulty,
-            onChanged: (_) => context.bloc<HardDifficultyCubit>().toggle(),
+            onChanged: (_) => context.read<HardDifficultyCubit>().toggle(),
             activeColor: Theme.of(context).accentColor,
           ),
         ),

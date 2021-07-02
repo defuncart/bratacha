@@ -31,20 +31,19 @@ class LanguagePanel extends StatelessWidget {
                   isSelected: languageCode == language,
                   onPressed: () async {
                     if (presentConfirmationDialog) {
-                      final response =
-                          await context.repository<IDialogService>().requestConfirmDialog(ConfirmDialogRequest(
-                                title: AppLocalizations.changeLanguageDialogTitle,
-                                description: AppLocalizations.changeLanguageDialogDescription,
-                                negativeButtonText: AppLocalizations.generalNo,
-                                positiveButtonText: AppLocalizations.generalYes,
-                              ));
+                      final response = await context.read<IDialogService>().requestConfirmDialog(ConfirmDialogRequest(
+                            title: AppLocalizations.changeLanguageDialogTitle,
+                            description: AppLocalizations.changeLanguageDialogDescription,
+                            negativeButtonText: AppLocalizations.generalNo,
+                            positiveButtonText: AppLocalizations.generalYes,
+                          ));
 
                       if (!response.isPositive) {
                         return;
                       }
                     }
 
-                    context.bloc<LanguageCubit>().setLanguage(languageCode);
+                    context.read<LanguageCubit>().setLanguage(languageCode);
                   },
                   size: size,
                 )

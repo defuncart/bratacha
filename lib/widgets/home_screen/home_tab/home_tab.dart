@@ -12,7 +12,7 @@ class HomeTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final levelManager = context.repository<LevelManager>();
+    final levelManager = context.read<LevelManager>();
 
     return Scaffold(
       appBar: AppBar(
@@ -22,7 +22,7 @@ class HomeTab extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.only(right: 16),
               child: Score(
-                score: context.repository<IPlayerDataService>().score,
+                score: context.read<IPlayerDataService>().score,
                 color: const Color(0xffFFE391),
                 fontSize: 20.0,
               ),

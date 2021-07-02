@@ -57,7 +57,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 ),
                 onPressed: _isLastPage
                     ? () {
-                        context.repository<ISettingsDatabase>().hasSeenOnboarding = true;
+                        context.read<ISettingsDatabase>().hasSeenOnboarding = true;
                         Navigator.of(context).pushReplacementNamed(HomeScreen.routeName);
                       }
                     : () => setState(() => _index++),

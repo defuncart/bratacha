@@ -46,7 +46,7 @@ class SettingsPopupMenuButton extends StatelessWidget {
   }
 
   Future<void> _onDataPrivacySelected(BuildContext context) async {
-    final response = await context.repository<IDialogService>().requestCustomDialog(
+    final response = await context.read<IDialogService>().requestCustomDialog(
           CustomDialogRequest(
             title: AppLocalizations.dataPrivacyDialogTitle,
             content: DataPrivacyPanel(),
@@ -58,7 +58,7 @@ class SettingsPopupMenuButton extends StatelessWidget {
         );
 
     if (response.buttonIndexPressed == 0) {
-      final appInfoService = context.repository<IAppInfoService>();
+      final appInfoService = context.read<IAppInfoService>();
       showLicensePage(
         context: context,
         applicationName: appInfoService.applicationName,
@@ -70,7 +70,7 @@ class SettingsPopupMenuButton extends StatelessWidget {
   }
 
   Future<void> _onCreditsSelected(BuildContext context) async =>
-      await context.repository<IDialogService>().requestCustomDialog(
+      await context.read<IDialogService>().requestCustomDialog(
             CustomDialogRequest(
               title: AppLocalizations.creditsDialogTitle,
               content: CreditsPanel(),

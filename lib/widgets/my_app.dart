@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
     return MultiRepositoryProvider(
       providers: [
         RepositoryProvider<LevelManager>(
-          create: (_) => LevelManager(_.repository<IPlayerDataService>()),
+          create: (_) => LevelManager(_.read<IPlayerDataService>()),
         ),
         RepositoryProvider<IDialogService>(
           create: (_) => DialogService(),
@@ -44,10 +44,10 @@ class MyApp extends StatelessWidget {
       child: MultiBlocProvider(
         providers: [
           BlocProvider<LanguageCubit>(
-            create: (contextRepositories) => LanguageCubit(contextRepositories.repository<IPlayerDataService>()),
+            create: (contextRepositories) => LanguageCubit(contextRepositories.read<IPlayerDataService>()),
           ),
           BlocProvider<HardDifficultyCubit>(
-            create: (contextRepositories) => HardDifficultyCubit(contextRepositories.repository<IPlayerDataService>()),
+            create: (contextRepositories) => HardDifficultyCubit(contextRepositories.read<IPlayerDataService>()),
           ),
         ],
         child: BlocBuilder<LanguageCubit, String>(
@@ -55,7 +55,7 @@ class MyApp extends StatelessWidget {
             builder: (context, widget) => Navigator(
               onGenerateRoute: (settings) => MaterialPageRoute(
                 builder: (context) => DialogManager(
-                  dialogService: context.repository<IDialogService>(),
+                  dialogService: context.read<IDialogService>(),
                   child: widget,
                 ),
               ),
@@ -72,7 +72,7 @@ class MyApp extends StatelessWidget {
             locale: Locale(language),
             supportedLocales: AppLocalizationsDelegate.supportedLocals,
             theme: AppThemes.theme,
-            home: context.repository<ISettingsDatabase>().hasSeenOnboarding ? HomeScreen() : OnboardingScreen(),
+            home: context.read<ISettingsDatabase>().hasSeenOnboarding ? HomeScreen() : OnboardingScreen(),
             routes: {
               OnboardingScreen.routeName: (_) => OnboardingScreen(),
               HomeScreen.routeName: (_) => HomeScreen(),
