@@ -22,7 +22,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key key}) : super(key: key);
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -56,7 +56,7 @@ class MyApp extends StatelessWidget {
               onGenerateRoute: (settings) => MaterialPageRoute(
                 builder: (context) => DialogManager(
                   dialogService: context.read<IDialogService>(),
-                  child: widget,
+                  child: widget!,
                 ),
               ),
             ),

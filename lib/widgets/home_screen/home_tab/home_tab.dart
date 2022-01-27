@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class HomeTab extends StatelessWidget {
-  const HomeTab({Key key}) : super(key: key);
+  const HomeTab({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +49,9 @@ class HomeTab extends StatelessWidget {
                   onPressed: () => Navigator.of(context).pushNamed(LearnScreen.routeName),
                   child: Text(
                     AppLocalizations.homeTabLeanFlagsButtonText,
-                    style: TextStyle(color: Theme.of(context).accentColor),
+                    style: TextStyle(
+                      color: Theme.of(context).colorScheme.secondary,
+                    ),
                   ),
                 ),
               ],
@@ -62,19 +64,16 @@ class HomeTab extends StatelessWidget {
 }
 
 class _LevelButton extends StatelessWidget {
+  const _LevelButton({
+    required this.isLevelUnlocked,
+    required this.levelIndex,
+    required this.pointsRequired,
+    Key? key,
+  }) : super(key: key);
+
   final bool isLevelUnlocked;
   final int levelIndex;
   final int pointsRequired;
-
-  const _LevelButton({
-    Key key,
-    @required this.isLevelUnlocked,
-    @required this.levelIndex,
-    @required this.pointsRequired,
-  })  : assert(isLevelUnlocked != null),
-        assert(levelIndex != null),
-        assert(pointsRequired != null),
-        super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -97,7 +96,7 @@ class _LevelButton extends StatelessWidget {
                     if (!isLevelUnlocked)
                       Score(
                         score: pointsRequired,
-                        color: Theme.of(context).accentColor,
+                        color: Theme.of(context).colorScheme.secondary,
                         fontSize: 16.0,
                       ),
                   ],

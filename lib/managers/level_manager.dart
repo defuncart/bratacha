@@ -20,7 +20,7 @@ class LevelManager {
       return countries;
     }
 
-    return null;
+    throw (ArgumentError('Invalid level $level'));
   }
 
   /// Returns whether a given level index (beginning at zero) is unlocked

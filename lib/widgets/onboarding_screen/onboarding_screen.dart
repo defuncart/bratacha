@@ -10,7 +10,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class OnboardingScreen extends StatefulWidget {
   static const routeName = 'OnboardingScreen';
 
-  const OnboardingScreen({Key key}) : super(key: key);
+  const OnboardingScreen({Key? key}) : super(key: key);
 
   @override
   _OnboardingScreenState createState() => _OnboardingScreenState();
@@ -40,7 +40,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               SizedBox(height: 16),
               ElevatedButton(
                 style: ButtonStyle(
-                  backgroundColor: MaterialStateColor.resolveWith((states) => Theme.of(context).accentColor),
+                  backgroundColor: MaterialStateColor.resolveWith(
+                    (states) => Theme.of(context).colorScheme.secondary,
+                  ),
                   minimumSize: MaterialStateProperty.all(
                     Size(
                       MediaQuery.of(context).size.width * 0.5,

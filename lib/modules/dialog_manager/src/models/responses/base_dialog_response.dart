@@ -1,7 +1,7 @@
 abstract class BaseDialogResponse {
   final bool hasError;
 
-  const BaseDialogResponse({bool hasError}) : hasError = hasError ?? false;
+  const BaseDialogResponse({this.hasError = false});
 
   @override
   String toString() => 'hasError: $hasError';

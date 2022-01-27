@@ -16,17 +16,17 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class GameScreenArguments {
   final int level;
 
-  const GameScreenArguments({@required this.level});
+  const GameScreenArguments({required this.level});
 }
 
 class GameScreen extends StatelessWidget {
   static const routeName = 'GameScreen';
 
-  const GameScreen({Key key}) : super(key: key);
+  const GameScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final args = ModalRoute.of(context).settings.arguments as GameScreenArguments;
+    final args = ModalRoute.of(context)?.settings.arguments as GameScreenArguments;
     final level = args.level;
 
     return RepositoryProvider<IGameService>(
@@ -60,12 +60,14 @@ class GameScreen extends StatelessWidget {
             leading: IconButton(
               icon: Icon(Icons.close),
               onPressed: () async {
-                final response = await context.read<IDialogService>().requestConfirmDialog(ConfirmDialogRequest(
-                      title: AppLocalizations.quitGameDialogTitle,
-                      description: AppLocalizations.quitGameDialogDescription,
-                      negativeButtonText: AppLocalizations.generalNo,
-                      positiveButtonText: AppLocalizations.generalYes,
-                    ));
+                final response = await context.read<IDialogService>().requestConfirmDialog(
+                      ConfirmDialogRequest(
+                        title: AppLocalizations.quitGameDialogTitle,
+                        description: AppLocalizations.quitGameDialogDescription,
+                        negativeButtonText: AppLocalizations.generalNo,
+                        positiveButtonText: AppLocalizations.generalYes,
+                      ),
+                    );
                 if (response.isPositive) {
                   await Navigator.of(context).pushReplacementNamed(HomeScreen.routeName);
                 }

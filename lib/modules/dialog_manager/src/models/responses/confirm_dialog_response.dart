@@ -12,7 +12,7 @@ class ConfirmDialogResponse extends BaseDialogResponse {
         super();
 
   const ConfirmDialogResponse.hasError()
-      : isPositive = null,
+      : isPositive = false,
         super(hasError: true);
 
   @override

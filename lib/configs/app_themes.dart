@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 
 abstract class AppThemes {
   static final theme = ThemeData.dark().copyWith(
-    accentColor: _AppColors.accent,
+    colorScheme: ColorScheme.dark().copyWith(
+      secondary: _AppColors.accent,
+    ),
     scaffoldBackgroundColor: _AppColors.primary,
     appBarTheme: AppBarTheme(
       color: _AppColors.primaryDark,

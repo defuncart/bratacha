@@ -6,24 +6,23 @@ import 'package:bratacha/managers/level_manager.dart';
 import 'package:bratacha/modules/country_database/country_database.dart';
 import 'package:bratacha/modules/player_data/player_data.dart';
 import 'package:bratacha/services/game_service/i_game_service.dart';
-import 'package:meta/meta.dart';
 
 class GameService implements IGameService {
   final List<Country> _countries = CountryService.countries;
-  List<int> _indecesCountriesForLevel;
-  int _numberRounds;
+  List<int> _indecesCountriesForLevel = [];
+  int _numberRounds = -1;
   final bool isHardDifficulty;
   final IPlayerDataService playerDataService;
-  int _score;
-  int _index;
-  List<int> _countriesDisplayed;
-  List<int> _countriesDisplayedLastRound;
+  int _score = 0;
+  int _index = -1;
+  List<int> _countriesDisplayed = [];
+  List<int> _countriesDisplayedLastRound = [];
 
   GameService({
-    @required this.isHardDifficulty,
-    @required this.playerDataService,
-    @required int level,
-    @required LevelManager levelManager,
+    required this.isHardDifficulty,
+    required this.playerDataService,
+    required int level,
+    required LevelManager levelManager,
   }) {
     final levelCountries = levelManager.countriesForLevel(level);
     final indeces = <int>[];

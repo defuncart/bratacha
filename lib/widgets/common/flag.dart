@@ -2,18 +2,15 @@ import 'package:bratacha/widgets/common/platform_svg.dart';
 import 'package:flutter/material.dart';
 
 class Flag extends StatelessWidget {
-  final String countryCode;
-  final double width;
-  final double height;
-
   const Flag(
     this.countryCode, {
-    this.width,
-    this.height,
-    Key key,
-  })  : assert(countryCode != null),
-        assert(width == height),
+    required this.size,
+    Key? key,
+  })  : assert(size > 0),
         super(key: key);
+
+  final String countryCode;
+  final double size;
 
   String get _path => 'assets/flags/${countryCode}.svg';
 
@@ -21,8 +18,8 @@ class Flag extends StatelessWidget {
   Widget build(BuildContext context) {
     return PlatformSvg.asset(
       _path,
-      width: width,
-      height: height,
+      width: size,
+      height: size,
     );
   }
 }

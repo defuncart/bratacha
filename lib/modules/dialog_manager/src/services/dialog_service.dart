@@ -1,7 +1,5 @@
 import 'dart:async';
 
-import 'package:meta/meta.dart';
-
 import '../models/requests/base_dialog_request.dart';
 import '../models/requests/confirm_dialog_request.dart';
 import '../models/requests/custom_dialog_request.dart';
@@ -13,7 +11,7 @@ import '../models/responses/informative_dialog_response.dart';
 import 'i_dialog_service.dart';
 
 class DialogService implements IDialogService {
-  Completer _dialogCompleter;
+  Completer? _dialogCompleter;
 
   bool get _isCurrentlyPresenting => _dialogCompleter != null;
 
@@ -30,7 +28,7 @@ class DialogService implements IDialogService {
 
     _dialogCompleter = Completer<InformativeDialogResponse>();
     _requestStreamController.add(request);
-    return _dialogCompleter.future;
+    return _dialogCompleter!.future as Future<InformativeDialogResponse>;
   }
 
   @override
@@ -41,7 +39,7 @@ class DialogService implements IDialogService {
 
     _dialogCompleter = Completer<ConfirmDialogResponse>();
     _requestStreamController.add(request);
-    return _dialogCompleter.future;
+    return _dialogCompleter!.future as Future<ConfirmDialogResponse>;
   }
 
   @override
@@ -52,12 +50,12 @@ class DialogService implements IDialogService {
 
     _dialogCompleter = Completer<CustomDialogResponse>();
     _requestStreamController.add(request);
-    return _dialogCompleter.future;
+    return _dialogCompleter!.future as Future<CustomDialogResponse>;
   }
 
   @override
-  void dialogClosedByUser({@required BaseDialogResponse response}) {
-    _dialogCompleter.complete(response);
+  void dialogClosedByUser({required BaseDialogResponse response}) {
+    _dialogCompleter!.complete(response);
     _dialogCompleter = null;
   }
 }

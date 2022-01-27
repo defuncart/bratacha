@@ -6,13 +6,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class LanguagePanel extends StatelessWidget {
-  final bool presentConfirmationDialog;
-
   const LanguagePanel({
-    Key key,
     this.presentConfirmationDialog = true,
-  })  : assert(presentConfirmationDialog != null),
-        super(key: key);
+    Key? key,
+  }) : super(key: key);
+
+  final bool presentConfirmationDialog;
 
   @override
   Widget build(BuildContext context) {
@@ -31,12 +30,14 @@ class LanguagePanel extends StatelessWidget {
                   isSelected: languageCode == language,
                   onPressed: () async {
                     if (presentConfirmationDialog) {
-                      final response = await context.read<IDialogService>().requestConfirmDialog(ConfirmDialogRequest(
-                            title: AppLocalizations.changeLanguageDialogTitle,
-                            description: AppLocalizations.changeLanguageDialogDescription,
-                            negativeButtonText: AppLocalizations.generalNo,
-                            positiveButtonText: AppLocalizations.generalYes,
-                          ));
+                      final response = await context.read<IDialogService>().requestConfirmDialog(
+                            ConfirmDialogRequest(
+                              title: AppLocalizations.changeLanguageDialogTitle,
+                              description: AppLocalizations.changeLanguageDialogDescription,
+                              negativeButtonText: AppLocalizations.generalNo,
+                              positiveButtonText: AppLocalizations.generalYes,
+                            ),
+                          );
 
                       if (!response.isPositive) {
                         return;

@@ -5,13 +5,12 @@ import 'package:flutter/material.dart';
 ///
 /// For instance, `here is a [link](https://github.com/defuncart/)`
 class ClickableText extends StatelessWidget {
-  final String text;
-
   const ClickableText(
     this.text, {
-    Key key,
-  })  : assert(text != null),
-        super(key: key);
+    Key? key,
+  }) : super(key: key);
+
+  final String text;
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +25,7 @@ class ClickableText extends StatelessWidget {
               ClickableTextSpan(
                 text: spanModel.text,
                 style: TextStyle(
-                  color: Theme.of(context).accentColor,
+                  color: Theme.of(context).colorScheme.secondary,
                   fontWeight: FontWeight.bold,
                   decoration: TextDecoration.underline,
                 ),
@@ -49,7 +48,7 @@ List<BaseSpan> convert(String input) {
   input.splitMapJoin(
     regExp,
     onMatch: (match) {
-      final components = match.group(0).split('](');
+      final components = match.group(0)!.split('](');
       assert(components.length == 2);
       spanModels.add(LinkSpan(components[0].substring(1), components[1].substring(0, components[1].length - 1)));
       return '';

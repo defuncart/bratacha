@@ -11,7 +11,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 // TODO widget is only compatible with portrait orientation
 class QuestionAnswerPanel extends StatelessWidget {
-  const QuestionAnswerPanel({Key key}) : super(key: key);
+  const QuestionAnswerPanel({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -51,8 +51,7 @@ class QuestionAnswerPanel extends StatelessWidget {
                           GestureDetector(
                             child: Flag(
                               id,
-                              width: size,
-                              height: size,
+                              size: size,
                             ),
                             onTap: () {
                               final gameService = context.read<IGameService>();

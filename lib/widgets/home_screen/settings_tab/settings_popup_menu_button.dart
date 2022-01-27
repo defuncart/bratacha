@@ -12,34 +12,33 @@ enum _Option {
 }
 
 class SettingsPopupMenuButton extends StatelessWidget {
-  final BuildContext parentContext;
-
   const SettingsPopupMenuButton({
-    Key key,
-    @required this.parentContext,
+    required this.parentContext,
+    Key? key,
   }) : super(key: key);
+
+  final BuildContext parentContext;
 
   @override
   Widget build(BuildContext context) {
-    final mapOptionText = {
-      _Option.dataPrivacy: AppLocalizations.settingsTabDataPrivacyLabel,
-      _Option.credits: AppLocalizations.settingsTabCreditsLabel,
-    };
-
-    final mapOptionCallback = {
-      _Option.dataPrivacy: (BuildContext context) async => _onDataPrivacySelected(parentContext),
-      _Option.credits: (BuildContext context) async => _onCreditsSelected(parentContext),
-    };
-
     return PopupMenuButton<_Option>(
       icon: Icon(Icons.info),
-      onSelected: (option) => mapOptionCallback[option](context),
+      onSelected: (option) {
+        switch (option) {
+          case _Option.dataPrivacy:
+            _onDataPrivacySelected(parentContext);
+            break;
+          case _Option.credits:
+            _onCreditsSelected(parentContext);
+            break;
+        }
+      },
       color: Theme.of(context).scaffoldBackgroundColor,
       itemBuilder: (_) => [
         for (final option in _Option.values)
           PopupMenuItem<_Option>(
             value: option,
-            child: Text(mapOptionText[option]),
+            child: Text(option.localizedText),
           )
       ],
     );
@@ -79,4 +78,15 @@ class SettingsPopupMenuButton extends StatelessWidget {
               ],
             ),
           );
+}
+
+extension on _Option {
+  String get localizedText {
+    switch (this) {
+      case _Option.dataPrivacy:
+        return AppLocalizations.settingsTabDataPrivacyLabel;
+      case _Option.credits:
+        return AppLocalizations.settingsTabCreditsLabel;
+    }
+  }
 }

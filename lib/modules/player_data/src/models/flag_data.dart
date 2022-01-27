@@ -1,5 +1,4 @@
 import 'package:hive/hive.dart';
-import 'package:meta/meta.dart';
 
 import '../configs/hive_adapter_type.dart';
 
@@ -14,19 +13,19 @@ class FlagData extends HiveObject {
 
   /// The number of attempts
   @HiveField(1)
-  int attempts;
+  int attempts = 0;
 
   /// The number of times correct
   @HiveField(2)
-  int timesCorrect;
+  int timesCorrect = 0;
 
-  FlagData({@required this.id});
+  FlagData({required this.id});
 
   /// The percentage (between 0 and 1) that the player was correct
-  double get percentageCorrect => attempts != null ? (attempts > 0 ? timesCorrect / attempts : 0) : null;
+  double get percentageCorrect => attempts > 0 ? timesCorrect / attempts : 0;
 
   /// Updates the progress
-  void updateProgress({@required bool answeredCorrectly}) {
+  void updateProgress({required bool answeredCorrectly}) {
     attempts++;
     if (answeredCorrectly) {
       timesCorrect++;

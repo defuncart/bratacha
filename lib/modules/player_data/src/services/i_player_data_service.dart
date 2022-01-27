@@ -1,5 +1,3 @@
-import 'package:meta/meta.dart';
-
 import 'i_flag_data_service.dart';
 
 /// A database of the player's progress
@@ -23,7 +21,7 @@ abstract class IPlayerDataService {
   set score(int value);
 
   /// Updates the progress for a given id
-  void updateProgress({@required String id, @required bool answeredCorrectly});
+  void updateProgress({required String id, required bool answeredCorrectly});
 
   /// Resets all the player's country progress
   void resetAllCountryProgress();
@@ -32,7 +30,7 @@ abstract class IPlayerDataService {
   Future<void> initialize({IFlagDataService flagDataService});
 
   /// Resyncs the database for a list of ids
-  Future<void> resync({@required List<String> ids});
+  Future<void> resync({required List<String> ids});
 
   /// Resets the database
   Future<void> reset();

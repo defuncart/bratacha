@@ -17,19 +17,17 @@ class DialogManager extends StatefulWidget {
   final Widget child;
 
   DialogManager({
-    Key key,
-    @required this.dialogService,
-    @required this.child,
-  })  : assert(dialogService != null),
-        assert(child != null),
-        super(key: key);
+    required this.dialogService,
+    required this.child,
+    Key? key,
+  }) : super(key: key);
 
   @override
   _DialogManagerState createState() => _DialogManagerState();
 }
 
 class _DialogManagerState extends State<DialogManager> {
-  StreamSubscription _subscription;
+  StreamSubscription<BaseDialogRequest>? _subscription;
 
   @override
   void initState() {
@@ -40,7 +38,7 @@ class _DialogManagerState extends State<DialogManager> {
 
   @override
   void dispose() {
-    _subscription.cancel();
+    _subscription?.cancel();
 
     super.dispose();
   }
@@ -49,9 +47,9 @@ class _DialogManagerState extends State<DialogManager> {
   Widget build(BuildContext context) => widget.child;
 
   Future<void> _processRequest(BaseDialogRequest request) async {
-    Widget content;
-    List<Widget> actions;
-    BaseDialogResponse response;
+    late Widget content;
+    late List<Widget> actions;
+    BaseDialogResponse? response;
 
     if (request is InformativeDialogRequest) {
       content = Text(request.description);
@@ -113,10 +111,10 @@ class _DialogManagerState extends State<DialogManager> {
       } else if (request is ConfirmDialogRequest) {
         response = ConfirmDialogResponse.negative();
       } else if (request is CustomDialogRequest) {
-        response = CustomDialogResponse(buttonIndexPressed: null);
+        // response = CustomDialogResponse(buttonIndexPressed: null);
       }
     }
 
-    widget.dialogService.dialogClosedByUser(response: response);
+    // widget.dialogService.dialogClosedByUser(response: response);
   }
 }

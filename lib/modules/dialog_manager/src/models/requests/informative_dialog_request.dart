@@ -1,17 +1,14 @@
-import 'package:meta/meta.dart';
-
 import 'description_dialog_request.dart';
 
 class InformativeDialogRequest extends DescriptionDialogRequest {
   final String buttonText;
 
   const InformativeDialogRequest({
-    @required String title,
-    @required String description,
-    @required this.buttonText,
+    required String title,
+    required String description,
+    required this.buttonText,
     bool isModal = false,
-  })  : assert(buttonText != null),
-        super(
+  }) : super(
           title: title,
           description: description,
           isModal: isModal,

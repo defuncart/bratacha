@@ -5,12 +5,12 @@ import 'package:flutter/material.dart';
 class FeedbackPanel extends StatelessWidget {
   static const _url = 'https://forms.gle/UL2nhvt8oeRH361E6';
 
-  final IUrlLaucherService urlLaucherService;
-
   const FeedbackPanel({
-    Key key,
-    @required this.urlLaucherService,
+    required this.urlLaucherService,
+    Key? key,
   }) : super(key: key);
+
+  final IUrlLaucherService urlLaucherService;
 
   @override
   Widget build(BuildContext context) {

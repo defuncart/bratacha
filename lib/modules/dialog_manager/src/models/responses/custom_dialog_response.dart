@@ -1,14 +1,12 @@
-import 'package:meta/meta.dart';
-
 import 'base_dialog_response.dart';
 
 class CustomDialogResponse extends BaseDialogResponse {
   final int buttonIndexPressed;
 
-  const CustomDialogResponse({@required this.buttonIndexPressed}) : super();
+  const CustomDialogResponse({required this.buttonIndexPressed}) : super();
 
   const CustomDialogResponse.hasError()
-      : buttonIndexPressed = null,
+      : buttonIndexPressed = -1,
         super(hasError: true);
 
   @override
