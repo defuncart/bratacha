@@ -21,7 +21,7 @@ void main() {
               create: (_) => _MockSettingsDatabase(),
             ),
           ],
-          child: MyApp(),
+          child: const MyApp(),
         ),
       );
 
@@ -43,7 +43,7 @@ void main() {
               create: (_) => _MockSettingsDatabase(hasSeenOnboarding: true),
             ),
           ],
-          child: MyApp(),
+          child: const MyApp(),
         ),
       );
 
@@ -63,7 +63,7 @@ void main() {
               create: (_) => _MockSettingsDatabase(hasSeenOnboarding: false),
             ),
           ],
-          child: MyApp(),
+          child: const MyApp(),
         ),
       );
 

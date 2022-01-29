@@ -5,12 +5,12 @@ import 'package:flutter_test/flutter_test.dart';
 void main() {
   group('$Score', () {
     testWidgets('Ensure widget tree is correct', (tester) async {
-      final scoreWidget = Score(
+      const scoreWidget = Score(
         score: 0,
         color: Colors.white,
       );
 
-      await tester.pumpWidget(MaterialApp(home: scoreWidget));
+      await tester.pumpWidget(const MaterialApp(home: scoreWidget));
 
       expect(find.byType(Row), findsOneWidget);
       expect(find.byType(Text), findsOneWidget);
@@ -19,15 +19,15 @@ void main() {
     });
 
     testWidgets('Ensure correct styling', (tester) async {
-      final color = Colors.white;
-      final fontSize = 16.0;
-      final scoreWidget = Score(
+      const color = Colors.white;
+      const fontSize = 16.0;
+      const scoreWidget = Score(
         score: 0,
         color: color,
         fontSize: fontSize,
       );
 
-      await tester.pumpWidget(MaterialApp(home: scoreWidget));
+      await tester.pumpWidget(const MaterialApp(home: scoreWidget));
 
       final textWidget = tester.widget<Text>(find.byType(Text));
       final iconWidget = tester.widget<Icon>(find.byType(Icon));

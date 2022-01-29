@@ -31,11 +31,11 @@ class SettingsTab extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                SizedBox(height: 16.0),
+                const SizedBox(height: 16.0),
                 Text(AppLocalizations.settingsTabLanguageLabel),
-                SizedBox(height: 8.0),
-                LanguagePanel(),
-                HardDifficultyPanel(),
+                const SizedBox(height: 8.0),
+                const LanguagePanel(),
+                const HardDifficultyPanel(),
                 Center(
                   child: CustomElevatedButton(
                     onPressed: () async {

@@ -18,7 +18,7 @@ import 'package:mocktail/mocktail.dart';
 
 void main() {
   // ensure localizations are setup
-  AppLocalizations.load(Locale('en'));
+  AppLocalizations.load(const Locale('en'));
 
   group('$SettingsTab', () {
     final playerDataService = _MockPlayerDataService();
@@ -34,7 +34,7 @@ void main() {
       ],
       child: RepositoryProvider<IUrlLaucherService>(
         create: (_) => _MockUrlLauncherService(),
-        child: SettingsTab(),
+        child: const SettingsTab(),
       ),
     );
 
@@ -70,7 +70,7 @@ void main() {
 
       final button = find.byType(CustomElevatedButton);
 
-      dialogService.setResponse(ConfirmDialogResponse.positive());
+      dialogService.setResponse(const ConfirmDialogResponse.positive());
 
       when(() => playerDataService.reset()).thenAnswer((_) async {});
 
@@ -78,7 +78,7 @@ void main() {
 
       verify(() => playerDataService.reset());
 
-      dialogService.setResponse(ConfirmDialogResponse.negative());
+      dialogService.setResponse(const ConfirmDialogResponse.negative());
 
       await tester.tap(button);
 

@@ -18,9 +18,9 @@ class OnboardingScreen extends StatefulWidget {
 
 class _OnboardingScreenState extends State<OnboardingScreen> {
   final _pages = [
-    OnboardingPage1(),
-    OnboardingPage2(),
-    OnboardingPage3(),
+    const OnboardingPage1(),
+    const OnboardingPage2(),
+    const OnboardingPage3(),
   ];
   var _index = 0;
 
@@ -37,7 +37,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               Expanded(
                 child: _pages[_index],
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               ElevatedButton(
                 style: ButtonStyle(
                   backgroundColor: MaterialStateColor.resolveWith(

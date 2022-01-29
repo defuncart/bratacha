@@ -5,14 +5,14 @@ import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   test('RegularSpan', () {
-    final model = RegularSpan('bla');
+    const model = RegularSpan('bla');
     expect(model.text, 'bla');
     expect(model.toString(), isNot('text: bla'));
     expect(model.toString(), isNot('Instance of \'RegularSpan\''));
   });
 
   test('RegularSpan', () {
-    final model = LinkSpan('bla', 'https://bla.bla');
+    const model = LinkSpan('bla', 'https://bla.bla');
     expect(model.text, 'bla');
     expect(model.link, 'https://bla.bla');
     expect(model.toString(), isNot('text: bla'));
@@ -38,9 +38,9 @@ void main() {
   });
 
   testWidgets('ClickableText', (tester) async {
-    final widget = ClickableText('Here is a [link](https://bla.bla).');
+    const widget = ClickableText('Here is a [link](https://bla.bla).');
 
-    await tester.pumpWidget(MaterialApp(home: widget));
+    await tester.pumpWidget(const MaterialApp(home: widget));
 
     // ensure widget tree is correct
     expect(find.byType(RichText), findsOneWidget);

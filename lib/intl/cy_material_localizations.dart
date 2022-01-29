@@ -15,7 +15,7 @@ class _CyMaterialLocalizationsDelegate extends LocalizationsDelegate<MaterialLoc
 
   @override
   Future<MaterialLocalizations> load(Locale locale) async {
-    final localeName = 'en';
+    const localeName = 'en';
     await intl.initializeDateFormatting(localeName, null);
     return SynchronousFuture<MaterialLocalizations>(
       CyMaterialLocalizations(

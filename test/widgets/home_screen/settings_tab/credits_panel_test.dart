@@ -6,12 +6,12 @@ import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   // ensure localizations are setup
-  AppLocalizations.load(Locale('en'));
+  AppLocalizations.load(const Locale('en'));
 
   group('$CreditsPanel', () {
     testWidgets('Ensure widget tree is correct', (tester) async {
       await tester.pumpWidget(
-        MaterialApp(home: CreditsPanel()),
+        const MaterialApp(home: CreditsPanel()),
       );
 
       expect(find.byType(Column), findsOneWidget);
@@ -22,7 +22,7 @@ void main() {
 
     testWidgets('Ensure content is correct', (tester) async {
       await tester.pumpWidget(
-        MaterialApp(home: CreditsPanel()),
+        const MaterialApp(home: CreditsPanel()),
       );
 
       expect(find.text(AppLocalizations.creditsDialogDescriptionLabel1), findsOneWidget);

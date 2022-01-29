@@ -24,7 +24,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  pedantic:
+  flutter_lints:
   build_runner:
   # third party
   flappy_translator: ^2.0.0-nullsafety.2 

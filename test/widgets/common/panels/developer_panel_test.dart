@@ -6,12 +6,12 @@ import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   // ensure localizations are setup
-  AppLocalizations.load(Locale('en'));
+  AppLocalizations.load(const Locale('en'));
 
   group('$DeveloperPanel', () {
     testWidgets('Ensure widget tree is correct', (tester) async {
       await tester.pumpWidget(
-        MaterialApp(home: DeveloperPanel()),
+        const MaterialApp(home: DeveloperPanel()),
       );
 
       expect(find.byType(ClickableText), findsOneWidget);

@@ -16,7 +16,7 @@ class DialogManager extends StatefulWidget {
   final IDialogService dialogService;
   final Widget child;
 
-  DialogManager({
+  const DialogManager({
     required this.dialogService,
     required this.child,
     Key? key,
@@ -56,7 +56,7 @@ class _DialogManagerState extends State<DialogManager> {
       actions = [
         TextButton(
           onPressed: () {
-            response = InformativeDialogResponse();
+            response = const InformativeDialogResponse();
             Navigator.of(context).pop();
           },
           child: Text(request.buttonText.toUpperCase()),
@@ -67,14 +67,14 @@ class _DialogManagerState extends State<DialogManager> {
       actions = [
         TextButton(
           onPressed: () {
-            response = ConfirmDialogResponse.negative();
+            response = const ConfirmDialogResponse.negative();
             Navigator.of(context).pop();
           },
           child: Text(request.negativeButtonText.toUpperCase()),
         ),
         TextButton(
           onPressed: () {
-            response = ConfirmDialogResponse.positive();
+            response = const ConfirmDialogResponse.positive();
             Navigator.of(context).pop();
           },
           child: Text(request.positiveButtonText.toUpperCase()),
@@ -107,11 +107,11 @@ class _DialogManagerState extends State<DialogManager> {
     // account for the fact that dialog may be dismiss if !isModal
     if (response == null) {
       if (request is InformativeDialogRequest) {
-        response = InformativeDialogResponse();
+        response = const InformativeDialogResponse();
       } else if (request is ConfirmDialogRequest) {
-        response = ConfirmDialogResponse.negative();
+        response = const ConfirmDialogResponse.negative();
       } else if (request is CustomDialogRequest) {
-        response = CustomDialogResponse(buttonIndexPressed: -1);
+        response = const CustomDialogResponse(buttonIndexPressed: -1);
       }
     }
 

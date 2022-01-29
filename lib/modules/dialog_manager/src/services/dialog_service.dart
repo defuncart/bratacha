@@ -23,7 +23,7 @@ class DialogService implements IDialogService {
   @override
   Future<InformativeDialogResponse> requestInformativeDialog(InformativeDialogRequest request) {
     if (_isCurrentlyPresenting) {
-      return Future.value(InformativeDialogResponse.hasError());
+      return Future.value(const InformativeDialogResponse.hasError());
     }
 
     _dialogCompleter = Completer<InformativeDialogResponse>();
@@ -34,7 +34,7 @@ class DialogService implements IDialogService {
   @override
   Future<ConfirmDialogResponse> requestConfirmDialog(ConfirmDialogRequest request) {
     if (_isCurrentlyPresenting) {
-      return Future.value(ConfirmDialogResponse.hasError());
+      return Future.value(const ConfirmDialogResponse.hasError());
     }
 
     _dialogCompleter = Completer<ConfirmDialogResponse>();
@@ -45,7 +45,7 @@ class DialogService implements IDialogService {
   @override
   Future<CustomDialogResponse> requestCustomDialog(CustomDialogRequest request) {
     if (_isCurrentlyPresenting) {
-      return Future.value(CustomDialogResponse.hasError());
+      return Future.value(const CustomDialogResponse.hasError());
     }
 
     _dialogCompleter = Completer<CustomDialogResponse>();

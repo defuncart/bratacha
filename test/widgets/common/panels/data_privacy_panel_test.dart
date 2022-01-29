@@ -6,12 +6,12 @@ import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   // ensure localizations are setup
-  AppLocalizations.load(Locale('en'));
+  AppLocalizations.load(const Locale('en'));
 
   group('$DataPrivacyPanel', () {
     testWidgets('Ensure widget tree is correct', (tester) async {
       await tester.pumpWidget(
-        MaterialApp(home: DataPrivacyPanel()),
+        const MaterialApp(home: DataPrivacyPanel()),
       );
 
       expect(find.byType(Column), findsOneWidget);

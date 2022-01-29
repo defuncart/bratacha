@@ -17,7 +17,7 @@ class LanguageButton extends StatelessWidget {
   final VoidCallback onPressed;
   final double size;
 
-  String get _path => 'assets/languages/${languageCode}.svg';
+  String get _path => 'assets/languages/$languageCode.svg';
 
   @override
   Widget build(BuildContext context) {

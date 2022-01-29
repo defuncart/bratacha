@@ -12,7 +12,7 @@ void main() {
         final flagDataService = FlagDataService();
         await flagDataService.initialize();
 
-        final isFlagDataAdapterRegistered = await Hive.isAdapterRegistered(HiveAdapterType.flagData);
+        final isFlagDataAdapterRegistered = Hive.isAdapterRegistered(HiveAdapterType.flagData);
         expect(isFlagDataAdapterRegistered, isTrue);
 
         //as the db is empty, expect error to be thrown

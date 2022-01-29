@@ -20,12 +20,12 @@ void main() {
 
       // ignore: unawaited_futures
       dialogService.requestInformativeDialog(
-        InformativeDialogRequest(title: 'A', description: 'B', buttonText: 'C'),
+        const InformativeDialogRequest(title: 'A', description: 'B', buttonText: 'C'),
       );
 
       // ignore: unawaited_futures
       dialogService.requestConfirmDialog(
-        ConfirmDialogRequest(title: 'A', description: 'B', negativeButtonText: 'C', positiveButtonText: 'D'),
+        const ConfirmDialogRequest(title: 'A', description: 'B', negativeButtonText: 'C', positiveButtonText: 'D'),
       );
 
       // ignore: unawaited_futures
@@ -45,19 +45,19 @@ class _MockDialogService extends Mock implements IDialogService {
   @override
   Future<InformativeDialogResponse> requestInformativeDialog(InformativeDialogRequest request) {
     _requestStreamController.add(request);
-    return Future.value(InformativeDialogResponse());
+    return Future.value(const InformativeDialogResponse());
   }
 
   @override
   Future<ConfirmDialogResponse> requestConfirmDialog(ConfirmDialogRequest request) {
     _requestStreamController.add(request);
-    return Future.value(ConfirmDialogResponse.positive());
+    return Future.value(const ConfirmDialogResponse.positive());
   }
 
   @override
   Future<CustomDialogResponse> requestCustomDialog(CustomDialogRequest request) {
     _requestStreamController.add(request);
-    return Future.value(CustomDialogResponse(buttonIndexPressed: -1));
+    return Future.value(const CustomDialogResponse(buttonIndexPressed: -1));
   }
 
   @override

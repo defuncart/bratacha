@@ -58,7 +58,7 @@ class GameScreen extends StatelessWidget {
         child: Scaffold(
           appBar: AppBar(
             leading: IconButton(
-              icon: Icon(Icons.close),
+              icon: const Icon(Icons.close),
               onPressed: () async {
                 final response = await context.read<IDialogService>().requestConfirmDialog(
                       ConfirmDialogRequest(
@@ -89,7 +89,7 @@ class GameScreen extends StatelessWidget {
               ),
             ],
           ),
-          body: SafeArea(
+          body: const SafeArea(
             child: Center(
               child: QuestionAnswerPanel(),
             ),

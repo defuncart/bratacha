@@ -20,7 +20,7 @@ class FeedbackPanel extends StatelessWidget {
         padding: const EdgeInsets.all(8.0),
         child: Column(
           children: [
-            SizedBox(height: 8),
+            const SizedBox(height: 8),
             Text(
               AppLocalizations.feedbackPanelLabel1,
               style: TextStyle(

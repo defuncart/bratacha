@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'dart:convert';
 import 'dart:io';
 
@@ -67,7 +69,7 @@ void main() async {
   sb.writeln('class _\$CountryLocalizationsDelegate {');
   sb.writeln('\tstatic final _supportedLocales = {');
   for (final locale in locales) {
-    sb.writeln('\t\tLocale(\'$locale\'),');
+    sb.writeln('\t\tconst Locale(\'$locale\'),');
   }
   sb.writeln('\t};');
   sb.writeln('}');

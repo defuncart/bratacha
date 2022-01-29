@@ -10,14 +10,14 @@ import 'package:mocktail/mocktail.dart';
 
 void main() {
   // ensure localizations are setup
-  AppLocalizations.load(Locale('en'));
+  AppLocalizations.load(const Locale('en'));
 
   group('$OnboardingPage1', () {
     testWidgets('Ensure widget tree is correct', (tester) async {
       await tester.pumpWidget(
         BlocProvider<LanguageCubit>(
           create: (_) => LanguageCubit(_MockPlayerDataService()),
-          child: MaterialApp(
+          child: const MaterialApp(
             home: OnboardingPage1(),
           ),
         ),
@@ -32,7 +32,7 @@ void main() {
       await tester.pumpWidget(
         BlocProvider<LanguageCubit>(
           create: (_) => LanguageCubit(_MockPlayerDataService()),
-          child: MaterialApp(
+          child: const MaterialApp(
             home: OnboardingPage1(),
           ),
         ),

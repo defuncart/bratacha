@@ -18,7 +18,7 @@ void main() {
     });
 
     testWidgets('Ensure widget properties are correct', (tester) async {
-      final buttonText = 'bla';
+      const buttonText = 'bla';
       final widget = CustomElevatedButton(
         onPressed: () {},
         buttonText: buttonText,

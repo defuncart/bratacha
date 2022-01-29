@@ -13,7 +13,7 @@ import 'package:mocktail/mocktail.dart';
 
 void main() {
   // ensure localizations are setup
-  AppLocalizations.load(Locale('en'));
+  AppLocalizations.load(const Locale('en'));
 
   group('$SettingsPopupMenuButton', () {
     final playerDataService = _MockPlayerDataService();

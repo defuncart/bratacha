@@ -15,7 +15,7 @@ class LearnScreen extends StatelessWidget {
       appBar: AppBar(),
       body: SafeArea(
         child: ListView.separated(
-          separatorBuilder: (_, __) => Divider(),
+          separatorBuilder: (_, __) => const Divider(),
           itemCount: countries.length,
           itemBuilder: (_, index) => ListTile(
             leading: Flag(

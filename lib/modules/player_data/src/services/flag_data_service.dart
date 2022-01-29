@@ -34,7 +34,7 @@ class FlagDataService implements IFlagDataService {
 
   @override
   Future<void> initialize() async {
-    if (!await Hive.isAdapterRegistered(HiveAdapterType.flagData)) {
+    if (!Hive.isAdapterRegistered(HiveAdapterType.flagData)) {
       Hive.registerAdapter(FlagDataAdapter());
     }
 
@@ -63,6 +63,7 @@ class FlagDataService implements IFlagDataService {
   @override
   void debugPrint() {
     for (final flagData in _box.values) {
+      // ignore: avoid_print
       print(flagData);
     }
   }

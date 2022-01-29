@@ -11,13 +11,13 @@ void main() {
       late BaseDialogRequest request;
       final subscription = dialogService.requestStream.listen((event) => request = event);
 
-      Future.delayed(Duration(milliseconds: 100), () {
+      Future.delayed(const Duration(milliseconds: 100), () {
         expect(request is InformativeDialogRequest, isTrue);
-        dialogService.dialogClosedByUser(response: InformativeDialogResponse());
+        dialogService.dialogClosedByUser(response: const InformativeDialogResponse());
       });
 
       final response = await dialogService.requestInformativeDialog(
-        InformativeDialogRequest(title: 'A', description: 'B', buttonText: 'C'),
+        const InformativeDialogRequest(title: 'A', description: 'B', buttonText: 'C'),
       );
 
       expect(response, isA<InformativeDialogResponse>());
@@ -31,13 +31,13 @@ void main() {
       late BaseDialogRequest request;
       final subscription = dialogService.requestStream.listen((event) => request = event);
 
-      Future.delayed(Duration(milliseconds: 100), () {
+      Future.delayed(const Duration(milliseconds: 100), () {
         expect(request is ConfirmDialogRequest, isTrue);
-        dialogService.dialogClosedByUser(response: ConfirmDialogResponse.positive());
+        dialogService.dialogClosedByUser(response: const ConfirmDialogResponse.positive());
       });
 
       final response = await dialogService.requestConfirmDialog(
-        ConfirmDialogRequest(title: 'A', description: 'B', negativeButtonText: 'C', positiveButtonText: 'D'),
+        const ConfirmDialogRequest(title: 'A', description: 'B', negativeButtonText: 'C', positiveButtonText: 'D'),
       );
 
       expect(response, isA<ConfirmDialogResponse>());
@@ -52,9 +52,9 @@ void main() {
       late BaseDialogRequest request;
       final subscription = dialogService.requestStream.listen((event) => request = event);
 
-      Future.delayed(Duration(milliseconds: 100), () {
+      Future.delayed(const Duration(milliseconds: 100), () {
         expect(request is CustomDialogRequest, isTrue);
-        dialogService.dialogClosedByUser(response: CustomDialogResponse(buttonIndexPressed: 0));
+        dialogService.dialogClosedByUser(response: const CustomDialogResponse(buttonIndexPressed: 0));
       });
 
       final response = await dialogService.requestCustomDialog(
@@ -71,11 +71,11 @@ void main() {
 
       // ignore: unawaited_futures
       dialogService.requestInformativeDialog(
-        InformativeDialogRequest(title: 'A', description: 'B', buttonText: 'C'),
+        const InformativeDialogRequest(title: 'A', description: 'B', buttonText: 'C'),
       );
 
       final response = await dialogService.requestInformativeDialog(
-        InformativeDialogRequest(title: 'A', description: 'B', buttonText: 'C'),
+        const InformativeDialogRequest(title: 'A', description: 'B', buttonText: 'C'),
       );
 
       expect(response.hasError, isTrue);
@@ -86,11 +86,11 @@ void main() {
 
       // ignore: unawaited_futures
       dialogService.requestInformativeDialog(
-        InformativeDialogRequest(title: 'A', description: 'B', buttonText: 'C'),
+        const InformativeDialogRequest(title: 'A', description: 'B', buttonText: 'C'),
       );
 
       final response = await dialogService.requestConfirmDialog(
-        ConfirmDialogRequest(title: 'A', description: 'B', negativeButtonText: 'C', positiveButtonText: 'D'),
+        const ConfirmDialogRequest(title: 'A', description: 'B', negativeButtonText: 'C', positiveButtonText: 'D'),
       );
 
       expect(response.hasError, isTrue);
@@ -101,7 +101,7 @@ void main() {
 
       // ignore: unawaited_futures
       dialogService.requestInformativeDialog(
-        InformativeDialogRequest(title: 'A', description: 'B', buttonText: 'C'),
+        const InformativeDialogRequest(title: 'A', description: 'B', buttonText: 'C'),
       );
 
       final response = await dialogService.requestCustomDialog(

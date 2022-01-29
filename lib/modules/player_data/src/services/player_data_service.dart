@@ -61,12 +61,14 @@ class PlayerDataService implements IPlayerDataService {
   /// DEBUG: Prints contents of db to the console
   @override
   void debugPrint() {
-    print('---- PlayerDataService ----');
+    final sb = StringBuffer('---- PlayerDataService ----\n');
     for (final kvp in _box.toMap().entries) {
-      print('${kvp.key} : ${kvp.value}');
+      sb.writeln('${kvp.key} : ${kvp.value}');
     }
     _flagDataService.debugPrint();
-    print('---------------------------');
+    sb.writeln('---------------------------');
+    // ignore: avoid_print
+    print(sb.toString());
   }
   // coverage:ignore-end
 }

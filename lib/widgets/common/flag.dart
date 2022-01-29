@@ -12,7 +12,7 @@ class Flag extends StatelessWidget {
   final String countryCode;
   final double size;
 
-  String get _path => 'assets/flags/${countryCode}.svg';
+  String get _path => 'assets/flags/$countryCode.svg';
 
   @override
   Widget build(BuildContext context) {

@@ -19,7 +19,7 @@ void main() {
     });
 
     test('Ensure parameters correctly set', () {
-      final title = 'Title';
+      const title = 'Title';
       final content = Container();
       final buttonTexts = [
         'Ok',

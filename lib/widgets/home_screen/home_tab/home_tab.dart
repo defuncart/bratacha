@@ -35,7 +35,7 @@ class HomeTab extends StatelessWidget {
           child: Center(
             child: Column(
               children: [
-                SizedBox(height: 4.0),
+                const SizedBox(height: 4.0),
                 for (var i = 0; i < levelManager.numberLevels; i++)
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),

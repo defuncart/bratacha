@@ -9,12 +9,12 @@ import 'package:flutter_test/flutter_test.dart';
 void main() {
   group('CountryExtensions', () {
     test('localizedName', () async {
-      await CountryLocalizations.load(Locale('en'));
+      CountryLocalizations.load(const Locale('en'));
 
       final country = CountryService.countries.firstWhere((country) => country.id == 'de');
       expect(country.localizedName, 'Germany');
 
-      await CountryLocalizations.load(Locale('ga'));
+      CountryLocalizations.load(const Locale('ga'));
 
       expect(country.localizedName, 'An Ghearmáin');
     });

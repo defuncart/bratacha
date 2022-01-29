@@ -9,14 +9,14 @@ import 'package:mocktail/mocktail.dart';
 
 void main() {
   // ensure localizations are setup
-  AppLocalizations.load(Locale('en'));
+  AppLocalizations.load(const Locale('en'));
 
   group('$HardDifficultyPanel', () {
     testWidgets('Ensure widget tree is correct', (tester) async {
       await tester.pumpWidget(
         BlocProvider<HardDifficultyCubit>(
           create: (_) => HardDifficultyCubit(_MockPlayerDataService()),
-          child: MaterialApp(
+          child: const MaterialApp(
             home: Scaffold(
               body: HardDifficultyPanel(),
             ),
@@ -37,7 +37,7 @@ void main() {
         BlocProvider<HardDifficultyCubit>(
           create: (_) => cubit,
           lazy: false,
-          child: MaterialApp(
+          child: const MaterialApp(
             home: Scaffold(
               body: HardDifficultyPanel(),
             ),

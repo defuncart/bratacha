@@ -16,7 +16,9 @@ class LevelManager {
     if (level >= 0 && level < numberLevels) {
       final countryIds = _levelService.countryIdsForLevel(level);
       final countries = <Country>[];
-      countryIds.forEach((id) => countries.add(CountryService.countryWithId(id)));
+      for (final id in countryIds) {
+        countries.add(CountryService.countryWithId(id));
+      }
       return countries;
     }
 

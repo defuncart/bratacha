@@ -11,7 +11,7 @@ import 'package:mocktail/mocktail.dart';
 
 void main() {
   // ensure localizations are setup
-  CountryLocalizations.load(Locale('en'));
+  CountryLocalizations.load(const Locale('en'));
 
   group('$GameService', () {
     test('ensure service correctly works', () async {
@@ -35,7 +35,7 @@ void main() {
 
       gameService.initialize();
 
-      await Future.delayed(Duration(milliseconds: 50));
+      await Future.delayed(const Duration(milliseconds: 50));
 
       expect(questionCountry, isNotNull);
       expect(answerCountries, isNotNull);
@@ -44,7 +44,7 @@ void main() {
 
       gameService.answerWithId('de');
 
-      await Future.delayed(Duration(milliseconds: 50));
+      await Future.delayed(const Duration(milliseconds: 50));
 
       expect(questionCountry, isNotNull);
       expect(answerCountries, isNotNull);
@@ -53,7 +53,7 @@ void main() {
 
       gameService.answerWithId('pl');
 
-      await Future.delayed(Duration(milliseconds: 50));
+      await Future.delayed(const Duration(milliseconds: 50));
 
       expect(questionCountry, isNotNull);
       expect(answerCountries, isNotNull);
@@ -80,13 +80,13 @@ void main() {
 
       gameService.initialize();
 
-      await Future.delayed(Duration(milliseconds: 50));
+      await Future.delayed(const Duration(milliseconds: 50));
 
       expect(currentScore, 0);
 
       gameService.answerWithId('de');
 
-      await Future.delayed(Duration(milliseconds: 50));
+      await Future.delayed(const Duration(milliseconds: 50));
 
       expect(currentScore, 2);
 

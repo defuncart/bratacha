@@ -22,8 +22,8 @@ class OnboardingPage1 extends StatelessWidget {
         Column(
           children: [
             Text(AppLocalizations.onboardingPage1TextLabel3),
-            SizedBox(height: 8),
-            LanguagePanel(presentConfirmationDialog: false),
+            const SizedBox(height: 8),
+            const LanguagePanel(presentConfirmationDialog: false),
           ],
         ),
         Center(

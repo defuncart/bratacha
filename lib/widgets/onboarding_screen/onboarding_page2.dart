@@ -30,11 +30,11 @@ class OnboardingPage2 extends StatelessWidget {
                   style: Theme.of(context).textTheme.headline6,
                 ),
               ),
-              SizedBox(height: 8),
+              const SizedBox(height: 8),
               Text(
                 AppLocalizations.onboardingPage2TextLabel2,
               ),
-              HardDifficultyPanel(),
+              const HardDifficultyPanel(),
             ],
           ),
           SizedBox(
@@ -49,7 +49,7 @@ class OnboardingPage2 extends StatelessWidget {
                   create: (_) => AnswersCubit(gameService: gameService),
                 ),
               ],
-              child: QuestionAnswerPanel(),
+              child: const QuestionAnswerPanel(),
             ),
           ),
           Center(

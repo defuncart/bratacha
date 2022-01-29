@@ -4,7 +4,7 @@ import 'package:flutter_test/flutter_test.dart';
 void main() {
   group('$BaseDialogRequest', () {
     test('isModal defaults to false, even if null is passed', () {
-      final request = _MockRequest(
+      const request = _MockRequest(
         title: 'Title',
       );
       expect(request.isModal, isFalse);

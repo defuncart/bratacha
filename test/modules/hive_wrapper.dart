@@ -6,7 +6,7 @@ Future<void> hiveWrapper({
   required Future<void> Function() callback,
   bool cleanUpOnSetUp = true,
 }) async {
-  final dir = '_temp';
+  const dir = '_temp';
 
   if (cleanUpOnSetUp) {
     // set up clean, temp directory

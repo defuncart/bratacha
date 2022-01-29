@@ -7,11 +7,11 @@ import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   // ensure localizations are setup
-  AppLocalizations.load(Locale('en'));
+  AppLocalizations.load(const Locale('en'));
 
   group('$OnboardingPage3', () {
     testWidgets('Ensure widget tree is correct', (tester) async {
-      await tester.pumpWidget(MaterialApp(
+      await tester.pumpWidget(const MaterialApp(
         home: Scaffold(
           body: OnboardingPage3(),
         ),
@@ -24,7 +24,7 @@ void main() {
     });
 
     testWidgets('Ensure widget content is correct', (tester) async {
-      await tester.pumpWidget(MaterialApp(
+      await tester.pumpWidget(const MaterialApp(
         home: Scaffold(
           body: OnboardingPage3(),
         ),

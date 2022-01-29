@@ -4,7 +4,7 @@ import 'package:flutter_test/flutter_test.dart';
 void main() {
   group('$InformativeDialogRequest', () {
     test('toString is overridden', () {
-      final request = InformativeDialogRequest(
+      const request = InformativeDialogRequest(
         title: 'Title',
         description: 'Description',
         buttonText: 'Ok',
@@ -16,11 +16,11 @@ void main() {
     });
 
     test('Ensure parameters correctly set', () {
-      final title = 'Title';
-      final description = 'Description';
-      final buttonText = 'Ok';
+      const title = 'Title';
+      const description = 'Description';
+      const buttonText = 'Ok';
 
-      final request = InformativeDialogRequest(
+      const request = InformativeDialogRequest(
         title: title,
         description: description,
         buttonText: buttonText,

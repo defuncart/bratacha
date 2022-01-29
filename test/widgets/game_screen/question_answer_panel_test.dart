@@ -10,12 +10,12 @@ import 'package:mocktail/mocktail.dart';
 
 void main() {
   // ensure localizations are setup
-  CountryLocalizations.load(Locale('en'));
+  CountryLocalizations.load(const Locale('en'));
 
   group('$QuestionAnswerPanel', () {
     testWidgets('Ensure widget tree is correct', (tester) async {
       // set size to ensure portrait orientation
-      tester.binding.window.physicalSizeTestValue = Size(540, 1170);
+      tester.binding.window.physicalSizeTestValue = const Size(540, 1170);
       addTearDown(tester.binding.window.clearPhysicalSizeTestValue);
 
       final gameService = _MockGameService();
@@ -29,7 +29,7 @@ void main() {
               create: (_) => AnswersCubit(gameService: gameService),
             ),
           ],
-          child: MaterialApp(
+          child: const MaterialApp(
             home: QuestionAnswerPanel(),
           ),
         ),
@@ -45,7 +45,7 @@ void main() {
 
     testWidgets('Ensure widget content is correct', (tester) async {
       // set size to ensure portrait orientation
-      tester.binding.window.physicalSizeTestValue = Size(540, 1170);
+      tester.binding.window.physicalSizeTestValue = const Size(540, 1170);
       addTearDown(tester.binding.window.clearPhysicalSizeTestValue);
 
       final gameService = _MockGameService();
@@ -59,7 +59,7 @@ void main() {
               create: (_) => AnswersCubit(gameService: gameService),
             ),
           ],
-          child: MaterialApp(
+          child: const MaterialApp(
             home: QuestionAnswerPanel(),
           ),
         ),
@@ -73,7 +73,7 @@ void main() {
 
     testWidgets('Ensure questions can be answered', (tester) async {
       // set size to ensure portrait orientation
-      tester.binding.window.physicalSizeTestValue = Size(540, 1170);
+      tester.binding.window.physicalSizeTestValue = const Size(540, 1170);
       addTearDown(tester.binding.window.clearPhysicalSizeTestValue);
 
       final gameService = _MockGameService();
@@ -89,7 +89,7 @@ void main() {
           ],
           child: RepositoryProvider<IGameService>(
             create: (_) => gameService,
-            child: MaterialApp(
+            child: const MaterialApp(
               home: QuestionAnswerPanel(),
             ),
           ),

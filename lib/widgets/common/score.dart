@@ -23,7 +23,7 @@ class Score extends StatelessWidget {
           color: color,
           size: fontSize * 1.5,
         ),
-        SizedBox(width: 2.0),
+        const SizedBox(width: 2.0),
         Text(
           score.toString(),
           style: Theme.of(context).textTheme.bodyText1?.copyWith(

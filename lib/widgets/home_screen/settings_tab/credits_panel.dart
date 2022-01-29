@@ -14,8 +14,8 @@ class CreditsPanel extends StatelessWidget {
           AppLocalizations.creditsDialogDescriptionLabel1,
           style: Theme.of(context).textTheme.bodyText2,
         ),
-        SizedBox(height: 8),
-        DeveloperPanel(),
+        const SizedBox(height: 8),
+        const DeveloperPanel(),
       ],
     );
   }

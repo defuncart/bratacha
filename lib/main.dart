@@ -36,7 +36,7 @@ void main() async {
           create: (_) => _playerDataService,
         ),
       ],
-      child: kIsWeb ? _WebApp() : MyApp(),
+      child: kIsWeb ? const _WebApp() : const MyApp(),
     ),
   );
 }
@@ -50,7 +50,7 @@ class _WebApp extends StatelessWidget {
       builder: (_, constraints) {
         final isMobile = constraints.smallest.shortestSide < 600;
         if (isMobile) {
-          return MyApp();
+          return const MyApp();
         }
 
         final height = constraints.maxHeight;
@@ -62,7 +62,7 @@ class _WebApp extends StatelessWidget {
             child: SizedBox(
               height: height,
               width: width,
-              child: MyApp(),
+              child: const MyApp(),
             ),
           ),
         );

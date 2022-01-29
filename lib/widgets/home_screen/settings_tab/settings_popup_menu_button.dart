@@ -22,7 +22,7 @@ class SettingsPopupMenuButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return PopupMenuButton<_Option>(
-      icon: Icon(Icons.info),
+      icon: const Icon(Icons.info),
       onSelected: (option) {
         switch (option) {
           case _Option.dataPrivacy:
@@ -48,7 +48,7 @@ class SettingsPopupMenuButton extends StatelessWidget {
     final response = await context.read<IDialogService>().requestCustomDialog(
           CustomDialogRequest(
             title: AppLocalizations.dataPrivacyDialogTitle,
-            content: DataPrivacyPanel(),
+            content: const DataPrivacyPanel(),
             buttonTexts: [
               AppLocalizations.dataPrivacyDialogViewLicensesLabel,
               AppLocalizations.generalClose,
@@ -72,7 +72,7 @@ class SettingsPopupMenuButton extends StatelessWidget {
       await context.read<IDialogService>().requestCustomDialog(
             CustomDialogRequest(
               title: AppLocalizations.creditsDialogTitle,
-              content: CreditsPanel(),
+              content: const CreditsPanel(),
               buttonTexts: [
                 AppLocalizations.generalClose,
               ],

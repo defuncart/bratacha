@@ -13,18 +13,18 @@ import 'package:mocktail/mocktail.dart';
 
 void main() {
   // ensure localizations are setup
-  AppLocalizations.load(Locale('en'));
-  CountryLocalizations.load(Locale('en'));
+  AppLocalizations.load(const Locale('en'));
+  CountryLocalizations.load(const Locale('en'));
 
   group('$OnboardingPage2', () {
     testWidgets('Ensure widget tree is correct', (tester) async {
       // set size to ensure portrait orientation
-      tester.binding.window.simulateSize(Size(540, 1170));
+      tester.binding.window.simulateSize(const Size(540, 1170));
 
       await tester.pumpWidget(
         BlocProvider<HardDifficultyCubit>(
           create: (_) => HardDifficultyCubit(_MockPlayerDataService()),
-          child: MaterialApp(
+          child: const MaterialApp(
             home: Scaffold(
               body: OnboardingPage2(),
             ),
@@ -39,12 +39,12 @@ void main() {
 
     testWidgets('Ensure widget content is correct', (tester) async {
       // set size to ensure portrait orientation
-      tester.binding.window.simulateSize(Size(540, 1170));
+      tester.binding.window.simulateSize(const Size(540, 1170));
 
       await tester.pumpWidget(
         BlocProvider<HardDifficultyCubit>(
           create: (_) => HardDifficultyCubit(_MockPlayerDataService()),
-          child: MaterialApp(
+          child: const MaterialApp(
             home: Scaffold(
               body: OnboardingPage2(),
             ),

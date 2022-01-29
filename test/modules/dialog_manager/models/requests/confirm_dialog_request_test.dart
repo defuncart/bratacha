@@ -4,7 +4,7 @@ import 'package:flutter_test/flutter_test.dart';
 void main() {
   group('$ConfirmDialogRequest', () {
     test('toString is overridden', () {
-      final request = ConfirmDialogRequest(
+      const request = ConfirmDialogRequest(
         title: 'Title',
         description: 'Description',
         negativeButtonText: 'No',
@@ -17,12 +17,12 @@ void main() {
     });
 
     test('Ensure parameters correctly set', () {
-      final title = 'Title';
-      final description = 'Description';
-      final negativeButtonText = 'No';
-      final positiveButtonText = 'Yes';
+      const title = 'Title';
+      const description = 'Description';
+      const negativeButtonText = 'No';
+      const positiveButtonText = 'Yes';
 
-      final request = ConfirmDialogRequest(
+      const request = ConfirmDialogRequest(
         title: title,
         description: description,
         negativeButtonText: negativeButtonText,

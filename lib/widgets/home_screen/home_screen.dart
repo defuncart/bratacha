@@ -17,8 +17,8 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   var _currentIndex = 0;
   final _tabs = [
-    HomeTab(),
-    SettingsTab(),
+    const HomeTab(),
+    const SettingsTab(),
   ];
 
   @override
@@ -36,11 +36,11 @@ class _HomeScreenState extends State<HomeScreen> {
           elevation: 16.0,
           items: [
             BottomNavigationBarItem(
-              icon: Icon(Icons.home),
+              icon: const Icon(Icons.home),
               label: AppLocalizations.homeTabLabelText,
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.settings),
+              icon: const Icon(Icons.settings),
               label: AppLocalizations.settingsTabLabelText,
             )
           ],
