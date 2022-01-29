@@ -65,10 +65,11 @@ class PlayerDataService implements IPlayerDataService {
     for (final kvp in _box.toMap().entries) {
       sb.writeln('${kvp.key} : ${kvp.value}');
     }
-    _flagDataService.debugPrint();
-    sb.writeln('---------------------------');
     // ignore: avoid_print
     print(sb.toString());
+    _flagDataService.debugPrint();
+    // ignore: avoid_print
+    print('---------------------------');
   }
   // coverage:ignore-end
 }

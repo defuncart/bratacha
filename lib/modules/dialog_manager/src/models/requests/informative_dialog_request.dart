@@ -1,8 +1,6 @@
 import 'description_dialog_request.dart';
 
 class InformativeDialogRequest extends DescriptionDialogRequest {
-  final String buttonText;
-
   const InformativeDialogRequest({
     required String title,
     required String description,
@@ -13,6 +11,8 @@ class InformativeDialogRequest extends DescriptionDialogRequest {
           description: description,
           isModal: isModal,
         );
+
+  final String buttonText;
 
   @override
   String toString() => '{${super.toString()}, buttonText: $buttonText}';

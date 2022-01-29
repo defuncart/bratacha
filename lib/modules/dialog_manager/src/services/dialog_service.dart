@@ -55,7 +55,9 @@ class DialogService implements IDialogService {
 
   @override
   void dialogClosedByUser({required BaseDialogResponse response}) {
-    _dialogCompleter!.complete(response);
-    _dialogCompleter = null;
+    if (_dialogCompleter != null) {
+      _dialogCompleter!.complete(response);
+      _dialogCompleter = null;
+    }
   }
 }

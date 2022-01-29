@@ -6,10 +6,6 @@ void main() {
     test('Ensure FlagData is correctly constructed', () {
       final flagData = FlagData(id: 'de');
       expect(flagData.id, 'de');
-      expect(flagData.attempts, 0);
-      expect(flagData.timesCorrect, 0);
-      expect(flagData.percentageCorrect, 0);
-      expect(flagData.toString(), isNot('Instance of \'FlagData\''));
     });
 
     test('Ensure FlagData is correctly constructed and initialized', () {

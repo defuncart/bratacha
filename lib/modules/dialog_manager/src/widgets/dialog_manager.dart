@@ -13,14 +13,14 @@ import '../models/responses/informative_dialog_response.dart';
 import '../services/i_dialog_service.dart';
 
 class DialogManager extends StatefulWidget {
-  final IDialogService dialogService;
-  final Widget child;
-
   const DialogManager({
     required this.dialogService,
     required this.child,
     Key? key,
   }) : super(key: key);
+
+  final IDialogService dialogService;
+  final Widget child;
 
   @override
   _DialogManagerState createState() => _DialogManagerState();

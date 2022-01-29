@@ -7,35 +7,39 @@ part 'flag_data.g.dart';
 /// A model represeting a player's data on a given country
 @HiveType(typeId: HiveAdapterType.flagData)
 class FlagData extends HiveObject {
+  FlagData({required this.id});
+
   /// The country's id
   @HiveField(0)
   final String id;
 
-  /// The number of attempts
   @HiveField(1)
-  int attempts = 0;
+  late int _attempts;
+
+  /// The number of attempts
+  int get attempts => _attempts;
+
+  @HiveField(2)
+  late int _timesCorrect;
 
   /// The number of times correct
-  @HiveField(2)
-  int timesCorrect = 0;
-
-  FlagData({required this.id});
+  int get timesCorrect => _timesCorrect;
 
   /// The percentage (between 0 and 1) that the player was correct
   double get percentageCorrect => attempts > 0 ? timesCorrect / attempts : 0;
 
   /// Updates the progress
   void updateProgress({required bool answeredCorrectly}) {
-    attempts++;
+    _attempts++;
     if (answeredCorrectly) {
-      timesCorrect++;
+      _timesCorrect++;
     }
   }
 
   /// Resets the progress
   void reset() {
-    attempts = 0;
-    timesCorrect = 0;
+    _attempts = 0;
+    _timesCorrect = 0;
   }
 
   @override
