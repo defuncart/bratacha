@@ -204,6 +204,15 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.4"
+  dart_code_coverage:
+    dependency: "direct dev"
+    description:
+      path: "."
+      ref: main
+      resolved-ref: df7fcfa7e013dd52f0f375253daa25ccf772f742
+      url: "https://github.com/defuncart/dart_code_coverage"
+    source: git
+    version: "0.0.1"
   dart_style:
     dependency: transitive
     description:

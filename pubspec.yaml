@@ -31,9 +31,10 @@ dev_dependencies:
   flutter_launcher_icons:
   bloc_test:
   hive_generator:
-  # dart_code_coverage:
-  #   git:
-  #     url: https://github.com/defuncart/dart_code_coverage
+  dart_code_coverage:
+    git:
+      url: https://github.com/defuncart/dart_code_coverage
+      ref: main
 
 flutter:
   uses-material-design: true
