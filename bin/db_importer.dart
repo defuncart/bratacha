@@ -2,7 +2,6 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:bratacha/modules/country_database/country_database.dart' show Continent;
-import 'package:meta/meta.dart';
 
 void main() async {
   // countries
@@ -39,7 +38,7 @@ void main() async {
     outputFile.createSync(recursive: true);
   }
   outputFile.writeAsStringSync(sb.toString());
-  await Process.run('dartfmt', ['-w', countriesConfigOutputPath]);
+  await Process.run('dart', ['format', countriesConfigOutputPath]);
 
   // loca
   const locaOutputPath = 'lib/intl/country_localizations.g.dart';
@@ -53,7 +52,7 @@ void main() async {
   for (final locale in locales) {
     sb.writeln('\tstatic const _$locale = {');
     for (final country in countries) {
-      final countryName = country.names[locale].replaceAll('\'', '\\\'');
+      final countryName = country.names[locale]!.replaceAll('\'', '\\\'');
       sb.writeln('\t\t\'${country.id}\': \'$countryName\',');
     }
     sb.writeln('\t};\n');
@@ -78,7 +77,7 @@ void main() async {
     outputFile.createSync(recursive: true);
   }
   outputFile.writeAsStringSync(sb.toString());
-  await Process.run('dartfmt', ['-w', locaOutputPath]);
+  await Process.run('dart', ['format', locaOutputPath]);
 
   // levels
   const levelsDBFilepath = 'assets_dev/database/levels.json';
@@ -111,24 +110,21 @@ void main() async {
     outputFile.createSync(recursive: true);
   }
   outputFile.writeAsStringSync(sb.toString());
-  await Process.run('dartfmt', ['-w', levelsServiceOutputPath]);
+  await Process.run('dart', ['format', levelsServiceOutputPath]);
 }
 
 class _CountryImportModel {
-  final String id;
-
-  final Continent continent;
-
-  final Map<String, String> names;
-
-  final List<String> similarFlags;
-
   const _CountryImportModel({
-    @required this.id,
-    @required this.continent,
-    @required this.names,
-    @required this.similarFlags,
+    required this.id,
+    required this.continent,
+    required this.names,
+    required this.similarFlags,
   });
+
+  final String id;
+  final Continent continent;
+  final Map<String, String> names;
+  final List<String> similarFlags;
 
   factory _CountryImportModel.fromJson(Map<String, dynamic> json) => _CountryImportModel(
         id: json['id'],
@@ -149,17 +145,15 @@ String _listToCodeString(List<dynamic> list) {
 }
 
 class _LevelImportModel {
+  const _LevelImportModel({
+    required this.key,
+    required this.scoreToUnlock,
+    required this.countries,
+  });
+
   final String key;
   final int scoreToUnlock;
   final List<String> countries;
-
-  const _LevelImportModel({
-    @required this.key,
-    @required this.scoreToUnlock,
-    @required this.countries,
-  })  : assert(key != null),
-        assert(scoreToUnlock != null),
-        assert(countries != null);
 
   factory _LevelImportModel.fromJson(Map<String, dynamic> json) => _LevelImportModel(
         key: json['key'],
