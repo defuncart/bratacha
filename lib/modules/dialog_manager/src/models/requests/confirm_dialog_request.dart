@@ -1,9 +1,6 @@
 import 'description_dialog_request.dart';
 
 class ConfirmDialogRequest extends DescriptionDialogRequest {
-  final String negativeButtonText;
-  final String positiveButtonText;
-
   const ConfirmDialogRequest({
     required String title,
     required String description,
@@ -15,6 +12,9 @@ class ConfirmDialogRequest extends DescriptionDialogRequest {
           description: description,
           isModal: isModal,
         );
+
+  final String negativeButtonText;
+  final String positiveButtonText;
 
   @override
   String toString() =>

@@ -8,11 +8,13 @@ void main() {
   // ensure localizations are setup
   AppLocalizations.load(Locale('en'));
 
-  testWidgets('Ensure widget tree is correct', (tester) async {
-    await tester.pumpWidget(
-      MaterialApp(home: DeveloperPanel()),
-    );
+  group('$DeveloperPanel', () {
+    testWidgets('Ensure widget tree is correct', (tester) async {
+      await tester.pumpWidget(
+        MaterialApp(home: DeveloperPanel()),
+      );
 
-    expect(find.byType(ClickableText), findsOneWidget);
+      expect(find.byType(ClickableText), findsOneWidget);
+    });
   });
 }

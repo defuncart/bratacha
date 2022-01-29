@@ -6,7 +6,7 @@ import 'package:hive/hive.dart';
 import '../../hive_wrapper.dart';
 
 void main() {
-  test('', () async {
+  test('$FlagDataService', () async {
     await hiveWrapper(
       callback: () async {
         final flagDataService = FlagDataService();

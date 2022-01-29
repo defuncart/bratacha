@@ -5,24 +5,26 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 
 void main() {
-  group('LanguageCubit', () {
-    blocTest(
+  group('$LanguageCubit', () {
+    blocTest<LanguageCubit, String>(
       'emits [] when nothing is added',
       build: () => LanguageCubit(_MockPlayerDataService()),
       expect: () => [],
     );
 
-    blocTest(
+    blocTest<LanguageCubit, String>(
       'emits [en] when en is set',
       build: () => LanguageCubit(_MockPlayerDataService(language: 'en')),
       act: (cubit) => cubit.setLanguage('en'),
       expect: () => ['en'],
     );
 
-    blocTest(
+    blocTest<LanguageCubit, String>(
       'emits [en, ga] when en and then ga are set',
       build: () => LanguageCubit(_MockPlayerDataService(language: 'en')),
-      act: (cubit) => cubit..setLanguage('en')..setLanguage('ga'),
+      act: (cubit) => cubit
+        ..setLanguage('en')
+        ..setLanguage('ga'),
       expect: () => ['en', 'ga'],
     );
   });

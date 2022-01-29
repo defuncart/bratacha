@@ -7,7 +7,6 @@ void main() {
   test('RegularSpan', () {
     final model = RegularSpan('bla');
     expect(model.text, 'bla');
-    expect(model.toString(), isNotNull);
     expect(model.toString(), isNot('text: bla'));
     expect(model.toString(), isNot('Instance of \'RegularSpan\''));
   });
@@ -16,7 +15,6 @@ void main() {
     final model = LinkSpan('bla', 'https://bla.bla');
     expect(model.text, 'bla');
     expect(model.link, 'https://bla.bla');
-    expect(model.toString(), isNotNull);
     expect(model.toString(), isNot('text: bla'));
     expect(model.toString(), isNot('Instance of \'RegularSpan\''));
   });
@@ -51,15 +49,9 @@ void main() {
     final richTextWidget = tester.firstWidget(find.byType(RichText)) as RichText;
     final textSpan = richTextWidget.text as TextSpan;
 
-    expect(textSpan.children.length, 3);
-    expect(textSpan.children[0], isInstanceOf<TextSpan>());
-    expect(textSpan.children[1], isInstanceOf<ClickableTextSpan>());
-    expect(textSpan.children[2], isInstanceOf<TextSpan>());
-
-    // text null value triggers assertion
-    expect(
-      () => ClickableText(null),
-      throwsAssertionError,
-    );
+    expect(textSpan.children?.length, 3);
+    expect(textSpan.children?[0], isInstanceOf<TextSpan>());
+    expect(textSpan.children?[1], isInstanceOf<ClickableTextSpan>());
+    expect(textSpan.children?[2], isInstanceOf<TextSpan>());
   });
 }

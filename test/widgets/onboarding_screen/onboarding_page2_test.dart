@@ -16,44 +16,46 @@ void main() {
   AppLocalizations.load(Locale('en'));
   CountryLocalizations.load(Locale('en'));
 
-  testWidgets('Ensure widget tree is correct', (tester) async {
-    // set size to ensure portrait orientation
-    tester.binding.window.simulateSize(Size(540, 1170));
+  group('$OnboardingPage2', () {
+    testWidgets('Ensure widget tree is correct', (tester) async {
+      // set size to ensure portrait orientation
+      tester.binding.window.simulateSize(Size(540, 1170));
 
-    await tester.pumpWidget(
-      BlocProvider<HardDifficultyCubit>(
-        create: (_) => HardDifficultyCubit(_MockPlayerDataService()),
-        child: MaterialApp(
-          home: Scaffold(
-            body: OnboardingPage2(),
+      await tester.pumpWidget(
+        BlocProvider<HardDifficultyCubit>(
+          create: (_) => HardDifficultyCubit(_MockPlayerDataService()),
+          child: MaterialApp(
+            home: Scaffold(
+              body: OnboardingPage2(),
+            ),
           ),
         ),
-      ),
-    );
+      );
 
-    expect(find.byType(HardDifficultyPanel), findsOneWidget);
-    expect(find.byType(QuestionAnswerPanel), findsOneWidget);
-    expect(find.byType(Text), findsNWidgets(5));
-  });
+      expect(find.byType(HardDifficultyPanel), findsOneWidget);
+      expect(find.byType(QuestionAnswerPanel), findsOneWidget);
+      expect(find.byType(Text), findsNWidgets(5));
+    });
 
-  testWidgets('Ensure widget content is correct', (tester) async {
-    // set size to ensure portrait orientation
-    tester.binding.window.simulateSize(Size(540, 1170));
+    testWidgets('Ensure widget content is correct', (tester) async {
+      // set size to ensure portrait orientation
+      tester.binding.window.simulateSize(Size(540, 1170));
 
-    await tester.pumpWidget(
-      BlocProvider<HardDifficultyCubit>(
-        create: (_) => HardDifficultyCubit(_MockPlayerDataService()),
-        child: MaterialApp(
-          home: Scaffold(
-            body: OnboardingPage2(),
+      await tester.pumpWidget(
+        BlocProvider<HardDifficultyCubit>(
+          create: (_) => HardDifficultyCubit(_MockPlayerDataService()),
+          child: MaterialApp(
+            home: Scaffold(
+              body: OnboardingPage2(),
+            ),
           ),
         ),
-      ),
-    );
+      );
 
-    expect(find.text(AppLocalizations.onboardingPage2TextLabel1), findsOneWidget);
-    expect(find.text(AppLocalizations.onboardingPage2TextLabel2), findsOneWidget);
-    expect(find.text(AppLocalizations.onboardingGeneralSettingLabel), findsOneWidget);
+      expect(find.text(AppLocalizations.onboardingPage2TextLabel1), findsOneWidget);
+      expect(find.text(AppLocalizations.onboardingPage2TextLabel2), findsOneWidget);
+      expect(find.text(AppLocalizations.onboardingGeneralSettingLabel), findsOneWidget);
+    });
   });
 }
 

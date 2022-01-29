@@ -5,38 +5,42 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 
 void main() {
-  group('HardDifficultyCubit', () {
-    blocTest(
+  group('$HardDifficultyCubit', () {
+    blocTest<HardDifficultyCubit, bool>(
       'emits [] when nothing is added',
       build: () => HardDifficultyCubit(_MockPlayerDataService()),
       expect: () => [],
     );
 
-    blocTest(
+    blocTest<HardDifficultyCubit, bool>(
       'emits [isTrue] when toggled and IPlayerDataService.isHardDifficulty is initially false',
       build: () => HardDifficultyCubit(_MockPlayerDataService(isHardDifficulty: false)),
       act: (cubit) => cubit.toggle(),
       expect: () => [isTrue],
     );
 
-    blocTest(
+    blocTest<HardDifficultyCubit, bool>(
       'emits [isTrue, isFalse] when toggled twice and IPlayerDataService.isHardDifficulty is initially false',
       build: () => HardDifficultyCubit(_MockPlayerDataService(isHardDifficulty: false)),
-      act: (cubit) => cubit..toggle()..toggle(),
+      act: (cubit) => cubit
+        ..toggle()
+        ..toggle(),
       expect: () => [isTrue, isFalse],
     );
 
-    blocTest(
+    blocTest<HardDifficultyCubit, bool>(
       'emits [isFalse] when toggled and IPlayerDataService.isHardDifficulty is initially true',
       build: () => HardDifficultyCubit(_MockPlayerDataService(isHardDifficulty: true)),
       act: (cubit) => cubit.toggle(),
       expect: () => [isFalse],
     );
 
-    blocTest(
+    blocTest<HardDifficultyCubit, bool>(
       'emits [isFalse, isTrue] when toggled twice and IPlayerDataService.isHardDifficulty is initially true',
       build: () => HardDifficultyCubit(_MockPlayerDataService(isHardDifficulty: true)),
-      act: (cubit) => cubit..toggle()..toggle(),
+      act: (cubit) => cubit
+        ..toggle()
+        ..toggle(),
       expect: () => [isFalse, isTrue],
     );
   });

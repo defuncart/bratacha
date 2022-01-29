@@ -9,28 +9,30 @@ void main() {
   // ensure localizations are setup
   AppLocalizations.load(Locale('en'));
 
-  testWidgets('Ensure widget tree is correct', (tester) async {
-    await tester.pumpWidget(MaterialApp(
-      home: Scaffold(
-        body: OnboardingPage3(),
-      ),
-    ));
+  group('$OnboardingPage3', () {
+    testWidgets('Ensure widget tree is correct', (tester) async {
+      await tester.pumpWidget(MaterialApp(
+        home: Scaffold(
+          body: OnboardingPage3(),
+        ),
+      ));
 
-    expect(find.byType(Column), findsNWidgets(2));
-    expect(find.byType(DataPrivacyPanel), findsOneWidget);
-    expect(find.byType(DeveloperPanel), findsOneWidget);
-    expect(find.byType(Text), findsNWidgets(4));
-  });
+      expect(find.byType(Column), findsNWidgets(2));
+      expect(find.byType(DataPrivacyPanel), findsOneWidget);
+      expect(find.byType(DeveloperPanel), findsOneWidget);
+      expect(find.byType(Text), findsNWidgets(4));
+    });
 
-  testWidgets('Ensure widget content is correct', (tester) async {
-    await tester.pumpWidget(MaterialApp(
-      home: Scaffold(
-        body: OnboardingPage3(),
-      ),
-    ));
+    testWidgets('Ensure widget content is correct', (tester) async {
+      await tester.pumpWidget(MaterialApp(
+        home: Scaffold(
+          body: OnboardingPage3(),
+        ),
+      ));
 
-    expect(find.text(AppLocalizations.onboardingPage3TextLabel1), findsOneWidget);
-    expect(find.text(AppLocalizations.onboardingPage3TextLabel2), findsOneWidget);
-    expect(find.text(AppLocalizations.feedbackPanelLabel1), findsOneWidget);
+      expect(find.text(AppLocalizations.onboardingPage3TextLabel1), findsOneWidget);
+      expect(find.text(AppLocalizations.onboardingPage3TextLabel2), findsOneWidget);
+      expect(find.text(AppLocalizations.feedbackPanelLabel1), findsOneWidget);
+    });
   });
 }

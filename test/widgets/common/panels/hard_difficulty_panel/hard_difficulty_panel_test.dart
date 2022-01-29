@@ -11,46 +11,49 @@ void main() {
   // ensure localizations are setup
   AppLocalizations.load(Locale('en'));
 
-  testWidgets('Ensure widget tree is correct', (tester) async {
-    await tester.pumpWidget(
-      BlocProvider<HardDifficultyCubit>(
-        create: (_) => HardDifficultyCubit(_MockPlayerDataService()),
-        child: MaterialApp(
-          home: Scaffold(
-            body: HardDifficultyPanel(),
+  group('$HardDifficultyPanel', () {
+    testWidgets('Ensure widget tree is correct', (tester) async {
+      await tester.pumpWidget(
+        BlocProvider<HardDifficultyCubit>(
+          create: (_) => HardDifficultyCubit(_MockPlayerDataService()),
+          child: MaterialApp(
+            home: Scaffold(
+              body: HardDifficultyPanel(),
+            ),
           ),
         ),
-      ),
-    );
+      );
 
-    expect(find.byType(HardDifficultyPanel), findsOneWidget);
-    expect(find.byType(Text), findsOneWidget);
-    expect(find.text(AppLocalizations.hardDifficultyPanelLabel), findsOneWidget);
-    expect(find.byType(Switch), findsOneWidget);
-  });
+      expect(find.byType(HardDifficultyPanel), findsOneWidget);
+      expect(find.byType(Text), findsOneWidget);
+      expect(find.text(AppLocalizations.hardDifficultyPanelLabel), findsOneWidget);
+      expect(find.byType(Switch), findsOneWidget);
+    });
 
-  testWidgets('Ensure switch is toggleable', (tester) async {
-    final playerDataService = _MockPlayerDataService();
-    final cubit = HardDifficultyCubit(playerDataService);
-    await tester.pumpWidget(
-      BlocProvider<HardDifficultyCubit>(
-        create: (_) => cubit,
-        lazy: false,
-        child: MaterialApp(
-          home: Scaffold(
-            body: HardDifficultyPanel(),
+    testWidgets('Ensure switch is toggleable', (tester) async {
+      final playerDataService = _MockPlayerDataService();
+      final cubit = HardDifficultyCubit(playerDataService);
+      await tester.pumpWidget(
+        BlocProvider<HardDifficultyCubit>(
+          create: (_) => cubit,
+          lazy: false,
+          child: MaterialApp(
+            home: Scaffold(
+              body: HardDifficultyPanel(),
+            ),
           ),
         ),
-      ),
-    );
+      );
 
-    final switchWidget = tester.firstWidget(find.byType(Switch)) as Switch;
-    expect(switchWidget.value, false);
+      var switchWidget = tester.widget<Switch>(find.byType(Switch));
+      expect(switchWidget.value, isFalse);
 
-    // await tester.tap(find.byType(Switch));
-    // switchWidget.onChanged(true);
-    // await tester.pumpAndSettle();
-    // expect(switchWidget.value, true);
+      await tester.tap(find.byType(Switch));
+      await tester.pumpAndSettle();
+
+      switchWidget = tester.widget<Switch>(find.byType(Switch));
+      expect(switchWidget.value, isTrue);
+    });
   });
 }
 

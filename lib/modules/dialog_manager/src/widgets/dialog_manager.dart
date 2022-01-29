@@ -111,10 +111,10 @@ class _DialogManagerState extends State<DialogManager> {
       } else if (request is ConfirmDialogRequest) {
         response = ConfirmDialogResponse.negative();
       } else if (request is CustomDialogRequest) {
-        // response = CustomDialogResponse(buttonIndexPressed: null);
+        response = CustomDialogResponse(buttonIndexPressed: -1);
       }
     }
 
-    // widget.dialogService.dialogClosedByUser(response: response);
+    widget.dialogService.dialogClosedByUser(response: response!);
   }
 }

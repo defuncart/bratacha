@@ -3,10 +3,10 @@ import 'package:bratacha/modules/level_database/level_database.dart';
 import 'package:bratacha/modules/player_data/player_data.dart';
 
 class LevelManager {
+  LevelManager(this._playerDataService);
+
   final _levelService = LevelService();
   final IPlayerDataService _playerDataService;
-
-  LevelManager(this._playerDataService);
 
   /// Returns the number of levels
   int get numberLevels => _levelService.numberLevels;

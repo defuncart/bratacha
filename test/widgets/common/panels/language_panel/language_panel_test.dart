@@ -12,34 +12,23 @@ void main() {
   // ensure localizations are setup
   AppLocalizations.load(Locale('en'));
 
-  testWidgets('Ensure widget tree is correct', (tester) async {
-    await tester.pumpWidget(
-      BlocProvider<LanguageCubit>(
-        create: (_) => LanguageCubit(_MockPlayerDataService()),
-        child: MaterialApp(
-          home: Scaffold(
-            body: LanguagePanel(),
+  group('$LanguagePanel', () {
+    testWidgets('Ensure widget tree is correct', (tester) async {
+      await tester.pumpWidget(
+        BlocProvider<LanguageCubit>(
+          create: (_) => LanguageCubit(_MockPlayerDataService()),
+          child: MaterialApp(
+            home: Scaffold(
+              body: LanguagePanel(),
+            ),
           ),
         ),
-      ),
-    );
+      );
 
-    expect(find.byType(LanguagePanel), findsOneWidget);
-    expect(find.byType(Row), findsOneWidget);
-    expect(find.byType(LanguageButton), findsNWidgets(AppLocalizationsDelegate.supportedLocals.length));
-  });
-
-  test('presentConfirmationDialog null value triggers assertion', () {
-    expect(
-      () => LanguagePanel(
-        presentConfirmationDialog: null,
-      ),
-      throwsAssertionError,
-    );
-  });
-
-  test('no presentConfirmationDialog value does not trigger assertion', () {
-    expect(() => LanguagePanel(), returnsNormally);
+      expect(find.byType(LanguagePanel), findsOneWidget);
+      expect(find.byType(Row), findsOneWidget);
+      expect(find.byType(LanguageButton), findsNWidgets(AppLocalizationsDelegate.supportedLocals.length));
+    });
   });
 }
 

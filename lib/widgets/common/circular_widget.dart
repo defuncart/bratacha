@@ -14,7 +14,7 @@ class CircularWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ClipOval(
-      child: Container(
+      child: SizedBox(
         height: radius,
         width: radius,
         child: child,

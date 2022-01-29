@@ -13,111 +13,110 @@ void main() {
   // ensure localizations are setup
   CountryLocalizations.load(Locale('en'));
 
-  test('GameService', () async {
-    final gameService = GameService(
-      isHardDifficulty: false,
-      playerDataService: _MockPlayerDataService(),
-      level: 0,
-      levelManager: _MockLevelManager(),
-    );
+  group('$GameService', () {
+    test('ensure service correctly works', () async {
+      final gameService = GameService(
+        isHardDifficulty: false,
+        playerDataService: _MockPlayerDataService(),
+        level: 0,
+        levelManager: _MockLevelManager(),
+      );
 
-    List<StreamSubscription> subscriptions;
-    String questionCountry;
-    List<String> answerCountries;
-    int currentScore;
+      late List<StreamSubscription> subscriptions;
+      String? questionCountry;
+      List<String>? answerCountries;
+      int? currentScore;
 
-    subscriptions = [
-      gameService.questionCountry.listen((event) => questionCountry = event),
-      gameService.answerCountries.listen((event) => answerCountries = event),
-      gameService.currentScore.listen((event) => currentScore = event),
-    ];
+      subscriptions = [
+        gameService.questionCountry.listen((event) => questionCountry = event),
+        gameService.answerCountries.listen((event) => answerCountries = event),
+        gameService.currentScore.listen((event) => currentScore = event),
+      ];
 
-    gameService.initialize();
+      gameService.initialize();
 
-    await Future.delayed(Duration(milliseconds: 50));
+      await Future.delayed(Duration(milliseconds: 50));
 
-    expect(questionCountry, isNotNull);
-    expect(answerCountries, isNotNull);
-    expect(currentScore, 0);
-    expect(gameService.levelCompleted, isFalse);
+      expect(questionCountry, isNotNull);
+      expect(answerCountries, isNotNull);
+      expect(currentScore, 0);
+      expect(gameService.levelCompleted, isFalse);
 
-    gameService.answerWithId('de');
+      gameService.answerWithId('de');
 
-    await Future.delayed(Duration(milliseconds: 50));
+      await Future.delayed(Duration(milliseconds: 50));
 
-    expect(questionCountry, isNotNull);
-    expect(answerCountries, isNotNull);
-    expect(currentScore, 1);
-    expect(gameService.levelCompleted, isFalse);
+      expect(questionCountry, isNotNull);
+      expect(answerCountries, isNotNull);
+      expect(currentScore, 1);
+      expect(gameService.levelCompleted, isFalse);
 
-    gameService.answerWithId('pl');
+      gameService.answerWithId('pl');
 
-    await Future.delayed(Duration(milliseconds: 50));
+      await Future.delayed(Duration(milliseconds: 50));
 
-    expect(questionCountry, isNotNull);
-    expect(answerCountries, isNotNull);
-    expect(currentScore, 1);
-    expect(gameService.levelCompleted, isFalse);
+      expect(questionCountry, isNotNull);
+      expect(answerCountries, isNotNull);
+      expect(currentScore, 1);
+      expect(gameService.levelCompleted, isFalse);
 
-    for (final subscription in subscriptions) {
-      await subscription.cancel();
-    }
-  });
+      for (final subscription in subscriptions) {
+        await subscription.cancel();
+      }
+    });
 
-  test('GameService isHardDifficulty doubles score', () async {
-    final gameService = GameService(
-      isHardDifficulty: true,
-      playerDataService: _MockPlayerDataService(),
-      level: 0,
-      levelManager: _MockLevelManager(),
-    );
+    test('isHardDifficulty doubles score', () async {
+      final gameService = GameService(
+        isHardDifficulty: true,
+        playerDataService: _MockPlayerDataService(),
+        level: 0,
+        levelManager: _MockLevelManager(),
+      );
 
-    int currentScore;
-    final subscriptions = [
-      gameService.currentScore.listen((event) => currentScore = event),
-    ];
+      int? currentScore;
+      final subscriptions = [
+        gameService.currentScore.listen((event) => currentScore = event),
+      ];
 
-    gameService.initialize();
+      gameService.initialize();
 
-    await Future.delayed(Duration(milliseconds: 50));
+      await Future.delayed(Duration(milliseconds: 50));
 
-    expect(currentScore, 0);
+      expect(currentScore, 0);
 
-    gameService.answerWithId('de');
+      gameService.answerWithId('de');
 
-    await Future.delayed(Duration(milliseconds: 50));
+      await Future.delayed(Duration(milliseconds: 50));
 
-    expect(currentScore, 2);
+      expect(currentScore, 2);
 
-    for (final subscription in subscriptions) {
-      await subscription.cancel();
-    }
-  });
+      for (final subscription in subscriptions) {
+        await subscription.cancel();
+      }
+    });
 
-  test('GameService levelCompleted after all questions answered', () async {
-    final numberRounds = _MockLevelManager().countriesForLevel(0).length;
+    test('levelCompleted after all questions answered', () async {
+      final numberRounds = _MockLevelManager().countriesForLevel(0).length;
 
-    final gameService = GameService(
-      isHardDifficulty: true,
-      playerDataService: _MockPlayerDataService(),
-      level: 0,
-      levelManager: _MockLevelManager(),
-    )..initialize();
+      final gameService = GameService(
+        isHardDifficulty: true,
+        playerDataService: _MockPlayerDataService(),
+        level: 0,
+        levelManager: _MockLevelManager(),
+      )..initialize();
 
-    for (var i = 0; i < numberRounds; i++) {
-      gameService.answerWithId('bla');
-      final levelCompleted = i == numberRounds - 1;
-      expect(gameService.levelCompleted, levelCompleted);
-    }
+      for (var i = 0; i < numberRounds; i++) {
+        gameService.answerWithId('bla');
+        final levelCompleted = i == numberRounds - 1;
+        expect(gameService.levelCompleted, levelCompleted);
+      }
+    });
   });
 }
 
 class _MockPlayerDataService extends Mock implements IPlayerDataService {
   @override
   int get score => 0;
-
-  // @override
-  // void updateProgress({@required String id, @required bool answeredCorrectly}) {}
 }
 
 class _MockLevelManager extends Mock implements LevelManager {
