@@ -7,7 +7,7 @@ class HomeScreen extends StatefulWidget {
   static const routeName = 'HomeScreen';
 
   const HomeScreen({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -17,8 +17,8 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   var _currentIndex = 0;
   final _tabs = [
-    HomeTab(),
-    SettingsTab(),
+    const HomeTab(),
+    const SettingsTab(),
   ];
 
   @override
@@ -26,19 +26,21 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       body: _tabs[_currentIndex],
       bottomNavigationBar: Theme(
-        data: Theme.of(context).copyWith(canvasColor: Theme.of(context).appBarTheme.color),
+        data: Theme.of(context).copyWith(
+          canvasColor: Theme.of(context).appBarTheme.backgroundColor,
+        ),
         child: BottomNavigationBar(
           type: BottomNavigationBarType.shifting,
-          selectedItemColor: Theme.of(context).accentColor,
+          selectedItemColor: Theme.of(context).colorScheme.secondary,
           unselectedItemColor: Theme.of(context).disabledColor,
           elevation: 16.0,
           items: [
             BottomNavigationBarItem(
-              icon: Icon(Icons.home),
+              icon: const Icon(Icons.home),
               label: AppLocalizations.homeTabLabelText,
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.settings),
+              icon: const Icon(Icons.settings),
               label: AppLocalizations.settingsTabLabelText,
             )
           ],

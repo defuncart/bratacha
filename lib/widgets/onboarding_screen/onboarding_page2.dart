@@ -13,11 +13,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class OnboardingPage2 extends StatelessWidget {
-  const OnboardingPage2({Key key}) : super(key: key);
+  const OnboardingPage2({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final gameService = _MockGameService(context.bloc<HardDifficultyCubit>());
+    final gameService = _MockGameService(context.read<HardDifficultyCubit>());
     return LayoutBuilder(
       builder: (_, constraints) => Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -30,11 +30,11 @@ class OnboardingPage2 extends StatelessWidget {
                   style: Theme.of(context).textTheme.headline6,
                 ),
               ),
-              SizedBox(height: 8),
+              const SizedBox(height: 8),
               Text(
                 AppLocalizations.onboardingPage2TextLabel2,
               ),
-              HardDifficultyPanel(),
+              const HardDifficultyPanel(),
             ],
           ),
           SizedBox(
@@ -49,7 +49,7 @@ class OnboardingPage2 extends StatelessWidget {
                   create: (_) => AnswersCubit(gameService: gameService),
                 ),
               ],
-              child: QuestionAnswerPanel(),
+              child: const QuestionAnswerPanel(),
             ),
           ),
           Center(
@@ -73,7 +73,7 @@ class _MockGameService implements IGameService {
   _MockGameService(HardDifficultyCubit cubit) {
     _answersController.add(cubit.state ? _answersHard : _answersEasy);
 
-    cubit.listen((isHardDifficulty) {
+    cubit.stream.listen((isHardDifficulty) {
       _answersController.add(isHardDifficulty ? _answersHard : _answersEasy);
     });
   }

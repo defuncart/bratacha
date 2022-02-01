@@ -15,7 +15,7 @@ class _CyMaterialLocalizationsDelegate extends LocalizationsDelegate<MaterialLoc
 
   @override
   Future<MaterialLocalizations> load(Locale locale) async {
-    final localeName = 'en';
+    const localeName = 'en';
     await intl.initializeDateFormatting(localeName, null);
     return SynchronousFuture<MaterialLocalizations>(
       CyMaterialLocalizations(
@@ -40,15 +40,15 @@ class _CyMaterialLocalizationsDelegate extends LocalizationsDelegate<MaterialLoc
 class CyMaterialLocalizations extends GlobalMaterialLocalizations {
   const CyMaterialLocalizations({
     String localeName = 'cy',
-    @required intl.DateFormat fullYearFormat,
-    @required intl.DateFormat compactDateFormat,
-    @required intl.DateFormat shortDateFormat,
-    @required intl.DateFormat mediumDateFormat,
-    @required intl.DateFormat longDateFormat,
-    @required intl.DateFormat yearMonthFormat,
-    @required intl.DateFormat shortMonthDayFormat,
-    @required intl.NumberFormat decimalFormat,
-    @required intl.NumberFormat twoDigitZeroPaddedFormat,
+    required intl.DateFormat fullYearFormat,
+    required intl.DateFormat compactDateFormat,
+    required intl.DateFormat shortDateFormat,
+    required intl.DateFormat mediumDateFormat,
+    required intl.DateFormat longDateFormat,
+    required intl.DateFormat yearMonthFormat,
+    required intl.DateFormat shortMonthDayFormat,
+    required intl.NumberFormat decimalFormat,
+    required intl.NumberFormat twoDigitZeroPaddedFormat,
   }) : super(
           localeName: localeName,
           fullYearFormat: fullYearFormat,
@@ -156,10 +156,10 @@ class CyMaterialLocalizations extends GlobalMaterialLocalizations {
   String get refreshIndicatorSemanticLabel => r'Refresh';
 
   @override
-  String get remainingTextFieldCharacterCountFew => null;
+  String? get remainingTextFieldCharacterCountFew => null;
 
   @override
-  String get remainingTextFieldCharacterCountMany => null;
+  String? get remainingTextFieldCharacterCountMany => null;
 
   @override
   String get remainingTextFieldCharacterCountOne => r'1 character remaining';
@@ -168,7 +168,7 @@ class CyMaterialLocalizations extends GlobalMaterialLocalizations {
   String get remainingTextFieldCharacterCountOther => r'$remainingCount characters remaining';
 
   @override
-  String get remainingTextFieldCharacterCountTwo => null;
+  String? get remainingTextFieldCharacterCountTwo => null;
 
   @override
   String get remainingTextFieldCharacterCountZero => r'No characters remaining';
@@ -204,10 +204,10 @@ class CyMaterialLocalizations extends GlobalMaterialLocalizations {
   String get selectAllButtonLabel => r'SELECT ALL';
 
   @override
-  String get selectedRowCountTitleFew => null;
+  String? get selectedRowCountTitleFew => null;
 
   @override
-  String get selectedRowCountTitleMany => null;
+  String? get selectedRowCountTitleMany => null;
 
   @override
   String get selectedRowCountTitleOne => r'1 item selected';
@@ -216,7 +216,7 @@ class CyMaterialLocalizations extends GlobalMaterialLocalizations {
   String get selectedRowCountTitleOther => r'$selectedRowCount items selected';
 
   @override
-  String get selectedRowCountTitleTwo => null;
+  String? get selectedRowCountTitleTwo => null;
 
   @override
   String get selectedRowCountTitleZero => r'No items selected';
@@ -330,4 +330,10 @@ class CyMaterialLocalizations extends GlobalMaterialLocalizations {
 
   @override
   String get unspecifiedDateRange => 'Date Range';
+
+  @override
+  String get firstPageTooltip => 'First';
+
+  @override
+  String get lastPageTooltip => 'Last';
 }

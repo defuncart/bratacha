@@ -6,40 +6,29 @@ import 'package:bratacha/widgets/common/panels/language_panel/language_panel.dar
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:mockito/mockito.dart';
+import 'package:mocktail/mocktail.dart';
 
 void main() {
   // ensure localizations are setup
-  AppLocalizations.load(Locale('en'));
+  AppLocalizations.load(const Locale('en'));
 
-  testWidgets('Ensure widget tree is correct', (tester) async {
-    await tester.pumpWidget(
-      BlocProvider<LanguageCubit>(
-        create: (_) => LanguageCubit(_MockPlayerDataService()),
-        child: MaterialApp(
-          home: Scaffold(
-            body: LanguagePanel(),
+  group('$LanguagePanel', () {
+    testWidgets('Ensure widget tree is correct', (tester) async {
+      await tester.pumpWidget(
+        BlocProvider<LanguageCubit>(
+          create: (_) => LanguageCubit(_MockPlayerDataService()),
+          child: const MaterialApp(
+            home: Scaffold(
+              body: LanguagePanel(),
+            ),
           ),
         ),
-      ),
-    );
+      );
 
-    expect(find.byType(LanguagePanel), findsOneWidget);
-    expect(find.byType(Row), findsOneWidget);
-    expect(find.byType(LanguageButton), findsNWidgets(AppLocalizationsDelegate.supportedLocals.length));
-  });
-
-  test('presentConfirmationDialog null value triggers assertion', () {
-    expect(
-      () => LanguagePanel(
-        presentConfirmationDialog: null,
-      ),
-      throwsAssertionError,
-    );
-  });
-
-  test('no presentConfirmationDialog value does not trigger assertion', () {
-    expect(() => LanguagePanel(), returnsNormally);
+      expect(find.byType(LanguagePanel), findsOneWidget);
+      expect(find.byType(Row), findsOneWidget);
+      expect(find.byType(LanguageButton), findsNWidgets(AppLocalizationsDelegate.supportedLocals.length));
+    });
   });
 }
 

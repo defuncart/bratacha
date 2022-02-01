@@ -8,11 +8,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class HomeTab extends StatelessWidget {
-  const HomeTab({Key key}) : super(key: key);
+  const HomeTab({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final levelManager = context.repository<LevelManager>();
+    final levelManager = context.read<LevelManager>();
 
     return Scaffold(
       appBar: AppBar(
@@ -22,7 +22,7 @@ class HomeTab extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.only(right: 16),
               child: Score(
-                score: context.repository<IPlayerDataService>().score,
+                score: context.read<IPlayerDataService>().score,
                 color: const Color(0xffFFE391),
                 fontSize: 20.0,
               ),
@@ -35,7 +35,7 @@ class HomeTab extends StatelessWidget {
           child: Center(
             child: Column(
               children: [
-                SizedBox(height: 4.0),
+                const SizedBox(height: 4.0),
                 for (var i = 0; i < levelManager.numberLevels; i++)
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
@@ -49,7 +49,9 @@ class HomeTab extends StatelessWidget {
                   onPressed: () => Navigator.of(context).pushNamed(LearnScreen.routeName),
                   child: Text(
                     AppLocalizations.homeTabLeanFlagsButtonText,
-                    style: TextStyle(color: Theme.of(context).accentColor),
+                    style: TextStyle(
+                      color: Theme.of(context).colorScheme.secondary,
+                    ),
                   ),
                 ),
               ],
@@ -62,19 +64,16 @@ class HomeTab extends StatelessWidget {
 }
 
 class _LevelButton extends StatelessWidget {
+  const _LevelButton({
+    required this.isLevelUnlocked,
+    required this.levelIndex,
+    required this.pointsRequired,
+    Key? key,
+  }) : super(key: key);
+
   final bool isLevelUnlocked;
   final int levelIndex;
   final int pointsRequired;
-
-  const _LevelButton({
-    Key key,
-    @required this.isLevelUnlocked,
-    @required this.levelIndex,
-    @required this.pointsRequired,
-  })  : assert(isLevelUnlocked != null),
-        assert(levelIndex != null),
-        assert(pointsRequired != null),
-        super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -97,7 +96,7 @@ class _LevelButton extends StatelessWidget {
                     if (!isLevelUnlocked)
                       Score(
                         score: pointsRequired,
-                        color: Theme.of(context).accentColor,
+                        color: Theme.of(context).colorScheme.secondary,
                         fontSize: 16.0,
                       ),
                   ],

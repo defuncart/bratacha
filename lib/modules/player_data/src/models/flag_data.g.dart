@@ -19,8 +19,8 @@ class FlagDataAdapter extends TypeAdapter<FlagData> {
     return FlagData(
       id: fields[0] as String,
     )
-      ..attempts = fields[1] as int
-      ..timesCorrect = fields[2] as int;
+      .._attempts = fields[1] as int
+      .._timesCorrect = fields[2] as int;
   }
 
   @override
@@ -30,9 +30,9 @@ class FlagDataAdapter extends TypeAdapter<FlagData> {
       ..writeByte(0)
       ..write(obj.id)
       ..writeByte(1)
-      ..write(obj.attempts)
+      ..write(obj._attempts)
       ..writeByte(2)
-      ..write(obj.timesCorrect);
+      ..write(obj._timesCorrect);
   }
 
   @override

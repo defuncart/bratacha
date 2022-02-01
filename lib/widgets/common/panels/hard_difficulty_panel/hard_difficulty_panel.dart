@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class HardDifficultyPanel extends StatelessWidget {
-  const HardDifficultyPanel({Key key}) : super(key: key);
+  const HardDifficultyPanel({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -15,8 +15,8 @@ class HardDifficultyPanel extends StatelessWidget {
         BlocBuilder<HardDifficultyCubit, bool>(
           builder: (_, isHardDifficulty) => Switch(
             value: isHardDifficulty,
-            onChanged: (_) => context.bloc<HardDifficultyCubit>().toggle(),
-            activeColor: Theme.of(context).accentColor,
+            onChanged: (_) => context.read<HardDifficultyCubit>().toggle(),
+            activeColor: Theme.of(context).colorScheme.secondary,
           ),
         ),
       ],

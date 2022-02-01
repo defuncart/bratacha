@@ -1,19 +1,18 @@
 import 'package:flutter/material.dart';
 
 class Score extends StatelessWidget {
+  const Score({
+    required this.score,
+    required this.color,
+    this.fontSize = 16.0,
+    Key? key,
+  })  : assert(score >= 0),
+        assert(fontSize >= 8),
+        super(key: key);
+
   final int score;
   final Color color;
   final double fontSize;
-
-  const Score({
-    Key key,
-    @required this.score,
-    @required this.color,
-    this.fontSize = 16.0,
-  })  : assert(score != null && score >= 0),
-        assert(color != null),
-        assert(fontSize != null && fontSize >= 8),
-        super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -24,10 +23,10 @@ class Score extends StatelessWidget {
           color: color,
           size: fontSize * 1.5,
         ),
-        SizedBox(width: 2.0),
+        const SizedBox(width: 2.0),
         Text(
           score.toString(),
-          style: Theme.of(context).textTheme.bodyText1.copyWith(
+          style: Theme.of(context).textTheme.bodyText1?.copyWith(
                 color: color,
                 fontSize: fontSize,
               ),

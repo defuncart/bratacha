@@ -1,5 +1,3 @@
-import 'package:meta/meta.dart';
-
 import '../enums/continent.dart';
 
 /// A model representing a country
@@ -14,9 +12,9 @@ class Country {
   final List<String> similarFlags;
 
   const Country({
-    @required this.id,
-    @required this.continent,
-    @required this.similarFlags,
+    required this.id,
+    required this.continent,
+    required this.similarFlags,
   });
 
   @override

@@ -796,9 +796,9 @@ mixin _$CountryLocalizations {
 
 class _$CountryLocalizationsDelegate {
   static final _supportedLocales = {
-    Locale('en'),
-    Locale('be'),
-    Locale('cy'),
-    Locale('ga'),
+    const Locale('en'),
+    const Locale('be'),
+    const Locale('cy'),
+    const Locale('ga'),
   };
 }

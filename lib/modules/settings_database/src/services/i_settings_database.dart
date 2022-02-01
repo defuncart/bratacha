@@ -1,4 +1,4 @@
-/// A database of the user's device settings
+/// A database of the players's device settings
 abstract class ISettingsDatabase {
   /// Returns whether the player has seen onboarding
   bool get hasSeenOnboarding;

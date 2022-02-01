@@ -24,7 +24,7 @@ void main() async {
   await _playerDataService.initialize();
   await _playerDataService.resync(ids: CountryService.countries.map((country) => country.id).toList());
 
-  await IntlHelper.ensureDelegatesLoaded();
+  IntlHelper.ensureDelegatesLoaded();
 
   return runApp(
     MultiRepositoryProvider(
@@ -36,13 +36,13 @@ void main() async {
           create: (_) => _playerDataService,
         ),
       ],
-      child: kIsWeb ? _WebApp() : MyApp(),
+      child: kIsWeb ? const _WebApp() : const MyApp(),
     ),
   );
 }
 
 class _WebApp extends StatelessWidget {
-  const _WebApp({Key key}) : super(key: key);
+  const _WebApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +50,7 @@ class _WebApp extends StatelessWidget {
       builder: (_, constraints) {
         final isMobile = constraints.smallest.shortestSide < 600;
         if (isMobile) {
-          return MyApp();
+          return const MyApp();
         }
 
         final height = constraints.maxHeight;
@@ -62,7 +62,7 @@ class _WebApp extends StatelessWidget {
             child: SizedBox(
               height: height,
               width: width,
-              child: MyApp(),
+              child: const MyApp(),
             ),
           ),
         );

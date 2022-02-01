@@ -13,23 +13,21 @@ import '../models/responses/informative_dialog_response.dart';
 import '../services/i_dialog_service.dart';
 
 class DialogManager extends StatefulWidget {
+  const DialogManager({
+    required this.dialogService,
+    required this.child,
+    Key? key,
+  }) : super(key: key);
+
   final IDialogService dialogService;
   final Widget child;
-
-  DialogManager({
-    Key key,
-    @required this.dialogService,
-    @required this.child,
-  })  : assert(dialogService != null),
-        assert(child != null),
-        super(key: key);
 
   @override
   _DialogManagerState createState() => _DialogManagerState();
 }
 
 class _DialogManagerState extends State<DialogManager> {
-  StreamSubscription _subscription;
+  StreamSubscription<BaseDialogRequest>? _subscription;
 
   @override
   void initState() {
@@ -40,7 +38,7 @@ class _DialogManagerState extends State<DialogManager> {
 
   @override
   void dispose() {
-    _subscription.cancel();
+    _subscription?.cancel();
 
     super.dispose();
   }
@@ -49,16 +47,16 @@ class _DialogManagerState extends State<DialogManager> {
   Widget build(BuildContext context) => widget.child;
 
   Future<void> _processRequest(BaseDialogRequest request) async {
-    Widget content;
-    List<Widget> actions;
-    BaseDialogResponse response;
+    late Widget content;
+    late List<Widget> actions;
+    BaseDialogResponse? response;
 
     if (request is InformativeDialogRequest) {
       content = Text(request.description);
       actions = [
         TextButton(
           onPressed: () {
-            response = InformativeDialogResponse();
+            response = const InformativeDialogResponse();
             Navigator.of(context).pop();
           },
           child: Text(request.buttonText.toUpperCase()),
@@ -69,14 +67,14 @@ class _DialogManagerState extends State<DialogManager> {
       actions = [
         TextButton(
           onPressed: () {
-            response = ConfirmDialogResponse.negative();
+            response = const ConfirmDialogResponse.negative();
             Navigator.of(context).pop();
           },
           child: Text(request.negativeButtonText.toUpperCase()),
         ),
         TextButton(
           onPressed: () {
-            response = ConfirmDialogResponse.positive();
+            response = const ConfirmDialogResponse.positive();
             Navigator.of(context).pop();
           },
           child: Text(request.positiveButtonText.toUpperCase()),
@@ -109,14 +107,14 @@ class _DialogManagerState extends State<DialogManager> {
     // account for the fact that dialog may be dismiss if !isModal
     if (response == null) {
       if (request is InformativeDialogRequest) {
-        response = InformativeDialogResponse();
+        response = const InformativeDialogResponse();
       } else if (request is ConfirmDialogRequest) {
-        response = ConfirmDialogResponse.negative();
+        response = const ConfirmDialogResponse.negative();
       } else if (request is CustomDialogRequest) {
-        response = CustomDialogResponse(buttonIndexPressed: null);
+        response = const CustomDialogResponse(buttonIndexPressed: -1);
       }
     }
 
-    widget.dialogService.dialogClosedByUser(response: response);
+    widget.dialogService.dialogClosedByUser(response: response!);
   }
 }

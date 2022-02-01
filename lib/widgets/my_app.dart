@@ -22,14 +22,14 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key key}) : super(key: key);
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return MultiRepositoryProvider(
       providers: [
         RepositoryProvider<LevelManager>(
-          create: (_) => LevelManager(_.repository<IPlayerDataService>()),
+          create: (_) => LevelManager(_.read<IPlayerDataService>()),
         ),
         RepositoryProvider<IDialogService>(
           create: (_) => DialogService(),
@@ -44,10 +44,10 @@ class MyApp extends StatelessWidget {
       child: MultiBlocProvider(
         providers: [
           BlocProvider<LanguageCubit>(
-            create: (contextRepositories) => LanguageCubit(contextRepositories.repository<IPlayerDataService>()),
+            create: (contextRepositories) => LanguageCubit(contextRepositories.read<IPlayerDataService>()),
           ),
           BlocProvider<HardDifficultyCubit>(
-            create: (contextRepositories) => HardDifficultyCubit(contextRepositories.repository<IPlayerDataService>()),
+            create: (contextRepositories) => HardDifficultyCubit(contextRepositories.read<IPlayerDataService>()),
           ),
         ],
         child: BlocBuilder<LanguageCubit, String>(
@@ -55,14 +55,14 @@ class MyApp extends StatelessWidget {
             builder: (context, widget) => Navigator(
               onGenerateRoute: (settings) => MaterialPageRoute(
                 builder: (context) => DialogManager(
-                  dialogService: context.repository<IDialogService>(),
-                  child: widget,
+                  dialogService: context.read<IDialogService>(),
+                  child: widget!,
                 ),
               ),
             ),
-            localizationsDelegates: [
-              const AppLocalizationsDelegate(),
-              const CountryLocalizationsDelegate(),
+            localizationsDelegates: const [
+              AppLocalizationsDelegate(),
+              CountryLocalizationsDelegate(),
               GlobalMaterialLocalizations.delegate,
               GlobalWidgetsLocalizations.delegate,
               GlobalCupertinoLocalizations.delegate,
@@ -72,12 +72,12 @@ class MyApp extends StatelessWidget {
             locale: Locale(language),
             supportedLocales: AppLocalizationsDelegate.supportedLocals,
             theme: AppThemes.theme,
-            home: context.repository<ISettingsDatabase>().hasSeenOnboarding ? HomeScreen() : OnboardingScreen(),
+            home: context.read<ISettingsDatabase>().hasSeenOnboarding ? const HomeScreen() : const OnboardingScreen(),
             routes: {
-              OnboardingScreen.routeName: (_) => OnboardingScreen(),
-              HomeScreen.routeName: (_) => HomeScreen(),
-              LearnScreen.routeName: (_) => LearnScreen(),
-              GameScreen.routeName: (_) => GameScreen(),
+              OnboardingScreen.routeName: (_) => const OnboardingScreen(),
+              HomeScreen.routeName: (_) => const HomeScreen(),
+              LearnScreen.routeName: (_) => const LearnScreen(),
+              GameScreen.routeName: (_) => const GameScreen(),
             },
           ),
         ),

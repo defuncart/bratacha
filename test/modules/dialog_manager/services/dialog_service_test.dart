@@ -4,109 +4,111 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  test('requestInformativeDialog', () async {
-    final dialogService = DialogService();
+  group('$DialogService', () {
+    test('requestInformativeDialog', () async {
+      final dialogService = DialogService();
 
-    BaseDialogRequest request;
-    final subscription = dialogService.requestStream.listen((event) => request = event);
+      late BaseDialogRequest request;
+      final subscription = dialogService.requestStream.listen((event) => request = event);
 
-    Future.delayed(Duration(milliseconds: 100), () {
-      expect(request is InformativeDialogRequest, isTrue);
-      dialogService.dialogClosedByUser(response: InformativeDialogResponse());
+      Future.delayed(const Duration(milliseconds: 100), () {
+        expect(request is InformativeDialogRequest, isTrue);
+        dialogService.dialogClosedByUser(response: const InformativeDialogResponse());
+      });
+
+      final response = await dialogService.requestInformativeDialog(
+        const InformativeDialogRequest(title: 'A', description: 'B', buttonText: 'C'),
+      );
+
+      expect(response, isA<InformativeDialogResponse>());
+
+      await subscription.cancel();
     });
 
-    final response = await dialogService.requestInformativeDialog(
-      InformativeDialogRequest(title: 'A', description: 'B', buttonText: 'C'),
-    );
+    test('requestConfirmDialog', () async {
+      final dialogService = DialogService();
 
-    expect(response is InformativeDialogResponse, isTrue);
+      late BaseDialogRequest request;
+      final subscription = dialogService.requestStream.listen((event) => request = event);
 
-    await subscription.cancel();
-  });
+      Future.delayed(const Duration(milliseconds: 100), () {
+        expect(request is ConfirmDialogRequest, isTrue);
+        dialogService.dialogClosedByUser(response: const ConfirmDialogResponse.positive());
+      });
 
-  test('requestConfirmDialog', () async {
-    final dialogService = DialogService();
+      final response = await dialogService.requestConfirmDialog(
+        const ConfirmDialogRequest(title: 'A', description: 'B', negativeButtonText: 'C', positiveButtonText: 'D'),
+      );
 
-    BaseDialogRequest request;
-    final subscription = dialogService.requestStream.listen((event) => request = event);
+      expect(response, isA<ConfirmDialogResponse>());
+      expect(response.isPositive, isTrue);
 
-    Future.delayed(Duration(milliseconds: 100), () {
-      expect(request is ConfirmDialogRequest, isTrue);
-      dialogService.dialogClosedByUser(response: ConfirmDialogResponse.positive());
+      await subscription.cancel();
     });
 
-    final response = await dialogService.requestConfirmDialog(
-      ConfirmDialogRequest(title: 'A', description: 'B', negativeButtonText: 'C', positiveButtonText: 'D'),
-    );
+    test('customConfirmDialog', () async {
+      final dialogService = DialogService();
 
-    expect(response is ConfirmDialogResponse, isTrue);
-    expect(response.isPositive, isTrue);
+      late BaseDialogRequest request;
+      final subscription = dialogService.requestStream.listen((event) => request = event);
 
-    await subscription.cancel();
-  });
+      Future.delayed(const Duration(milliseconds: 100), () {
+        expect(request is CustomDialogRequest, isTrue);
+        dialogService.dialogClosedByUser(response: const CustomDialogResponse(buttonIndexPressed: 0));
+      });
 
-  test('customConfirmDialog', () async {
-    final dialogService = DialogService();
+      final response = await dialogService.requestCustomDialog(
+        CustomDialogRequest(title: 'A', content: Container(), buttonTexts: ['B']),
+      );
 
-    BaseDialogRequest request;
-    final subscription = dialogService.requestStream.listen((event) => request = event);
+      expect(response, isA<CustomDialogResponse>());
 
-    Future.delayed(Duration(milliseconds: 100), () {
-      expect(request is CustomDialogRequest, isTrue);
-      dialogService.dialogClosedByUser(response: CustomDialogResponse(buttonIndexPressed: 0));
+      await subscription.cancel();
     });
 
-    final response = await dialogService.requestCustomDialog(
-      CustomDialogRequest(title: 'A', content: Container(), buttonTexts: ['B']),
-    );
+    test('requestInformativeDialog dialog in progress', () async {
+      final dialogService = DialogService();
 
-    expect(response is CustomDialogResponse, isTrue);
+      // ignore: unawaited_futures
+      dialogService.requestInformativeDialog(
+        const InformativeDialogRequest(title: 'A', description: 'B', buttonText: 'C'),
+      );
 
-    await subscription.cancel();
-  });
+      final response = await dialogService.requestInformativeDialog(
+        const InformativeDialogRequest(title: 'A', description: 'B', buttonText: 'C'),
+      );
 
-  test('requestInformativeDialog dialog in progress', () async {
-    final dialogService = DialogService();
+      expect(response.hasError, isTrue);
+    });
 
-    // ignore: unawaited_futures
-    dialogService.requestInformativeDialog(
-      InformativeDialogRequest(title: 'A', description: 'B', buttonText: 'C'),
-    );
+    test('requestConfirmDialog dialog in progress', () async {
+      final dialogService = DialogService();
 
-    final response = await dialogService.requestInformativeDialog(
-      InformativeDialogRequest(title: 'A', description: 'B', buttonText: 'C'),
-    );
+      // ignore: unawaited_futures
+      dialogService.requestInformativeDialog(
+        const InformativeDialogRequest(title: 'A', description: 'B', buttonText: 'C'),
+      );
 
-    expect(response.hasError, isTrue);
-  });
+      final response = await dialogService.requestConfirmDialog(
+        const ConfirmDialogRequest(title: 'A', description: 'B', negativeButtonText: 'C', positiveButtonText: 'D'),
+      );
 
-  test('requestConfirmDialog dialog in progress', () async {
-    final dialogService = DialogService();
+      expect(response.hasError, isTrue);
+    });
 
-    // ignore: unawaited_futures
-    dialogService.requestInformativeDialog(
-      InformativeDialogRequest(title: 'A', description: 'B', buttonText: 'C'),
-    );
+    test('customConfirmDialog dialog in progress', () async {
+      final dialogService = DialogService();
 
-    final response = await dialogService.requestConfirmDialog(
-      ConfirmDialogRequest(title: 'A', description: 'B', negativeButtonText: 'C', positiveButtonText: 'D'),
-    );
+      // ignore: unawaited_futures
+      dialogService.requestInformativeDialog(
+        const InformativeDialogRequest(title: 'A', description: 'B', buttonText: 'C'),
+      );
 
-    expect(response.hasError, isTrue);
-  });
+      final response = await dialogService.requestCustomDialog(
+        CustomDialogRequest(title: 'A', content: Container(), buttonTexts: ['B']),
+      );
 
-  test('customConfirmDialog dialog in progress', () async {
-    final dialogService = DialogService();
-
-    // ignore: unawaited_futures
-    dialogService.requestInformativeDialog(
-      InformativeDialogRequest(title: 'A', description: 'B', buttonText: 'C'),
-    );
-
-    final response = await dialogService.requestCustomDialog(
-      CustomDialogRequest(title: 'A', content: Container(), buttonTexts: ['B']),
-    );
-
-    expect(response.hasError, isTrue);
+      expect(response.hasError, isTrue);
+    });
   });
 }

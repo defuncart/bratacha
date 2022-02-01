@@ -12,7 +12,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SettingsTab extends StatelessWidget {
-  const SettingsTab({Key key}) : super(key: key);
+  const SettingsTab({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -31,15 +31,15 @@ class SettingsTab extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                SizedBox(height: 16.0),
+                const SizedBox(height: 16.0),
                 Text(AppLocalizations.settingsTabLanguageLabel),
-                SizedBox(height: 8.0),
-                LanguagePanel(),
-                HardDifficultyPanel(),
+                const SizedBox(height: 8.0),
+                const LanguagePanel(),
+                const HardDifficultyPanel(),
                 Center(
                   child: CustomElevatedButton(
                     onPressed: () async {
-                      final response = await context.repository<IDialogService>().requestConfirmDialog(
+                      final response = await context.read<IDialogService>().requestConfirmDialog(
                             ConfirmDialogRequest(
                               title: AppLocalizations.resetProgressDialogTitle,
                               description: AppLocalizations.resetProgressDialogDescription,
@@ -48,14 +48,14 @@ class SettingsTab extends StatelessWidget {
                             ),
                           );
                       if (response.isPositive) {
-                        await context.repository<IPlayerDataService>().reset();
+                        await context.read<IPlayerDataService>().reset();
                       }
                     },
                     buttonText: AppLocalizations.settingsTabResetProgressLabel,
                   ),
                 ),
                 FeedbackPanel(
-                  urlLaucherService: context.repository<IUrlLaucherService>(),
+                  urlLaucherService: context.read<IUrlLaucherService>(),
                 ),
               ],
             ),

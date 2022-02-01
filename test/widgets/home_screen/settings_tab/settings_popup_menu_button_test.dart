@@ -9,96 +9,98 @@ import 'package:bratacha/widgets/home_screen/settings_tab/settings_popup_menu_bu
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:mockito/mockito.dart';
+import 'package:mocktail/mocktail.dart';
 
 void main() {
   // ensure localizations are setup
-  AppLocalizations.load(Locale('en'));
+  AppLocalizations.load(const Locale('en'));
 
-  final playerDataService = _MockPlayerDataService();
-  final widget = MultiBlocProvider(
-    providers: [
-      BlocProvider<HardDifficultyCubit>(
-        create: (_) => HardDifficultyCubit(playerDataService),
-      ),
-      BlocProvider<LanguageCubit>(
-        create: (_) => LanguageCubit(playerDataService),
-      ),
-    ],
-    child: SettingsPopupMenuButton(parentContext: _MockBuildContext()),
-  );
-
-  testWidgets('Ensure widget tree is correct', (tester) async {
-    await tester.pumpWidget(
-      MaterialApp(
-        home: Scaffold(body: widget),
-      ),
+  group('$SettingsPopupMenuButton', () {
+    final playerDataService = _MockPlayerDataService();
+    final widget = MultiBlocProvider(
+      providers: [
+        BlocProvider<HardDifficultyCubit>(
+          create: (_) => HardDifficultyCubit(playerDataService),
+        ),
+        BlocProvider<LanguageCubit>(
+          create: (_) => LanguageCubit(playerDataService),
+        ),
+      ],
+      child: SettingsPopupMenuButton(parentContext: _MockBuildContext()),
     );
 
-    expect(find.byType(SettingsPopupMenuButton), findsOneWidget);
+    testWidgets('Ensure widget tree is correct', (tester) async {
+      await tester.pumpWidget(
+        MaterialApp(
+          home: Scaffold(body: widget),
+        ),
+      );
+
+      expect(find.byType(SettingsPopupMenuButton), findsOneWidget);
+    });
+
+    testWidgets('Clicking on button opens popup menu', (tester) async {
+      await tester.pumpWidget(
+        MaterialApp(
+          home: Scaffold(body: widget),
+        ),
+      );
+
+      final button = find.byType(SettingsPopupMenuButton);
+
+      await tester.tap(button);
+
+      await tester.pumpAndSettle();
+
+      expect(find.text(AppLocalizations.settingsTabDataPrivacyLabel), findsOneWidget);
+      expect(find.text(AppLocalizations.settingsTabCreditsLabel), findsOneWidget);
+    });
+
+    // testWidgets('Ensure data privacy button is clickable', (tester) async {
+    //   await tester.pumpWidget(
+    //     MultiRepositoryProvider(
+    //       providers: [
+    //         RepositoryProvider<IDialogService>(
+    //           create: (_) => dialogService,
+    //         ),
+    //         RepositoryProvider<IAppInfoService>(
+    //           create: (_) => _MockAppInfoService(),
+    //         ),
+    //       ],
+    //       child: MaterialApp(home: Scaffold(body: widget)),
+    //     ),
+    //   );
+
+    //   final button = find.byType(PopupMenuItem).at(0);
+
+    //   dialogService.setResponse(CustomDialogResponse(buttonIndexPressed: 1));
+
+    //   await tester.tap(button);
+
+    //   dialogService.setResponse(CustomDialogResponse(buttonIndexPressed: 0));
+
+    //   await tester.tap(button);
+    // });
+
+    // testWidgets('Ensure credits button is clickable', (tester) async {
+    //   await tester.pumpWidget(
+    //     MultiRepositoryProvider(
+    //       providers: [
+    //         RepositoryProvider<IDialogService>(
+    //           create: (_) => dialogService,
+    //         ),
+    //       ],
+    //       child: MaterialApp(home: widget),
+    //     ),
+    //   );
+
+    //   final button = find.byType(CustomElevatedButton).at(2);
+
+    //   dialogService.setResponse(CustomDialogResponse(buttonIndexPressed: 0));
+
+    //   await tester.tap(button);
+    // });
   });
-
-  testWidgets('Clicking on button opens popup menu', (tester) async {
-    await tester.pumpWidget(
-      MaterialApp(
-        home: Scaffold(body: widget),
-      ),
-    );
-
-    final button = find.byType(SettingsPopupMenuButton);
-
-    await tester.tap(button);
-
-    await tester.pumpAndSettle();
-
-    expect(find.text(AppLocalizations.settingsTabDataPrivacyLabel), findsOneWidget);
-    expect(find.text(AppLocalizations.settingsTabCreditsLabel), findsOneWidget);
-  });
-
-  // testWidgets('Ensure data privacy button is clickable', (tester) async {
-  //   await tester.pumpWidget(
-  //     MultiRepositoryProvider(
-  //       providers: [
-  //         RepositoryProvider<IDialogService>(
-  //           create: (_) => dialogService,
-  //         ),
-  //         RepositoryProvider<IAppInfoService>(
-  //           create: (_) => _MockAppInfoService(),
-  //         ),
-  //       ],
-  //       child: MaterialApp(home: Scaffold(body: widget)),
-  //     ),
-  //   );
-
-  //   final button = find.byType(PopupMenuItem).at(0);
-
-  //   dialogService.setResponse(CustomDialogResponse(buttonIndexPressed: 1));
-
-  //   await tester.tap(button);
-
-  //   dialogService.setResponse(CustomDialogResponse(buttonIndexPressed: 0));
-
-  //   await tester.tap(button);
-  // });
-
-  // testWidgets('Ensure credits button is clickable', (tester) async {
-  //   await tester.pumpWidget(
-  //     MultiRepositoryProvider(
-  //       providers: [
-  //         RepositoryProvider<IDialogService>(
-  //           create: (_) => dialogService,
-  //         ),
-  //       ],
-  //       child: MaterialApp(home: widget),
-  //     ),
-  //   );
-
-  //   final button = find.byType(CustomElevatedButton).at(2);
-
-  //   dialogService.setResponse(CustomDialogResponse(buttonIndexPressed: 0));
-
-  //   await tester.tap(button);
-  // });
 }
 
 class _MockPlayerDataService extends Mock implements IPlayerDataService {

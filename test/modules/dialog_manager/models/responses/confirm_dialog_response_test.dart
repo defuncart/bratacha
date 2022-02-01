@@ -2,32 +2,33 @@ import 'package:bratacha/modules/dialog_manager/dialog_manager.dart' show Confir
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  test('Ensure toString is overridden', () {
-    final response = ConfirmDialogResponse.positive();
+  group('$ConfirmDialogResponse', () {
+    test('Ensure toString is overridden', () {
+      const response = ConfirmDialogResponse.positive();
 
-    expect(response.toString(), isNotNull);
-    expect(response.toString(), isNot('hasError: false'));
-    expect(response.toString(), isNot('Instance of \'ConfirmDialogResponse\''));
-  });
+      expect(response.toString(), isNot('hasError: false'));
+      expect(response.toString(), isNot('Instance of \'ConfirmDialogResponse\''));
+    });
 
-  test('Ensure constructor hasError is correct', () {
-    final response = ConfirmDialogResponse.hasError();
+    test('Ensure constructor hasError is correct', () {
+      const response = ConfirmDialogResponse.hasError();
 
-    expect(response.hasError, isTrue);
-    expect(response.isPositive, isNull);
-  });
+      expect(response.hasError, isTrue);
+      expect(() => response.isPositive, throwsStateError);
+    });
 
-  test('Ensure constructor positive is correct', () {
-    final response = ConfirmDialogResponse.positive();
+    test('Ensure constructor positive is correct', () {
+      const response = ConfirmDialogResponse.positive();
 
-    expect(response.hasError, isFalse);
-    expect(response.isPositive, isTrue);
-  });
+      expect(response.hasError, isFalse);
+      expect(response.isPositive, isTrue);
+    });
 
-  test('Ensure constructor negative is correct', () {
-    final response = ConfirmDialogResponse.negative();
+    test('Ensure constructor negative is correct', () {
+      const response = ConfirmDialogResponse.negative();
 
-    expect(response.hasError, isFalse);
-    expect(response.isPositive, isFalse);
+      expect(response.hasError, isFalse);
+      expect(response.isPositive, isFalse);
+    });
   });
 }

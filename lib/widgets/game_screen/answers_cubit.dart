@@ -2,12 +2,11 @@ import 'dart:async';
 
 import 'package:bratacha/services/game_service/i_game_service.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:meta/meta.dart';
 
 class AnswersCubit extends Cubit<List<String>> {
-  StreamSubscription<List<String>> _subscription;
+  late StreamSubscription<List<String>> _subscription;
 
-  AnswersCubit({@required IGameService gameService}) : super([]) {
+  AnswersCubit({required IGameService gameService}) : super([]) {
     _subscription = gameService.answerCountries.listen((event) => emit(event));
   }
 

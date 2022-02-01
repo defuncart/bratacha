@@ -16,56 +16,58 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class GameScreenArguments {
   final int level;
 
-  const GameScreenArguments({@required this.level});
+  const GameScreenArguments({required this.level});
 }
 
 class GameScreen extends StatelessWidget {
   static const routeName = 'GameScreen';
 
-  const GameScreen({Key key}) : super(key: key);
+  const GameScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final args = ModalRoute.of(context).settings.arguments as GameScreenArguments;
+    final args = ModalRoute.of(context)?.settings.arguments as GameScreenArguments;
     final level = args.level;
 
     return RepositoryProvider<IGameService>(
       create: (_) => GameService(
-        isHardDifficulty: context.repository<IPlayerDataService>().isHardDifficulty,
-        playerDataService: context.repository<IPlayerDataService>(),
+        isHardDifficulty: context.read<IPlayerDataService>().isHardDifficulty,
+        playerDataService: context.read<IPlayerDataService>(),
         level: level,
-        levelManager: context.repository<LevelManager>(),
+        levelManager: context.read<LevelManager>(),
       )..initialize(),
       lazy: false,
       child: MultiBlocProvider(
         providers: [
           BlocProvider<QuestionCubit>(
             create: (contextRepository) => QuestionCubit(
-              gameService: contextRepository.repository<IGameService>(),
+              gameService: contextRepository.read<IGameService>(),
             ),
           ),
           BlocProvider<AnswersCubit>(
             create: (contextRepository) => AnswersCubit(
-              gameService: contextRepository.repository<IGameService>(),
+              gameService: contextRepository.read<IGameService>(),
             ),
           ),
           BlocProvider<ScoreCubit>(
             create: (contextRepository) => ScoreCubit(
-              gameService: contextRepository.repository<IGameService>(),
+              gameService: contextRepository.read<IGameService>(),
             ),
           ),
         ],
         child: Scaffold(
           appBar: AppBar(
             leading: IconButton(
-              icon: Icon(Icons.close),
+              icon: const Icon(Icons.close),
               onPressed: () async {
-                final response = await context.repository<IDialogService>().requestConfirmDialog(ConfirmDialogRequest(
-                      title: AppLocalizations.quitGameDialogTitle,
-                      description: AppLocalizations.quitGameDialogDescription,
-                      negativeButtonText: AppLocalizations.generalNo,
-                      positiveButtonText: AppLocalizations.generalYes,
-                    ));
+                final response = await context.read<IDialogService>().requestConfirmDialog(
+                      ConfirmDialogRequest(
+                        title: AppLocalizations.quitGameDialogTitle,
+                        description: AppLocalizations.quitGameDialogDescription,
+                        negativeButtonText: AppLocalizations.generalNo,
+                        positiveButtonText: AppLocalizations.generalYes,
+                      ),
+                    );
                 if (response.isPositive) {
                   await Navigator.of(context).pushReplacementNamed(HomeScreen.routeName);
                 }
@@ -87,7 +89,7 @@ class GameScreen extends StatelessWidget {
               ),
             ],
           ),
-          body: SafeArea(
+          body: const SafeArea(
             child: Center(
               child: QuestionAnswerPanel(),
             ),

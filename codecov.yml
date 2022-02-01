@@ -1,0 +1,14 @@
+coverage:
+  precision: 2
+  round: down
+  range: "70...100"
+  status:
+    # how well the project as a whole is tested
+    project:
+      default:
+        target: 75
+        threshold: 5%
+    # how well the PR is tested
+    patch:
+      default:
+        target: 70%

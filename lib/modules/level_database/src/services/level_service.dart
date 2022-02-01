@@ -1,5 +1,3 @@
-import 'package:meta/meta.dart';
-
 part 'level_service.g.dart';
 
 class LevelService {
@@ -12,7 +10,7 @@ class LevelService {
       return _levels[level].countries;
     }
 
-    return null;
+    throw (ArgumentError('Invalid level $level'));
   }
 
   /// Returns the score required to unlock a given level index (beginning at zero)
@@ -21,7 +19,7 @@ class LevelService {
       return _levels[level].scoreToUnlock;
     }
 
-    return null;
+    throw (ArgumentError('Invalid level $level'));
   }
 }
 
@@ -30,8 +28,7 @@ class _Level {
   final List<String> countries;
 
   const _Level({
-    @required this.scoreToUnlock,
-    @required this.countries,
-  })  : assert(scoreToUnlock != null),
-        assert(countries != null);
+    required this.scoreToUnlock,
+    required this.countries,
+  });
 }

@@ -12,44 +12,43 @@ enum _Option {
 }
 
 class SettingsPopupMenuButton extends StatelessWidget {
-  final BuildContext parentContext;
-
   const SettingsPopupMenuButton({
-    Key key,
-    @required this.parentContext,
+    required this.parentContext,
+    Key? key,
   }) : super(key: key);
+
+  final BuildContext parentContext;
 
   @override
   Widget build(BuildContext context) {
-    final mapOptionText = {
-      _Option.dataPrivacy: AppLocalizations.settingsTabDataPrivacyLabel,
-      _Option.credits: AppLocalizations.settingsTabCreditsLabel,
-    };
-
-    final mapOptionCallback = {
-      _Option.dataPrivacy: (BuildContext context) async => _onDataPrivacySelected(parentContext),
-      _Option.credits: (BuildContext context) async => _onCreditsSelected(parentContext),
-    };
-
     return PopupMenuButton<_Option>(
-      icon: Icon(Icons.info),
-      onSelected: (option) => mapOptionCallback[option](context),
+      icon: const Icon(Icons.info),
+      onSelected: (option) {
+        switch (option) {
+          case _Option.dataPrivacy:
+            _onDataPrivacySelected(parentContext);
+            break;
+          case _Option.credits:
+            _onCreditsSelected(parentContext);
+            break;
+        }
+      },
       color: Theme.of(context).scaffoldBackgroundColor,
       itemBuilder: (_) => [
         for (final option in _Option.values)
           PopupMenuItem<_Option>(
             value: option,
-            child: Text(mapOptionText[option]),
+            child: Text(option.localizedText),
           )
       ],
     );
   }
 
   Future<void> _onDataPrivacySelected(BuildContext context) async {
-    final response = await context.repository<IDialogService>().requestCustomDialog(
+    final response = await context.read<IDialogService>().requestCustomDialog(
           CustomDialogRequest(
             title: AppLocalizations.dataPrivacyDialogTitle,
-            content: DataPrivacyPanel(),
+            content: const DataPrivacyPanel(),
             buttonTexts: [
               AppLocalizations.dataPrivacyDialogViewLicensesLabel,
               AppLocalizations.generalClose,
@@ -58,7 +57,7 @@ class SettingsPopupMenuButton extends StatelessWidget {
         );
 
     if (response.buttonIndexPressed == 0) {
-      final appInfoService = context.repository<IAppInfoService>();
+      final appInfoService = context.read<IAppInfoService>();
       showLicensePage(
         context: context,
         applicationName: appInfoService.applicationName,
@@ -70,13 +69,24 @@ class SettingsPopupMenuButton extends StatelessWidget {
   }
 
   Future<void> _onCreditsSelected(BuildContext context) async =>
-      await context.repository<IDialogService>().requestCustomDialog(
+      await context.read<IDialogService>().requestCustomDialog(
             CustomDialogRequest(
               title: AppLocalizations.creditsDialogTitle,
-              content: CreditsPanel(),
+              content: const CreditsPanel(),
               buttonTexts: [
                 AppLocalizations.generalClose,
               ],
             ),
           );
+}
+
+extension on _Option {
+  String get localizedText {
+    switch (this) {
+      case _Option.dataPrivacy:
+        return AppLocalizations.settingsTabDataPrivacyLabel;
+      case _Option.credits:
+        return AppLocalizations.settingsTabCreditsLabel;
+    }
+  }
 }

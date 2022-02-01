@@ -3,12 +3,12 @@ import 'package:bratacha/widgets/common/text/clickable_text.dart';
 import 'package:flutter/material.dart';
 
 class DataPrivacyPanel extends StatelessWidget {
-  final double spacerHeight;
-
   const DataPrivacyPanel({
-    Key key,
     this.spacerHeight = 16.0,
+    Key? key,
   }) : super(key: key);
+
+  final double spacerHeight;
 
   @override
   Widget build(BuildContext context) {

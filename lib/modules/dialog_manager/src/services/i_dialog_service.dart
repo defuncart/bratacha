@@ -1,5 +1,3 @@
-import 'package:meta/meta.dart';
-
 import '../models/requests/base_dialog_request.dart';
 import '../models/requests/confirm_dialog_request.dart';
 import '../models/requests/custom_dialog_request.dart';
@@ -18,5 +16,5 @@ abstract class IDialogService {
 
   Future<CustomDialogResponse> requestCustomDialog(CustomDialogRequest request);
 
-  void dialogClosedByUser({@required BaseDialogResponse response});
+  void dialogClosedByUser({required BaseDialogResponse response});
 }

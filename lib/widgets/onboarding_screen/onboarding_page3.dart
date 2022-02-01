@@ -4,7 +4,7 @@ import 'package:bratacha/widgets/common/panels/developer_panel.dart';
 import 'package:flutter/material.dart';
 
 class OnboardingPage3 extends StatelessWidget {
-  const OnboardingPage3({Key key}) : super(key: key);
+  const OnboardingPage3({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -15,8 +15,8 @@ class OnboardingPage3 extends StatelessWidget {
         Text(AppLocalizations.onboardingPage3TextLabel1),
         Text(AppLocalizations.onboardingPage3TextLabel2),
         Text(AppLocalizations.feedbackPanelLabel1),
-        DataPrivacyPanel(),
-        DeveloperPanel(),
+        const DataPrivacyPanel(),
+        const DeveloperPanel(),
       ],
     );
   }

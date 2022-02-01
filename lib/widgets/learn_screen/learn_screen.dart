@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 class LearnScreen extends StatelessWidget {
   static const routeName = 'LearnScreen';
 
-  const LearnScreen({Key key}) : super(key: key);
+  const LearnScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -15,13 +15,12 @@ class LearnScreen extends StatelessWidget {
       appBar: AppBar(),
       body: SafeArea(
         child: ListView.separated(
-          separatorBuilder: (_, __) => Divider(),
+          separatorBuilder: (_, __) => const Divider(),
           itemCount: countries.length,
           itemBuilder: (_, index) => ListTile(
             leading: Flag(
               countries[index].id,
-              height: 100,
-              width: 100,
+              size: 100,
             ),
             // TODO: show only in debug mode
             trailing: _SimilarFlagsList(
@@ -36,13 +35,12 @@ class LearnScreen extends StatelessWidget {
 }
 
 class _SimilarFlagsList extends StatelessWidget {
-  final List<String> similarFlags;
-
   const _SimilarFlagsList({
-    Key key,
-    @required this.similarFlags,
-  })  : assert(similarFlags != null),
-        super(key: key);
+    required this.similarFlags,
+    Key? key,
+  }) : super(key: key);
+
+  final List<String> similarFlags;
 
   @override
   Widget build(BuildContext context) {
@@ -53,8 +51,7 @@ class _SimilarFlagsList extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 2.0),
             child: Flag(
               flag,
-              height: 24,
-              width: 24,
+              size: 24,
             ),
           ),
       ],

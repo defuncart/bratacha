@@ -3,44 +3,26 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  test('text null value triggers assertion', () {
-    expect(
-      () => ClickableTextSpan(
-        text: null,
-        url: '',
-      ),
-      throwsAssertionError,
-    );
-  });
+  group('$ClickableTextSpan', () {
+    test('style null value does not trigger assertion', () {
+      expect(
+        () => ClickableTextSpan(
+          text: '',
+          url: '',
+          style: null,
+        ),
+        returnsNormally,
+      );
+    });
 
-  test('url null value triggers assertion', () {
-    expect(
-      () => ClickableTextSpan(
-        text: '',
-        url: null,
-      ),
-      throwsAssertionError,
-    );
-  });
+    testWidgets('Ensure span is clickable', (tester) async {
+      final widget = RichText(
+        text: ClickableTextSpan(text: 'Link', url: 'https://bla.bla'),
+      );
 
-  test('style null value does not trigger assertion', () {
-    expect(
-      () => ClickableTextSpan(
-        text: '',
-        url: '',
-        style: null,
-      ),
-      returnsNormally,
-    );
-  });
+      await tester.pumpWidget(MaterialApp(home: widget));
 
-  testWidgets('Ensure span is clickable', (tester) async {
-    final widget = RichText(
-      text: ClickableTextSpan(text: 'Link', url: 'https://bla.bla'),
-    );
-
-    await tester.pumpWidget(MaterialApp(home: widget));
-
-    await tester.tap(find.byType(RichText));
+      await tester.tap(find.byType(RichText));
+    });
   });
 }

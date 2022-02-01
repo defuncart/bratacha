@@ -10,7 +10,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class OnboardingScreen extends StatefulWidget {
   static const routeName = 'OnboardingScreen';
 
-  const OnboardingScreen({Key key}) : super(key: key);
+  const OnboardingScreen({Key? key}) : super(key: key);
 
   @override
   _OnboardingScreenState createState() => _OnboardingScreenState();
@@ -18,9 +18,9 @@ class OnboardingScreen extends StatefulWidget {
 
 class _OnboardingScreenState extends State<OnboardingScreen> {
   final _pages = [
-    OnboardingPage1(),
-    OnboardingPage2(),
-    OnboardingPage3(),
+    const OnboardingPage1(),
+    const OnboardingPage2(),
+    const OnboardingPage3(),
   ];
   var _index = 0;
 
@@ -37,10 +37,12 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               Expanded(
                 child: _pages[_index],
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               ElevatedButton(
                 style: ButtonStyle(
-                  backgroundColor: MaterialStateColor.resolveWith((states) => Theme.of(context).accentColor),
+                  backgroundColor: MaterialStateColor.resolveWith(
+                    (states) => Theme.of(context).colorScheme.secondary,
+                  ),
                   minimumSize: MaterialStateProperty.all(
                     Size(
                       MediaQuery.of(context).size.width * 0.5,
@@ -57,7 +59,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 ),
                 onPressed: _isLastPage
                     ? () {
-                        context.repository<ISettingsDatabase>().hasSeenOnboarding = true;
+                        context.read<ISettingsDatabase>().hasSeenOnboarding = true;
                         Navigator.of(context).pushReplacementNamed(HomeScreen.routeName);
                       }
                     : () => setState(() => _index++),
