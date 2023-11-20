@@ -24,13 +24,13 @@ class LanguageButton extends StatelessWidget {
     return Opacity(
       opacity: isSelected ? 1 : 0.4,
       child: GestureDetector(
+        onTap: onPressed,
         child: CircularWidget(
           radius: size,
           child: PlatformSvg.asset(
             _path,
           ),
         ),
-        onTap: onPressed,
       ),
     );
   }

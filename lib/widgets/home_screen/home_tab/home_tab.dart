@@ -78,6 +78,12 @@ class _LevelButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
+      onTap: isLevelUnlocked
+          ? () => Navigator.of(context).pushReplacementNamed(
+                GameScreen.routeName,
+                arguments: GameScreenArguments(level: levelIndex),
+              )
+          : null,
       child: Opacity(
         opacity: isLevelUnlocked ? 1 : 0.4,
         child: Card(
@@ -106,12 +112,6 @@ class _LevelButton extends StatelessWidget {
           ),
         ),
       ),
-      onTap: isLevelUnlocked
-          ? () => Navigator.of(context).pushReplacementNamed(
-                GameScreen.routeName,
-                arguments: GameScreenArguments(level: levelIndex),
-              )
-          : null,
     );
   }
 }

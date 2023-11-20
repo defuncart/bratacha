@@ -13,7 +13,7 @@ abstract class AppThemes {
     cardColor: _AppColors.card,
     textButtonTheme: TextButtonThemeData(
       style: TextButton.styleFrom(
-        primary: _AppColors.accent,
+        foregroundColor: _AppColors.accent,
       ),
     ),
     dialogTheme: const DialogTheme(

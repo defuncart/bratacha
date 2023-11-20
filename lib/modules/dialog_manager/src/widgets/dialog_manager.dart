@@ -23,7 +23,7 @@ class DialogManager extends StatefulWidget {
   final Widget child;
 
   @override
-  _DialogManagerState createState() => _DialogManagerState();
+  State<DialogManager> createState() => _DialogManagerState();
 }
 
 class _DialogManagerState extends State<DialogManager> {

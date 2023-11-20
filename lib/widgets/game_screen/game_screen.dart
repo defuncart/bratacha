@@ -60,6 +60,7 @@ class GameScreen extends StatelessWidget {
             leading: IconButton(
               icon: const Icon(Icons.close),
               onPressed: () async {
+                final navigator = Navigator.of(context);
                 final response = await context.read<IDialogService>().requestConfirmDialog(
                       ConfirmDialogRequest(
                         title: AppLocalizations.quitGameDialogTitle,
@@ -69,7 +70,7 @@ class GameScreen extends StatelessWidget {
                       ),
                     );
                 if (response.isPositive) {
-                  await Navigator.of(context).pushReplacementNamed(HomeScreen.routeName);
+                  await navigator.pushReplacementNamed(HomeScreen.routeName);
                 }
               },
             ),

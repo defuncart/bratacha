@@ -1,6 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 /// A TextSpan which is clickable and opens a given url
 class ClickableTextSpan extends TextSpan {
@@ -19,8 +19,8 @@ class ClickableTextSpan extends TextSpan {
         );
 
   static Future<void> _openUrl(String url) async {
-    if (await canLaunch(url)) {
-      await launch(url);
+    if (await canLaunchUrlString(url)) {
+      await launchUrlString(url);
     }
   }
 }

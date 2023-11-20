@@ -13,7 +13,7 @@ class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({Key? key}) : super(key: key);
 
   @override
-  _OnboardingScreenState createState() => _OnboardingScreenState();
+  State<OnboardingScreen> createState() => _OnboardingScreenState();
 }
 
 class _OnboardingScreenState extends State<OnboardingScreen> {
@@ -50,6 +50,12 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     ),
                   ),
                 ),
+                onPressed: _isLastPage
+                    ? () {
+                        context.read<ISettingsDatabase>().hasSeenOnboarding = true;
+                        Navigator.of(context).pushReplacementNamed(HomeScreen.routeName);
+                      }
+                    : () => setState(() => _index++),
                 child: Text(
                   AppLocalizations.generalContinue,
                   style: TextStyle(
@@ -57,12 +63,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     fontSize: 20,
                   ),
                 ),
-                onPressed: _isLastPage
-                    ? () {
-                        context.read<ISettingsDatabase>().hasSeenOnboarding = true;
-                        Navigator.of(context).pushReplacementNamed(HomeScreen.routeName);
-                      }
-                    : () => setState(() => _index++),
               ),
             ],
           ),

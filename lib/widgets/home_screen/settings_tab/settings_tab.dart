@@ -39,6 +39,7 @@ class SettingsTab extends StatelessWidget {
                 Center(
                   child: CustomElevatedButton(
                     onPressed: () async {
+                      final playerDataService = context.read<IPlayerDataService>();
                       final response = await context.read<IDialogService>().requestConfirmDialog(
                             ConfirmDialogRequest(
                               title: AppLocalizations.resetProgressDialogTitle,
@@ -48,7 +49,7 @@ class SettingsTab extends StatelessWidget {
                             ),
                           );
                       if (response.isPositive) {
-                        await context.read<IPlayerDataService>().reset();
+                        await playerDataService.reset();
                       }
                     },
                     buttonText: AppLocalizations.settingsTabResetProgressLabel,
