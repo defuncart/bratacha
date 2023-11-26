@@ -54,7 +54,7 @@ flappy_translator:
   expose_loca_strings: false
   expose_locale_maps: false
 
-flutter_icons:
+flutter_launcher_icons:
   image_path_android: "assets_dev/app_icon/app_icon.png"
   image_path_ios: "assets_dev/app_icon/app_icon.png"
   android: true
