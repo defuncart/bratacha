@@ -12,11 +12,11 @@ class OnboardingPage1 extends StatelessWidget {
       children: <Widget>[
         Text(
           AppLocalizations.onboardingPage1TextLabel1,
-          style: Theme.of(context).textTheme.headline2,
+          style: Theme.of(context).textTheme.displaySmall,
         ),
         Text(
           AppLocalizations.onboardingPage1TextLabel2,
-          style: Theme.of(context).textTheme.headline6,
+          style: Theme.of(context).textTheme.titleLarge,
           textAlign: TextAlign.justify,
         ),
         Column(

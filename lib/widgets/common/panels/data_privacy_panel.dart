@@ -21,7 +21,7 @@ class DataPrivacyPanel extends StatelessWidget {
         SizedBox(height: spacerHeight),
         Text(
           AppLocalizations.dataPrivacyPanelLabel2,
-          style: Theme.of(context).textTheme.bodyText2,
+          style: Theme.of(context).textTheme.bodyMedium,
         ),
       ],
     );

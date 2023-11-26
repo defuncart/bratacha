@@ -27,7 +27,7 @@ class OnboardingPage2 extends StatelessWidget {
               Center(
                 child: Text(
                   AppLocalizations.onboardingPage2TextLabel1,
-                  style: Theme.of(context).textTheme.headline6,
+                  style: Theme.of(context).textTheme.titleLarge,
                 ),
               ),
               const SizedBox(height: 8),

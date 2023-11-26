@@ -18,7 +18,7 @@ class ClickableText extends StatelessWidget {
 
     return RichText(
       text: TextSpan(
-        style: Theme.of(context).textTheme.bodyText2,
+        style: Theme.of(context).textTheme.bodyMedium,
         children: [
           for (final spanModel in spanModels)
             if (spanModel is LinkSpan)
@@ -27,7 +27,6 @@ class ClickableText extends StatelessWidget {
                 style: TextStyle(
                   color: Theme.of(context).colorScheme.secondary,
                   fontWeight: FontWeight.bold,
-                  decoration: TextDecoration.underline,
                 ),
                 url: spanModel.link,
               )
