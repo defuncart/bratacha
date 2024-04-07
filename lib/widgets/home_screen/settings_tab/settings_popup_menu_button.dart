@@ -51,8 +51,8 @@ class SettingsPopupMenuButton extends StatelessWidget {
             title: AppLocalizations.dataPrivacyDialogTitle,
             content: const DataPrivacyPanel(),
             buttonTexts: [
-              AppLocalizations.dataPrivacyDialogViewLicensesLabel,
-              AppLocalizations.generalClose,
+              MaterialLocalizations.of(context).viewLicensesButtonLabel,
+              MaterialLocalizations.of(context).closeButtonLabel,
             ],
           ),
         );
@@ -75,7 +75,7 @@ class SettingsPopupMenuButton extends StatelessWidget {
               title: AppLocalizations.creditsDialogTitle,
               content: const CreditsPanel(),
               buttonTexts: [
-                AppLocalizations.generalClose,
+                MaterialLocalizations.of(context).closeButtonLabel,
               ],
             ),
           );

@@ -2,8 +2,6 @@ key;en;be;cy;ga
 test;Hello World!;Здароўствуй свет!;Helo Byd!;Dia duit domhan!
 generalNo;No;Не;Na;
 generalYes;Yes;Так;Ie;
-generalContinue;Continue;;;
-generalClose;Close;;;
 generalLevelLabel;Level %level$d;;;
 homeTabLabelText;Home;Галоўная;;
 homeTabLeanFlagsButtonText;See all flags;;;
@@ -20,7 +18,6 @@ resetProgressDialogDescription;Your progress will be permantely deleted and cann
 creditsDialogTitle;Credits;;;
 creditsDialogDescriptionLabel1;Concept, Design and Programming by James Leahy.;;;
 dataPrivacyDialogTitle;Data Privacy;;;
-dataPrivacyDialogViewLicensesLabel;View Licenses;;;
 quitGameDialogTitle;Quit Game?;;;
 quitGameDialogDescription;Your current progress will be lost.;;;
 onboardingPage1TextLabel1;Bratacha;;;
