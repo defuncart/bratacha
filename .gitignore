@@ -45,3 +45,6 @@ app.*.map.json
 # code coverage
 coverage/
 test/coverage_report_test.dart
+
+# FVM Version Cache
+.fvm/
