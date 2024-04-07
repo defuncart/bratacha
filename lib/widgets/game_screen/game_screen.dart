@@ -22,7 +22,7 @@ class GameScreenArguments {
 class GameScreen extends StatelessWidget {
   static const routeName = 'GameScreen';
 
-  const GameScreen({Key? key}) : super(key: key);
+  const GameScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

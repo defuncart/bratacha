@@ -7,8 +7,8 @@ import 'package:flutter/material.dart';
 class ClickableText extends StatelessWidget {
   const ClickableText(
     this.text, {
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   final String text;
 
@@ -73,7 +73,7 @@ abstract class BaseSpan {
 }
 
 class RegularSpan extends BaseSpan {
-  const RegularSpan(String text) : super(text);
+  const RegularSpan(super.text);
 
   @override
   String toString() => '{${super.toString()}}';
@@ -82,7 +82,7 @@ class RegularSpan extends BaseSpan {
 class LinkSpan extends BaseSpan {
   final String link;
 
-  const LinkSpan(String text, this.link) : super(text);
+  const LinkSpan(super.text, this.link);
 
   @override
   String toString() => '{${super.toString()}, link: $link}';

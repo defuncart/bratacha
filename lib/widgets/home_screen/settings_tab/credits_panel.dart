@@ -3,7 +3,7 @@ import 'package:bratacha/widgets/common/panels/developer_panel.dart';
 import 'package:flutter/material.dart';
 
 class CreditsPanel extends StatelessWidget {
-  const CreditsPanel({Key? key}) : super(key: key);
+  const CreditsPanel({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -16,8 +16,8 @@ class DialogManager extends StatefulWidget {
   const DialogManager({
     required this.dialogService,
     required this.child,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   final IDialogService dialogService;
   final Widget child;

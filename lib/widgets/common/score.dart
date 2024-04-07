@@ -5,10 +5,9 @@ class Score extends StatelessWidget {
     required this.score,
     required this.color,
     this.fontSize = 16.0,
-    Key? key,
+    super.key,
   })  : assert(score >= 0),
-        assert(fontSize >= 8),
-        super(key: key);
+        assert(fontSize >= 8);
 
   final int score;
   final Color color;

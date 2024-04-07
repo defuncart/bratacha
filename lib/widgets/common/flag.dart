@@ -5,9 +5,8 @@ class Flag extends StatelessWidget {
   const Flag(
     this.countryCode, {
     required this.size,
-    Key? key,
-  })  : assert(size > 0),
-        super(key: key);
+    super.key,
+  })  : assert(size > 0);
 
   final String countryCode;
   final double size;

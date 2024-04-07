@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class HomeTab extends StatelessWidget {
-  const HomeTab({Key? key}) : super(key: key);
+  const HomeTab({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -68,8 +68,7 @@ class _LevelButton extends StatelessWidget {
     required this.isLevelUnlocked,
     required this.levelIndex,
     required this.pointsRequired,
-    Key? key,
-  }) : super(key: key);
+  });
 
   final bool isLevelUnlocked;
   final int levelIndex;

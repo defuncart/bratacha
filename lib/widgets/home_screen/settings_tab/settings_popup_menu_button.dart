@@ -14,8 +14,8 @@ enum _Option {
 class SettingsPopupMenuButton extends StatelessWidget {
   const SettingsPopupMenuButton({
     required this.parentContext,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   final BuildContext parentContext;
 

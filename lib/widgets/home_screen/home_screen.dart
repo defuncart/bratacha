@@ -7,8 +7,8 @@ class HomeScreen extends StatefulWidget {
   static const routeName = 'HomeScreen';
 
   const HomeScreen({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();

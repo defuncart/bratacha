@@ -8,8 +8,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class LanguagePanel extends StatelessWidget {
   const LanguagePanel({
     this.presentConfirmationDialog = true,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   final bool presentConfirmationDialog;
 

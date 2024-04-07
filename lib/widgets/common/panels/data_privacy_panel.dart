@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 class DataPrivacyPanel extends StatelessWidget {
   const DataPrivacyPanel({
     this.spacerHeight = 16.0,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   final double spacerHeight;
 

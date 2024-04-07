@@ -42,7 +42,7 @@ void main() async {
 }
 
 class _WebApp extends StatelessWidget {
-  const _WebApp({Key? key}) : super(key: key);
+  const _WebApp();
 
   @override
   Widget build(BuildContext context) {

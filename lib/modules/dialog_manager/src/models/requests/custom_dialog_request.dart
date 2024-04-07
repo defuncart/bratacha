@@ -4,15 +4,11 @@ import 'base_dialog_request.dart';
 
 class CustomDialogRequest extends BaseDialogRequest {
   const CustomDialogRequest({
-    required String title,
+    required super.title,
     required this.content,
     required this.buttonTexts,
-    bool isModal = false,
-  })  : assert(buttonTexts.length > 0),
-        super(
-          title: title,
-          isModal: isModal,
-        );
+    super.isModal,
+  })  : assert(buttonTexts.length > 0);
 
   final Widget content;
   final List<String> buttonTexts;

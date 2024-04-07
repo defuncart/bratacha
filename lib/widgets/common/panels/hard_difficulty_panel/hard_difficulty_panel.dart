@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class HardDifficultyPanel extends StatelessWidget {
-  const HardDifficultyPanel({Key? key}) : super(key: key);
+  const HardDifficultyPanel({super.key});
 
   @override
   Widget build(BuildContext context) {
