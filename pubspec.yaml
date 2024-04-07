@@ -13,6 +13,7 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   cupertino_icons:
+  intl:
   path_provider:
   url_launcher:
   # third party
