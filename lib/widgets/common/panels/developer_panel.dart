@@ -3,7 +3,7 @@ import 'package:bratacha/widgets/common/text/clickable_text.dart';
 import 'package:flutter/material.dart';
 
 class DeveloperPanel extends StatelessWidget {
-  const DeveloperPanel({Key? key}) : super(key: key);
+  const DeveloperPanel({super.key});
 
   @override
   Widget build(BuildContext context) {

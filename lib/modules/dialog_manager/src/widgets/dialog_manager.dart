@@ -16,14 +16,14 @@ class DialogManager extends StatefulWidget {
   const DialogManager({
     required this.dialogService,
     required this.child,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   final IDialogService dialogService;
   final Widget child;
 
   @override
-  _DialogManagerState createState() => _DialogManagerState();
+  State<DialogManager> createState() => _DialogManagerState();
 }
 
 class _DialogManagerState extends State<DialogManager> {

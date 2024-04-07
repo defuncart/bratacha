@@ -33,8 +33,8 @@ void main() {
     test('radius <= 0 value triggers assertion', () {
       expect(
         () => CircularWidget(
-          child: Container(color: Colors.black),
           radius: 0,
+          child: Container(color: Colors.black),
         ),
         throwsAssertionError,
       );

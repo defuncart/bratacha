@@ -12,7 +12,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SettingsTab extends StatelessWidget {
-  const SettingsTab({Key? key}) : super(key: key);
+  const SettingsTab({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +30,7 @@ class SettingsTab extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 16.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
+              children: [
                 const SizedBox(height: 16.0),
                 Text(AppLocalizations.settingsTabLanguageLabel),
                 const SizedBox(height: 8.0),
@@ -39,6 +39,7 @@ class SettingsTab extends StatelessWidget {
                 Center(
                   child: CustomElevatedButton(
                     onPressed: () async {
+                      final playerDataService = context.read<IPlayerDataService>();
                       final response = await context.read<IDialogService>().requestConfirmDialog(
                             ConfirmDialogRequest(
                               title: AppLocalizations.resetProgressDialogTitle,
@@ -48,7 +49,7 @@ class SettingsTab extends StatelessWidget {
                             ),
                           );
                       if (response.isPositive) {
-                        await context.read<IPlayerDataService>().reset();
+                        await playerDataService.reset();
                       }
                     },
                     buttonText: AppLocalizations.settingsTabResetProgressLabel,

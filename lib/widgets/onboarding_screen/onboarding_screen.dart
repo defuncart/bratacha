@@ -10,10 +10,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class OnboardingScreen extends StatefulWidget {
   static const routeName = 'OnboardingScreen';
 
-  const OnboardingScreen({Key? key}) : super(key: key);
+  const OnboardingScreen({super.key});
 
   @override
-  _OnboardingScreenState createState() => _OnboardingScreenState();
+  State<OnboardingScreen> createState() => _OnboardingScreenState();
 }
 
 class _OnboardingScreenState extends State<OnboardingScreen> {
@@ -33,7 +33,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Column(
-            children: <Widget>[
+            children: [
               Expanded(
                 child: _pages[_index],
               ),
@@ -50,6 +50,12 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     ),
                   ),
                 ),
+                onPressed: _isLastPage
+                    ? () {
+                        context.read<ISettingsDatabase>().hasSeenOnboarding = true;
+                        Navigator.of(context).pushReplacementNamed(HomeScreen.routeName);
+                      }
+                    : () => setState(() => _index++),
                 child: Text(
                   AppLocalizations.generalContinue,
                   style: TextStyle(
@@ -57,12 +63,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     fontSize: 20,
                   ),
                 ),
-                onPressed: _isLastPage
-                    ? () {
-                        context.read<ISettingsDatabase>().hasSeenOnboarding = true;
-                        Navigator.of(context).pushReplacementNamed(HomeScreen.routeName);
-                      }
-                    : () => setState(() => _index++),
               ),
             ],
           ),

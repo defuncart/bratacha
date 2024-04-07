@@ -17,12 +17,12 @@ void main() async {
     Hive.init(dir.path);
   }
 
-  final ISettingsDatabase _settingsDatabase = SettingsDatabase();
-  await _settingsDatabase.initialize();
+  final ISettingsDatabase settingsDatabase = SettingsDatabase();
+  await settingsDatabase.initialize();
 
-  final IPlayerDataService _playerDataService = PlayerDataService();
-  await _playerDataService.initialize();
-  await _playerDataService.resync(ids: CountryService.countries.map((country) => country.id).toList());
+  final IPlayerDataService playerDataService = PlayerDataService();
+  await playerDataService.initialize();
+  await playerDataService.resync(ids: CountryService.countries.map((country) => country.id).toList());
 
   IntlHelper.ensureDelegatesLoaded();
 
@@ -30,10 +30,10 @@ void main() async {
     MultiRepositoryProvider(
       providers: [
         RepositoryProvider<ISettingsDatabase>(
-          create: (_) => _settingsDatabase,
+          create: (_) => settingsDatabase,
         ),
         RepositoryProvider<IPlayerDataService>(
-          create: (_) => _playerDataService,
+          create: (_) => playerDataService,
         ),
       ],
       child: kIsWeb ? const _WebApp() : const MyApp(),
@@ -42,7 +42,7 @@ void main() async {
 }
 
 class _WebApp extends StatelessWidget {
-  const _WebApp({Key? key}) : super(key: key);
+  const _WebApp();
 
   @override
   Widget build(BuildContext context) {

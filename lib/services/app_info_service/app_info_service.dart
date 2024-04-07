@@ -12,5 +12,5 @@ class AppInfoService implements IAppInfoService {
   Widget get applicationIcon => Image.asset('assets/settings/app_icon.png');
 
   @override
-  String get applicationLegalese => '© 2020 defuncart';
+  String get applicationLegalese => '© 2024 defuncart';
 }

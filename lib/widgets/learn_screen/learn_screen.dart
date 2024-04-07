@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 class LearnScreen extends StatelessWidget {
   static const routeName = 'LearnScreen';
 
-  const LearnScreen({Key? key}) : super(key: key);
+  const LearnScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -37,8 +37,7 @@ class LearnScreen extends StatelessWidget {
 class _SimilarFlagsList extends StatelessWidget {
   const _SimilarFlagsList({
     required this.similarFlags,
-    Key? key,
-  }) : super(key: key);
+  });
 
   final List<String> similarFlags;
 

@@ -11,7 +11,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 // TODO widget is only compatible with portrait orientation
 class QuestionAnswerPanel extends StatelessWidget {
-  const QuestionAnswerPanel({Key? key}) : super(key: key);
+  const QuestionAnswerPanel({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +26,7 @@ class QuestionAnswerPanel extends StatelessWidget {
                 child: AutoSizeText(
                   question,
                   maxLines: 3,
-                  style: Theme.of(context).textTheme.headline3,
+                  style: Theme.of(context).textTheme.displaySmall,
                   minFontSize: 18,
                   textAlign: TextAlign.center,
                 ),

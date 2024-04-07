@@ -19,7 +19,7 @@ class ConfirmDialogResponse extends BaseDialogResponse {
       throw StateError('isPositive should not be accessed when hasError');
     }
 
-    return _isPositive!;
+    return _isPositive;
   }
 
   @override

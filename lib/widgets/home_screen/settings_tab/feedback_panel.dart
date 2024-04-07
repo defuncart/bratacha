@@ -7,8 +7,8 @@ class FeedbackPanel extends StatelessWidget {
 
   const FeedbackPanel({
     required this.urlLaucherService,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   final IUrlLaucherService urlLaucherService;
 

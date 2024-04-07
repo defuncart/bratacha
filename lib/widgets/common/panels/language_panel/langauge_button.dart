@@ -8,9 +8,8 @@ class LanguageButton extends StatelessWidget {
     required this.isSelected,
     required this.onPressed,
     this.size = 64,
-    Key? key,
-  })  : assert(size > 0),
-        super(key: key);
+    super.key,
+  })  : assert(size > 0);
 
   final String languageCode;
   final bool isSelected;
@@ -24,13 +23,13 @@ class LanguageButton extends StatelessWidget {
     return Opacity(
       opacity: isSelected ? 1 : 0.4,
       child: GestureDetector(
+        onTap: onPressed,
         child: CircularWidget(
           radius: size,
           child: PlatformSvg.asset(
             _path,
           ),
         ),
-        onTap: onPressed,
       ),
     );
   }

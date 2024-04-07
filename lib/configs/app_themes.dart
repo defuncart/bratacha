@@ -4,16 +4,17 @@ abstract class AppThemes {
   static final theme = ThemeData.dark().copyWith(
     colorScheme: const ColorScheme.dark().copyWith(
       secondary: _AppColors.accent,
+      surface: _AppColors.card,
     ),
     scaffoldBackgroundColor: _AppColors.primary,
     appBarTheme: const AppBarTheme(
       color: _AppColors.primaryDark,
+      surfaceTintColor: Colors.transparent,
       elevation: 0,
     ),
-    cardColor: _AppColors.card,
     textButtonTheme: TextButtonThemeData(
       style: TextButton.styleFrom(
-        primary: _AppColors.accent,
+        foregroundColor: _AppColors.accent,
       ),
     ),
     dialogTheme: const DialogTheme(

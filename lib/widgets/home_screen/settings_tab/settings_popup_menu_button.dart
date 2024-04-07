@@ -14,8 +14,8 @@ enum _Option {
 class SettingsPopupMenuButton extends StatelessWidget {
   const SettingsPopupMenuButton({
     required this.parentContext,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   final BuildContext parentContext;
 
@@ -45,6 +45,7 @@ class SettingsPopupMenuButton extends StatelessWidget {
   }
 
   Future<void> _onDataPrivacySelected(BuildContext context) async {
+    final appInfoService = context.read<IAppInfoService>();
     final response = await context.read<IDialogService>().requestCustomDialog(
           CustomDialogRequest(
             title: AppLocalizations.dataPrivacyDialogTitle,
@@ -57,7 +58,7 @@ class SettingsPopupMenuButton extends StatelessWidget {
         );
 
     if (response.buttonIndexPressed == 0) {
-      final appInfoService = context.read<IAppInfoService>();
+      // ignore: use_build_context_synchronously
       showLicensePage(
         context: context,
         applicationName: appInfoService.applicationName,

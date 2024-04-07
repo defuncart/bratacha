@@ -13,7 +13,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class OnboardingPage2 extends StatelessWidget {
-  const OnboardingPage2({Key? key}) : super(key: key);
+  const OnboardingPage2({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -21,13 +21,13 @@ class OnboardingPage2 extends StatelessWidget {
     return LayoutBuilder(
       builder: (_, constraints) => Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: <Widget>[
+        children: [
           Column(
             children: [
               Center(
                 child: Text(
                   AppLocalizations.onboardingPage2TextLabel1,
-                  style: Theme.of(context).textTheme.headline6,
+                  style: Theme.of(context).textTheme.titleLarge,
                 ),
               ),
               const SizedBox(height: 8),

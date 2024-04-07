@@ -2,15 +2,11 @@ import 'description_dialog_request.dart';
 
 class InformativeDialogRequest extends DescriptionDialogRequest {
   const InformativeDialogRequest({
-    required String title,
-    required String description,
+    required super.title,
+    required super.description,
     required this.buttonText,
-    bool isModal = false,
-  }) : super(
-          title: title,
-          description: description,
-          isModal: isModal,
-        );
+    super.isModal,
+  });
 
   final String buttonText;
 

@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class HomeTab extends StatelessWidget {
-  const HomeTab({Key? key}) : super(key: key);
+  const HomeTab({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -68,8 +68,7 @@ class _LevelButton extends StatelessWidget {
     required this.isLevelUnlocked,
     required this.levelIndex,
     required this.pointsRequired,
-    Key? key,
-  }) : super(key: key);
+  });
 
   final bool isLevelUnlocked;
   final int levelIndex;
@@ -78,6 +77,12 @@ class _LevelButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
+      onTap: isLevelUnlocked
+          ? () => Navigator.of(context).pushReplacementNamed(
+                GameScreen.routeName,
+                arguments: GameScreenArguments(level: levelIndex),
+              )
+          : null,
       child: Opacity(
         opacity: isLevelUnlocked ? 1 : 0.4,
         child: Card(
@@ -106,12 +111,6 @@ class _LevelButton extends StatelessWidget {
           ),
         ),
       ),
-      onTap: isLevelUnlocked
-          ? () => Navigator.of(context).pushReplacementNamed(
-                GameScreen.routeName,
-                arguments: GameScreenArguments(level: levelIndex),
-              )
-          : null,
     );
   }
 }

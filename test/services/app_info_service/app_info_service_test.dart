@@ -22,7 +22,7 @@ void main() {
 
     test('applicationLegalese', () {
       expect(appInfoService.applicationLegalese, isA<String>());
-      expect(appInfoService.applicationLegalese, '© 2020 defuncart');
+      expect(appInfoService.applicationLegalese, '© 2024 defuncart');
     });
   });
 }
