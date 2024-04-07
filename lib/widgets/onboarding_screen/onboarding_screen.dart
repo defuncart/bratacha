@@ -33,7 +33,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Column(
-            children: <Widget>[
+            children: [
               Expanded(
                 child: _pages[_index],
               ),

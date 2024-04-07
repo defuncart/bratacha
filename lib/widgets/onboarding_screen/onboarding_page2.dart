@@ -21,7 +21,7 @@ class OnboardingPage2 extends StatelessWidget {
     return LayoutBuilder(
       builder: (_, constraints) => Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: <Widget>[
+        children: [
           Column(
             children: [
               Center(

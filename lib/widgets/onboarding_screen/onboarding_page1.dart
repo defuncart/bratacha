@@ -9,7 +9,7 @@ class OnboardingPage1 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
-      children: <Widget>[
+      children: [
         Text(
           AppLocalizations.onboardingPage1TextLabel1,
           style: Theme.of(context).textTheme.displaySmall,

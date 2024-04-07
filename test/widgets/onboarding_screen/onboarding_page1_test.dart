@@ -8,12 +8,15 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 
+import '../../tester_utils.dart';
+
 void main() {
   // ensure localizations are setup
   AppLocalizations.load(const Locale('en'));
 
   group('$OnboardingPage1', () {
     testWidgets('Ensure widget tree is correct', (tester) async {
+      tester.setSize(const Size(600, 900));
       await tester.pumpWidget(
         BlocProvider<LanguageCubit>(
           create: (_) => LanguageCubit(_MockPlayerDataService()),
@@ -29,6 +32,7 @@ void main() {
     });
 
     testWidgets('Ensure widget content is correct', (tester) async {
+      tester.setSize(const Size(600, 900));
       await tester.pumpWidget(
         BlocProvider<LanguageCubit>(
           create: (_) => LanguageCubit(_MockPlayerDataService()),

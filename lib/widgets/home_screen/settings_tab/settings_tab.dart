@@ -30,7 +30,7 @@ class SettingsTab extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 16.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
+              children: [
                 const SizedBox(height: 16.0),
                 Text(AppLocalizations.settingsTabLanguageLabel),
                 const SizedBox(height: 8.0),

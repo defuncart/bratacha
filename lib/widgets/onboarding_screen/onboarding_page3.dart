@@ -11,7 +11,7 @@ class OnboardingPage3 extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       crossAxisAlignment: CrossAxisAlignment.start,
-      children: <Widget>[
+      children: [
         Text(AppLocalizations.onboardingPage3TextLabel1),
         Text(AppLocalizations.onboardingPage3TextLabel2),
         Text(AppLocalizations.feedbackPanelLabel1),
