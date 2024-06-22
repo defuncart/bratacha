@@ -5,6 +5,7 @@ abstract class AppThemes {
     colorScheme: const ColorScheme.dark().copyWith(
       secondary: _AppColors.accent,
       surface: _AppColors.card,
+      surfaceContainerLow: _AppColors.card,
     ),
     scaffoldBackgroundColor: _AppColors.primary,
     appBarTheme: const AppBarTheme(
