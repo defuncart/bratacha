@@ -16,6 +16,7 @@ import 'package:bratacha/widgets/game_screen/game_screen.dart';
 import 'package:bratacha/widgets/home_screen/home_screen.dart';
 import 'package:bratacha/widgets/learn_screen/learn_screen.dart';
 import 'package:bratacha/widgets/onboarding_screen/onboarding_screen.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/localizations.dart';
@@ -52,6 +53,7 @@ class MyApp extends StatelessWidget {
         ],
         child: BlocBuilder<LanguageCubit, String>(
           builder: (_, language) => MaterialApp(
+            scrollBehavior: _AppScrollBehavior(),
             builder: (context, widget) => Navigator(
               onGenerateRoute: (settings) => MaterialPageRoute(
                 builder: (context) => DialogManager(
@@ -84,4 +86,12 @@ class MyApp extends StatelessWidget {
       ),
     );
   }
+}
+
+class _AppScrollBehavior extends MaterialScrollBehavior {
+  @override
+  Set<PointerDeviceKind> get dragDevices => {
+        PointerDeviceKind.touch,
+        PointerDeviceKind.mouse,
+      };
 }
