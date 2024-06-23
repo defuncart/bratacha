@@ -14,11 +14,11 @@ Note that only flags of countries recognized by the UN are present.
 
 If you would like to build the app yourself, then you simply need:
 
-- Flutter >= 2.8
-- Dart >= 2.15
-- Xcode >= 13
-- Cocoapods >= 1.11.2
-- Android SDK >= 31
+- Flutter >= 3.22
+- Dart >= 3.4
+- Xcode >= 15
+- Cocoapods >= 1.13.0
+- Android SDK >= 34
 - Chrome
 
 ### Asset Generation
@@ -26,7 +26,7 @@ If you would like to build the app yourself, then you simply need:
 To generate the app icons, run:
 
 ```dart
-flutter pub run flutter_launcher_icons:main
+dart run flutter_launcher_icons
 ```
 
 To download flag assets, run:

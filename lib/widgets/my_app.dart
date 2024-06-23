@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
     return MultiRepositoryProvider(
       providers: [
         RepositoryProvider<LevelManager>(
-          create: (_) => LevelManager(_.read<IPlayerDataService>()),
+          create: (context) => LevelManager(context.read<IPlayerDataService>()),
         ),
         RepositoryProvider<IDialogService>(
           create: (_) => DialogService(),

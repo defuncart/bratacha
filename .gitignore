@@ -48,3 +48,6 @@ test/coverage_report_test.dart
 
 # FVM Version Cache
 .fvm/
+
+# debug targets
+macos/

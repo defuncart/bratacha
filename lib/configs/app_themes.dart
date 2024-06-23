@@ -5,6 +5,7 @@ abstract class AppThemes {
     colorScheme: const ColorScheme.dark().copyWith(
       secondary: _AppColors.accent,
       surface: _AppColors.card,
+      surfaceContainerLow: _AppColors.card,
     ),
     scaffoldBackgroundColor: _AppColors.primary,
     appBarTheme: const AppBarTheme(
@@ -20,6 +21,8 @@ abstract class AppThemes {
     dialogTheme: const DialogTheme(
       backgroundColor: _AppColors.primary,
     ),
+    // _packagesView from about.dart uses card color for background color
+    cardColor: _AppColors.primary,
   );
 }
 

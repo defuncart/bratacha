@@ -58,8 +58,8 @@ class SettingsPopupMenuButton extends StatelessWidget {
         );
 
     if (response.buttonIndexPressed == 0) {
-      // ignore: use_build_context_synchronously
       showLicensePage(
+        // ignore: use_build_context_synchronously
         context: context,
         applicationName: appInfoService.applicationName,
         applicationVersion: appInfoService.applicationVersion,
