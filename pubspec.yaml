@@ -48,7 +48,6 @@ flutter:
   assets:
     - 'assets/flags/'
     - 'assets/languages/'
-    - 'assets/settings/'
 
 flappy_translator:
   input_file_path: "assets_dev/loca/loca.csv"

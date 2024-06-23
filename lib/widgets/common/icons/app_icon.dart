@@ -5,15 +5,17 @@ class AppIcon extends StatelessWidget {
   const AppIcon({
     super.key,
     this.size = 512,
+    this.hasBorder = false,
     this.hasTransparentBackground = false,
   });
 
   final double size;
+  final bool hasBorder;
   final bool hasTransparentBackground;
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    final icon = SizedBox(
       width: size,
       height: size,
       child: ColoredBox(
@@ -25,5 +27,12 @@ class AppIcon extends StatelessWidget {
         ),
       ),
     );
+
+    return hasBorder
+        ? ClipRRect(
+            borderRadius: BorderRadius.circular(size * 0.0833),
+            child: icon,
+          )
+        : icon;
   }
 }
