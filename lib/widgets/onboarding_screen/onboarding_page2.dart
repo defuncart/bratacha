@@ -30,10 +30,10 @@ class OnboardingPage2 extends StatelessWidget {
                   style: Theme.of(context).textTheme.titleLarge,
                 ),
               ),
-              const SizedBox(height: 8),
-              Text(
-                context.l10n.onboardingPage2TextLabel2,
-              ),
+              const SizedBox(height: 16),
+              // Text(
+              //   context.l10n.onboardingPage2TextLabel2,
+              // ),
               const HardDifficultyPanel(),
             ],
           ),

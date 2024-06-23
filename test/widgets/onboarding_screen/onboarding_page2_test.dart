@@ -34,7 +34,7 @@ void main() {
 
       expect(find.byType(HardDifficultyPanel), findsOneWidget);
       expect(find.byType(QuestionAnswerPanel), findsOneWidget);
-      expect(find.byType(Text), findsNWidgets(5));
+      expect(find.byType(Text), findsNWidgets(4));
     });
 
     testWidgets('Ensure widget content is correct', (tester) async {
@@ -54,7 +54,6 @@ void main() {
 
       final context = tester.element(find.byType(OnboardingPage2));
       expect(find.text(context.l10n.onboardingPage2TextLabel1), findsOneWidget);
-      expect(find.text(context.l10n.onboardingPage2TextLabel2), findsOneWidget);
       expect(find.text(context.l10n.onboardingGeneralSettingLabel), findsOneWidget);
     });
   });
