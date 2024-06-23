@@ -17,8 +17,8 @@ class ClickableTextSpan extends TextSpan {
         );
 
   static Future<void> _openUrl(String url) async {
-    if (await canLaunchUrlString(url)) {
-      await launchUrlString(url);
-    }
+    // if (await canLaunchUrlString(url)) {
+    await launchUrlString(url);
+    // }
   }
 }
