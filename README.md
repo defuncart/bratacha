@@ -26,7 +26,7 @@ If you would like to build the app yourself, then you simply need:
 To generate the app icons, run:
 
 ```dart
-flutter dart run flutter_launcher_icons
+dart run flutter_launcher_icons
 ```
 
 To download flag assets, run:
