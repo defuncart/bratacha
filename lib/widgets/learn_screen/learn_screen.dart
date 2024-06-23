@@ -17,16 +17,19 @@ class LearnScreen extends StatelessWidget {
         child: ListView.separated(
           separatorBuilder: (_, __) => const Divider(),
           itemCount: countries.length,
-          itemBuilder: (_, index) => ListTile(
-            leading: Flag(
-              countries[index].id,
-              size: 100,
+          itemBuilder: (_, index) => Padding(
+            padding:   EdgeInsets.only(top: index == 0 ? 8 : 0, bottom: index == countries.length - 1 ? 8: 0,) ,
+            child: ListTile(
+              leading: Flag(
+                countries[index].id,
+                size: 100,
+              ),
+              // TODO: show only in debug mode
+              trailing: _SimilarFlagsList(
+                similarFlags: countries[index].similarFlags,
+              ),
+              title: Text(countries[index].localizedName),
             ),
-            // TODO: show only in debug mode
-            trailing: _SimilarFlagsList(
-              similarFlags: countries[index].similarFlags,
-            ),
-            title: Text(countries[index].localizedName),
           ),
         ),
       ),
