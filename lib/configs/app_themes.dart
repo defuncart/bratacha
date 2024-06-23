@@ -21,6 +21,8 @@ abstract class AppThemes {
     dialogTheme: const DialogTheme(
       backgroundColor: _AppColors.primary,
     ),
+    // _packagesView from about.dart uses card color for background color
+    cardColor: _AppColors.primary,
   );
 }
 
