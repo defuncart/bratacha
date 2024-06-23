@@ -4,7 +4,6 @@ import 'package:bratacha/widgets/common/panels/language_panel/langauge_button.da
 import 'package:bratacha/widgets/common/panels/language_panel/language_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_gen/gen_l10n/localizations.dart';
 
 class LanguagePanel extends StatelessWidget {
   const LanguagePanel({
@@ -18,7 +17,7 @@ class LanguagePanel extends StatelessWidget {
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (_, constraints) {
-        final languageCodes = AppLocalizations.supportedLocales.map((locale) => locale.languageCode);
+        final languageCodes = ['en', 'be', 'cy', 'ga'];
         final size = (constraints.maxWidth * 0.75) / languageCodes.length;
 
         return BlocBuilder<LanguageCubit, String>(
