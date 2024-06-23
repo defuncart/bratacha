@@ -4,14 +4,13 @@ import 'package:bratacha/widgets/home_screen/settings_tab/credits_panel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-void main() {
-  // ensure localizations are setup
-  AppLocalizations.load(const Locale('en'));
+import '../../../tester_utils.dart';
 
+void main() {
   group('$CreditsPanel', () {
     testWidgets('Ensure widget tree is correct', (tester) async {
       await tester.pumpWidget(
-        const MaterialApp(home: CreditsPanel()),
+        wrapWithMaterialApp(const CreditsPanel()),
       );
 
       expect(find.byType(Column), findsOneWidget);
@@ -22,10 +21,11 @@ void main() {
 
     testWidgets('Ensure content is correct', (tester) async {
       await tester.pumpWidget(
-        const MaterialApp(home: CreditsPanel()),
+        wrapWithMaterialApp(const CreditsPanel()),
       );
 
-      expect(find.text(AppLocalizations.creditsDialogDescriptionLabel1), findsOneWidget);
+      final context = tester.element(find.byType(CreditsPanel));
+      expect(find.text(context.l10n.creditsDialogDescriptionLabel1), findsOneWidget);
     });
   });
 }

@@ -7,6 +7,6 @@ class DeveloperPanel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ClickableText(AppLocalizations.developerPanelLabel);
+    return ClickableText(context.l10n.developerPanelLabel);
   }
 }

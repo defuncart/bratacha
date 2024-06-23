@@ -11,17 +11,14 @@ import 'package:mocktail/mocktail.dart';
 import '../../tester_utils.dart';
 
 void main() {
-  // ensure localizations are setup
-  AppLocalizations.load(const Locale('en'));
-
   group('$OnboardingPage1', () {
     testWidgets('Ensure widget tree is correct', (tester) async {
       tester.setSize(const Size(600, 900));
       await tester.pumpWidget(
         BlocProvider<LanguageCubit>(
           create: (_) => LanguageCubit(_MockPlayerDataService()),
-          child: const MaterialApp(
-            home: OnboardingPage1(),
+          child: wrapWithMaterialApp(
+            const OnboardingPage1(),
           ),
         ),
       );
@@ -36,16 +33,17 @@ void main() {
       await tester.pumpWidget(
         BlocProvider<LanguageCubit>(
           create: (_) => LanguageCubit(_MockPlayerDataService()),
-          child: const MaterialApp(
-            home: OnboardingPage1(),
+          child: wrapWithMaterialApp(
+            const OnboardingPage1(),
           ),
         ),
       );
 
-      expect(find.text(AppLocalizations.onboardingPage1TextLabel1), findsOneWidget);
-      expect(find.text(AppLocalizations.onboardingPage1TextLabel2), findsOneWidget);
-      expect(find.text(AppLocalizations.onboardingPage1TextLabel3), findsOneWidget);
-      expect(find.text(AppLocalizations.onboardingGeneralSettingLabel), findsOneWidget);
+      final context = tester.element(find.byType(OnboardingPage1));
+      expect(find.text(context.l10n.onboardingPage1TextLabel1), findsOneWidget);
+      expect(find.text(context.l10n.onboardingPage1TextLabel2), findsOneWidget);
+      expect(find.text(context.l10n.onboardingPage1TextLabel3), findsOneWidget);
+      expect(find.text(context.l10n.onboardingGeneralSettingLabel), findsOneWidget);
     });
   });
 }

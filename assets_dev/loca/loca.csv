@@ -2,7 +2,7 @@ key;en;be;cy;ga
 test;Hello World!;Здароўствуй свет!;Helo Byd!;Dia duit domhan!
 generalNo;No;Не;Na;
 generalYes;Yes;Так;Ie;
-generalLevelLabel;Level %level$d;;;
+generalLevelLabel;Level {level};;;
 homeTabLabelText;Home;Галоўная;;
 homeTabLeanFlagsButtonText;See all flags;;;
 settingsTabLabelText;Settings;Налады;;

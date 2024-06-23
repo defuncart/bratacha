@@ -4,6 +4,7 @@ import 'package:bratacha/widgets/common/panels/language_panel/langauge_button.da
 import 'package:bratacha/widgets/common/panels/language_panel/language_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_gen/gen_l10n/localizations.dart';
 
 class LanguagePanel extends StatelessWidget {
   const LanguagePanel({
@@ -17,7 +18,7 @@ class LanguagePanel extends StatelessWidget {
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (_, constraints) {
-        final languageCodes = AppLocalizationsDelegate.supportedLocals.map((locale) => locale.languageCode);
+        final languageCodes = AppLocalizations.supportedLocales.map((locale) => locale.languageCode);
         final size = (constraints.maxWidth * 0.75) / languageCodes.length;
 
         return BlocBuilder<LanguageCubit, String>(
@@ -34,10 +35,10 @@ class LanguagePanel extends StatelessWidget {
                     if (presentConfirmationDialog) {
                       final response = await context.read<IDialogService>().requestConfirmDialog(
                             ConfirmDialogRequest(
-                              title: AppLocalizations.changeLanguageDialogTitle,
-                              description: AppLocalizations.changeLanguageDialogDescription,
-                              negativeButtonText: AppLocalizations.generalNo,
-                              positiveButtonText: AppLocalizations.generalYes,
+                              title: context.l10n.changeLanguageDialogTitle,
+                              description: context.l10n.changeLanguageDialogDescription,
+                              negativeButtonText: context.l10n.generalNo,
+                              positiveButtonText: context.l10n.generalYes,
                             ),
                           );
 

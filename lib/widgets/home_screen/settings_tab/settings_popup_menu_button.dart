@@ -38,7 +38,7 @@ class SettingsPopupMenuButton extends StatelessWidget {
         for (final option in _Option.values)
           PopupMenuItem<_Option>(
             value: option,
-            child: Text(option.localizedText),
+            child: Text(option.localizedText(context)),
           )
       ],
     );
@@ -48,7 +48,7 @@ class SettingsPopupMenuButton extends StatelessWidget {
     final appInfoService = context.read<IAppInfoService>();
     final response = await context.read<IDialogService>().requestCustomDialog(
           CustomDialogRequest(
-            title: AppLocalizations.dataPrivacyDialogTitle,
+            title: context.l10n.dataPrivacyDialogTitle,
             content: const DataPrivacyPanel(),
             buttonTexts: [
               MaterialLocalizations.of(context).viewLicensesButtonLabel,
@@ -72,7 +72,7 @@ class SettingsPopupMenuButton extends StatelessWidget {
   Future<void> _onCreditsSelected(BuildContext context) async =>
       await context.read<IDialogService>().requestCustomDialog(
             CustomDialogRequest(
-              title: AppLocalizations.creditsDialogTitle,
+              title: context.l10n.creditsDialogTitle,
               content: const CreditsPanel(),
               buttonTexts: [
                 MaterialLocalizations.of(context).closeButtonLabel,
@@ -82,12 +82,12 @@ class SettingsPopupMenuButton extends StatelessWidget {
 }
 
 extension on _Option {
-  String get localizedText {
+  String localizedText(BuildContext context) {
     switch (this) {
       case _Option.dataPrivacy:
-        return AppLocalizations.settingsTabDataPrivacyLabel;
+        return context.l10n.settingsTabDataPrivacyLabel;
       case _Option.credits:
-        return AppLocalizations.settingsTabCreditsLabel;
+        return context.l10n.settingsTabCreditsLabel;
     }
   }
 }

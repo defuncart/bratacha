@@ -16,10 +16,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 
-void main() {
-  // ensure localizations are setup
-  AppLocalizations.load(const Locale('en'));
+import '../../../tester_utils.dart';
 
+void main() {
   group('$SettingsTab', () {
     final playerDataService = _MockPlayerDataService();
     final dialogService = _MockDialogService();
@@ -39,14 +38,15 @@ void main() {
     );
 
     testWidgets('Ensure widget tree is correct', (tester) async {
-      await tester.pumpWidget(MaterialApp(home: widget));
+      await tester.pumpWidget(wrapWithMaterialApp(widget));
 
       expect(find.byType(SettingsTab), findsOneWidget);
       expect(find.byType(Scaffold), findsOneWidget);
       expect(find.byType(AppBar), findsOneWidget);
       expect(find.byType(SettingsPopupMenuButton), findsOneWidget);
       expect(find.byType(Column), findsNWidgets(2));
-      expect(find.text(AppLocalizations.settingsTabLanguageLabel), findsOneWidget);
+      final context = tester.element(find.byType(SettingsTab));
+      expect(find.text(context.l10n.settingsTabLanguageLabel), findsOneWidget);
       expect(find.byType(LanguagePanel), findsOneWidget);
       expect(find.byType(HardDifficultyPanel), findsOneWidget);
       expect(find.byType(CustomElevatedButton), findsOneWidget);
@@ -64,7 +64,7 @@ void main() {
               create: (_) => playerDataService,
             ),
           ],
-          child: MaterialApp(home: widget),
+          child: wrapWithMaterialApp(widget),
         ),
       );
 

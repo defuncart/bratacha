@@ -20,7 +20,7 @@ class SettingsTab extends StatelessWidget {
     return BlocBuilder<LanguageCubit, String>(
       builder: (_, __) => Scaffold(
         appBar: AppBar(
-          title: Text(AppLocalizations.settingsTabLabelText),
+          title: Text(context.l10n.settingsTabLabelText),
           actions: [
             SettingsPopupMenuButton(parentContext: context),
           ],
@@ -32,7 +32,7 @@ class SettingsTab extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const SizedBox(height: 16.0),
-                Text(AppLocalizations.settingsTabLanguageLabel),
+                Text(context.l10n.settingsTabLanguageLabel),
                 const SizedBox(height: 8.0),
                 const LanguagePanel(),
                 const HardDifficultyPanel(),
@@ -42,17 +42,17 @@ class SettingsTab extends StatelessWidget {
                       final playerDataService = context.read<IPlayerDataService>();
                       final response = await context.read<IDialogService>().requestConfirmDialog(
                             ConfirmDialogRequest(
-                              title: AppLocalizations.resetProgressDialogTitle,
-                              description: AppLocalizations.resetProgressDialogDescription,
-                              negativeButtonText: AppLocalizations.generalNo,
-                              positiveButtonText: AppLocalizations.generalYes,
+                              title: context.l10n.resetProgressDialogTitle,
+                              description: context.l10n.resetProgressDialogDescription,
+                              negativeButtonText: context.l10n.generalNo,
+                              positiveButtonText: context.l10n.generalYes,
                             ),
                           );
                       if (response.isPositive) {
                         await playerDataService.reset();
                       }
                     },
-                    buttonText: AppLocalizations.settingsTabResetProgressLabel,
+                    buttonText: context.l10n.settingsTabResetProgressLabel,
                   ),
                 ),
                 FeedbackPanel(

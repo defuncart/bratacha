@@ -63,10 +63,10 @@ class GameScreen extends StatelessWidget {
                 final navigator = Navigator.of(context);
                 final response = await context.read<IDialogService>().requestConfirmDialog(
                       ConfirmDialogRequest(
-                        title: AppLocalizations.quitGameDialogTitle,
-                        description: AppLocalizations.quitGameDialogDescription,
-                        negativeButtonText: AppLocalizations.generalNo,
-                        positiveButtonText: AppLocalizations.generalYes,
+                        title: context.l10n.quitGameDialogTitle,
+                        description: context.l10n.quitGameDialogDescription,
+                        negativeButtonText: context.l10n.generalNo,
+                        positiveButtonText: context.l10n.generalYes,
                       ),
                     );
                 if (response.isPositive) {
@@ -74,7 +74,7 @@ class GameScreen extends StatelessWidget {
                 }
               },
             ),
-            title: Text(AppLocalizations.generalLevelLabel(level: level + 1)),
+            title: Text(context.l10n.generalLevelLabel(level + 1)),
             actions: [
               Center(
                 child: Padding(

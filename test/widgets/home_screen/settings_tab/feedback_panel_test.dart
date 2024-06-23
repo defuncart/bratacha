@@ -5,10 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 
-void main() {
-  // ensure localizations are setup
-  AppLocalizations.load(const Locale('en'));
+import '../../../tester_utils.dart';
 
+void main() {
   group('$FeedbackPanel', () {
     late IUrlLaucherService mockUrlLauncherService;
 
@@ -19,8 +18,8 @@ void main() {
 
     testWidgets('Ensure widget tree is correct', (tester) async {
       await tester.pumpWidget(
-        MaterialApp(
-          home: FeedbackPanel(
+        wrapWithMaterialApp(
+          FeedbackPanel(
             urlLaucherService: mockUrlLauncherService,
           ),
         ),
@@ -34,21 +33,22 @@ void main() {
 
     testWidgets('Ensure content is correct', (tester) async {
       await tester.pumpWidget(
-        MaterialApp(
-          home: FeedbackPanel(
+        wrapWithMaterialApp(
+          FeedbackPanel(
             urlLaucherService: mockUrlLauncherService,
           ),
         ),
       );
 
-      expect(find.text(AppLocalizations.feedbackPanelLabel1), findsOneWidget);
-      expect(find.text(AppLocalizations.feedbackPanelGiveFeedbackButtonText), findsOneWidget);
+      final context = tester.element(find.byType(FeedbackPanel));
+      expect(find.text(context.l10n.feedbackPanelLabel1), findsOneWidget);
+      expect(find.text(context.l10n.feedbackPanelGiveFeedbackButtonText), findsOneWidget);
     });
 
     testWidgets('Ensure feedback button is clickable', (tester) async {
       await tester.pumpWidget(
-        MaterialApp(
-          home: FeedbackPanel(
+        wrapWithMaterialApp(
+          FeedbackPanel(
             urlLaucherService: mockUrlLauncherService,
           ),
         ),

@@ -17,10 +17,10 @@ class DataPrivacyPanel extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        ClickableText(AppLocalizations.dataPrivacyPanelLabel1),
+        ClickableText(context.l10n.dataPrivacyPanelLabel1),
         SizedBox(height: spacerHeight),
         Text(
-          AppLocalizations.dataPrivacyPanelLabel2,
+          context.l10n.dataPrivacyPanelLabel2,
           style: Theme.of(context).textTheme.bodyMedium,
         ),
       ],

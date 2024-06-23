@@ -1,7 +1,6 @@
 import 'package:bratacha/configs/app_themes.dart';
 import 'package:bratacha/intl/country_localizations.dart';
 import 'package:bratacha/intl/ga_material_localizations.dart';
-import 'package:bratacha/intl/localizations.dart';
 import 'package:bratacha/managers/level_manager.dart';
 import 'package:bratacha/modules/dialog_manager/dialog_manager.dart';
 import 'package:bratacha/modules/player_data/player_data.dart';
@@ -18,6 +17,7 @@ import 'package:bratacha/widgets/learn_screen/learn_screen.dart';
 import 'package:bratacha/widgets/onboarding_screen/onboarding_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_gen/gen_l10n/localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
 class MyApp extends StatelessWidget {
@@ -60,7 +60,7 @@ class MyApp extends StatelessWidget {
               ),
             ),
             localizationsDelegates: const [
-              AppLocalizationsDelegate(),
+              AppLocalizations.delegate,
               CountryLocalizationsDelegate(),
               GlobalMaterialLocalizations.delegate,
               GlobalWidgetsLocalizations.delegate,
@@ -68,7 +68,7 @@ class MyApp extends StatelessWidget {
               GaMaterialLocalizations.delegate,
             ],
             locale: Locale(language),
-            supportedLocales: AppLocalizationsDelegate.supportedLocals,
+            supportedLocales: AppLocalizations.supportedLocales,
             theme: AppThemes.theme,
             home: context.read<ISettingsDatabase>().hasSeenOnboarding ? const HomeScreen() : const OnboardingScreen(),
             routes: {

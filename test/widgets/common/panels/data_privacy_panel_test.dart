@@ -1,17 +1,15 @@
-import 'package:bratacha/intl/localizations.dart';
 import 'package:bratacha/widgets/common/panels/data_privacy_panel.dart';
 import 'package:bratacha/widgets/common/text/clickable_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-void main() {
-  // ensure localizations are setup
-  AppLocalizations.load(const Locale('en'));
+import '../../../tester_utils.dart';
 
+void main() {
   group('$DataPrivacyPanel', () {
     testWidgets('Ensure widget tree is correct', (tester) async {
       await tester.pumpWidget(
-        const MaterialApp(home: DataPrivacyPanel()),
+        wrapWithMaterialApp(const DataPrivacyPanel()),
       );
 
       expect(find.byType(Column), findsOneWidget);

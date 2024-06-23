@@ -5,17 +5,18 @@ import 'package:bratacha/widgets/onboarding_screen/onboarding_page3.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-void main() {
-  // ensure localizations are setup
-  AppLocalizations.load(const Locale('en'));
+import '../../tester_utils.dart';
 
+void main() {
   group('$OnboardingPage3', () {
     testWidgets('Ensure widget tree is correct', (tester) async {
-      await tester.pumpWidget(const MaterialApp(
-        home: Scaffold(
-          body: OnboardingPage3(),
+      await tester.pumpWidget(
+        wrapWithMaterialApp(
+          const Scaffold(
+            body: OnboardingPage3(),
+          ),
         ),
-      ));
+      );
 
       expect(find.byType(Column), findsNWidgets(2));
       expect(find.byType(DataPrivacyPanel), findsOneWidget);
@@ -24,15 +25,18 @@ void main() {
     });
 
     testWidgets('Ensure widget content is correct', (tester) async {
-      await tester.pumpWidget(const MaterialApp(
-        home: Scaffold(
-          body: OnboardingPage3(),
+      await tester.pumpWidget(
+        wrapWithMaterialApp(
+          const Scaffold(
+            body: OnboardingPage3(),
+          ),
         ),
-      ));
+      );
 
-      expect(find.text(AppLocalizations.onboardingPage3TextLabel1), findsOneWidget);
-      expect(find.text(AppLocalizations.onboardingPage3TextLabel2), findsOneWidget);
-      expect(find.text(AppLocalizations.feedbackPanelLabel1), findsOneWidget);
+      final context = tester.element(find.byType(OnboardingPage3));
+      expect(find.text(context.l10n.onboardingPage3TextLabel1), findsOneWidget);
+      expect(find.text(context.l10n.onboardingPage3TextLabel2), findsOneWidget);
+      expect(find.text(context.l10n.feedbackPanelLabel1), findsOneWidget);
     });
   });
 }

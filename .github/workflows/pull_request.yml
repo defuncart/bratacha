@@ -6,14 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      - uses: kuhnroyal/flutter-fvm-config-action@v2
-        id: fvm-config-action
-      - uses: subosito/flutter-action@v2
-        with:
-          flutter-version: ${{ steps.fvm-config-action.outputs.FLUTTER_VERSION }}
-          channel: ${{ steps.fvm-config-action.outputs.FLUTTER_CHANNEL }}
-      - name: Install packages
-        run: flutter pub get
+      - uses: ./.github/actions/set_up_flutter
       - name: Lint
         run: flutter analyze
       - name: Unit tests
@@ -26,12 +19,7 @@ jobs:
       - uses: actions/setup-java@v1
         with:
           java-version: '12.x'
-      - uses: kuhnroyal/flutter-fvm-config-action@v2
-        id: fvm-config-action
-      - uses: subosito/flutter-action@v2
-        with:
-          flutter-version: ${{ steps.fvm-config-action.outputs.FLUTTER_VERSION }}
-          channel: ${{ steps.fvm-config-action.outputs.FLUTTER_CHANNEL }}
+      - uses: ./.github/actions/set_up_flutter
       - name: Build apk
         run:
           flutter build apk --release --split-per-abi
@@ -40,12 +28,7 @@ jobs:
     runs-on: macOS-latest
     steps:
       - uses: actions/checkout@v1
-      - uses: kuhnroyal/flutter-fvm-config-action@v2
-        id: fvm-config-action
-      - uses: subosito/flutter-action@v2
-        with:
-          flutter-version: ${{ steps.fvm-config-action.outputs.FLUTTER_VERSION }}
-          channel: ${{ steps.fvm-config-action.outputs.FLUTTER_CHANNEL }}
+      - uses: ./.github/actions/set_up_flutter
       - name: Build ipa
         run:
           flutter build ios --release --no-codesign
@@ -54,12 +37,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      - uses: kuhnroyal/flutter-fvm-config-action@v2
-        id: fvm-config-action
-      - uses: subosito/flutter-action@v2
-        with:
-          flutter-version: ${{ steps.fvm-config-action.outputs.FLUTTER_VERSION }}
-          channel: ${{ steps.fvm-config-action.outputs.FLUTTER_CHANNEL }}
+      - uses: ./.github/actions/set_up_flutter
       - name: Build web
         run:
           flutter build web --release
