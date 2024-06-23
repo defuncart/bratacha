@@ -15,8 +15,9 @@ class QuestionAnswerPanel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(
-      builder: (_, constraints) => Column(
+    return Padding(
+      padding: const EdgeInsets.all(16),
+      child: Column(
         mainAxisSize: MainAxisSize.max,
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
@@ -33,39 +34,36 @@ class QuestionAnswerPanel extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(
-            height: constraints.maxWidth,
-            child: Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: LayoutBuilder(
-                builder: (_, constraints) => BlocBuilder<AnswersCubit, List<String>>(
-                  builder: (_, answers) {
-                    const padding = 16.0;
-                    final size = (min(constraints.maxWidth, constraints.maxHeight) - padding) / 2.0;
+          LayoutBuilder(
+            builder: (_, constraints) => BlocBuilder<AnswersCubit, List<String>>(
+              builder: (_, answers) {
+                const padding = 16.0;
+                final size = (min(constraints.maxWidth, constraints.maxHeight) - padding) / 2.0;
 
-                    return Wrap(
-                      spacing: padding,
-                      runSpacing: padding,
-                      children: [
-                        for (final id in answers)
-                          GestureDetector(
-                            child: Flag(
-                              id,
-                              size: size,
-                            ),
-                            onTap: () {
-                              final gameService = context.read<IGameService>();
-                              gameService.answerWithId(id);
-                              if (gameService.levelCompleted) {
-                                Navigator.of(context).pushReplacementNamed(HomeScreen.routeName);
-                              }
-                            },
+                return Wrap(
+                  spacing: padding,
+                  runSpacing: padding,
+                  children: [
+                    for (final id in answers)
+                      GestureDetector(
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(8),
+                          child: Flag(
+                            id,
+                            size: size,
                           ),
-                      ],
-                    );
-                  },
-                ),
-              ),
+                        ),
+                        onTap: () {
+                          final gameService = context.read<IGameService>();
+                          gameService.answerWithId(id);
+                          if (gameService.levelCompleted) {
+                            Navigator.of(context).pushReplacementNamed(HomeScreen.routeName);
+                          }
+                        },
+                      ),
+                  ],
+                );
+              },
             ),
           ),
         ],
