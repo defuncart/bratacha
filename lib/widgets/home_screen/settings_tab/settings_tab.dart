@@ -27,15 +27,17 @@ class SettingsTab extends StatelessWidget {
         ),
         body: SafeArea(
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16.0),
+            padding: const EdgeInsets.symmetric(horizontal: 16),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const SizedBox(height: 16.0),
+                const SizedBox(height: 16),
                 Text(context.l10n.settingsTabLanguageLabel),
-                const SizedBox(height: 8.0),
+                const SizedBox(height: 8),
                 const LanguagePanel(),
+                const SizedBox(height: 16),
                 const HardDifficultyPanel(),
+                const SizedBox(height: 16),
                 Center(
                   child: CustomElevatedButton(
                     onPressed: () async {
@@ -55,6 +57,7 @@ class SettingsTab extends StatelessWidget {
                     buttonText: context.l10n.settingsTabResetProgressLabel,
                   ),
                 ),
+                const SizedBox(height: 16),
                 FeedbackPanel(
                   urlLaucherService: context.read<IUrlLaucherService>(),
                 ),
