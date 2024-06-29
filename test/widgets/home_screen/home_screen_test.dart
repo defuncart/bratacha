@@ -1,12 +1,15 @@
+import 'package:bratacha/intl/country_localizations.dart';
 import 'package:bratacha/intl/localizations.dart';
 import 'package:bratacha/managers/level_manager.dart';
 import 'package:bratacha/modules/player_data/src/services/i_player_data_service.dart';
 import 'package:bratacha/services/url_launcher_service/i_url_launcher_service.dart';
 import 'package:bratacha/widgets/common/panels/hard_difficulty_panel/hard_difficulty_cubit.dart';
 import 'package:bratacha/widgets/common/panels/language_panel/language_cubit.dart';
+import 'package:bratacha/widgets/home_screen/flags_tab/flags_tab.dart';
 import 'package:bratacha/widgets/home_screen/home_screen.dart';
 import 'package:bratacha/widgets/home_screen/home_tab/home_tab.dart';
 import 'package:bratacha/widgets/home_screen/settings_tab/settings_tab.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
@@ -15,6 +18,9 @@ import '../../tester_utils.dart';
 
 void main() {
   group('$HomeScreen', () {
+    // ensure localizations are setup
+    CountryLocalizations.load(const Locale('en'));
+
     testWidgets('Ensure tabs can be selected', (tester) async {
       final widget = MultiRepositoryProvider(
         providers: [
@@ -46,23 +52,26 @@ void main() {
 
       expect(find.byType(HomeScreen), findsOneWidget);
       expect(find.byType(HomeTab), findsOneWidget);
+      expect(find.byType(FlagsTab), findsNothing);
       expect(find.byType(SettingsTab), findsNothing);
 
       final context = tester.element(find.byType(HomeScreen));
+
+      await tester.tap(find.text(context.l10n.flagsTabLabelText));
+      await tester.pumpAndSettle();
+
+      expect(find.byType(HomeScreen), findsOneWidget);
+      expect(find.byType(HomeTab), findsNothing);
+      expect(find.byType(FlagsTab), findsOneWidget);
+      expect(find.byType(SettingsTab), findsNothing);
 
       await tester.tap(find.text(context.l10n.settingsTabLabelText));
       await tester.pumpAndSettle();
 
       expect(find.byType(HomeScreen), findsOneWidget);
       expect(find.byType(HomeTab), findsNothing);
+      expect(find.byType(FlagsTab), findsNothing);
       expect(find.byType(SettingsTab), findsOneWidget);
-
-      await tester.tap(find.text(context.l10n.homeTabLabelText));
-      await tester.pumpAndSettle();
-
-      expect(find.byType(HomeScreen), findsOneWidget);
-      expect(find.byType(HomeTab), findsOneWidget);
-      expect(find.byType(SettingsTab), findsNothing);
     });
   });
 }

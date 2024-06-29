@@ -4,7 +4,7 @@ generalNo;No;Не;Na;
 generalYes;Yes;Так;Ie;
 generalLevelLabel;Level {level};;;
 homeTabLabelText;Home;Галоўная;;
-homeTabLeanFlagsButtonText;See all flags;;;
+flagsTabLabelText;Flags;;;
 settingsTabLabelText;Settings;Налады;;
 settingsTabLanguageLabel;Language;Мова;Iaith;Teanga
 settingsTabResetProgressLabel;Reset Progress;Скід прагрэсу;;

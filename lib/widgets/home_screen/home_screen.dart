@@ -1,7 +1,9 @@
 import 'package:bratacha/intl/localizations.dart';
+import 'package:bratacha/widgets/home_screen/flags_tab/flags_tab.dart';
 import 'package:bratacha/widgets/home_screen/home_tab/home_tab.dart';
 import 'package:bratacha/widgets/home_screen/settings_tab/settings_tab.dart';
 import 'package:flutter/material.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 class HomeScreen extends StatefulWidget {
   static const routeName = 'HomeScreen';
@@ -16,9 +18,10 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   var _currentIndex = 0;
-  final _tabs = [
-    const HomeTab(),
-    const SettingsTab(),
+  final _tabs = const [
+    HomeTab(),
+    FlagsTab(),
+    SettingsTab(),
   ];
 
   @override
@@ -38,6 +41,10 @@ class _HomeScreenState extends State<HomeScreen> {
             BottomNavigationBarItem(
               icon: const Icon(Icons.home),
               label: context.l10n.homeTabLabelText,
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(MdiIcons.flagVariant),
+              label: context.l10n.flagsTabLabelText,
             ),
             BottomNavigationBarItem(
               icon: const Icon(Icons.settings),

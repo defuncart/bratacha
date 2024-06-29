@@ -1,9 +1,7 @@
 import 'package:bratacha/intl/localizations.dart';
 import 'package:bratacha/managers/level_manager.dart';
-import 'package:bratacha/modules/player_data/player_data.dart';
 import 'package:bratacha/widgets/common/score.dart';
 import 'package:bratacha/widgets/game_screen/game_screen.dart';
-import 'package:bratacha/widgets/learn_screen/learn_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -17,18 +15,6 @@ class HomeTab extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(context.l10n.homeTabLabelText),
-        actions: [
-          Center(
-            child: Padding(
-              padding: const EdgeInsets.only(right: 16),
-              child: Score(
-                score: context.read<IPlayerDataService>().score,
-                color: const Color(0xffFFE391),
-                fontSize: 20.0,
-              ),
-            ),
-          ),
-        ],
       ),
       body: SafeArea(
         child: SingleChildScrollView(
@@ -45,15 +31,6 @@ class HomeTab extends StatelessWidget {
                       pointsRequired: levelManager.scoreToUnlock(i),
                     ),
                   ),
-                TextButton(
-                  onPressed: () => Navigator.of(context).pushNamed(LearnScreen.routeName),
-                  child: Text(
-                    context.l10n.homeTabLeanFlagsButtonText,
-                    style: TextStyle(
-                      color: Theme.of(context).colorScheme.secondary,
-                    ),
-                  ),
-                ),
               ],
             ),
           ),

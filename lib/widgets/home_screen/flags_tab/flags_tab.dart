@@ -1,34 +1,38 @@
 import 'package:bratacha/extensions/country_extensions.dart';
+import 'package:bratacha/intl/localizations.dart';
 import 'package:bratacha/modules/country_database/country_database.dart';
 import 'package:bratacha/widgets/common/flag.dart';
 import 'package:flutter/material.dart';
 
-class LearnScreen extends StatelessWidget {
-  static const routeName = 'LearnScreen';
-
-  const LearnScreen({super.key});
+class FlagsTab extends StatelessWidget {
+  const FlagsTab({super.key});
 
   @override
   Widget build(BuildContext context) {
     final countries = CountryService.countries;
+
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: Text(context.l10n.flagsTabLabelText),
+      ),
       body: SafeArea(
         child: ListView.separated(
           separatorBuilder: (_, __) => const Divider(),
           itemCount: countries.length,
           itemBuilder: (_, index) => Padding(
-            padding:   EdgeInsets.only(top: index == 0 ? 8 : 0, bottom: index == countries.length - 1 ? 8: 0,) ,
+            padding: EdgeInsets.only(
+              top: index == 0 ? 8 : 0,
+              bottom: index == countries.length - 1 ? 8 : 0,
+            ),
             child: ListTile(
               leading: Flag(
                 countries[index].id,
                 size: 100,
               ),
-              // TODO: show only in debug mode
+              title: Text(countries[index].localizedName),
               trailing: _SimilarFlagsList(
                 similarFlags: countries[index].similarFlags,
               ),
-              title: Text(countries[index].localizedName),
             ),
           ),
         ),

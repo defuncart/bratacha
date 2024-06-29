@@ -14,7 +14,6 @@ import 'package:bratacha/widgets/common/panels/hard_difficulty_panel/hard_diffic
 import 'package:bratacha/widgets/common/panels/language_panel/language_cubit.dart';
 import 'package:bratacha/widgets/game_screen/game_screen.dart';
 import 'package:bratacha/widgets/home_screen/home_screen.dart';
-import 'package:bratacha/widgets/learn_screen/learn_screen.dart';
 import 'package:bratacha/widgets/onboarding_screen/onboarding_screen.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -78,7 +77,6 @@ class MyApp extends StatelessWidget {
             routes: {
               OnboardingScreen.routeName: (_) => const OnboardingScreen(),
               HomeScreen.routeName: (_) => const HomeScreen(),
-              LearnScreen.routeName: (_) => const LearnScreen(),
               GameScreen.routeName: (_) => const GameScreen(),
             },
           ),
