@@ -46,12 +46,9 @@ class QuestionAnswerPanel extends StatelessWidget {
                   children: [
                     for (final id in answers)
                       GestureDetector(
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(8),
-                          child: Flag(
-                            id,
-                            size: size,
-                          ),
+                        child: Flag(
+                          id,
+                          size: size,
                         ),
                         onTap: () {
                           final gameService = context.read<IGameService>();

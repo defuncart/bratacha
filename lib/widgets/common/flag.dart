@@ -15,10 +15,15 @@ class Flag extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return PlatformSvg.asset(
-      _path,
-      width: size,
-      height: size,
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(size * 0.05),
+      // seems to look better than antiAlias with svgs
+      clipBehavior: Clip.antiAliasWithSaveLayer,
+      child: PlatformSvg.asset(
+        _path,
+        width: size,
+        height: size,
+      ),
     );
   }
 }
