@@ -52,6 +52,7 @@ class MyApp extends StatelessWidget {
         ],
         child: BlocBuilder<LanguageCubit, String>(
           builder: (_, language) => MaterialApp(
+            debugShowCheckedModeBanner: false,
             scrollBehavior: _AppScrollBehavior(),
             builder: (context, widget) => Navigator(
               onGenerateRoute: (settings) => MaterialPageRoute(
