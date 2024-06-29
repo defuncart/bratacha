@@ -3,38 +3,46 @@ import 'package:bratacha/extensions/iterable_widget_extension.dart';
 import 'package:bratacha/intl/localizations.dart';
 import 'package:bratacha/modules/country_database/country_database.dart';
 import 'package:bratacha/widgets/common/flag.dart';
+import 'package:bratacha/widgets/common/panels/language_panel/language_cubit.dart';
+import 'package:bratacha/widgets/home_screen/flags_tab/search_flags_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class FlagsTab extends StatelessWidget {
   const FlagsTab({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final countries = CountryService.countries;
-
     return Scaffold(
       appBar: AppBar(
         title: Text(context.l10n.flagsTabLabelText),
       ),
       body: SafeArea(
-        child: ListView.separated(
-          separatorBuilder: (_, __) => Divider(
-            color: Theme.of(context).colorScheme.onPrimary,
+        child: BlocProvider(
+          create: (context) => SearchFlagsCubit(
+            context.read<LanguageCubit>().state,
           ),
-          itemCount: countries.length,
-          itemBuilder: (_, index) => Padding(
-            padding: EdgeInsets.only(
-              top: index == 0 ? 8 : 0,
-              bottom: index == countries.length - 1 ? 8 : 0,
-            ),
-            child: ListTile(
-              leading: Flag(
-                countries[index].id,
-                size: 48,
+          child: BlocBuilder<SearchFlagsCubit, List<Country>>(
+            builder: (context, state) => ListView.separated(
+              separatorBuilder: (_, __) => Divider(
+                color: Theme.of(context).colorScheme.onPrimary,
               ),
-              title: Text(countries[index].localizedName),
-              trailing: _SimilarFlagsList(
-                similarFlags: countries[index].similarFlags,
+              itemCount: state.length,
+              itemBuilder: (_, index) => Padding(
+                padding: EdgeInsets.only(
+                  top: index == 0 ? 8 : 0,
+                  bottom: index == state.length - 1 ? 8 : 0,
+                ),
+                child: ListTile(
+                  leading: Flag(
+                    state[index].id,
+                    size: 48,
+                  ),
+                  title: Text(state[index].localizedName),
+                  trailing: _SimilarFlagsList(
+                    similarFlags: state[index].similarFlags,
+                  ),
+                ),
               ),
             ),
           ),
