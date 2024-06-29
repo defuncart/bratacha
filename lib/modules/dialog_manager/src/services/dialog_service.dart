@@ -15,7 +15,7 @@ class DialogService implements IDialogService {
 
   bool get _isCurrentlyPresenting => _dialogCompleter != null;
 
-  final _requestStreamController = StreamController<BaseDialogRequest>();
+  final _requestStreamController = StreamController<BaseDialogRequest>.broadcast();
 
   @override
   Stream<BaseDialogRequest> get requestStream => _requestStreamController.stream;
