@@ -39,15 +39,21 @@ class _HomeScreenState extends State<HomeScreen> {
           elevation: 16.0,
           items: [
             BottomNavigationBarItem(
-              icon: const Icon(Icons.home),
+              icon: Icon(
+                _currentIndex == 0 ? Icons.home : Icons.home_outlined,
+              ),
               label: context.l10n.homeTabLabelText,
             ),
             BottomNavigationBarItem(
-              icon: Icon(MdiIcons.flagVariant),
+              icon: Icon(
+                _currentIndex == 1 ? MdiIcons.flagVariant : MdiIcons.flagVariantOutline,
+              ),
               label: context.l10n.flagsTabLabelText,
             ),
             BottomNavigationBarItem(
-              icon: const Icon(Icons.settings),
+              icon: Icon(
+                _currentIndex == 2 ? Icons.settings : Icons.settings_outlined,
+              ),
               label: context.l10n.settingsTabLabelText,
             )
           ],
