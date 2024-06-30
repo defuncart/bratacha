@@ -13,34 +13,36 @@ class FlagsTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(context.l10n.flagsTabLabelText),
+    return BlocProvider(
+      create: (context) => SearchFlagsCubit(
+        context.read<LanguageCubit>().state,
       ),
-      body: SafeArea(
-        child: BlocProvider(
-          create: (context) => SearchFlagsCubit(
-            context.read<LanguageCubit>().state,
+      child: Builder(
+        builder: (context) => Scaffold(
+          appBar: _FlagsAppBar(
+            onSearchTermChanged: context.read<SearchFlagsCubit>().update,
           ),
-          child: BlocBuilder<SearchFlagsCubit, List<Country>>(
-            builder: (context, state) => ListView.separated(
-              separatorBuilder: (_, __) => Divider(
-                color: Theme.of(context).colorScheme.onPrimary,
-              ),
-              itemCount: state.length,
-              itemBuilder: (_, index) => Padding(
-                padding: EdgeInsets.only(
-                  top: index == 0 ? 8 : 0,
-                  bottom: index == state.length - 1 ? 8 : 0,
+          body: SafeArea(
+            child: BlocBuilder<SearchFlagsCubit, List<Country>>(
+              builder: (context, state) => ListView.separated(
+                separatorBuilder: (_, __) => Divider(
+                  color: Theme.of(context).colorScheme.onPrimary,
                 ),
-                child: ListTile(
-                  leading: Flag(
-                    state[index].id,
-                    size: 48,
+                itemCount: state.length,
+                itemBuilder: (_, index) => Padding(
+                  padding: EdgeInsets.only(
+                    top: index == 0 ? 8 : 0,
+                    bottom: index == state.length - 1 ? 8 : 0,
                   ),
-                  title: Text(state[index].localizedName),
-                  trailing: _SimilarFlagsList(
-                    similarFlags: state[index].similarFlags,
+                  child: ListTile(
+                    leading: Flag(
+                      state[index].id,
+                      size: 48,
+                    ),
+                    title: Text(state[index].localizedName),
+                    trailing: _SimilarFlagsList(
+                      similarFlags: state[index].similarFlags,
+                    ),
                   ),
                 ),
               ),
@@ -48,6 +50,69 @@ class FlagsTab extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+}
+
+class _FlagsAppBar extends StatefulWidget implements PreferredSizeWidget {
+  final void Function(String) onSearchTermChanged;
+
+  const _FlagsAppBar({
+    required this.onSearchTermChanged,
+  });
+
+  @override
+  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
+
+  @override
+  State<_FlagsAppBar> createState() => _FlagsAppBarState();
+}
+
+class _FlagsAppBarState extends State<_FlagsAppBar> {
+  var _isTextFieldActive = false;
+  var _showClearButton = false;
+  late final TextEditingController _controller;
+
+  @override
+  void initState() {
+    super.initState();
+
+    _controller = TextEditingController()
+      ..addListener(() {
+        final showClearButton = _controller.text.isNotEmpty;
+        if (_showClearButton != showClearButton) {
+          setState(() => _showClearButton = showClearButton);
+        }
+        widget.onSearchTermChanged(_controller.text);
+      });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return AppBar(
+      leading: _isTextFieldActive ? BackButton(onPressed: () => setState(() => _isTextFieldActive = false)) : null,
+      title: _isTextFieldActive
+          ? TextField(
+              controller: _controller,
+            )
+          : Text(context.l10n.flagsTabLabelText),
+      actions: [
+        if (!_isTextFieldActive)
+          IconButton(
+            onPressed: () => setState(() => _isTextFieldActive = true),
+            icon: const Icon(Icons.search),
+          )
+        else if (_showClearButton)
+          IconButton(
+            onPressed: _controller.clear,
+            icon: const Icon(Icons.clear),
+          )
+        else
+          const SizedBox(
+            height: 40,
+            width: 40,
+          ),
+      ],
     );
   }
 }
