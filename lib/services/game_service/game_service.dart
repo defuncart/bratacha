@@ -15,11 +15,12 @@ class GameService implements IGameService {
     required LevelManager levelManager,
   }) {
     final levelCountries = levelManager.countriesForLevel(level);
-    final indices = <int>[];
-    for (final country in levelCountries) {
-      indices.add(_countries.indexOf(country));
-    }
-    _indicesCountriesForLevel = List.unmodifiable(indices);
+    _indicesCountriesForLevel = levelCountries
+        .map(
+          (country) => _countries.indexOf(country),
+        )
+        .toList(growable: false)
+      ..sort();
 
     _numberRounds = levelCountries.length;
   }
