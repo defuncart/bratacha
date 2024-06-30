@@ -94,6 +94,14 @@ class _FlagsAppBarState extends State<_FlagsAppBar> {
       title: _isTextFieldActive
           ? TextField(
               controller: _controller,
+              autofocus: true,
+              decoration: InputDecoration(
+                hintText: context.l10n.flagsTabSearchTermHint,
+                focusedBorder: InputBorder.none,
+                enabledBorder: InputBorder.none,
+                disabledBorder: InputBorder.none,
+              ),
+              cursorColor: Theme.of(context).textTheme.bodyLarge?.color,
             )
           : Text(context.l10n.flagsTabLabelText),
       actions: [
