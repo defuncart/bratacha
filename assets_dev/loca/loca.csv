@@ -1,17 +1,16 @@
 key;en;be;cy;ga
-test;Hello World!;Здароўствуй свет!;Helo Byd!;Dia duit domhan!
-generalNo;No;Не;Na;
-generalYes;Yes;Так;Ie;
-generalLevelLabel;Level {level};;;
-homeTabLabelText;Home;Галоўная;;
-flagsTabLabelText;Flags;;;
-flagsTabSearchTermHint;Country;;;
-settingsTabLabelText;Settings;Налады;;
+generalNo;No;Не;Na;Níl
+generalYes;Yes;Так;Ie;Tá
+generalLevelLabel;Level {level};;;Leibhéal {level}
+homeTabLabelText;Home;Галоўная;;Abhaile
+flagsTabLabelText;Flags;;;Bratacha
+flagsTabSearchTermHint;Country;;;Tír
+settingsTabLabelText;Settings;Налады;;Socruithe
 settingsTabLanguageLabel;Language;Мова;Iaith;Teanga
 settingsTabResetProgressLabel;Reset Progress;Скід прагрэсу;;
-settingsTabDataPrivacyLabel;Data Privacy;;;
-settingsTabCreditsLabel;Credits;;;
-hardDifficultyPanelLabel;Hard Difficulty;Складаная складанасць;;
+settingsTabDataPrivacyLabel;Data Privacy;;;Príobháideacht sonraí
+settingsTabCreditsLabel;Credits;;;Creidmheasanna
+hardDifficultyPanelLabel;Hard Difficulty;Складаная складанасць;;Deacracht chrua
 changeLanguageDialogTitle;Change Language?;;;
 changeLanguageDialogDescription;Your progress will be permantely deleted and cannot be recovered.;;;
 resetProgressDialogTitle;Reset progress?;;;
