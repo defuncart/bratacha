@@ -4,9 +4,8 @@ import 'package:bratacha/modules/dialog_manager/dialog_manager.dart';
 import 'package:bratacha/modules/player_data/player_data.dart';
 import 'package:bratacha/services/game_service/game_service.dart';
 import 'package:bratacha/services/game_service/i_game_service.dart';
-import 'package:bratacha/widgets/game_screen/answers_cubit.dart';
+import 'package:bratacha/widgets/game_screen/game_cubit.dart';
 import 'package:bratacha/widgets/game_screen/question_answer_panel.dart';
-import 'package:bratacha/widgets/game_screen/question_cubit.dart';
 import 'package:bratacha/widgets/home_screen/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -33,21 +32,18 @@ class GameScreen extends StatelessWidget {
         playerDataService: context.read<IPlayerDataService>(),
         level: level,
         levelManager: context.read<LevelManager>(),
-      )..initialize(),
+      ),
       lazy: false,
       child: MultiBlocProvider(
         providers: [
-          BlocProvider<QuestionCubit>(
-            create: (contextRepository) => QuestionCubit(
+          BlocProvider<GameCubit>(
+            create: (contextRepository) => GameCubit(
               gameService: contextRepository.read<IGameService>(),
-            ),
-          ),
-          BlocProvider<AnswersCubit>(
-            create: (contextRepository) => AnswersCubit(
-              gameService: contextRepository.read<IGameService>(),
-            ),
+            )..initialize(),
           ),
         ],
+        // TODO add bloc listener to navigate when game over
+        // Navigator.of(context).pushReplacementNamed(HomeScreen.routeName);
         child: Scaffold(
           appBar: AppBar(
             leading: IconButton(

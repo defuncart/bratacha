@@ -1,4 +1,3 @@
-import 'dart:async';
 import 'dart:math';
 
 import 'package:bratacha/extensions/country_extensions.dart';
@@ -6,6 +5,7 @@ import 'package:bratacha/managers/level_manager.dart';
 import 'package:bratacha/modules/country_database/country_database.dart';
 import 'package:bratacha/modules/player_data/player_data.dart';
 import 'package:bratacha/services/game_service/i_game_service.dart';
+import 'package:flutter/widgets.dart';
 
 class GameService implements IGameService {
   GameService({
@@ -13,6 +13,7 @@ class GameService implements IGameService {
     required this.playerDataService,
     required int level,
     required LevelManager levelManager,
+    @visibleForTesting Random? random,
   }) {
     final levelCountries = levelManager.countriesForLevel(level);
     _indicesCountriesForLevel = levelCountries
@@ -20,7 +21,7 @@ class GameService implements IGameService {
           (country) => _countries.indexOf(country),
         )
         .toList(growable: false)
-      ..sort();
+      ..shuffle(random);
 
     _numberRounds = levelCountries.length;
   }
@@ -30,35 +31,20 @@ class GameService implements IGameService {
   late int _numberRounds;
   final bool isHardDifficulty;
   final IPlayerDataService playerDataService;
-  late int _index;
-  late List<int> _countriesDisplayed;
-  late List<int> _countriesDisplayedLastRound;
+  int _index = 0;
+  List<int> _countriesDisplayed = [];
+  List<int> _countriesDisplayedLastRound = [];
   final _answeredQuestions = <String, bool>{};
-
-  void initialize() {
-    _index = 0;
-    _countriesDisplayedLastRound = [];
-    _nextRound();
-  }
 
   int get _indexForCurrentQuestion => _indicesCountriesForLevel[_index];
 
   Country get _questionCountry => _countries[_indexForCurrentQuestion];
 
-  final _questionController = StreamController<String>();
-
-  @override
-  Stream<String> get questionCountry => _questionController.stream;
-
-  final _answersController = StreamController<List<String>>();
-
-  @override
-  Stream<List<String>> get answerCountries => _answersController.stream;
-
   @override
   bool get levelCompleted => _index >= _numberRounds;
 
-  void _nextRound() {
+  @override
+  GameRound nextRound() {
     _countriesDisplayed = [_indexForCurrentQuestion, -1, -1, -1];
 
     // if on hard difficult, add up to three similar flags
@@ -86,8 +72,10 @@ class GameService implements IGameService {
     _countriesDisplayed.shuffle();
     _countriesDisplayedLastRound = _countriesDisplayed;
 
-    _questionController.add(_questionCountry.localizedName);
-    _answersController.add(_countriesDisplayed.map((index) => _countries[index].id).toList());
+    return (
+      question: _questionCountry.localizedName,
+      answers: _countriesDisplayed.map((index) => _countries[index].id).toList(),
+    );
   }
 
   @override
@@ -96,7 +84,7 @@ class GameService implements IGameService {
     _answeredQuestions[_questionCountry.id] = correct;
 
     if (++_index < _numberRounds) {
-      _nextRound();
+      // _nextRound();
     } else {
       // level completed, update progress
       for (final kvp in _answeredQuestions.entries) {

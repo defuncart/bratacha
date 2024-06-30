@@ -1,14 +1,10 @@
-import 'dart:async';
-
 import 'package:bratacha/extensions/country_extensions.dart';
 import 'package:bratacha/intl/localizations.dart';
 import 'package:bratacha/modules/country_database/country_database.dart';
-import 'package:bratacha/services/game_service/i_game_service.dart';
 import 'package:bratacha/widgets/common/panels/hard_difficulty_panel/hard_difficulty_cubit.dart';
 import 'package:bratacha/widgets/common/panels/hard_difficulty_panel/hard_difficulty_panel.dart';
-import 'package:bratacha/widgets/game_screen/answers_cubit.dart';
+import 'package:bratacha/widgets/game_screen/game_cubit.dart';
 import 'package:bratacha/widgets/game_screen/question_answer_panel.dart';
-import 'package:bratacha/widgets/game_screen/question_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -17,8 +13,11 @@ class OnboardingPage2 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final gameService = _MockGameService(context.read<HardDifficultyCubit>());
+    final isHardDifficulty = context.watch<HardDifficultyCubit>().state;
+
     return LayoutBuilder(
+      // unique key to trigger rebuilds
+      key: Key('OnboardingPage2$isHardDifficulty'),
       builder: (_, constraints) => Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
@@ -31,9 +30,6 @@ class OnboardingPage2 extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 16),
-              // Text(
-              //   context.l10n.onboardingPage2TextLabel2,
-              // ),
               const HardDifficultyPanel(),
             ],
           ),
@@ -42,11 +38,8 @@ class OnboardingPage2 extends StatelessWidget {
             height: constraints.maxWidth * 0.75 * 1.25,
             child: MultiBlocProvider(
               providers: [
-                BlocProvider<QuestionCubit>(
-                  create: (_) => QuestionCubit(gameService: gameService),
-                ),
-                BlocProvider<AnswersCubit>(
-                  create: (_) => AnswersCubit(gameService: gameService),
+                BlocProvider<GameCubit>(
+                  create: (_) => _FakeGameCubit(isHardDifficulty: isHardDifficulty),
                 ),
               ],
               child: const QuestionAnswerPanel(),
@@ -64,31 +57,19 @@ class OnboardingPage2 extends StatelessWidget {
   }
 }
 
-class _MockGameService implements IGameService {
-  final _answersEasy = ['de', 'us', 'gb', 'ie'];
-  final _answersHard = ['my', 'us', 'cl', 'lr'];
+class _FakeGameCubit extends Cubit<GameState> implements GameCubit {
+  static const _answersEasy = ['de', 'us', 'gb', 'ie'];
+  static const _answersHard = ['my', 'us', 'cl', 'lr'];
 
-  final _answersController = StreamController<List<String>>();
-
-  _MockGameService(HardDifficultyCubit cubit) {
-    _answersController.add(cubit.state ? _answersHard : _answersEasy);
-
-    cubit.stream.listen((isHardDifficulty) {
-      _answersController.add(isHardDifficulty ? _answersHard : _answersEasy);
-    });
-  }
+  _FakeGameCubit({required bool isHardDifficulty})
+      : super((
+          question: CountryService.countryWithId('us').localizedName,
+          answers: isHardDifficulty ? _answersHard : _answersEasy,
+        ));
 
   @override
-  Stream<List<String>> get answerCountries => _answersController.stream;
+  void initialize() {}
 
   @override
-  Stream<String> get questionCountry async* {
-    yield CountryService.countryWithId('us').localizedName;
-  }
-
-  @override
-  bool get levelCompleted => false;
-
-  @override
-  bool answerWithId(String id) => false;
+  void answerWithId(String id) {}
 }

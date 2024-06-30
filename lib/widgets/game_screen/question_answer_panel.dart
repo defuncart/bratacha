@@ -1,11 +1,8 @@
 import 'dart:math';
 
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:bratacha/services/game_service/i_game_service.dart';
 import 'package:bratacha/widgets/common/flag.dart';
-import 'package:bratacha/widgets/game_screen/answers_cubit.dart';
-import 'package:bratacha/widgets/game_screen/question_cubit.dart';
-import 'package:bratacha/widgets/home_screen/home_screen.dart';
+import 'package:bratacha/widgets/game_screen/game_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -17,15 +14,15 @@ class QuestionAnswerPanel extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(16),
-      child: Column(
-        mainAxisSize: MainAxisSize.max,
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          Expanded(
-            child: BlocBuilder<QuestionCubit, String>(
-              builder: (_, question) => Center(
+      child: BlocBuilder<GameCubit, GameState>(
+        builder: (_, state) => Column(
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Expanded(
+              child: Center(
                 child: AutoSizeText(
-                  question,
+                  state.question,
                   maxLines: 3,
                   style: Theme.of(context).textTheme.displaySmall,
                   minFontSize: 18,
@@ -33,10 +30,8 @@ class QuestionAnswerPanel extends StatelessWidget {
                 ),
               ),
             ),
-          ),
-          LayoutBuilder(
-            builder: (_, constraints) => BlocBuilder<AnswersCubit, List<String>>(
-              builder: (_, answers) {
+            LayoutBuilder(
+              builder: (_, constraints) {
                 const padding = 16.0;
                 final size = (min(constraints.maxWidth, constraints.maxHeight) - padding) / 2.0;
 
@@ -44,26 +39,23 @@ class QuestionAnswerPanel extends StatelessWidget {
                   spacing: padding,
                   runSpacing: padding,
                   children: [
-                    for (final id in answers)
+                    for (final id in state.answers)
                       GestureDetector(
                         child: Flag(
                           id,
                           size: size,
                         ),
                         onTap: () {
-                          final gameService = context.read<IGameService>();
-                          gameService.answerWithId(id);
-                          if (gameService.levelCompleted) {
-                            Navigator.of(context).pushReplacementNamed(HomeScreen.routeName);
-                          }
+                          final gameCubit = context.read<GameCubit>();
+                          gameCubit.answerWithId(id);
                         },
                       ),
                   ],
                 );
               },
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

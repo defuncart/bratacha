@@ -1,9 +1,12 @@
 abstract class IGameService {
-  Stream<String> get questionCountry;
-
-  Stream<List<String>> get answerCountries;
-
   bool get levelCompleted;
+
+  GameRound nextRound();
 
   bool answerWithId(String id);
 }
+
+typedef GameRound = ({
+  String question,
+  List<String> answers,
+});

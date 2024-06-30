@@ -1,10 +1,10 @@
-import 'dart:async';
+import 'dart:math';
 import 'dart:ui';
 
 import 'package:bratacha/intl/country_localizations.dart';
-import 'package:bratacha/managers/level_manager.dart';
 import 'package:bratacha/modules/country_database/country_database.dart';
 import 'package:bratacha/services/game_service/game_service.dart';
+import 'package:bratacha/services/game_service/i_game_service.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 
@@ -15,61 +15,53 @@ void main() {
   CountryLocalizations.load(const Locale('en'));
 
   group('$GameService', () {
+    const countries = ['de', 'ie', 'pl', 'fr', 'es', 'pt', 'gb', 'us'];
+
+    late MockLevelManager mockLevelManager;
+
+    setUp(() {
+      mockLevelManager = MockLevelManager();
+      when(() => mockLevelManager.countriesForLevel(any()))
+          .thenReturn(countries.map((code) => CountryService.countryWithId(code)).toList());
+    });
+
     test('ensure service correctly works', () async {
       final gameService = GameService(
         isHardDifficulty: false,
         playerDataService: MockPlayerDataService(),
         level: 0,
-        levelManager: _MockLevelManager(),
+        levelManager: mockLevelManager,
+        random: Random(3),
       );
 
-      late List<StreamSubscription> subscriptions;
-      String? questionCountry;
-      List<String>? answerCountries;
-
-      subscriptions = [
-        gameService.questionCountry.listen((event) => questionCountry = event),
-        gameService.answerCountries.listen((event) => answerCountries = event),
-      ];
-
-      gameService.initialize();
-
-      await Future.delayed(const Duration(milliseconds: 50));
-
-      expect(questionCountry, isNotNull);
-      expect(answerCountries, isNotNull);
       expect(gameService.levelCompleted, isFalse);
+      expect(
+        gameService.nextRound(),
+        isA<GameRound>().having((round) => round.question, 'question', 'Germany'),
+      );
 
       gameService.answerWithId('de');
 
-      await Future.delayed(const Duration(milliseconds: 50));
-
-      expect(questionCountry, isNotNull);
-      expect(answerCountries, isNotNull);
       expect(gameService.levelCompleted, isFalse);
+      expect(
+        gameService.nextRound(),
+        isA<GameRound>().having((round) => round.question, 'question', 'United Kingdom'),
+      );
 
-      gameService.answerWithId('pl');
+      gameService.answerWithId('gb');
 
-      await Future.delayed(const Duration(milliseconds: 50));
-
-      expect(questionCountry, isNotNull);
-      expect(answerCountries, isNotNull);
       expect(gameService.levelCompleted, isFalse);
-
-      for (final subscription in subscriptions) {
-        await subscription.cancel();
-      }
     });
 
     test('levelCompleted after all questions answered', () async {
-      final numberRounds = _MockLevelManager().countriesForLevel(0).length;
+      final numberRounds = countries.length;
 
       final gameService = GameService(
         isHardDifficulty: true,
         playerDataService: MockPlayerDataService(),
         level: 0,
-        levelManager: _MockLevelManager(),
-      )..initialize();
+        levelManager: mockLevelManager,
+      );
 
       for (var i = 0; i < numberRounds; i++) {
         gameService.answerWithId('bla');
@@ -78,18 +70,4 @@ void main() {
       }
     });
   });
-}
-
-class _MockLevelManager extends Mock implements LevelManager {
-  @override
-  List<Country> countriesForLevel(int level) => [
-        CountryService.countryWithId('de'),
-        CountryService.countryWithId('ie'),
-        CountryService.countryWithId('pl'),
-        CountryService.countryWithId('fr'),
-        CountryService.countryWithId('es'),
-        CountryService.countryWithId('pt'),
-        CountryService.countryWithId('gb'),
-        CountryService.countryWithId('us'),
-      ];
 }
