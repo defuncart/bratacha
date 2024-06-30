@@ -1,5 +1,5 @@
 import 'package:bratacha/services/app_info_service/app_info_service.dart';
-import 'package:flutter/material.dart' show Image;
+import 'package:flutter/material.dart' show Widget;
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
@@ -17,7 +17,7 @@ void main() {
     });
 
     test('applicationIcon', () {
-      expect(appInfoService.applicationIcon, isA<Image>());
+      expect(appInfoService.applicationIcon, isA<Widget>());
     });
 
     test('applicationLegalese', () {

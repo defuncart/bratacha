@@ -21,9 +21,9 @@ jobs:
       - name: Generate coverage_report_test.dart
         run: flutter pub run dart_code_coverage:generate_dart_file -r ".*\.g\.dart","localizations.dart","generated_plugin_registrant.dart"
       - name: Generate coverage/lcov.info
-        run: flutter test --coverage
+        run: flutter test --coverage --exclude-tags app_store_screenshots
       - name: Clean up coverage/lcov.info
-        run: flutter pub run dart_code_coverage:edit_lcov -r ".*\.g\.dart","localizations.dart"
+        run: flutter pub run dart_code_coverage:edit_lcov -r ".*\.g\.dart","localizations.dart","app_icon.dart"
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v1
         with:
