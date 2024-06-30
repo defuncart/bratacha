@@ -79,7 +79,7 @@ class _MockPlayerDataService extends Mock implements IPlayerDataService {
   String get language => 'en';
 
   @override
-  int get score => 0;
+  bool hasCorrectlyAnswered({required String id}) => true;
 }
 
 class _MockSettingsDatabase extends Mock implements ISettingsDatabase {

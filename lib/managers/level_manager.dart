@@ -14,20 +14,17 @@ class LevelManager {
   /// Returns the countries for a given level index (beginning at zero)
   List<Country> countriesForLevel(int level) {
     if (level >= 0 && level < numberLevels) {
-      final countryIds = _levelService.countryIdsForLevel(level);
-      final countries = <Country>[];
-      for (final id in countryIds) {
-        countries.add(CountryService.countryWithId(id));
-      }
-      return countries;
+      return _levelService.countryIdsForLevel(level).map((id) => CountryService.countryWithId(id)).toList();
     }
 
     throw (ArgumentError('Invalid level $level'));
   }
 
-  /// Returns whether a given level index (beginning at zero) is unlocked
-  bool isLevelUnlocked(int level) => _playerDataService.score >= _levelService.scoreToUnlock(level);
-
-  /// Returns the points required to unlock a given level index (beginning at zero)
-  int scoreToUnlock(int level) => _levelService.scoreToUnlock(level);
+  /// Returns the progress for a given level index (beginning at zero)
+  double progressForLevel(int level) {
+    final ids = countriesForLevel(level).map((country) => country.id).toList();
+    final numCorrectlyAnswered =
+        ids.map((id) => _playerDataService.hasCorrectlyAnswered(id: id)).where((e) => e).length;
+    return numCorrectlyAnswered / (ids.length);
+  }
 }

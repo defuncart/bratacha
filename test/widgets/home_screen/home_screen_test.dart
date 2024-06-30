@@ -14,6 +14,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 
+import '../../mocks.dart';
 import '../../tester_utils.dart';
 
 void main() {
@@ -22,16 +23,21 @@ void main() {
     CountryLocalizations.load(const Locale('en'));
 
     testWidgets('Ensure tabs can be selected', (tester) async {
+      final mockPlayerDataService = MockPlayerDataService();
+      when(() => mockPlayerDataService.language).thenReturn('en');
+      when(() => mockPlayerDataService.isHardDifficulty).thenReturn(false);
+      when(() => mockPlayerDataService.hasCorrectlyAnswered(id: any(named: 'id'))).thenReturn(true);
+
       final widget = MultiRepositoryProvider(
         providers: [
           RepositoryProvider<IPlayerDataService>(
-            create: (_) => _MockPlayerDataService(),
+            create: (_) => mockPlayerDataService,
           ),
           RepositoryProvider<LevelManager>(
             create: (context) => LevelManager(context.read<IPlayerDataService>()),
           ),
           RepositoryProvider<IUrlLaucherService>(
-            create: (_) => _MockUrlLauncherService(),
+            create: (_) => MockUrlLauncherService(),
           ),
         ],
         child: MultiBlocProvider(
@@ -75,16 +81,3 @@ void main() {
     });
   });
 }
-
-class _MockPlayerDataService extends Mock implements IPlayerDataService {
-  @override
-  String get language => 'en';
-
-  @override
-  int get score => 0;
-
-  @override
-  bool get isHardDifficulty => false;
-}
-
-class _MockUrlLauncherService extends Mock implements IUrlLaucherService {}

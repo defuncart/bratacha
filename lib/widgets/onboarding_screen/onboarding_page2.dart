@@ -91,9 +91,4 @@ class _MockGameService implements IGameService {
 
   @override
   bool answerWithId(String id) => false;
-
-  @override
-  Stream<int> get currentScore async* {
-    yield 0;
-  }
 }

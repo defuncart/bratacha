@@ -14,14 +14,11 @@ abstract class IPlayerDataService {
   /// Sets whether hard difficulty is enabled
   set isHardDifficulty(bool value);
 
-  /// Returns the player's score
-  int get score;
-
-  /// Sets the player's score
-  set score(int value);
-
   /// Updates the progress for a given id
   void updateProgress({required String id, required bool answeredCorrectly});
+
+  /// Whether player has at least once correctly answered id
+  bool hasCorrectlyAnswered({required String id});
 
   /// Resets all the player's country progress
   void resetAllCountryProgress();

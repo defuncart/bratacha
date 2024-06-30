@@ -51,10 +51,10 @@ class FlagDataService implements IFlagDataService {
   }
 
   @override
-  void reset() {
+  Future<void> reset() async {
     for (final flagData in _box.values) {
       flagData.reset();
-      flagData.save();
+      await flagData.save();
     }
   }
 

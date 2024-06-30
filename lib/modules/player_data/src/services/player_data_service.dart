@@ -20,7 +20,6 @@ class PlayerDataService implements IPlayerDataService {
   @override
   set language(String value) {
     _box.put(_Keys.language, value);
-    _box.put(_Keys.score, _Defaults.score);
     resetAllCountryProgress();
   }
 
@@ -31,17 +30,14 @@ class PlayerDataService implements IPlayerDataService {
   set isHardDifficulty(bool value) => _box.put(_Keys.isHardDifficulty, value);
 
   @override
-  int get score => _box.get(_Keys.score, defaultValue: _Defaults.score);
-
-  @override
-  set score(int value) => _box.put(_Keys.score, value);
-
-  @override
   void updateProgress({required String id, required bool answeredCorrectly}) =>
       _flagDataService.updateProgress(id: id, answeredCorrectly: answeredCorrectly);
 
   @override
-  void resetAllCountryProgress() => _flagDataService.reset();
+  bool hasCorrectlyAnswered({required String id}) => _flagDataService.flagDataWithId(id).timesCorrect > 0;
+
+  @override
+  Future<void> resetAllCountryProgress() => _flagDataService.reset();
 
   @override
   Future<void> initialize({IFlagDataService? flagDataService}) async {
@@ -55,7 +51,10 @@ class PlayerDataService implements IPlayerDataService {
   Future<void> resync({required List<String> ids}) async => await _flagDataService.resync(ids: ids);
 
   @override
-  Future<void> reset() async => await _box.deleteAll(_box.keys);
+  Future<void> reset() async {
+    await resetAllCountryProgress();
+    await _box.deleteAll(_box.keys);
+  }
 
   // coverage:ignore-start
   /// DEBUG: Prints contents of db to the console
@@ -78,12 +77,10 @@ class PlayerDataService implements IPlayerDataService {
 class _Keys {
   static const language = 'language';
   static const isHardDifficulty = 'isHardDifficulty';
-  static const score = 'score';
 }
 
 /// A class of defaults for each key
 class _Defaults {
   static const language = 'en';
   static const isHardDifficulty = false;
-  static const score = 0;
 }

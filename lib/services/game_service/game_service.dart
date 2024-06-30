@@ -29,15 +29,12 @@ class GameService implements IGameService {
   late int _numberRounds;
   final bool isHardDifficulty;
   final IPlayerDataService playerDataService;
-  late int _score;
   late int _index;
   late List<int> _countriesDisplayed;
   late List<int> _countriesDisplayedLastRound;
+  final _answeredQuestions = <String, bool>{};
 
   void initialize() {
-    _score = 0;
-    _scoreController.add(_score);
-
     _index = 0;
     _countriesDisplayedLastRound = [];
     _nextRound();
@@ -56,11 +53,6 @@ class GameService implements IGameService {
 
   @override
   Stream<List<String>> get answerCountries => _answersController.stream;
-
-  final _scoreController = StreamController<int>();
-
-  @override
-  Stream<int> get currentScore => _scoreController.stream;
 
   @override
   bool get levelCompleted => _index >= _numberRounds;
@@ -100,17 +92,17 @@ class GameService implements IGameService {
   @override
   bool answerWithId(String id) {
     final correct = _questionCountry.id == id;
-    if (correct) {
-      _score += (isHardDifficulty ? 2 : 1);
-      _scoreController.add(_score);
-    }
-    playerDataService.updateProgress(id: id, answeredCorrectly: correct);
+    _answeredQuestions[_questionCountry.id] = correct;
 
     if (++_index < _numberRounds) {
       _nextRound();
     } else {
-      // only update score on level completion
-      playerDataService.score += _score;
+      // level completed, update progress
+      for (final kvp in _answeredQuestions.entries) {
+        final id = kvp.key;
+        final correct = kvp.value;
+        playerDataService.updateProgress(id: id, answeredCorrectly: correct);
+      }
     }
 
     return correct;

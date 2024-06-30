@@ -1,6 +1,5 @@
 import 'package:bratacha/intl/localizations.dart';
 import 'package:bratacha/managers/level_manager.dart';
-import 'package:bratacha/widgets/common/score.dart';
 import 'package:bratacha/widgets/game_screen/game_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -27,8 +26,8 @@ class HomeTab extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
                     child: _LevelButton(
                       levelIndex: i,
-                      isLevelUnlocked: levelManager.isLevelUnlocked(i),
-                      pointsRequired: levelManager.scoreToUnlock(i),
+                      isLevelUnlocked: i == 0 || levelManager.progressForLevel(i - 1) == 1,
+                      levelProgress: levelManager.progressForLevel(i),
                     ),
                   ),
               ],
@@ -42,14 +41,14 @@ class HomeTab extends StatelessWidget {
 
 class _LevelButton extends StatelessWidget {
   const _LevelButton({
-    required this.isLevelUnlocked,
     required this.levelIndex,
-    required this.pointsRequired,
+    required this.isLevelUnlocked,
+    required this.levelProgress,
   });
 
-  final bool isLevelUnlocked;
   final int levelIndex;
-  final int pointsRequired;
+  final bool isLevelUnlocked;
+  final double levelProgress;
 
   @override
   Widget build(BuildContext context) {
@@ -75,11 +74,13 @@ class _LevelButton extends StatelessWidget {
                       context.l10n.generalLevelLabel(levelIndex + 1),
                       style: TextStyle(color: Theme.of(context).scaffoldBackgroundColor),
                     ),
-                    if (!isLevelUnlocked)
-                      Score(
-                        score: pointsRequired,
-                        color: Theme.of(context).colorScheme.secondary,
-                        fontSize: 16.0,
+                    if (isLevelUnlocked)
+                      Text(
+                        '${(levelProgress * 100).toStringAsFixed(0)}%',
+                        style: TextStyle(
+                          color: Theme.of(context).colorScheme.secondary,
+                          fontSize: 16.0,
+                        ),
                       ),
                   ],
                 ),
