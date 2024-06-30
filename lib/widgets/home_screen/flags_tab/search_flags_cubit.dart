@@ -12,7 +12,7 @@ class SearchFlagsCubit extends Cubit<List<Country>> {
   var _searchTerm = '';
 
   void update(String searchTerm) {
-    _searchTerm = searchTerm.trim().toLowerCase();
+    _searchTerm = searchTerm.trim().toLowerCase().normalize(_language);
     _search();
   }
 
@@ -21,9 +21,10 @@ class SearchFlagsCubit extends Cubit<List<Country>> {
       _searchTerm.isEmpty
           ? CountryService.countries
           : CountryService.countries
-              .where((country) => country.localizedName.toLowerCase().contains(_searchTerm))
+              .where((country) => country.localizedName.toLowerCase().normalize(_language).contains(_searchTerm))
               .toList(),
     );
+
     countries.sort((a, b) => a.sortTerm(_language).compareTo(b.sortTerm(_language)));
 
     emit(countries);
@@ -35,11 +36,14 @@ extension on Country {
         'en' => localizedName.replaceAll('The ', ''),
         'be' => localizedName.toLowerCase().replaceAll('і', 'й'),
         'cy' => localizedName.replaceAll('Yr ', ''),
-        'ga' => localizedName.replaceAll('An t', '').replaceAll('An ', '').normalizeGA,
-        _ => localizedName,
+        'ga' => localizedName.replaceAll('An t', '').replaceAll('An ', '').toLowerCase().normalize(language),
+        _ => throw ArgumentError('Unsupported language'),
       };
 }
 
 extension on String {
-  String get normalizeGA => replaceAll('É', 'E').replaceAll('Í', 'I').replaceAll('Ó', 'O').replaceAll('Ú', 'U');
+  String normalize(String language) => switch (language) {
+        'ga' => replaceAll('é', 'e').replaceAll('í', 'i').replaceAll('ó', 'o').replaceAll('ú', 'u'),
+        _ => this,
+      };
 }
