@@ -24,8 +24,10 @@ class GameService implements IGameService {
       ..shuffle(random);
 
     _numberRounds = levelCountries.length;
+    _determineLevelProgress = () => levelManager.progressForLevel(level);
   }
 
+  late final double Function() _determineLevelProgress;
   final List<Country> _countries = CountryService.countries;
   late List<int> _indicesCountriesForLevel;
   late int _numberRounds;
@@ -39,9 +41,6 @@ class GameService implements IGameService {
   int get _indexForCurrentQuestion => _indicesCountriesForLevel[_index];
 
   Country get _questionCountry => _countries[_indexForCurrentQuestion];
-
-  @override
-  bool get levelCompleted => _index >= _numberRounds;
 
   double get _progress => _index / _numberRounds;
 
@@ -78,28 +77,43 @@ class GameService implements IGameService {
       progress: _progress,
       question: _questionCountry.localizedName,
       answers: _countriesDisplayed.map((index) => _countries[index].id).toList(),
+      result: null,
     );
   }
 
   @override
-  (String, String, double) answerWithId(String id) {
+  (String, String, double, GameResult?) answerWithId(String id) {
     final correct = _questionCountry.id == id;
     _answeredQuestions[_questionCountry.id] = correct;
 
     final questionCountryId = _questionCountry.id;
 
+    GameResult? result;
+
     if (++_index < _numberRounds) {
-      // _nextRound();
+      // do nothing
     } else {
+      final progressBefore = _determineLevelProgress();
+
       // level completed, update progress
       for (final kvp in _answeredQuestions.entries) {
         final id = kvp.key;
         final correct = kvp.value;
         playerDataService.updateProgress(id: id, answeredCorrectly: correct);
       }
+
+      final progressAfter = _determineLevelProgress();
+
+      result = (
+        levelProgressBefore: progressBefore,
+        levelProgressAfter: progressAfter,
+        numberRounds: _numberRounds,
+        correctAnswers: _answeredQuestions.values.where((t) => t).length,
+        incorrectIds: _answeredQuestions.entries.where((kvp) => !kvp.value).map((kvp) => kvp.key).toList(),
+      );
     }
 
-    return (questionCountryId, CountryService.countryWithId(id).localizedName, _progress);
+    return (questionCountryId, CountryService.countryWithId(id).localizedName, _progress, result);
   }
 
   int _indexById(String id) => _countries.indexWhere((country) => country.id == id);

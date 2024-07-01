@@ -16,8 +16,12 @@ void main() {
     blocTest<GameCubit, GameState>(
       'when IGameService returns next round, emits correct state',
       setUp: () {
-        when(() => mockGameService.nextRound())
-            .thenReturn((progress: 0, question: 'aLocalized', answers: ['a', 'b', 'c', 'd']));
+        when(() => mockGameService.nextRound()).thenReturn((
+          progress: 0,
+          question: 'aLocalized',
+          answers: ['a', 'b', 'c', 'd'],
+          result: null,
+        ));
       },
       build: () => GameCubit(gameService: mockGameService),
       act: (cubit) => cubit.initialize(),

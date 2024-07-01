@@ -34,26 +34,28 @@ void main() {
         random: Random(3),
       );
 
-      expect(gameService.levelCompleted, isFalse);
       expect(
         gameService.nextRound(),
-        isA<GameRound>().having((round) => round.question, 'question', 'Germany'),
+        isA<GameRound>()
+            .having((round) => round.question, 'question', 'Germany')
+            .having((round) => round.progress, 'progress', 0.0),
       );
 
       gameService.answerWithId('de');
 
-      expect(gameService.levelCompleted, isFalse);
       expect(
         gameService.nextRound(),
-        isA<GameRound>().having((round) => round.question, 'question', 'United Kingdom'),
+        isA<GameRound>()
+            .having((round) => round.question, 'question', 'United Kingdom')
+            .having((round) => round.progress, 'progress', 0.125),
       );
 
       gameService.answerWithId('gb');
-
-      expect(gameService.levelCompleted, isFalse);
     });
 
     test('levelCompleted after all questions answered', () async {
+      when(() => mockLevelManager.progressForLevel(any())).thenReturn(1);
+
       final numberRounds = countries.length;
 
       final gameService = GameService(
@@ -65,9 +67,9 @@ void main() {
 
       for (var i = 0; i < numberRounds; i++) {
         gameService.answerWithId('de');
-        final levelCompleted = i == numberRounds - 1;
-        expect(gameService.levelCompleted, levelCompleted);
       }
+
+      verify(() => mockLevelManager.progressForLevel(any())).called(2);
     });
   });
 }

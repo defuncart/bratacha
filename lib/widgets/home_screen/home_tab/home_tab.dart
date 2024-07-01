@@ -61,7 +61,20 @@ class _LevelButton extends StatelessWidget {
               )
           // ? () => Navigator.of(context).pushReplacementNamed(
           //       ResultsScreen.routeName,
-          //       arguments: ResultsScreenArguments(level: levelIndex),
+          //       arguments: ResultsScreenArguments(
+          //         level: levelIndex,
+          //         levelProgressBefore: 0.2,
+          //         levelProgressAfter: 1,
+          //         numberRounds: 20,
+          //         correctAnswers: 19,
+          //         incorrectIds: [
+          //           'ie',
+          //           'pl',
+          //           'cd',
+          //           'cf',
+          //           'vc',
+          //         ],
+          //       ),
           //     )
           : null,
       child: Opacity(

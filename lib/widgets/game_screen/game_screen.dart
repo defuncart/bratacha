@@ -3,10 +3,10 @@ import 'package:bratacha/managers/level_manager.dart';
 import 'package:bratacha/modules/dialog_manager/dialog_manager.dart';
 import 'package:bratacha/modules/player_data/player_data.dart';
 import 'package:bratacha/services/game_service/game_service.dart';
-import 'package:bratacha/services/game_service/i_game_service.dart';
 import 'package:bratacha/widgets/game_screen/game_cubit.dart';
 import 'package:bratacha/widgets/game_screen/question_answer_panel.dart';
 import 'package:bratacha/widgets/home_screen/home_screen.dart';
+import 'package:bratacha/widgets/results_screen/results_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -26,24 +26,31 @@ class GameScreen extends StatelessWidget {
     final args = ModalRoute.of(context)?.settings.arguments as GameScreenArguments;
     final level = args.level;
 
-    return RepositoryProvider<IGameService>(
-      create: (_) => GameService(
-        isHardDifficulty: context.read<IPlayerDataService>().isHardDifficulty,
-        playerDataService: context.read<IPlayerDataService>(),
-        level: level,
-        levelManager: context.read<LevelManager>(),
-      ),
-      lazy: false,
-      child: MultiBlocProvider(
-        providers: [
-          BlocProvider<GameCubit>(
-            create: (contextRepository) => GameCubit(
-              gameService: contextRepository.read<IGameService>(),
-            )..initialize(),
-          ),
-        ],
-        // TODO add bloc listener to navigate when game over
-        // Navigator.of(context).pushReplacementNamed(HomeScreen.routeName);
+    return BlocProvider<GameCubit>(
+      create: (contextRepository) => GameCubit(
+        gameService: GameService(
+          isHardDifficulty: context.read<IPlayerDataService>().isHardDifficulty,
+          playerDataService: context.read<IPlayerDataService>(),
+          level: level,
+          levelManager: context.read<LevelManager>(),
+        ),
+      )..initialize(),
+      child: BlocListener<GameCubit, GameState>(
+        listener: (context, state) {
+          if (state is GameStateEndGame) {
+            Navigator.of(context).pushReplacementNamed(
+              ResultsScreen.routeName,
+              arguments: ResultsScreenArguments(
+                level: level,
+                levelProgressBefore: state.levelProgressBefore,
+                levelProgressAfter: state.levelProgressAfter,
+                numberRounds: state.numberRounds,
+                correctAnswers: state.correctAnswers,
+                incorrectIds: state.incorrectIds,
+              ),
+            );
+          }
+        },
         child: Scaffold(
           appBar: AppBar(
             leading: IconButton(

@@ -1,13 +1,20 @@
 abstract class IGameService {
-  bool get levelCompleted;
-
   GameRound nextRound();
 
-  (String, String, double) answerWithId(String id);
+  (String, String, double, GameResult?) answerWithId(String id);
 }
 
 typedef GameRound = ({
   double progress,
   String question,
   List<String> answers,
+  GameResult? result,
+});
+
+typedef GameResult = ({
+  double levelProgressBefore,
+  double levelProgressAfter,
+  int numberRounds,
+  int correctAnswers,
+  List<String> incorrectIds,
 });

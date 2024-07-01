@@ -38,14 +38,18 @@ class GameStateEndRound extends GameState {
 }
 
 class GameStateEndGame extends GameState {
-  final String question;
-  final List<String> answers;
-  final bool answeredCorrectly;
+  final double levelProgressBefore;
+  final double levelProgressAfter;
+  final int numberRounds;
+  final int correctAnswers;
+  final List<String> incorrectIds;
 
   GameStateEndGame({
-    required this.question,
-    required this.answers,
-    required this.answeredCorrectly,
+    required this.levelProgressBefore,
+    required this.levelProgressAfter,
+    required this.numberRounds,
+    required this.correctAnswers,
+    required this.incorrectIds,
   });
 }
 
@@ -64,6 +68,7 @@ class GameCubit extends Cubit<GameState> {
   void answerWithId(String id) {
     final result = _gameService.answerWithId(id);
     final isCorrect = result.$1 == id;
+    final isGameOver = result.$3 == 1;
 
     emit(GameStateEndRound(
       progress: result.$3,
@@ -77,11 +82,13 @@ class GameCubit extends Cubit<GameState> {
     Timer.periodic(Duration(milliseconds: isCorrect ? 1000 : 2000), (timer) {
       timer.cancel();
 
-      if (_gameService.levelCompleted) {
+      if (isGameOver) {
         emit(GameStateEndGame(
-          question: _gameRound!.question,
-          answers: _gameRound!.answers,
-          answeredCorrectly: false,
+          levelProgressBefore: result.$4!.levelProgressBefore,
+          levelProgressAfter: result.$4!.levelProgressAfter,
+          numberRounds: result.$4!.numberRounds,
+          correctAnswers: result.$4!.correctAnswers,
+          incorrectIds: result.$4!.incorrectIds,
         ));
       } else {
         _nextRoundAndEmit();

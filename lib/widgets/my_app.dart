@@ -15,6 +15,7 @@ import 'package:bratacha/widgets/common/panels/language_panel/language_cubit.dar
 import 'package:bratacha/widgets/game_screen/game_screen.dart';
 import 'package:bratacha/widgets/home_screen/home_screen.dart';
 import 'package:bratacha/widgets/onboarding_screen/onboarding_screen.dart';
+import 'package:bratacha/widgets/results_screen/results_screen.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -79,6 +80,7 @@ class MyApp extends StatelessWidget {
               OnboardingScreen.routeName: (_) => const OnboardingScreen(),
               HomeScreen.routeName: (_) => const HomeScreen(),
               GameScreen.routeName: (_) => const GameScreen(),
+              ResultsScreen.routeName: (_) => const ResultsScreen(),
             },
           ),
         ),
