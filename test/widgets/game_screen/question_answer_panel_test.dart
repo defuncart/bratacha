@@ -21,7 +21,7 @@ void main() {
     setUp(() {
       mockGameCubit = MockGameCubit();
 
-      final state = (
+      final state = GameStateStartRound(
         question: 'Germany',
         answers: ['de', 'ie', 'pl', 'fr'],
       );

@@ -3,7 +3,7 @@ abstract class IGameService {
 
   GameRound nextRound();
 
-  bool answerWithId(String id);
+  (String, String) answerWithId(String id);
 }
 
 typedef GameRound = ({

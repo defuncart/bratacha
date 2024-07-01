@@ -79,9 +79,11 @@ class GameService implements IGameService {
   }
 
   @override
-  bool answerWithId(String id) {
+  (String, String) answerWithId(String id) {
     final correct = _questionCountry.id == id;
     _answeredQuestions[_questionCountry.id] = correct;
+
+    final questionCountryId = _questionCountry.id;
 
     if (++_index < _numberRounds) {
       // _nextRound();
@@ -94,7 +96,7 @@ class GameService implements IGameService {
       }
     }
 
-    return correct;
+    return (questionCountryId, CountryService.countryWithId(id).localizedName);
   }
 
   int _indexById(String id) => _countries.indexWhere((country) => country.id == id);

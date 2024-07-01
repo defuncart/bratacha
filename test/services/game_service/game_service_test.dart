@@ -64,7 +64,7 @@ void main() {
       );
 
       for (var i = 0; i < numberRounds; i++) {
-        gameService.answerWithId('bla');
+        gameService.answerWithId('de');
         final levelCompleted = i == numberRounds - 1;
         expect(gameService.levelCompleted, levelCompleted);
       }

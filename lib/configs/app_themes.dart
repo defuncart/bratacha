@@ -8,6 +8,8 @@ abstract class AppThemes {
       secondary: _AppColors.accent,
       surface: _AppColors.card,
       surfaceContainerLow: _AppColors.card,
+      // TODO: better shade
+      error: Colors.red,
     ),
     scaffoldBackgroundColor: _AppColors.primary,
     appBarTheme: const AppBarTheme(
