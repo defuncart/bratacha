@@ -3,10 +3,11 @@ abstract class IGameService {
 
   GameRound nextRound();
 
-  (String, String) answerWithId(String id);
+  (String, String, double) answerWithId(String id);
 }
 
 typedef GameRound = ({
+  double progress,
   String question,
   List<String> answers,
 });

@@ -63,6 +63,7 @@ class _FakeGameCubit extends Cubit<GameState> implements GameCubit {
 
   _FakeGameCubit({required bool isHardDifficulty})
       : super(GameStateStartRound(
+          progress: 0,
           question: CountryService.countryWithId('us').localizedName,
           answers: isHardDifficulty ? _answersHard : _answersEasy,
         ));

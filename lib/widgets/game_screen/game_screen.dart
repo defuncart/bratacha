@@ -64,6 +64,7 @@ class GameScreen extends StatelessWidget {
               },
             ),
             title: Text(context.l10n.generalLevelLabel(level + 1)),
+            bottom: const _ProgressBar(),
           ),
           body: const SafeArea(
             child: Center(
@@ -74,4 +75,48 @@ class GameScreen extends StatelessWidget {
       ),
     );
   }
+}
+
+class _ProgressBar extends StatelessWidget implements PreferredSizeWidget {
+  const _ProgressBar();
+
+  static const _size = Size(double.infinity, 4);
+
+  @override
+  Widget build(BuildContext context) {
+    final state = context.watch<GameCubit>().state;
+    final progress = switch (state) {
+      GameStateStartRound(:final progress) => progress,
+      GameStateEndRound(:final progress) => progress,
+      _ => 1.0,
+    };
+
+    return SizedBox.fromSize(
+      size: _size,
+      child: TweenAnimationBuilder<double>(
+        duration: const Duration(milliseconds: 300),
+        curve: Curves.easeInOut,
+        tween: Tween<double>(
+          begin: 0,
+          end: progress,
+        ),
+        builder: (context, value, _) => LinearProgressIndicator(
+          // minHeight: _size.height,
+          backgroundColor: Colors.transparent,
+          color: Theme.of(context).colorScheme.secondary,
+          value: value,
+        ),
+      ),
+    );
+
+    // return SizedBox.fromSize(
+    //   size: _size,
+    //   child: ColoredBox(
+    //     color: Theme.of(context).colorScheme.secondary,
+    //   ),
+    // );
+  }
+
+  @override
+  Size get preferredSize => _size;
 }

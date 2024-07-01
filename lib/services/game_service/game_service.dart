@@ -43,6 +43,8 @@ class GameService implements IGameService {
   @override
   bool get levelCompleted => _index >= _numberRounds;
 
+  double get _progress => _index / _numberRounds;
+
   @override
   GameRound nextRound() {
     _countriesDisplayed = [_indexForCurrentQuestion, -1, -1, -1];
@@ -73,13 +75,14 @@ class GameService implements IGameService {
     _countriesDisplayedLastRound = _countriesDisplayed;
 
     return (
+      progress: _progress,
       question: _questionCountry.localizedName,
       answers: _countriesDisplayed.map((index) => _countries[index].id).toList(),
     );
   }
 
   @override
-  (String, String) answerWithId(String id) {
+  (String, String, double) answerWithId(String id) {
     final correct = _questionCountry.id == id;
     _answeredQuestions[_questionCountry.id] = correct;
 
@@ -96,7 +99,7 @@ class GameService implements IGameService {
       }
     }
 
-    return (questionCountryId, CountryService.countryWithId(id).localizedName);
+    return (questionCountryId, CountryService.countryWithId(id).localizedName, _progress);
   }
 
   int _indexById(String id) => _countries.indexWhere((country) => country.id == id);

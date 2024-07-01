@@ -16,9 +16,8 @@ void main() {
     blocTest<GameCubit, GameState>(
       'when IGameService returns next round, emits correct state',
       setUp: () {
-        when(() => mockGameService.nextRound()).thenReturn((question: 'aLocalized', answers: ['a', 'b', 'c', 'd']));
-        // when(() => mockGameService.answerWithId(any())).thenReturn(true);
-        // when(() => mockGameService.levelCompleted).thenReturn(false);
+        when(() => mockGameService.nextRound())
+            .thenReturn((progress: 0, question: 'aLocalized', answers: ['a', 'b', 'c', 'd']));
       },
       build: () => GameCubit(gameService: mockGameService),
       act: (cubit) => cubit.initialize(),
@@ -28,15 +27,3 @@ void main() {
     );
   });
 }
-
-// class _MockGameService extends Mock implements IGameService {
-//   final List<List<String>> _answers;
-
-//   _MockGameService({required List<List<String>> answers}) : _answers = answers;
-
-//   @override
-//   GameRound nextRound() => (
-//         question: '',
-//         answers: _answers,
-//       );
-// }

@@ -6,16 +6,19 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 sealed class GameState {}
 
 class GameStateStartRound extends GameState {
+  final double progress;
   final String question;
   final List<String> answers;
 
   GameStateStartRound({
+    required this.progress,
     required this.question,
     required this.answers,
   });
 }
 
 class GameStateEndRound extends GameState {
+  final double progress;
   final String question;
   final List<String> answers;
   final String correctAnswer;
@@ -25,6 +28,7 @@ class GameStateEndRound extends GameState {
   bool get answeredCorrectly => correctAnswer == userAnswer;
 
   GameStateEndRound({
+    required this.progress,
     required this.question,
     required this.answers,
     required this.correctAnswer,
@@ -51,7 +55,7 @@ class GameCubit extends Cubit<GameState> {
   GameCubit({
     required IGameService gameService,
   })  : _gameService = gameService,
-        super(GameStateStartRound(question: '', answers: []));
+        super(GameStateStartRound(progress: 0, question: '', answers: []));
 
   GameRound? _gameRound;
 
@@ -62,6 +66,7 @@ class GameCubit extends Cubit<GameState> {
     final isCorrect = result.$1 == id;
 
     emit(GameStateEndRound(
+      progress: result.$3,
       question: _gameRound!.question,
       answers: _gameRound!.answers,
       correctAnswer: result.$1,
@@ -87,6 +92,7 @@ class GameCubit extends Cubit<GameState> {
   void _nextRoundAndEmit() {
     _gameRound = _gameService.nextRound();
     emit(GameStateStartRound(
+      progress: _gameRound!.progress,
       question: _gameRound!.question,
       answers: _gameRound!.answers,
     ));
