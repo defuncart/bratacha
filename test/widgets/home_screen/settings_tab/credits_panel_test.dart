@@ -4,7 +4,7 @@ import 'package:bratacha/widgets/home_screen/settings_tab/credits_panel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import '../../../tester_utils.dart';
+import '../../../test_utils.dart';
 
 void main() {
   group('$CreditsPanel', () {

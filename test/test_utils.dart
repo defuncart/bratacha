@@ -21,3 +21,19 @@ Widget wrapWithMaterialApp(Widget child) => MaterialApp(
       supportedLocales: const [Locale('en')],
       home: child,
     );
+
+Widget wrapWithMaterialAppGeneratedRoute({
+  required Widget child,
+  required Object? arguments,
+}) =>
+    MaterialApp(
+      localizationsDelegates: const [
+        AppLocalizations.delegate,
+      ],
+      locale: const Locale('en'),
+      supportedLocales: const [Locale('en')],
+      onGenerateRoute: (settings) => MaterialPageRoute(
+        builder: (context) => child,
+        settings: RouteSettings(arguments: arguments),
+      ),
+    );

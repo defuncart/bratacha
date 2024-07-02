@@ -11,7 +11,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 
 import '../../../mocks.dart';
-import '../../../tester_utils.dart';
+import '../../../test_utils.dart';
 
 void main() {
   group('$FlagsTab', () {

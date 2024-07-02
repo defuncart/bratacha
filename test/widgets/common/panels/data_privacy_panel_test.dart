@@ -3,7 +3,7 @@ import 'package:bratacha/widgets/common/text/clickable_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import '../../../tester_utils.dart';
+import '../../../test_utils.dart';
 
 void main() {
   group('$DataPrivacyPanel', () {

@@ -5,7 +5,7 @@ import 'package:bratacha/widgets/onboarding_screen/onboarding_page3.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import '../../tester_utils.dart';
+import '../../test_utils.dart';
 
 void main() {
   group('$OnboardingPage3', () {
