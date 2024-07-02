@@ -28,6 +28,8 @@ class ResultsScreenArguments {
   });
 }
 
+final _hasShownPopover = <int, bool>{};
+
 class ResultsScreen extends StatelessWidget {
   static const routeName = 'ResultsScreen';
 
@@ -48,7 +50,7 @@ class ResultsScreen extends StatelessWidget {
     final headlineText = goodScore ? context.l10n.resultsCongratulations : context.l10n.resultsWellDone;
     final headlineIcon = goodScore ? MdiIcons.trophyVariant : MdiIcons.trophyAward;
 
-    if (nextLevelUnlocked) {
+    if (nextLevelUnlocked && _hasShownPopover[level] == null) {
       Future.microtask(
         () => ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
@@ -69,6 +71,7 @@ class ResultsScreen extends StatelessWidget {
           ),
         ),
       );
+      _hasShownPopover[level] = true;
     }
 
     return Scaffold(
