@@ -3,6 +3,7 @@ import 'package:bratacha/intl/country_localizations.dart';
 import 'package:bratacha/intl/ga_cupertino_localizations.dart';
 import 'package:bratacha/intl/ga_material_localizations.dart';
 import 'package:bratacha/managers/level_manager.dart';
+import 'package:bratacha/modules/country_database/country_database.dart';
 import 'package:bratacha/modules/dialog_manager/dialog_manager.dart';
 import 'package:bratacha/modules/player_data/player_data.dart';
 import 'package:bratacha/modules/settings_database/settings_database.dart';
@@ -21,12 +22,23 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_svg/svg.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
+    // precache svgs
+    for (final country in CountryService.countries.map((e) => e.id)) {
+      final loader = SvgAssetLoader('assets/flags/$country.svg');
+      Cache().putIfAbsent(loader.cacheKey(null), () => loader.loadBytes(null));
+    }
+    for (final language in AppLocalizations.supportedLocales) {
+      final loader = SvgAssetLoader('assets/languages/$language.svg');
+      Cache().putIfAbsent(loader.cacheKey(null), () => loader.loadBytes(null));
+    }
+
     return MultiRepositoryProvider(
       providers: [
         RepositoryProvider<LevelManager>(
