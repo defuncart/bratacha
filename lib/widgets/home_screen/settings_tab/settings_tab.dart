@@ -18,7 +18,7 @@ class SettingsTab extends StatelessWidget {
   Widget build(BuildContext context) {
     // whole widget should be rebuilt when language is changed
     return BlocBuilder<LanguageCubit, String>(
-      builder: (_, __) => Scaffold(
+      builder: (_, state) => Scaffold(
         appBar: AppBar(
           title: Text(context.l10n.settingsTabLabelText),
           actions: [
@@ -32,7 +32,21 @@ class SettingsTab extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const SizedBox(height: 16),
-                Text(context.l10n.settingsTabLanguageLabel),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(context.l10n.settingsTabLanguageLabel),
+                    Text(
+                      switch (state) {
+                        'en' => 'English',
+                        'be' => 'Беларуская',
+                        'cy' => 'Cymraeg',
+                        'ga' => 'Gaeilge',
+                        _ => throw ArgumentError('Unsupported language'),
+                      },
+                    ),
+                  ],
+                ),
                 const SizedBox(height: 8),
                 const LanguagePanel(),
                 const SizedBox(height: 16),
