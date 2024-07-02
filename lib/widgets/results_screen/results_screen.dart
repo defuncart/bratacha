@@ -2,28 +2,24 @@ import 'package:bratacha/configs/progress_config.dart';
 import 'package:bratacha/extensions/iterable_widget_extension.dart';
 import 'package:bratacha/intl/country_localizations.dart';
 import 'package:bratacha/intl/localizations.dart';
-import 'package:bratacha/managers/level_manager.dart';
 import 'package:bratacha/widgets/common/flag.dart';
 import 'package:bratacha/widgets/game_screen/game_screen.dart';
 import 'package:bratacha/widgets/home_screen/home_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 class ResultsScreenArguments {
   final int level;
-  final double levelProgressBefore;
-  final double levelProgressAfter;
-  final int numberRounds;
-  final int correctAnswers;
+  final double correctPercentage;
+  final bool canPlayNextLevel;
+  final bool nextLevelUnlocked;
   final List<String> incorrectIds;
 
   ResultsScreenArguments({
     required this.level,
-    required this.levelProgressBefore,
-    required this.levelProgressAfter,
-    required this.numberRounds,
-    required this.correctAnswers,
+    required this.correctPercentage,
+    required this.canPlayNextLevel,
+    required this.nextLevelUnlocked,
     required this.incorrectIds,
   });
 }
@@ -39,16 +35,14 @@ class ResultsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final args = ModalRoute.of(context)?.settings.arguments as ResultsScreenArguments;
     final level = args.level;
-    final numberLevels = context.read<LevelManager>().numberLevels;
-    final canPlayNextLevel =
-        args.levelProgressAfter >= ProgressConfig.percentageToOpenNextLevel && level < numberLevels - 1;
-    final nextLevelUnlocked = canPlayNextLevel && context.read<LevelManager>().progressForLevel(level + 1) == 0;
-    final correctPercentage = args.correctAnswers / args.numberRounds;
+    final correctPercentage = args.correctPercentage;
+    final canPlayNextLevel = args.canPlayNextLevel;
+    final nextLevelUnlocked = args.nextLevelUnlocked;
 
-    final goodScore = correctPercentage >= ProgressConfig.percentageToOpenNextLevel;
-    final headlineColor = goodScore ? const Color(0xffFFE391) : Theme.of(context).colorScheme.secondary;
-    final headlineText = goodScore ? context.l10n.resultsCongratulations : context.l10n.resultsWellDone;
-    final headlineIcon = goodScore ? MdiIcons.trophyVariant : MdiIcons.trophyAward;
+    final trophyScore = correctPercentage >= ProgressConfig.percentageToOpenNextLevel;
+    final headlineColor = trophyScore ? const Color(0xffFFE391) : Theme.of(context).colorScheme.secondary;
+    final headlineText = trophyScore ? context.l10n.resultsCongratulations : context.l10n.resultsWellDone;
+    final headlineIcon = trophyScore ? MdiIcons.trophyVariant : MdiIcons.medalOutline;
 
     if (nextLevelUnlocked && _hasShownPopover[level] == null) {
       Future.microtask(
@@ -102,72 +96,15 @@ class ResultsScreen extends StatelessWidget {
                 ),
               ),
               const Spacer(),
+              // middle
               if (correctPercentage == 1)
-                Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Icon(
-                      MdiIcons.partyPopper,
-                      size: 48,
-                      color: Theme.of(context).colorScheme.secondary,
-                    ),
-                    Text(
-                      'Perfect round!',
-                      style: Theme.of(context).textTheme.headlineMedium?.apply(
-                            color: Theme.of(context).colorScheme.secondary,
-                          ),
-                    ),
-                    Icon(
-                      MdiIcons.partyPopper,
-                      size: 48,
-                      color: Theme.of(context).colorScheme.secondary,
-                    ),
-                  ].intersperse(const SizedBox(width: 8)),
-                )
+                const PerfectRoundWidget()
               else
-                SizedBox(
-                  height: 96,
-                  child: ListView.separated(
-                    shrinkWrap: true,
-                    scrollDirection: Axis.horizontal,
-                    // add spacers left/right
-                    itemCount: args.incorrectIds.length + 2,
-                    itemBuilder: (context, index) {
-                      if (index == 0 || index == args.incorrectIds.length + 1) {
-                        return const SizedBox(width: 4);
-                      }
-
-                      final adjustedIndex = index - 1;
-                      final countryId = args.incorrectIds[adjustedIndex];
-                      return Stack(
-                        alignment: Alignment.bottomCenter,
-                        children: [
-                          Flag(
-                            countryId,
-                            size: 96,
-                          ),
-                          Positioned(
-                            bottom: 2,
-                            child: Container(
-                              constraints: const BoxConstraints(maxWidth: 96 - 4),
-                              padding: const EdgeInsets.all(2),
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(2),
-                                color: Theme.of(context).scaffoldBackgroundColor,
-                              ),
-                              child: Text(
-                                CountryLocalizations.getString(countryId),
-                                style: Theme.of(context).textTheme.labelSmall,
-                              ),
-                            ),
-                          ),
-                        ],
-                      );
-                    },
-                    separatorBuilder: (_, __) => const SizedBox(width: 8),
-                  ),
+                MistakesScrollList(
+                  incorrectIds: args.incorrectIds,
                 ),
               const Spacer(),
+              // actions
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
@@ -199,6 +136,92 @@ class ResultsScreen extends StatelessWidget {
             ],
           ),
         ),
+      ),
+    );
+  }
+}
+
+@visibleForTesting
+class PerfectRoundWidget extends StatelessWidget {
+  const PerfectRoundWidget({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Icon(
+          MdiIcons.partyPopper,
+          size: 48,
+          color: Theme.of(context).colorScheme.secondary,
+        ),
+        Text(
+          context.l10n.resultsPerfectRound,
+          style: Theme.of(context).textTheme.headlineMedium?.apply(
+                color: Theme.of(context).colorScheme.secondary,
+              ),
+        ),
+        Icon(
+          MdiIcons.partyPopper,
+          size: 48,
+          color: Theme.of(context).colorScheme.secondary,
+        ),
+      ].intersperse(const SizedBox(width: 8)),
+    );
+  }
+}
+
+@visibleForTesting
+class MistakesScrollList extends StatelessWidget {
+  const MistakesScrollList({
+    super.key,
+    required this.incorrectIds,
+  });
+
+  final List<String> incorrectIds;
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 96,
+      child: ListView.separated(
+        shrinkWrap: true,
+        scrollDirection: Axis.horizontal,
+        // add spacers left/right
+        itemCount: incorrectIds.length + 2,
+        itemBuilder: (context, index) {
+          if (index == 0 || index == incorrectIds.length + 1) {
+            return const SizedBox(width: 4);
+          }
+
+          final adjustedIndex = index - 1;
+          final countryId = incorrectIds[adjustedIndex];
+          return Stack(
+            alignment: Alignment.bottomCenter,
+            children: [
+              Flag(
+                countryId,
+                size: 96,
+              ),
+              Positioned(
+                bottom: 2,
+                child: Container(
+                  constraints: const BoxConstraints(maxWidth: 96 - 4),
+                  padding: const EdgeInsets.all(2),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(2),
+                    color: Theme.of(context).scaffoldBackgroundColor,
+                  ),
+                  child: Text(
+                    CountryLocalizations.getString(countryId),
+                    style: Theme.of(context).textTheme.labelSmall,
+                  ),
+                ),
+              ),
+            ],
+          );
+        },
+        separatorBuilder: (_, __) => const SizedBox(width: 8),
       ),
     );
   }

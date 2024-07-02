@@ -38,17 +38,15 @@ class GameStateEndRound extends GameState {
 }
 
 class GameStateEndGame extends GameState {
-  final double levelProgressBefore;
-  final double levelProgressAfter;
-  final int numberRounds;
-  final int correctAnswers;
+  final double correctPercentage;
+  final bool canPlayNextLevel;
+  final bool nextLevelUnlocked;
   final List<String> incorrectIds;
 
   GameStateEndGame({
-    required this.levelProgressBefore,
-    required this.levelProgressAfter,
-    required this.numberRounds,
-    required this.correctAnswers,
+    required this.correctPercentage,
+    required this.canPlayNextLevel,
+    required this.nextLevelUnlocked,
     required this.incorrectIds,
   });
 }
@@ -84,10 +82,9 @@ class GameCubit extends Cubit<GameState> {
 
       if (isGameOver) {
         emit(GameStateEndGame(
-          levelProgressBefore: result.$4!.levelProgressBefore,
-          levelProgressAfter: result.$4!.levelProgressAfter,
-          numberRounds: result.$4!.numberRounds,
-          correctAnswers: result.$4!.correctAnswers,
+          correctPercentage: result.$4!.correctPercentage,
+          canPlayNextLevel: result.$4!.canPlayNextLevel,
+          nextLevelUnlocked: result.$4!.nextLevelUnlocked,
           incorrectIds: result.$4!.incorrectIds,
         ));
       } else {

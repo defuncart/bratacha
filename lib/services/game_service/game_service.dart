@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:bratacha/configs/progress_config.dart';
 import 'package:bratacha/extensions/country_extensions.dart';
 import 'package:bratacha/managers/level_manager.dart';
 import 'package:bratacha/modules/country_database/country_database.dart';
@@ -11,7 +12,7 @@ class GameService implements IGameService {
   GameService({
     required this.isHardDifficulty,
     required this.playerDataService,
-    required int level,
+    required this.level,
     required LevelManager levelManager,
     @visibleForTesting Random? random,
   }) {
@@ -24,9 +25,14 @@ class GameService implements IGameService {
       ..shuffle(random);
 
     _numberRounds = levelCountries.length;
+    isLastLevel = level == levelManager.numberLevels - 1;
+    isNextLevelUnlocked = isLastLevel ? false : levelManager.progressForLevel(level + 1) != 0;
     _determineLevelProgress = () => levelManager.progressForLevel(level);
   }
 
+  final int level;
+  late final bool isLastLevel;
+  late final bool isNextLevelUnlocked;
   late final double Function() _determineLevelProgress;
   final List<Country> _countries = CountryService.countries;
   late List<int> _indicesCountriesForLevel;
@@ -93,8 +99,6 @@ class GameService implements IGameService {
     if (++_index < _numberRounds) {
       // do nothing
     } else {
-      final progressBefore = _determineLevelProgress();
-
       // level completed, update progress
       for (final kvp in _answeredQuestions.entries) {
         final id = kvp.key;
@@ -103,12 +107,12 @@ class GameService implements IGameService {
       }
 
       final progressAfter = _determineLevelProgress();
+      final canPlayNextLevel = progressAfter >= ProgressConfig.percentageToOpenNextLevel && !isLastLevel;
 
       result = (
-        levelProgressBefore: progressBefore,
-        levelProgressAfter: progressAfter,
-        numberRounds: _numberRounds,
-        correctAnswers: _answeredQuestions.values.where((t) => t).length,
+        correctPercentage: _answeredQuestions.values.where((t) => t).length / _numberRounds,
+        canPlayNextLevel: canPlayNextLevel,
+        nextLevelUnlocked: canPlayNextLevel && !isNextLevelUnlocked,
         incorrectIds: _answeredQuestions.entries.where((kvp) => !kvp.value).map((kvp) => kvp.key).toList(),
       );
     }

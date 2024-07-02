@@ -23,6 +23,7 @@ void main() {
       mockLevelManager = MockLevelManager();
       when(() => mockLevelManager.countriesForLevel(any()))
           .thenReturn(countries.map((code) => CountryService.countryWithId(code)).toList());
+      when(() => mockLevelManager.numberLevels).thenReturn(1);
     });
 
     test('ensure service correctly works', () async {
@@ -69,7 +70,7 @@ void main() {
         gameService.answerWithId('de');
       }
 
-      verify(() => mockLevelManager.progressForLevel(any())).called(2);
+      verify(() => mockLevelManager.progressForLevel(any())).called(1);
     });
   });
 }

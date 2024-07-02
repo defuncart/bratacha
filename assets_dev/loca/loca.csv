@@ -23,6 +23,7 @@ quitGameDialogDescription;Your current progress will be lost.;;;
 resultsCongratulations;Congratulations!;;;
 resultsWellDone;Well done!;;;
 resultsNextLevelUnlocked;Next level unlocked!;;;
+resultsPerfectRound;Perfect round!;;;
 onboardingPage1TextLabel1;Bratacha;;;
 onboardingPage1TextLabel2;A fun flag quiz game with an emphasis on often overlooked languages.;;;
 onboardingPage1TextLabel3;What language would you like to use?;;;

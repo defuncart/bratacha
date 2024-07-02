@@ -12,9 +12,8 @@ typedef GameRound = ({
 });
 
 typedef GameResult = ({
-  double levelProgressBefore,
-  double levelProgressAfter,
-  int numberRounds,
-  int correctAnswers,
+  double correctPercentage,
+  bool canPlayNextLevel,
+  bool nextLevelUnlocked,
   List<String> incorrectIds,
 });

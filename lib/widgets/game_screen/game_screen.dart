@@ -42,10 +42,9 @@ class GameScreen extends StatelessWidget {
               ResultsScreen.routeName,
               arguments: ResultsScreenArguments(
                 level: level,
-                levelProgressBefore: state.levelProgressBefore,
-                levelProgressAfter: state.levelProgressAfter,
-                numberRounds: state.numberRounds,
-                correctAnswers: state.correctAnswers,
+                correctPercentage: state.correctPercentage,
+                canPlayNextLevel: state.canPlayNextLevel,
+                nextLevelUnlocked: state.nextLevelUnlocked,
                 incorrectIds: state.incorrectIds,
               ),
             );
