@@ -1,3 +1,4 @@
+import 'package:bratacha/configs/progress_config.dart';
 import 'package:bratacha/extensions/iterable_widget_extension.dart';
 import 'package:bratacha/intl/country_localizations.dart';
 import 'package:bratacha/intl/localizations.dart';
@@ -38,7 +39,8 @@ class ResultsScreen extends StatelessWidget {
     final level = args.level;
     // final levelComplete = args.levelProgressAfter == 1;
     final numberLevels = context.read<LevelManager>().numberLevels;
-    final canPlayNextLevel = args.levelProgressAfter == 1 && level < numberLevels - 1;
+    final canPlayNextLevel =
+        args.levelProgressAfter >= ProgressConfig.percentageToOpenNextLevel && level < numberLevels - 1;
     final correctPercentage = args.correctAnswers / args.numberRounds;
     final text =
         canPlayNextLevel ? 'Congratulations!' : (correctPercentage > 0.6 ? 'Well done!' : 'Better luck next time');
