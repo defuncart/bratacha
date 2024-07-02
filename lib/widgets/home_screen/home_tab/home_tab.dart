@@ -1,6 +1,7 @@
 import 'package:bratacha/intl/localizations.dart';
 import 'package:bratacha/managers/level_manager.dart';
 import 'package:bratacha/widgets/game_screen/game_screen.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -26,7 +27,7 @@ class HomeTab extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
                     child: _LevelButton(
                       levelIndex: i,
-                      isLevelUnlocked: i == 0 || levelManager.progressForLevel(i - 1) == 1,
+                      isLevelUnlocked: i == 0 || levelManager.progressForLevel(i - 1) == 1 || kDebugMode,
                       levelProgress: levelManager.progressForLevel(i),
                     ),
                   ),
