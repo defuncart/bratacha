@@ -90,7 +90,14 @@ class _FlagsAppBarState extends State<_FlagsAppBar> {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      leading: _isTextFieldActive ? BackButton(onPressed: () => setState(() => _isTextFieldActive = false)) : null,
+      leading: _isTextFieldActive
+          ? BackButton(
+              onPressed: () {
+                setState(() => _isTextFieldActive = false);
+                _controller.clear();
+              },
+            )
+          : null,
       title: _isTextFieldActive
           ? TextField(
               controller: _controller,
