@@ -20,17 +20,5 @@ void main() {
         expect(() => levelService.countryIdsForLevel(-1), throwsArgumentError);
       });
     });
-
-    group('scoreToUnlock', () {
-      test('when level is valid, expect returns normally', () {
-        for (var i = 0; i < 10; i++) {
-          expect(() => levelService.scoreToUnlock(i), returnsNormally);
-        }
-      });
-
-      test('when level is invalid, expect argument error', () {
-        expect(() => levelService.scoreToUnlock(-1), throwsArgumentError);
-      });
-    });
   });
 }

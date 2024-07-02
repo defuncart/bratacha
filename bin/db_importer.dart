@@ -102,8 +102,7 @@ void main() async {
   sb.writeln();
   sb.writeln('const _levels = [');
   for (final level in levels) {
-    sb.writeln('\t_Level(scoreToUnlock: ${level.scoreToUnlock},');
-    sb.writeln('\t\tcountries: ${_listToCodeString(level.countries)}, ),');
+    sb.writeln('\t_Level(\tcountries: ${_listToCodeString(level.countries)}, ),');
   }
   sb.writeln('];');
 
@@ -149,17 +148,14 @@ String _listToCodeString(List<dynamic> list) {
 class _LevelImportModel {
   const _LevelImportModel({
     required this.key,
-    required this.scoreToUnlock,
     required this.countries,
   });
 
   final String key;
-  final int scoreToUnlock;
   final List<String> countries;
 
   factory _LevelImportModel.fromJson(Map<String, dynamic> json) => _LevelImportModel(
         key: json['key'],
-        scoreToUnlock: json['scoreToUnlock'],
         countries: List<String>.from(json['countries'].map((item) => item)),
       );
 }

@@ -3,7 +3,6 @@ part of 'level_service.dart';
 
 const _levels = [
   _Level(
-    scoreToUnlock: 0,
     countries: [
       'us',
       'gb',
@@ -28,7 +27,6 @@ const _levels = [
     ],
   ),
   _Level(
-    scoreToUnlock: 15,
     countries: [
       'ch',
       'jm',
@@ -53,7 +51,6 @@ const _levels = [
     ],
   ),
   _Level(
-    scoreToUnlock: 35,
     countries: [
       'bd',
       'at',
@@ -78,7 +75,6 @@ const _levels = [
     ],
   ),
   _Level(
-    scoreToUnlock: 55,
     countries: [
       'dz',
       'pa',
@@ -103,7 +99,6 @@ const _levels = [
     ],
   ),
   _Level(
-    scoreToUnlock: 75,
     countries: [
       'sg',
       'do',
@@ -128,7 +123,6 @@ const _levels = [
     ],
   ),
   _Level(
-    scoreToUnlock: 95,
     countries: [
       'sc',
       'ec',
@@ -153,7 +147,6 @@ const _levels = [
     ],
   ),
   _Level(
-    scoreToUnlock: 115,
     countries: [
       'cr',
       'bn',
@@ -178,7 +171,6 @@ const _levels = [
     ],
   ),
   _Level(
-    scoreToUnlock: 135,
     countries: [
       'mr',
       'et',
@@ -203,7 +195,6 @@ const _levels = [
     ],
   ),
   _Level(
-    scoreToUnlock: 155,
     countries: [
       'ws',
       'dm',
@@ -228,7 +219,6 @@ const _levels = [
     ],
   ),
   _Level(
-    scoreToUnlock: 175,
     countries: [
       'bj',
       'kn',
