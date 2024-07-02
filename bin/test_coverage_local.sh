@@ -1,4 +1,4 @@
-dart run dart_code_coverage:generate_dart_file -r ".*\.g\.dart","localizations.dart","generated_plugin_registrant.dart"
+dart run dart_code_coverage:generate_dart_file -r ".*\.g\.dart","localizations.dart"
 
 flutter test --coverage --exclude-tags app_store_screenshots
 
