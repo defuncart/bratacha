@@ -7,6 +7,7 @@ abstract class AppThemes {
       onPrimary: _AppColors.primaryDark,
       secondary: _AppColors.accent,
       surface: _AppColors.card,
+      onSurface: _AppColors.card,
       surfaceContainerLow: _AppColors.card,
       // TODO: better shade
       error: Colors.red,

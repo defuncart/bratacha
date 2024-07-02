@@ -37,13 +37,39 @@ class ResultsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final args = ModalRoute.of(context)?.settings.arguments as ResultsScreenArguments;
     final level = args.level;
-    // final levelComplete = args.levelProgressAfter == 1;
     final numberLevels = context.read<LevelManager>().numberLevels;
     final canPlayNextLevel =
         args.levelProgressAfter >= ProgressConfig.percentageToOpenNextLevel && level < numberLevels - 1;
+    final nextLevelUnlocked = canPlayNextLevel && context.read<LevelManager>().progressForLevel(level + 1) == 0;
     final correctPercentage = args.correctAnswers / args.numberRounds;
-    final text =
-        canPlayNextLevel ? 'Congratulations!' : (correctPercentage > 0.6 ? 'Well done!' : 'Better luck next time');
+
+    final goodScore = correctPercentage >= ProgressConfig.percentageToOpenNextLevel;
+    final headlineColor = goodScore ? const Color(0xffFFE391) : Theme.of(context).colorScheme.secondary;
+    final headlineText = goodScore ? context.l10n.resultsCongratulations : context.l10n.resultsWellDone;
+    final headlineIcon = goodScore ? MdiIcons.trophyVariant : MdiIcons.trophyAward;
+
+    if (nextLevelUnlocked) {
+      Future.microtask(
+        () => ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            behavior: SnackBarBehavior.floating,
+            margin: EdgeInsets.only(
+              bottom: MediaQuery.sizeOf(context).height - MediaQuery.paddingOf(context).top - kToolbarHeight - 60,
+              left: MediaQuery.sizeOf(context).width * 0.25,
+              right: MediaQuery.sizeOf(context).width * 0.25,
+            ),
+            content: Text(
+              context.l10n.resultsNextLevelUnlocked,
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                color: Theme.of(context).colorScheme.secondary,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+          ),
+        ),
+      );
+    }
 
     return Scaffold(
       appBar: AppBar(
@@ -56,25 +82,19 @@ class ResultsScreen extends StatelessWidget {
           child: Column(
             children: [
               const Spacer(),
-              if (canPlayNextLevel)
-                Icon(
-                  MdiIcons.trophyVariant,
-                  size: 92,
-                  color: const Color(0xffFFE391),
-                )
-              else
-                Icon(
-                  MdiIcons.trophyAward,
-                  size: 92,
-                  color: Theme.of(context).colorScheme.secondary,
-                ),
+              // headline
+              Icon(
+                headlineIcon,
+                size: 92,
+                color: headlineColor,
+              ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 4),
                 child: Text(
-                  text,
+                  headlineText,
                   textAlign: TextAlign.center,
                   style: Theme.of(context).textTheme.displaySmall?.apply(
-                        color: canPlayNextLevel ? const Color(0xffFFE391) : Theme.of(context).colorScheme.secondary,
+                        color: headlineColor,
                       ),
                 ),
               ),
