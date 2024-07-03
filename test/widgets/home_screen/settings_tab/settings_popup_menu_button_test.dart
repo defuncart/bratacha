@@ -11,6 +11,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 
+import '../../../mocks.dart';
 import '../../../test_utils.dart';
 
 void main() {
@@ -25,7 +26,7 @@ void main() {
           create: (_) => LanguageCubit(playerDataService),
         ),
       ],
-      child: SettingsPopupMenuButton(parentContext: _MockBuildContext()),
+      child: SettingsPopupMenuButton(parentContext: MockBuildContext()),
     );
 
     testWidgets('Ensure widget tree is correct', (tester) async {
@@ -46,9 +47,7 @@ void main() {
       );
 
       final button = find.byType(SettingsPopupMenuButton);
-
       await tester.tap(button);
-
       await tester.pumpAndSettle();
 
       final context = tester.element(find.byType(SettingsPopupMenuButton));
@@ -57,29 +56,33 @@ void main() {
     });
 
     // testWidgets('Ensure data privacy button is clickable', (tester) async {
+    //   final mockDialogService = MockDialogService();
+
     //   await tester.pumpWidget(
-    //     MultiRepositoryProvider(
-    //       providers: [
-    //         RepositoryProvider<IDialogService>(
-    //           create: (_) => dialogService,
-    //         ),
-    //         RepositoryProvider<IAppInfoService>(
-    //           create: (_) => _MockAppInfoService(),
-    //         ),
-    //       ],
-    //       child: MaterialApp(home: Scaffold(body: widget)),
+    //     wrapWithMaterialApp(
+    //       MultiRepositoryProvider(
+    //         providers: [
+    //           RepositoryProvider<IDialogService>.value(
+    //             value: mockDialogService,
+    //           ),
+    //           // RepositoryProvider<IAppInfoService>(
+    //           //   create: (_) => _MockAppInfoService(),
+    //           // ),
+    //         ],
+    //         child: widget,
+    //       ),
     //     ),
     //   );
 
-    //   final button = find.byType(PopupMenuItem).at(0);
+    // final button = find.byType(PopupMenuItem).at(0);
 
-    //   dialogService.setResponse(CustomDialogResponse(buttonIndexPressed: 1));
+    // mockDialogService.setResponse(CustomDialogResponse(buttonIndexPressed: 1));
 
-    //   await tester.tap(button);
+    // await tester.tap(button);
 
-    //   dialogService.setResponse(CustomDialogResponse(buttonIndexPressed: 0));
+    // dialogService.setResponse(CustomDialogResponse(buttonIndexPressed: 0));
 
-    //   await tester.tap(button);
+    // await tester.tap(button);
     // });
 
     // testWidgets('Ensure credits button is clickable', (tester) async {
@@ -131,4 +134,4 @@ class _MockPlayerDataService extends Mock implements IPlayerDataService {
 
 // class _MockAppInfoService extends Mock implements IAppInfoService {}
 
-class _MockBuildContext extends Mock implements BuildContext {}
+
