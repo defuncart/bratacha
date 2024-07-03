@@ -1,29 +1,29 @@
 key;en;be;cy;ga
 generalNo;No;Не;Na;Níl
 generalYes;Yes;Так;Ie;Tá
-generalLevelLabel;Level {level};;;Leibhéal {level}
-homeTabLabelText;Home;Галоўная;;Abhaile
-flagsTabLabelText;Flags;;;Bratacha
-flagsTabSearchTermHint;Country;;;Tír
-settingsTabLabelText;Settings;Налады;;Socruithe
+generalLevelLabel;Level {level};Узровень {level};Lefel {level};Leibhéal {level}
+homeTabLabelText;Home;Галоўны;Prif;Abhaile
+flagsTabLabelText;Flags;Сцягі;Baneri;Bratacha
+flagsTabSearchTermHint;Country;Краіна;Gwlad;Tír
+settingsTabLabelText;Settings;Налады;Gosodiadau;Socruithe
 settingsTabLanguageLabel;Language;Мова;Iaith;Teanga
-settingsTabResetProgressLabel;Reset Progress;Скід прагрэсу;;
-settingsTabDataPrivacyLabel;Data Privacy;;;Príobháideacht sonraí
-settingsTabCreditsLabel;Credits;;;Creidmheasanna
-hardDifficultyPanelLabel;Hard Difficulty;Складаная складанасць;;Deacracht chrua
-changeLanguageDialogTitle;Change Language?;;;
-changeLanguageDialogDescription;Your progress will be permantely deleted and cannot be recovered.;;;
-resetProgressDialogTitle;Reset progress?;;;
-resetProgressDialogDescription;Your progress will be permantely deleted and cannot be recovered.;;;
-creditsDialogTitle;Credits;;;
-creditsDialogDescriptionLabel1;Concept, Design and Programming by James Leahy.;;;
+settingsTabResetProgressLabel;Reset Progress;Скінуць прагрэс;Ailosod cynnydd;Cluiche athshocrú
+settingsTabDataPrivacyLabel;Data Privacy;Канфідэнцыяльнасць дадзеных;Preifatrwydd Data;Príobháideacht sonraí
+settingsTabCreditsLabel;Credits;Крэдыты;Credydau;Creidmheasanna
+hardDifficultyPanelLabel;Hard Difficulty;Складаная складанасць;Anhawster Caled;Deacracht chrua
+changeLanguageDialogTitle;Change Language?;Змяніць мову?;Newid Iaith?;Athrú Teanga?
+changeLanguageDialogDescription;Your progress will be permanently deleted and cannot be recovered.;Ваш прагрэс будзе назаўсёды выдалены і не можа быць адноўлены.;Bydd eich cynnydd yn cael ei ddileu yn barhaol ac ni ellir ei adennill.;Scriosfar do dhul chun cinn go buan agus ní féidir é a aisghabháil.
+resetProgressDialogTitle;Reset progress?;Скінуць прагрэс?;Ailosod cynnydd?;Cluiche athshocrú?
+resetProgressDialogDescription;Your progress will be permanently deleted and cannot be recovered.;Ваш прагрэс будзе назаўсёды выдалены і не можа быць адноўлены.;Bydd eich cynnydd yn cael ei ddileu yn barhaol ac ni ellir ei adennill.;Scriosfar do dhul chun cinn go buan agus ní féidir é a aisghabháil.
+creditsDialogTitle;Credits;Крэдыты;Credydau;Creidmheasanna
+creditsDialogDescriptionLabel1;Concept, Design and Programming by James Leahy.;Канцэпцыя, дызайн і праграмаванне: Джэймс Ліхі.;Cysyniad, Dylunio a Rhaglennu: James Leahy.;Coincheap, Dearadh agus Ríomhchlárú: James Leahy.
 dataPrivacyDialogTitle;Data Privacy;;;
-quitGameDialogTitle;Quit Game?;;;
-quitGameDialogDescription;Your current progress will be lost.;;;
-resultsCongratulations;Congratulations!;;;
-resultsWellDone;Well done!;;;
-resultsNextLevelUnlocked;Next level unlocked!;;;
-resultsPerfectRound;Perfect round!;;;
+quitGameDialogTitle;Quit Game?;Выйсці з гульні?;Gadael y gêm?;Scoir an cluiche?
+quitGameDialogDescription;Your current progress will be lost.;Ваш бягучы прагрэс будзе страчаны.;Bydd eich cynnydd presennol yn cael ei golli.;Caillfear an dul chun cinn atá agat faoi láthair.
+resultsCongratulations;Congratulations!;Віншую!;Llongyfarchiadau!;Comhghairdeas!
+resultsWellDone;Well done!;Добра зроблена!;Da iawn!;An-mhaith!
+resultsNextLevelUnlocked;Next level unlocked!;Наступны ўзровень разблакіраваны!;Lefel nesaf heb ei gloi!;An chéad leibhéal eile díghlasáilte!
+resultsPerfectRound;Perfect round!;Ідэальны круглы!;Rownd perffaith!;Babhta foirfe!
 onboardingPage1TextLabel1;Bratacha;;;
 onboardingPage1TextLabel2;A fun flag quiz game with an emphasis on often overlooked languages.;;;
 onboardingPage1TextLabel3;What language would you like to use?;;;

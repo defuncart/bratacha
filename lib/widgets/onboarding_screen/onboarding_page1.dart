@@ -17,7 +17,6 @@ class OnboardingPage1 extends StatelessWidget {
         Text(
           context.l10n.onboardingPage1TextLabel2,
           style: Theme.of(context).textTheme.titleLarge,
-          textAlign: TextAlign.justify,
         ),
         Column(
           children: [
