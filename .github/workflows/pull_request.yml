@@ -7,6 +7,8 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - uses: ./.github/actions/set_up_flutter
+      - name: Format
+        run: dart format . -l 120 --set-exit-if-changed
       - name: Lint
         run: flutter analyze
       - name: Unit tests
