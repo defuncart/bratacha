@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 abstract class AppThemes {
   static final theme = ThemeData.dark().copyWith(
     colorScheme: const ColorScheme.dark().copyWith(
+      primary: _AppColors.primary,
       secondary: _AppColors.accent,
       surface: _AppColors.card,
       surfaceContainerLow: _AppColors.card,

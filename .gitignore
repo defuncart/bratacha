@@ -51,3 +51,6 @@ test/coverage_report_test.dart
 
 # debug targets
 macos/
+
+# dev assets
+assets_dev/app_icons/

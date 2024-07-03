@@ -1,4 +1,5 @@
 import 'package:bratacha/services/app_info_service/i_app_info_service.dart';
+import 'package:bratacha/widgets/common/icons/app_icon.dart';
 import 'package:flutter/widgets.dart';
 
 class AppInfoService implements IAppInfoService {
@@ -9,7 +10,10 @@ class AppInfoService implements IAppInfoService {
   String get applicationVersion => '0.0.1'; //TODO use getVersion
 
   @override
-  Widget get applicationIcon => Image.asset('assets/settings/app_icon.png');
+  Widget get applicationIcon => const AppIcon(
+        size: 96,
+        hasBorder: true,
+      );
 
   @override
   String get applicationLegalese => '© 2024 defuncart';

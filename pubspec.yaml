@@ -21,6 +21,7 @@ dependencies:
   hive:
   flutter_svg:
   auto_size_text:
+  material_design_icons_flutter:
 
 dev_dependencies:
   flutter_test:
@@ -37,13 +38,16 @@ dev_dependencies:
       url: https://github.com/defuncart/dart_code_coverage
       ref: main
   mocktail:
+  app_store_screenshots:
+    git:
+      url: https://github.com/defuncart/app_store_screenshots
+      ref: main
 
 flutter:
   uses-material-design: true
   assets:
     - 'assets/flags/'
     - 'assets/languages/'
-    - 'assets/settings/'
 
 flappy_translator:
   input_file_path: "assets_dev/loca/loca.csv"
@@ -60,9 +64,8 @@ flappy_translator:
   expose_locale_maps: false
 
 flutter_launcher_icons:
-  image_path_android: "assets_dev/app_icon/app_icon.png"
-  image_path_ios: "assets_dev/app_icon/app_icon.png"
+  image_path: "assets_dev/app_icons/app_icon.png"
   android: true
   ios: true
-  adaptive_icon_background: "#00A6B6"
-  adaptive_icon_foreground: "assets_dev/app_icon/app_icon_foreground.png"
+  adaptive_icon_background: "#00ADB5"
+  adaptive_icon_foreground: "assets_dev/app_icons/android_icon_foreground.png"
