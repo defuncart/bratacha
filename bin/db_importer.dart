@@ -40,7 +40,7 @@ void main() async {
     outputFile.createSync(recursive: true);
   }
   outputFile.writeAsStringSync(sb.toString());
-  await Process.run('dart', ['format', countriesConfigOutputPath]);
+  await Process.run('dart', ['format', countriesConfigOutputPath, '-l 120']);
 
   // loca
   const locaOutputPath = 'lib/intl/country_localizations.g.dart';
@@ -79,7 +79,7 @@ void main() async {
     outputFile.createSync(recursive: true);
   }
   outputFile.writeAsStringSync(sb.toString());
-  await Process.run('dart', ['format', locaOutputPath]);
+  await Process.run('dart', ['format', locaOutputPath, '-l 120']);
 
   // levels
   const levelsDBFilepath = 'assets_dev/database/levels.json';
@@ -112,7 +112,7 @@ void main() async {
     outputFile.createSync(recursive: true);
   }
   outputFile.writeAsStringSync(sb.toString());
-  await Process.run('dart', ['format', levelsServiceOutputPath]);
+  await Process.run('dart', ['format', levelsServiceOutputPath, '-l 120']);
 }
 
 class _CountryImportModel {
