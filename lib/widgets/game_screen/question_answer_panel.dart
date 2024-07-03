@@ -15,36 +15,42 @@ class QuestionAnswerPanel extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(16),
       child: BlocBuilder<GameCubit, GameState>(
-          builder: (_, state) => switch (state) {
-                GameStateStartRound(:final question, :final answers) => _QuestionAnswerPanelContent(
-                    question: question,
-                    answers: answers,
-                    canInteract: true,
-                  ),
-                GameStateEndRound(
-                  :final question,
-                  :final answers,
-                  :final correctAnswer,
-                  :final userAnswer,
-                  :final userAnsweredLocalized,
-                  :final answeredCorrectly,
-                ) =>
-                  _QuestionAnswerPanelContent(
-                    question: question,
-                    answers: answers,
-                    canInteract: false,
-                    correctAnswer: correctAnswer,
-                    userAnswer: userAnswer,
-                    userAnsweredLocalized: userAnsweredLocalized,
-                    answeredCorrectly: answeredCorrectly,
-                  ),
-                GameStateEndGame() => const SizedBox.shrink(),
-              }),
+        builder: (_, state) => switch (state) {
+          GameStateStartRound(
+            :final question,
+            :final answers,
+          ) =>
+            QuestionAnswerPanelContent(
+              question: question,
+              answers: answers,
+              canInteract: true,
+            ),
+          GameStateEndRound(
+            :final question,
+            :final answers,
+            :final correctAnswer,
+            :final userAnswer,
+            :final userAnsweredLocalized,
+            :final answeredCorrectly,
+          ) =>
+            QuestionAnswerPanelContent(
+              question: question,
+              answers: answers,
+              canInteract: false,
+              correctAnswer: correctAnswer,
+              userAnswer: userAnswer,
+              userAnsweredLocalized: userAnsweredLocalized,
+              answeredCorrectly: answeredCorrectly,
+            ),
+          GameStateEndGame() => const SizedBox.shrink(),
+        },
+      ),
     );
   }
 }
 
-class _QuestionAnswerPanelContent extends StatelessWidget {
+@visibleForTesting
+class QuestionAnswerPanelContent extends StatelessWidget {
   final String question;
   final List<String> answers;
   final bool canInteract;
@@ -53,7 +59,8 @@ class _QuestionAnswerPanelContent extends StatelessWidget {
   final String? userAnsweredLocalized;
   final bool? answeredCorrectly;
 
-  const _QuestionAnswerPanelContent({
+  const QuestionAnswerPanelContent({
+    super.key,
     required this.question,
     required this.answers,
     required this.canInteract,
