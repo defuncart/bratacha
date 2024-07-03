@@ -5,7 +5,7 @@ class CircularWidget extends StatelessWidget {
     required this.child,
     required this.radius,
     super.key,
-  })  : assert(radius > 0);
+  }) : assert(radius > 0);
 
   final Widget child;
   final double radius;

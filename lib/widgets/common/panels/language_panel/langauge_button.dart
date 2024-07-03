@@ -9,7 +9,7 @@ class LanguageButton extends StatelessWidget {
     required this.onPressed,
     this.size = 64,
     super.key,
-  })  : assert(size > 0);
+  }) : assert(size > 0);
 
   final String languageCode;
   final bool isSelected;

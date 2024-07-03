@@ -40,8 +40,5 @@ class FlagDataAdapter extends TypeAdapter<FlagData> {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is FlagDataAdapter &&
-          runtimeType == other.runtimeType &&
-          typeId == other.typeId;
+      identical(this, other) || other is FlagDataAdapter && runtimeType == other.runtimeType && typeId == other.typeId;
 }
