@@ -50,33 +50,48 @@ class GameScreen extends StatelessWidget {
             );
           }
         },
-        child: Scaffold(
-          appBar: AppBar(
-            leading: IconButton(
-              icon: const Icon(Icons.close),
-              onPressed: () async {
-                final navigator = Navigator.of(context);
-                final response = await context.read<IDialogService>().requestConfirmDialog(
-                      ConfirmDialogRequest(
-                        title: context.l10n.quitGameDialogTitle,
-                        description: context.l10n.quitGameDialogDescription,
-                        negativeButtonText: context.l10n.generalNo,
-                        positiveButtonText: context.l10n.generalYes,
-                      ),
-                    );
-                if (response.isPositive) {
-                  await navigator.pushReplacementNamed(HomeScreen.routeName);
-                }
-              },
-            ),
-            title: Text(context.l10n.generalLevelLabel(level + 1)),
-            bottom: const _ProgressBar(),
-          ),
-          body: const SafeArea(
-            child: Center(
-              child: QuestionAnswerPanel(),
-            ),
-          ),
+        child: GameScreenContent(level: level),
+      ),
+    );
+  }
+}
+
+@visibleForTesting
+class GameScreenContent extends StatelessWidget {
+  const GameScreenContent({
+    super.key,
+    required this.level,
+  });
+
+  final int level;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        leading: IconButton(
+          icon: const Icon(Icons.close),
+          onPressed: () async {
+            final navigator = Navigator.of(context);
+            final response = await context.read<IDialogService>().requestConfirmDialog(
+                  ConfirmDialogRequest(
+                    title: context.l10n.quitGameDialogTitle,
+                    description: context.l10n.quitGameDialogDescription,
+                    negativeButtonText: context.l10n.generalNo,
+                    positiveButtonText: context.l10n.generalYes,
+                  ),
+                );
+            if (response.isPositive) {
+              await navigator.pushReplacementNamed(HomeScreen.routeName);
+            }
+          },
+        ),
+        title: Text(context.l10n.generalLevelLabel(level + 1)),
+        bottom: const _ProgressBar(),
+      ),
+      body: const SafeArea(
+        child: Center(
+          child: QuestionAnswerPanel(),
         ),
       ),
     );
