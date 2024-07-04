@@ -36,15 +36,7 @@ class SettingsTab extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(context.l10n.settingsTabLanguageLabel),
-                    Text(
-                      switch (state) {
-                        'en' => 'English',
-                        'be' => 'Беларуская',
-                        'cy' => 'Cymraeg',
-                        'ga' => 'Gaeilge',
-                        _ => throw ArgumentError('Unsupported language'),
-                      },
-                    ),
+                    Text(state.languageTitle),
                   ],
                 ),
                 const SizedBox(height: 8),
@@ -82,4 +74,14 @@ class SettingsTab extends StatelessWidget {
       ),
     );
   }
+}
+
+extension LanguageTitle on String {
+  String get languageTitle => switch (this) {
+        'en' => 'English',
+        'be' => 'Беларуская',
+        'cy' => 'Cymraeg',
+        'ga' => 'Gaeilge',
+        _ => throw ArgumentError('Unsupported language'),
+      };
 }
