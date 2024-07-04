@@ -17,7 +17,10 @@ resetProgressDialogTitle;Reset progress?;Скінуць прагрэс?;Ailosod 
 resetProgressDialogDescription;Your progress will be permanently deleted and cannot be recovered.;Ваш прагрэс будзе назаўсёды выдалены і не можа быць адноўлены.;Bydd eich cynnydd yn cael ei ddileu yn barhaol ac ni ellir ei adennill.;Scriosfar do dhul chun cinn go buan agus ní féidir é a aisghabháil.
 creditsDialogTitle;Credits;Крэдыты;Credydau;Creidmheasanna
 creditsDialogDescriptionLabel1;Concept, Design and Programming by James Leahy.;Канцэпцыя, дызайн і праграмаванне: Джэймс Ліхі.;Cysyniad, Dylunio a Rhaglennu: James Leahy.;Coincheap, Dearadh agus Ríomhchlárú: James Leahy.
+developerPanelLabel;Made with \u2764 in Berlin. [Source Code](https://github.com/defuncart/bratacha).;;;
 dataPrivacyDialogTitle;Data Privacy;;;
+dataPrivacyPanelLabel1;By using this application, you agree to the terms and conditions stated in the [privacy policy](https://github.com/defuncart/bratacha/blob/master/privacy_policy.md).;;;
+dataPrivacyPanelLabel2;No data is collected on how you use the app, nor is any data sent onto third parties.;;;
 quitGameDialogTitle;Quit Game?;Выйсці з гульні?;Gadael y gêm?;Scoir an cluiche?
 quitGameDialogDescription;Your current progress will be lost.;Ваш бягучы прагрэс будзе страчаны.;Bydd eich cynnydd presennol yn cael ei golli.;Caillfear an dul chun cinn atá agat faoi láthair.
 resultsCongratulations;Congratulations!;Віншую!;Llongyfarchiadau!;Comhghairdeas!
@@ -29,8 +32,5 @@ onboardingPage1TextLabel2;A fun flag quiz game with an emphasis on often overloo
 onboardingPage1TextLabel3;What language would you like to use?;;;
 onboardingGeneralSettingLabel;This can be changed anytime in the settings menu.;;;
 onboardingPage2TextLabel1;Fancy a challenge?;;;
-developerPanelLabel;Made with \u2764 in Berlin. [Source Code](https://github.com/defuncart/bratacha).;;;
-dataPrivacyPanelLabel1;By using this application, you agree to the terms and conditions stated in the [privacy policy](https://github.com/defuncart/bratacha/blob/master/privacy_policy.md).;;;
-dataPrivacyPanelLabel2;No data is collected on how you use the app, nor is any data sent onto third parties.;;;
 feedbackPanelLabel1;As the game is presently in development, all content is subject to change. Your feedback is greatly appreciated!;;;
 feedbackPanelGiveFeedbackButtonText;Give Feedback;;;

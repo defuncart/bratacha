@@ -1,5 +1,5 @@
-import 'package:bratacha/widgets/common/panels/data_privacy_panel.dart';
 import 'package:bratacha/widgets/common/text/clickable_text.dart';
+import 'package:bratacha/widgets/home_screen/settings_tab/data_privacy_panel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 

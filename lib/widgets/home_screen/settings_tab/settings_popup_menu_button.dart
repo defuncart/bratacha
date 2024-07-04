@@ -1,8 +1,8 @@
 import 'package:bratacha/intl/localizations.dart';
 import 'package:bratacha/modules/dialog_manager/dialog_manager.dart';
 import 'package:bratacha/services/app_info_service/i_app_info_service.dart';
-import 'package:bratacha/widgets/common/panels/data_privacy_panel.dart';
 import 'package:bratacha/widgets/home_screen/settings_tab/credits_panel.dart';
+import 'package:bratacha/widgets/home_screen/settings_tab/data_privacy_panel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

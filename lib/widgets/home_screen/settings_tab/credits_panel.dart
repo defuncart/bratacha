@@ -1,5 +1,5 @@
 import 'package:bratacha/intl/localizations.dart';
-import 'package:bratacha/widgets/common/panels/developer_panel.dart';
+import 'package:bratacha/widgets/common/text/clickable_text.dart';
 import 'package:flutter/material.dart';
 
 class CreditsPanel extends StatelessWidget {
@@ -9,13 +9,14 @@ class CreditsPanel extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
           context.l10n.creditsDialogDescriptionLabel1,
           style: Theme.of(context).textTheme.bodyMedium,
         ),
         const SizedBox(height: 8),
-        const DeveloperPanel(),
+        ClickableText(context.l10n.developerPanelLabel),
       ],
     );
   }
