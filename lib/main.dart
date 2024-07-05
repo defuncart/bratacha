@@ -17,6 +17,23 @@ void main() async {
     await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   }
 
+  LicenseRegistry.addLicense(() async* {
+    yield _CustomLicenseEntry([
+      'flagpack'
+    ], [
+      const LicenseParagraph(
+        '''
+flagpack
+
+Created by https://github.com/jackiboy
+
+Source code: https://github.com/jackiboy/flagpack
+''',
+        0,
+      ),
+    ]);
+  });
+
   if (!kIsWeb) {
     final dir = await getApplicationDocumentsDirectory();
     Hive.init(dir.path);
@@ -75,4 +92,17 @@ class _LandscapeApp extends StatelessWidget {
       },
     );
   }
+}
+
+class _CustomLicenseEntry extends LicenseEntry {
+  _CustomLicenseEntry(
+    this.packages,
+    this.paragraphs,
+  );
+
+  @override
+  final Iterable<String> packages;
+
+  @override
+  final Iterable<LicenseParagraph> paragraphs;
 }
