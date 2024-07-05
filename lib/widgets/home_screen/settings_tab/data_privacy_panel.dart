@@ -2,13 +2,12 @@ import 'package:bratacha/intl/localizations.dart';
 import 'package:bratacha/widgets/common/text/clickable_text.dart';
 import 'package:flutter/material.dart';
 
+const double _spacerHeight = 16;
+
 class DataPrivacyPanel extends StatelessWidget {
   const DataPrivacyPanel({
-    this.spacerHeight = 16.0,
     super.key,
   });
-
-  final double spacerHeight;
 
   @override
   Widget build(BuildContext context) {
@@ -18,11 +17,13 @@ class DataPrivacyPanel extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         ClickableText(context.l10n.dataPrivacyPanelLabel1),
-        SizedBox(height: spacerHeight),
+        const SizedBox(height: _spacerHeight),
         Text(
           context.l10n.dataPrivacyPanelLabel2,
           style: Theme.of(context).textTheme.bodyMedium,
         ),
+        const SizedBox(height: _spacerHeight),
+        ClickableText(context.l10n.developerPanelLabel),
       ],
     );
   }

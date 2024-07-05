@@ -13,7 +13,7 @@ void main() {
       );
 
       expect(find.byType(Column), findsOneWidget);
-      expect(find.byType(ClickableText), findsOneWidget);
+      expect(find.byType(ClickableText), findsNWidgets(2));
       expect(find.byType(Text), findsOneWidget);
     });
   });
