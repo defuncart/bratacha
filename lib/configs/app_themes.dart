@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 abstract class AppThemes {
   static final theme = ThemeData.dark().copyWith(
@@ -17,6 +18,13 @@ abstract class AppThemes {
       color: _AppColors.primaryDark,
       surfaceTintColor: Colors.transparent,
       elevation: 0,
+      systemOverlayStyle: SystemUiOverlayStyle(
+        statusBarColor: Colors.transparent,
+        systemNavigationBarColor: _AppColors.primary,
+      ),
+    ),
+    bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+      backgroundColor: _AppColors.primaryDark,
     ),
     textButtonTheme: TextButtonThemeData(
       style: TextButton.styleFrom(

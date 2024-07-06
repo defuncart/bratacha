@@ -1,3 +1,4 @@
+import 'package:bratacha/configs/app_themes.dart';
 import 'package:bratacha/intl/intl_helper.dart';
 import 'package:bratacha/modules/country_database/country_database.dart';
 import 'package:bratacha/modules/player_data/player_data.dart';
@@ -15,6 +16,7 @@ void main() async {
 
   if (defaultTargetPlatform == TargetPlatform.android) {
     await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+    SystemChrome.setSystemUIOverlayStyle(AppThemes.theme.appBarTheme.systemOverlayStyle!);
   }
 
   LicenseRegistry.addLicense(() async* {
