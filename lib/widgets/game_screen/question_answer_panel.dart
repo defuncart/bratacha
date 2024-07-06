@@ -81,7 +81,7 @@ class QuestionAnswerPanelContent extends StatelessWidget {
             child: AutoSizeText(
               question,
               maxLines: 3,
-              style: Theme.of(context).textTheme.displaySmall,
+              style: Theme.of(context).textTheme.displayMedium,
               minFontSize: 18,
               textAlign: TextAlign.center,
             ),
