@@ -17,6 +17,7 @@ class ClickableText extends StatelessWidget {
     final spanModels = convert(text);
 
     return RichText(
+      textScaler: MediaQuery.textScalerOf(context),
       text: TextSpan(
         style: Theme.of(context).textTheme.bodyMedium,
         children: [
