@@ -1,4 +1,3 @@
-import 'package:bloc_test/bloc_test.dart';
 import 'package:bratacha/intl/localizations.dart';
 import 'package:bratacha/modules/dialog_manager/dialog_manager.dart';
 import 'package:bratacha/modules/player_data/src/services/i_player_data_service.dart';
@@ -27,11 +26,9 @@ void main() {
 
     setUp(() {
       mockHardDifficultyCubit = MockHardDifficultyCubit();
-      when(() => mockHardDifficultyCubit.state).thenReturn(false);
-      whenListen(mockHardDifficultyCubit, Stream.value(false));
+      whenState(mockHardDifficultyCubit, false);
       mockLanguageCubit = MockLanguageCubit();
-      when(() => mockLanguageCubit.state).thenReturn('en');
-      whenListen(mockLanguageCubit, Stream.value('en'));
+      whenState(mockLanguageCubit, 'en');
 
       widget = MultiBlocProvider(
         providers: [

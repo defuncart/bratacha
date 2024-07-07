@@ -1,4 +1,3 @@
-import 'package:bloc_test/bloc_test.dart';
 import 'package:bratacha/modules/dialog_manager/dialog_manager.dart';
 import 'package:bratacha/widgets/common/panels/language_panel/langauge_button.dart';
 import 'package:bratacha/widgets/common/panels/language_panel/language_cubit.dart';
@@ -19,8 +18,7 @@ void main() {
 
     setUp(() {
       mockLanguageCubit = MockLanguageCubit();
-      when(() => mockLanguageCubit.state).thenReturn('en');
-      whenListen(mockLanguageCubit, Stream.value('en'));
+      whenState(mockLanguageCubit, 'en');
     });
 
     testWidgets('ensure widget tree is correct', (tester) async {

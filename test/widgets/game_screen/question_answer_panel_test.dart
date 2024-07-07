@@ -1,4 +1,3 @@
-import 'package:bloc_test/bloc_test.dart';
 import 'package:bratacha/intl/country_localizations.dart';
 import 'package:bratacha/widgets/common/flag.dart';
 import 'package:bratacha/widgets/game_screen/game_cubit.dart';
@@ -10,6 +9,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 
 import '../../mocks.dart';
+import '../../test_utils.dart';
 
 void main() {
   // ensure localizations are setup
@@ -32,8 +32,7 @@ void main() {
         question: 'Germany',
         answers: ['de', 'ie', 'pl', 'fr'],
       );
-      when(() => mockGameCubit.state).thenReturn(state);
-      whenListen(mockGameCubit, Stream.value(state));
+      whenState(mockGameCubit, state);
 
       await tester.pumpWidget(
         MultiBlocProvider(
@@ -73,8 +72,7 @@ void main() {
           userAnswer: 'de',
           userAnsweredLocalized: 'Germany',
         );
-        when(() => mockGameCubit.state).thenReturn(state);
-        whenListen(mockGameCubit, Stream.value(state));
+        whenState(mockGameCubit, state);
 
         await tester.pumpWidget(
           MultiBlocProvider(
@@ -116,8 +114,7 @@ void main() {
           userAnswer: 'pl',
           userAnsweredLocalized: 'Poland',
         );
-        when(() => mockGameCubit.state).thenReturn(state);
-        whenListen(mockGameCubit, Stream.value(state));
+        whenState(mockGameCubit, state);
 
         await tester.pumpWidget(
           MultiBlocProvider(
@@ -159,8 +156,7 @@ void main() {
         nextLevelUnlocked: true,
         incorrectIds: [],
       );
-      when(() => mockGameCubit.state).thenReturn(state);
-      whenListen(mockGameCubit, Stream.value(state));
+      whenState(mockGameCubit, state);
 
       await tester.pumpWidget(
         MultiBlocProvider(
