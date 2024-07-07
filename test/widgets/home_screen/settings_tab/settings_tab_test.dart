@@ -42,7 +42,7 @@ void main() {
             value: mockLanguageCubit,
           ),
         ],
-        child: RepositoryProvider<IUrlLaucherService>(
+        child: RepositoryProvider<IUrlLauncherService>(
           create: (_) => MockUrlLauncherService(),
           child: const SettingsTab(),
         ),

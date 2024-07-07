@@ -1,6 +1,5 @@
 import 'package:bratacha/configs/app_themes.dart';
 import 'package:bratacha/intl/country_localizations.dart';
-import 'package:bratacha/intl/ga_cupertino_localizations.dart';
 import 'package:bratacha/intl/ga_material_localizations.dart';
 import 'package:bratacha/managers/level_manager.dart';
 import 'package:bratacha/modules/country_database/country_database.dart';
@@ -50,7 +49,7 @@ class MyApp extends StatelessWidget {
         RepositoryProvider<IAppInfoService>(
           create: (_) => AppInfoService(),
         ),
-        RepositoryProvider<IUrlLaucherService>(
+        RepositoryProvider<IUrlLauncherService>(
           create: (_) => UrlLaucherService(),
         ),
       ],
@@ -82,7 +81,7 @@ class MyApp extends StatelessWidget {
               GlobalWidgetsLocalizations.delegate,
               GlobalCupertinoLocalizations.delegate,
               GaMaterialLocalizations.delegate,
-              GaCupertinoLocalizations.delegate,
+              // GaCupertinoLocalizations.delegate,
             ],
             locale: Locale(language),
             supportedLocales: AppLocalizations.supportedLocales,

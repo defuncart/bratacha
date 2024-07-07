@@ -47,7 +47,7 @@ void main() {
     );
   });
 
-  test('with _MockFlagDataService', () async {
+  test('with MockFlagDataService', () async {
     await hiveWrapper(
       callback: () async {
         final mockFlagDataService = MockFlagDataService();

@@ -10,7 +10,7 @@ class FeedbackPanel extends StatelessWidget {
     super.key,
   });
 
-  final IUrlLaucherService urlLaucherService;
+  final IUrlLauncherService urlLaucherService;
 
   @override
   Widget build(BuildContext context) {

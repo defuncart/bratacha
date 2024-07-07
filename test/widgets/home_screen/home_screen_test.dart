@@ -36,7 +36,7 @@ void main() {
           RepositoryProvider<LevelManager>(
             create: (context) => LevelManager(context.read<IPlayerDataService>()),
           ),
-          RepositoryProvider<IUrlLaucherService>(
+          RepositoryProvider<IUrlLauncherService>(
             create: (_) => MockUrlLauncherService(),
           ),
         ],

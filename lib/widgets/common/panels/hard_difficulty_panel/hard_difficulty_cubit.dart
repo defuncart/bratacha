@@ -7,7 +7,8 @@ class HardDifficultyCubit extends Cubit<bool> {
   HardDifficultyCubit(this._playerDataService) : super(_playerDataService.isHardDifficulty);
 
   void toggle() {
-    _playerDataService.isHardDifficulty = !_playerDataService.isHardDifficulty;
-    emit(_playerDataService.isHardDifficulty);
+    final newState = !state;
+    _playerDataService.isHardDifficulty = newState;
+    emit(newState);
   }
 }

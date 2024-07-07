@@ -92,7 +92,7 @@ class SettingsTab extends StatelessWidget {
                 ),
                 const SizedBox(height: 16),
                 FeedbackPanel(
-                  urlLaucherService: context.read<IUrlLaucherService>(),
+                  urlLaucherService: context.read<IUrlLauncherService>(),
                 ),
               ],
             ),

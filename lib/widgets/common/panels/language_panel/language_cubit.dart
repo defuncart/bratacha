@@ -7,7 +7,9 @@ class LanguageCubit extends Cubit<String> {
   LanguageCubit(this._playerDataService) : super(_playerDataService.language);
 
   void setLanguage(String language) {
-    _playerDataService.language = language;
-    emit(_playerDataService.language);
+    if (state != language) {
+      _playerDataService.language = language;
+      emit(language);
+    }
   }
 }

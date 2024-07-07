@@ -1,18 +1,18 @@
 import 'package:bratacha/intl/localizations.dart';
-import 'package:bratacha/services/url_launcher_service/i_url_launcher_service.dart';
 import 'package:bratacha/widgets/home_screen/settings_tab/feedback_panel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 
+import '../../../mocks.dart';
 import '../../../test_utils.dart';
 
 void main() {
   group('$FeedbackPanel', () {
-    late IUrlLaucherService mockUrlLauncherService;
+    late MockUrlLauncherService mockUrlLauncherService;
 
     setUp(() {
-      mockUrlLauncherService = _MockUrlLauncherService();
+      mockUrlLauncherService = MockUrlLauncherService();
       when(() => mockUrlLauncherService.openUrl(any())).thenAnswer((_) async {});
     });
 
@@ -62,5 +62,3 @@ void main() {
     });
   });
 }
-
-class _MockUrlLauncherService extends Mock implements IUrlLaucherService {}

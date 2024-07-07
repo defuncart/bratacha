@@ -2,6 +2,7 @@ import 'package:bratacha/managers/level_manager.dart';
 import 'package:bratacha/modules/dialog_manager/dialog_manager.dart';
 import 'package:bratacha/modules/player_data/src/services/i_flag_data_service.dart';
 import 'package:bratacha/modules/player_data/src/services/i_player_data_service.dart';
+import 'package:bratacha/modules/settings_database/src/services/i_settings_database.dart';
 import 'package:bratacha/services/app_info_service/i_app_info_service.dart';
 import 'package:bratacha/services/game_service/i_game_service.dart';
 import 'package:bratacha/services/url_launcher_service/i_url_launcher_service.dart';
@@ -13,9 +14,11 @@ import 'package:mocktail/mocktail.dart';
 
 class MockPlayerDataService extends Mock implements IPlayerDataService {}
 
+class MockSettingsDatabase extends Mock implements ISettingsDatabase {}
+
 class MockFlagDataService extends Mock implements IFlagDataService {}
 
-class MockUrlLauncherService extends Mock implements IUrlLaucherService {}
+class MockUrlLauncherService extends Mock implements IUrlLauncherService {}
 
 class MockGameService extends Mock implements IGameService {}
 

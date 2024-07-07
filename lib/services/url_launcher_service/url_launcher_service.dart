@@ -1,7 +1,7 @@
 import 'package:bratacha/services/url_launcher_service/i_url_launcher_service.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
-class UrlLaucherService implements IUrlLaucherService {
+class UrlLaucherService implements IUrlLauncherService {
   @override
   Future<void> openUrl(String url) async {
     // if (await canLaunchUrlString(url)) {
