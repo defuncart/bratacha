@@ -60,7 +60,7 @@ Source code: https://github.com/jackiboy/flagpack
           create: (_) => playerDataService,
         ),
       ],
-      child: const MyApp(),
+      child: kIsWeb ? const _LandscapeApp() : const MyApp(),
     ),
   );
 }
