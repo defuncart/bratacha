@@ -11,7 +11,7 @@ class HardDifficultyPanel extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text(AppLocalizations.hardDifficultyPanelLabel),
+        Text(context.l10n.hardDifficultyPanelLabel),
         BlocBuilder<HardDifficultyCubit, bool>(
           builder: (_, isHardDifficulty) => Switch(
             value: isHardDifficulty,

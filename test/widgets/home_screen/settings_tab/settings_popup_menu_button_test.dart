@@ -1,6 +1,6 @@
-import 'package:bratacha/intl/localizations.dart';
 // import 'package:bratacha/modules/dialog_manager/dialog_manager.dart';
 // import 'package:bratacha/modules/dialog_manager/src/models/responses/base_dialog_response.dart';
+import 'package:bratacha/intl/localizations.dart';
 import 'package:bratacha/modules/player_data/player_data.dart';
 // import 'package:bratacha/services/app_info_service/i_app_info_service.dart';
 import 'package:bratacha/widgets/common/panels/hard_difficulty_panel/hard_difficulty_cubit.dart';
@@ -11,10 +11,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 
-void main() {
-  // ensure localizations are setup
-  AppLocalizations.load(const Locale('en'));
+import '../../../tester_utils.dart';
 
+void main() {
   group('$SettingsPopupMenuButton', () {
     final playerDataService = _MockPlayerDataService();
     final widget = MultiBlocProvider(
@@ -31,8 +30,8 @@ void main() {
 
     testWidgets('Ensure widget tree is correct', (tester) async {
       await tester.pumpWidget(
-        MaterialApp(
-          home: Scaffold(body: widget),
+        wrapWithMaterialApp(
+          Scaffold(body: widget),
         ),
       );
 
@@ -41,8 +40,8 @@ void main() {
 
     testWidgets('Clicking on button opens popup menu', (tester) async {
       await tester.pumpWidget(
-        MaterialApp(
-          home: Scaffold(body: widget),
+        wrapWithMaterialApp(
+          Scaffold(body: widget),
         ),
       );
 
@@ -52,8 +51,9 @@ void main() {
 
       await tester.pumpAndSettle();
 
-      expect(find.text(AppLocalizations.settingsTabDataPrivacyLabel), findsOneWidget);
-      expect(find.text(AppLocalizations.settingsTabCreditsLabel), findsOneWidget);
+      final context = tester.element(find.byType(SettingsPopupMenuButton));
+      expect(find.text(context.l10n.settingsTabDataPrivacyLabel), findsOneWidget);
+      expect(find.text(context.l10n.settingsTabCreditsLabel), findsOneWidget);
     });
 
     // testWidgets('Ensure data privacy button is clickable', (tester) async {

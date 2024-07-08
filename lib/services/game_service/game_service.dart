@@ -15,17 +15,17 @@ class GameService implements IGameService {
     required LevelManager levelManager,
   }) {
     final levelCountries = levelManager.countriesForLevel(level);
-    final indeces = <int>[];
+    final indices = <int>[];
     for (final country in levelCountries) {
-      indeces.add(_countries.indexOf(country));
+      indices.add(_countries.indexOf(country));
     }
-    _indecesCountriesForLevel = List.unmodifiable(indeces);
+    _indicesCountriesForLevel = List.unmodifiable(indices);
 
     _numberRounds = levelCountries.length;
   }
 
   final List<Country> _countries = CountryService.countries;
-  late List<int> _indecesCountriesForLevel;
+  late List<int> _indicesCountriesForLevel;
   late int _numberRounds;
   final bool isHardDifficulty;
   final IPlayerDataService playerDataService;
@@ -43,7 +43,7 @@ class GameService implements IGameService {
     _nextRound();
   }
 
-  int get _indexForCurrentQuestion => _indecesCountriesForLevel[_index];
+  int get _indexForCurrentQuestion => _indicesCountriesForLevel[_index];
 
   Country get _questionCountry => _countries[_indexForCurrentQuestion];
 
@@ -83,7 +83,7 @@ class GameService implements IGameService {
     // TODO: When easy mode, this assumes that the number of countries is at least 8
     // randomly select flags from this level which weren't shown last round
     while (_countriesDisplayed.contains(-1)) {
-      final randomIndex = _indecesCountriesForLevel[Random().nextInt(_indecesCountriesForLevel.length)];
+      final randomIndex = _indicesCountriesForLevel[Random().nextInt(_indicesCountriesForLevel.length)];
       if (!_countriesDisplayed.contains(randomIndex) && !_countriesDisplayedLastRound.contains(randomIndex)) {
         _countriesDisplayed.remove(-1);
         _countriesDisplayed.add(randomIndex);

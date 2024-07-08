@@ -1,5 +1,5 @@
-import 'dart:ui';
-
+import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/localizations.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 extension WidgetTesterExtension on WidgetTester {
@@ -12,3 +12,12 @@ extension WidgetTesterExtension on WidgetTester {
     });
   }
 }
+
+Widget wrapWithMaterialApp(Widget child) => MaterialApp(
+      localizationsDelegates: const [
+        AppLocalizations.delegate,
+      ],
+      locale: const Locale('en'),
+      supportedLocales: const [Locale('en')],
+      home: child,
+    );

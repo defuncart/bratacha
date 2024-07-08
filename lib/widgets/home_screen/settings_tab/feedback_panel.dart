@@ -22,7 +22,7 @@ class FeedbackPanel extends StatelessWidget {
           children: [
             const SizedBox(height: 8),
             Text(
-              AppLocalizations.feedbackPanelLabel1,
+              context.l10n.feedbackPanelLabel1,
               style: TextStyle(
                 color: Theme.of(context).scaffoldBackgroundColor,
               ),
@@ -30,7 +30,7 @@ class FeedbackPanel extends StatelessWidget {
             ),
             TextButton(
               onPressed: () async => await urlLaucherService.openUrl(_url),
-              child: Text(AppLocalizations.feedbackPanelGiveFeedbackButtonText),
+              child: Text(context.l10n.feedbackPanelGiveFeedbackButtonText),
             ),
           ],
         ),

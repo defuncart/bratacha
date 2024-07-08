@@ -17,7 +17,7 @@ class LanguagePanel extends StatelessWidget {
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (_, constraints) {
-        final languageCodes = AppLocalizationsDelegate.supportedLocals.map((locale) => locale.languageCode);
+        final languageCodes = ['en', 'be', 'cy', 'ga'];
         final size = (constraints.maxWidth * 0.75) / languageCodes.length;
 
         return BlocBuilder<LanguageCubit, String>(
@@ -34,10 +34,10 @@ class LanguagePanel extends StatelessWidget {
                     if (presentConfirmationDialog) {
                       final response = await context.read<IDialogService>().requestConfirmDialog(
                             ConfirmDialogRequest(
-                              title: AppLocalizations.changeLanguageDialogTitle,
-                              description: AppLocalizations.changeLanguageDialogDescription,
-                              negativeButtonText: AppLocalizations.generalNo,
-                              positiveButtonText: AppLocalizations.generalYes,
+                              title: context.l10n.changeLanguageDialogTitle,
+                              description: context.l10n.changeLanguageDialogDescription,
+                              negativeButtonText: context.l10n.generalNo,
+                              positiveButtonText: context.l10n.generalYes,
                             ),
                           );
 

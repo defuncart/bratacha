@@ -11,7 +11,7 @@ class CreditsPanel extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         Text(
-          AppLocalizations.creditsDialogDescriptionLabel1,
+          context.l10n.creditsDialogDescriptionLabel1,
           style: Theme.of(context).textTheme.bodyMedium,
         ),
         const SizedBox(height: 8),

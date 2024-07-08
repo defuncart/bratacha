@@ -37,11 +37,11 @@ class _HomeScreenState extends State<HomeScreen> {
           items: [
             BottomNavigationBarItem(
               icon: const Icon(Icons.home),
-              label: AppLocalizations.homeTabLabelText,
+              label: context.l10n.homeTabLabelText,
             ),
             BottomNavigationBarItem(
               icon: const Icon(Icons.settings),
-              label: AppLocalizations.settingsTabLabelText,
+              label: context.l10n.settingsTabLabelText,
             )
           ],
           currentIndex: _currentIndex,

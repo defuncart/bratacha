@@ -12,9 +12,9 @@ class OnboardingPage3 extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(AppLocalizations.onboardingPage3TextLabel1),
-        Text(AppLocalizations.onboardingPage3TextLabel2),
-        Text(AppLocalizations.feedbackPanelLabel1),
+        Text(context.l10n.onboardingPage3TextLabel1),
+        Text(context.l10n.onboardingPage3TextLabel2),
+        Text(context.l10n.feedbackPanelLabel1),
         const DataPrivacyPanel(),
         const DeveloperPanel(),
       ],

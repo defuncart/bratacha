@@ -1,4 +1,3 @@
-import 'package:bratacha/intl/localizations.dart';
 import 'package:bratacha/modules/settings_database/settings_database.dart';
 import 'package:bratacha/widgets/home_screen/home_screen.dart';
 import 'package:bratacha/widgets/onboarding_screen/onboarding_page1.dart';
@@ -57,7 +56,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                       }
                     : () => setState(() => _index++),
                 child: Text(
-                  AppLocalizations.generalContinue,
+                  MaterialLocalizations.of(context).continueButtonLabel,
                   style: TextStyle(
                     color: Theme.of(context).scaffoldBackgroundColor,
                     fontSize: 20,

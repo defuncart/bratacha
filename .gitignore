@@ -49,6 +49,9 @@ test/coverage_report_test.dart
 # FVM Version Cache
 .fvm/
 
+# debug assets
+assets_dev/l10n/
+
 # debug targets
 macos/
 

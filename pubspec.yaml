@@ -16,7 +16,6 @@ dependencies:
   intl:
   path_provider:
   url_launcher:
-  # third party
   flutter_bloc:
   hive:
   flutter_svg:
@@ -28,8 +27,7 @@ dev_dependencies:
     sdk: flutter
   flutter_lints:
   build_runner:
-  # third party
-  flappy_translator: ^2.0.0-nullsafety.2 
+  arb_generator:
   flutter_launcher_icons:
   bloc_test:
   hive_generator:
@@ -45,23 +43,18 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  generate: true
   assets:
     - 'assets/flags/'
     - 'assets/languages/'
 
-flappy_translator:
-  input_file_path: "assets_dev/loca/loca.csv"
-  output_dir: "lib/intl"
-  file_name: "localizations"
-  class_name: "AppLocalizations"
-  delimiter: ";"
-  start_index: 1
-  depend_on_context: false
-  use_single_quotes: true
-  replace_no_break_spaces: false
-  expose_get_string: false
-  expose_loca_strings: false
-  expose_locale_maps: false
+arb_generator:
+  input_filepath: "assets_dev/loca/loca.csv"
+  output_directory: "assets_dev/l10n"
+  filename_prepend: "l10n_"
+  csv_settings:
+    delimiter: ";"
+    base_index: 1
 
 flutter_launcher_icons:
   image_path: "assets_dev/app_icons/app_icon.png"

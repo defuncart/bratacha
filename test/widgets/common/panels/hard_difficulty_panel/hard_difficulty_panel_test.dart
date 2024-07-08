@@ -7,17 +7,16 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 
-void main() {
-  // ensure localizations are setup
-  AppLocalizations.load(const Locale('en'));
+import '../../../../tester_utils.dart';
 
+void main() {
   group('$HardDifficultyPanel', () {
     testWidgets('Ensure widget tree is correct', (tester) async {
       await tester.pumpWidget(
         BlocProvider<HardDifficultyCubit>(
           create: (_) => HardDifficultyCubit(_MockPlayerDataService()),
-          child: const MaterialApp(
-            home: Scaffold(
+          child: wrapWithMaterialApp(
+            const Scaffold(
               body: HardDifficultyPanel(),
             ),
           ),
@@ -26,7 +25,8 @@ void main() {
 
       expect(find.byType(HardDifficultyPanel), findsOneWidget);
       expect(find.byType(Text), findsOneWidget);
-      expect(find.text(AppLocalizations.hardDifficultyPanelLabel), findsOneWidget);
+      final context = tester.element(find.byType(HardDifficultyPanel));
+      expect(find.text(context.l10n.hardDifficultyPanelLabel), findsOneWidget);
       expect(find.byType(Switch), findsOneWidget);
     });
 
@@ -37,8 +37,8 @@ void main() {
         BlocProvider<HardDifficultyCubit>(
           create: (_) => cubit,
           lazy: false,
-          child: const MaterialApp(
-            home: Scaffold(
+          child: wrapWithMaterialApp(
+            const Scaffold(
               body: HardDifficultyPanel(),
             ),
           ),

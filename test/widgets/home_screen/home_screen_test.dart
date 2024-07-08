@@ -7,15 +7,13 @@ import 'package:bratacha/widgets/common/panels/language_panel/language_cubit.dar
 import 'package:bratacha/widgets/home_screen/home_screen.dart';
 import 'package:bratacha/widgets/home_screen/home_tab/home_tab.dart';
 import 'package:bratacha/widgets/home_screen/settings_tab/settings_tab.dart';
-import 'package:flutter/material.dart' show Locale, MaterialApp;
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 
-void main() {
-  // ensure localizations are setup
-  AppLocalizations.load(const Locale('en'));
+import '../../tester_utils.dart';
 
+void main() {
   group('$HomeScreen', () {
     testWidgets('Ensure tabs can be selected', (tester) async {
       final widget = MultiRepositoryProvider(
@@ -39,8 +37,8 @@ void main() {
               create: (context) => HardDifficultyCubit(context.read<IPlayerDataService>()),
             )
           ],
-          child: const MaterialApp(
-            home: HomeScreen(),
+          child: wrapWithMaterialApp(
+            const HomeScreen(),
           ),
         ),
       );
@@ -50,14 +48,16 @@ void main() {
       expect(find.byType(HomeTab), findsOneWidget);
       expect(find.byType(SettingsTab), findsNothing);
 
-      await tester.tap(find.text(AppLocalizations.settingsTabLabelText));
+      final context = tester.element(find.byType(HomeScreen));
+
+      await tester.tap(find.text(context.l10n.settingsTabLabelText));
       await tester.pumpAndSettle();
 
       expect(find.byType(HomeScreen), findsOneWidget);
       expect(find.byType(HomeTab), findsNothing);
       expect(find.byType(SettingsTab), findsOneWidget);
 
-      await tester.tap(find.text(AppLocalizations.homeTabLabelText));
+      await tester.tap(find.text(context.l10n.homeTabLabelText));
       await tester.pumpAndSettle();
 
       expect(find.byType(HomeScreen), findsOneWidget);

@@ -11,9 +11,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 
+import '../../tester_utils.dart';
+
 void main() {
-  // ensure localizations are setup
-  AppLocalizations.load(const Locale('en'));
   CountryLocalizations.load(const Locale('en'));
 
   group('$OnboardingPage2', () {
@@ -24,8 +24,8 @@ void main() {
       await tester.pumpWidget(
         BlocProvider<HardDifficultyCubit>(
           create: (_) => HardDifficultyCubit(_MockPlayerDataService()),
-          child: const MaterialApp(
-            home: Scaffold(
+          child: wrapWithMaterialApp(
+            const Scaffold(
               body: OnboardingPage2(),
             ),
           ),
@@ -44,17 +44,18 @@ void main() {
       await tester.pumpWidget(
         BlocProvider<HardDifficultyCubit>(
           create: (_) => HardDifficultyCubit(_MockPlayerDataService()),
-          child: const MaterialApp(
-            home: Scaffold(
+          child: wrapWithMaterialApp(
+            const Scaffold(
               body: OnboardingPage2(),
             ),
           ),
         ),
       );
 
-      expect(find.text(AppLocalizations.onboardingPage2TextLabel1), findsOneWidget);
-      expect(find.text(AppLocalizations.onboardingPage2TextLabel2), findsOneWidget);
-      expect(find.text(AppLocalizations.onboardingGeneralSettingLabel), findsOneWidget);
+      final context = tester.element(find.byType(OnboardingPage2));
+      expect(find.text(context.l10n.onboardingPage2TextLabel1), findsOneWidget);
+      expect(find.text(context.l10n.onboardingPage2TextLabel2), findsOneWidget);
+      expect(find.text(context.l10n.onboardingGeneralSettingLabel), findsOneWidget);
     });
   });
 }

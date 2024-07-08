@@ -16,7 +16,7 @@ class HomeTab extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(AppLocalizations.homeTabLabelText),
+        title: Text(context.l10n.homeTabLabelText),
         actions: [
           Center(
             child: Padding(
@@ -48,7 +48,7 @@ class HomeTab extends StatelessWidget {
                 TextButton(
                   onPressed: () => Navigator.of(context).pushNamed(LearnScreen.routeName),
                   child: Text(
-                    AppLocalizations.homeTabLeanFlagsButtonText,
+                    context.l10n.homeTabLeanFlagsButtonText,
                     style: TextStyle(
                       color: Theme.of(context).colorScheme.secondary,
                     ),
@@ -95,7 +95,7 @@ class _LevelButton extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      AppLocalizations.generalLevelLabel(level: levelIndex + 1),
+                      context.l10n.generalLevelLabel(levelIndex + 1),
                       style: TextStyle(color: Theme.of(context).scaffoldBackgroundColor),
                     ),
                     if (!isLevelUnlocked)

@@ -10,14 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      - uses: kuhnroyal/flutter-fvm-config-action@v2
-        id: fvm-config-action
-      - uses: subosito/flutter-action@v2
-        with:
-          flutter-version: ${{ steps.fvm-config-action.outputs.FLUTTER_VERSION }}
-          channel: ${{ steps.fvm-config-action.outputs.FLUTTER_CHANNEL }}
-      - name: Install packages
-        run: flutter pub get
+      - uses: ./.github/actions/set_up_flutter
       - name: Generate coverage_report_test.dart
         run: flutter pub run dart_code_coverage:generate_dart_file -r ".*\.g\.dart","localizations.dart"
       - name: Generate coverage/lcov.info

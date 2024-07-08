@@ -26,13 +26,13 @@ class OnboardingPage2 extends StatelessWidget {
             children: [
               Center(
                 child: Text(
-                  AppLocalizations.onboardingPage2TextLabel1,
+                  context.l10n.onboardingPage2TextLabel1,
                   style: Theme.of(context).textTheme.titleLarge,
                 ),
               ),
               const SizedBox(height: 8),
               Text(
-                AppLocalizations.onboardingPage2TextLabel2,
+                context.l10n.onboardingPage2TextLabel2,
               ),
               const HardDifficultyPanel(),
             ],
@@ -54,7 +54,7 @@ class OnboardingPage2 extends StatelessWidget {
           ),
           Center(
             child: Text(
-              AppLocalizations.onboardingGeneralSettingLabel,
+              context.l10n.onboardingGeneralSettingLabel,
               textAlign: TextAlign.center,
             ),
           ),

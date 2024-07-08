@@ -54,535 +54,479 @@ class GaMaterialLocalizations extends GlobalMaterialLocalizations {
   static const LocalizationsDelegate<MaterialLocalizations> delegate = _GaMaterialLocalizationsDelegate();
 
   @override
-  String get moreButtonTooltip => r'More';
+  String get moreButtonTooltip => throw UnimplementedError();
 
   @override
-  String get aboutListTileTitleRaw => r'About $applicationName';
+  String get aboutListTileTitleRaw => throw UnimplementedError();
 
   @override
-  String get alertDialogLabel => r'Alert';
+  // TODO: Translate
+  String get alertDialogLabel => 'alertDialogLabel';
 
   @override
-  String get anteMeridiemAbbreviation => r'AM';
+  String get anteMeridiemAbbreviation => throw UnimplementedError();
 
   @override
-  String get backButtonTooltip => r'Back';
+  // TODO: Translate
+  String get backButtonTooltip => 'backButtonTooltip';
 
   @override
-  String get cancelButtonLabel => r'CANCEL';
+  String get cancelButtonLabel => throw UnimplementedError();
 
   @override
-  String get closeButtonLabel => r'CLOSE';
+  // TODO: Translate
+  String get closeButtonLabel => 'closeButtonLabel';
 
   @override
-  String get closeButtonTooltip => r'Close';
+  String get closeButtonTooltip => throw UnimplementedError();
 
   @override
-  String get collapsedIconTapHint => r'Expand';
+  String get collapsedIconTapHint => throw UnimplementedError();
 
   @override
-  String get continueButtonLabel => r'CONTINUE';
+  // TODO: Translate
+  String get continueButtonLabel => 'continueButtonLabel';
 
   @override
-  String get copyButtonLabel => r'COPY';
+  String get copyButtonLabel => throw UnimplementedError();
 
   @override
-  String get cutButtonLabel => r'CUT';
+  String get cutButtonLabel => throw UnimplementedError();
 
   @override
-  String get deleteButtonTooltip => r'Delete';
+  String get deleteButtonTooltip => throw UnimplementedError();
 
   @override
-  String get dialogLabel => r'Dialog';
+  String get dialogLabel => throw UnimplementedError();
 
   @override
-  String get drawerLabel => r'Navigation menu';
+  String get drawerLabel => throw UnimplementedError();
 
   @override
-  String get expandedIconTapHint => r'Collapse';
+  String get expandedIconTapHint => throw UnimplementedError();
 
   @override
-  String get firstPageTooltip => r'First page';
+  String get firstPageTooltip => throw UnimplementedError();
 
   @override
-  String get hideAccountsLabel => r'Hide accounts';
+  String get hideAccountsLabel => throw UnimplementedError();
 
   @override
-  String get lastPageTooltip => r'Last page';
+  String get lastPageTooltip => throw UnimplementedError();
 
   @override
-  String get licensesPageTitle => r'Licenses';
+  String get licensesPageTitle => 'licensesPageTitle';
 
   @override
-  String get modalBarrierDismissLabel => r'Dismiss';
+  String get modalBarrierDismissLabel => 'modalBarrierDismissLabel';
 
   @override
-  String get nextMonthTooltip => r'Next month';
+  String get nextMonthTooltip => throw UnimplementedError();
 
   @override
-  String get nextPageTooltip => r'Next page';
+  String get nextPageTooltip => throw UnimplementedError();
 
   @override
-  String get okButtonLabel => r'OK';
+  String get okButtonLabel => throw UnimplementedError();
 
   @override
-  String get openAppDrawerTooltip => r'Custom Navigation Menu Tooltip';
+  String get openAppDrawerTooltip => throw UnimplementedError();
 
   @override
-  String get pageRowsInfoTitleRaw => r'$firstRow–$lastRow of $rowCount';
+  String get pageRowsInfoTitleRaw => throw UnimplementedError();
 
   @override
-  String get pageRowsInfoTitleApproximateRaw => r'$firstRow–$lastRow of about $rowCount';
+  String get pageRowsInfoTitleApproximateRaw => throw UnimplementedError();
 
   @override
-  String get pasteButtonLabel => r'PASTE';
+  String get pasteButtonLabel => throw UnimplementedError();
 
   @override
-  String get popupMenuLabel => r'Popup menu';
+  String get popupMenuLabel => 'popupMenuLabel';
 
   @override
-  String get postMeridiemAbbreviation => r'PM';
+  String get postMeridiemAbbreviation => throw UnimplementedError();
 
   @override
-  String get previousMonthTooltip => r'Previous month';
+  String get previousMonthTooltip => throw UnimplementedError();
 
   @override
-  String get previousPageTooltip => r'Previous page';
+  String get previousPageTooltip => throw UnimplementedError();
 
   @override
-  String get refreshIndicatorSemanticLabel => r'Refresh';
+  String get refreshIndicatorSemanticLabel => throw UnimplementedError();
 
   @override
-  String? get remainingTextFieldCharacterCountFew => null;
+  String? get remainingTextFieldCharacterCountFew => throw UnimplementedError();
 
   @override
-  String? get remainingTextFieldCharacterCountMany => null;
+  String? get remainingTextFieldCharacterCountMany => throw UnimplementedError();
 
   @override
-  String get remainingTextFieldCharacterCountOne => r'1 character remaining';
+  String get remainingTextFieldCharacterCountOne => throw UnimplementedError();
 
   @override
-  String get remainingTextFieldCharacterCountOther => r'$remainingCount characters remaining';
+  String get remainingTextFieldCharacterCountOther => throw UnimplementedError();
 
   @override
-  String? get remainingTextFieldCharacterCountTwo => null;
+  String? get remainingTextFieldCharacterCountTwo => throw UnimplementedError();
 
   @override
-  String get remainingTextFieldCharacterCountZero => r'No characters remaining';
+  String get remainingTextFieldCharacterCountZero => throw UnimplementedError();
 
   @override
-  String get reorderItemDown => r'Move down';
+  String get reorderItemDown => throw UnimplementedError();
 
   @override
-  String get reorderItemLeft => r'Move left';
+  String get reorderItemLeft => throw UnimplementedError();
 
   @override
-  String get reorderItemRight => r'Move right';
+  String get reorderItemRight => throw UnimplementedError();
 
   @override
-  String get reorderItemToEnd => r'Move to the end';
+  String get reorderItemToEnd => throw UnimplementedError();
 
   @override
-  String get reorderItemToStart => r'Move to the start';
+  String get reorderItemToStart => throw UnimplementedError();
 
   @override
-  String get reorderItemUp => r'Move up';
+  String get reorderItemUp => throw UnimplementedError();
 
   @override
-  String get rowsPerPageTitle => r'Rows per page:';
+  String get rowsPerPageTitle => throw UnimplementedError();
 
   @override
   ScriptCategory get scriptCategory => ScriptCategory.englishLike;
 
   @override
-  String get searchFieldLabel => r'Search';
+  String get searchFieldLabel => throw UnimplementedError();
 
   @override
-  String get selectAllButtonLabel => r'SELECT ALL';
+  String get selectAllButtonLabel => throw UnimplementedError();
 
   @override
-  String? get selectedRowCountTitleFew => null;
+  String? get selectedRowCountTitleFew => throw UnimplementedError();
 
   @override
-  String? get selectedRowCountTitleMany => null;
+  String? get selectedRowCountTitleMany => throw UnimplementedError();
 
   @override
-  String get selectedRowCountTitleOne => r'1 item selected';
+  String get selectedRowCountTitleOne => throw UnimplementedError();
 
   @override
-  String get selectedRowCountTitleOther => r'$selectedRowCount items selected';
+  String get selectedRowCountTitleOther => throw UnimplementedError();
 
   @override
-  String? get selectedRowCountTitleTwo => null;
+  String? get selectedRowCountTitleTwo => throw UnimplementedError();
 
   @override
-  String get selectedRowCountTitleZero => r'No items selected';
+  String get selectedRowCountTitleZero => throw UnimplementedError();
 
   @override
-  String get showAccountsLabel => r'Show accounts';
+  String get showAccountsLabel => throw UnimplementedError();
 
   @override
-  String get showMenuTooltip => r'Show menu';
+  // TODO: Translate
+  String get showMenuTooltip => 'showMenuTooltip';
 
   @override
-  String get signedInLabel => r'Signed in';
+  String get signedInLabel => throw UnimplementedError();
 
   @override
+  // TODO: Translate
   String get tabLabelRaw => r'Tab $tabIndex of $tabCount';
 
   @override
-  TimeOfDayFormat get timeOfDayFormatRaw => TimeOfDayFormat.h_colon_mm_space_a;
+  TimeOfDayFormat get timeOfDayFormatRaw => throw UnimplementedError();
 
   @override
-  String get timePickerHourModeAnnouncement => r'Select hours';
+  String get timePickerHourModeAnnouncement => throw UnimplementedError();
 
   @override
-  String get timePickerMinuteModeAnnouncement => r'Select minutes';
+  String get timePickerMinuteModeAnnouncement => throw UnimplementedError();
 
   @override
-  String get viewLicensesButtonLabel => r'VIEW LICENSES';
+  // TODO: Translate
+  String get viewLicensesButtonLabel => 'viewLicensesButtonLabel';
 
   @override
-  List<String> get narrowWeekdays => const <String>['S', 'M', 'T', 'W', 'T', 'F', 'S'];
+  List<String> get narrowWeekdays => throw UnimplementedError();
 
   @override
+  // TODO: Translate
   int get firstDayOfWeekIndex => 0;
 
   @override
-  String get calendarModeButtonLabel => r'Switch to calendar';
+  String get calendarModeButtonLabel => throw UnimplementedError();
 
   @override
-  String get dateHelpText => r'mm/dd/yyyy';
+  String get dateHelpText => throw UnimplementedError();
 
   @override
-  String get dateInputLabel => r'Enter Date';
+  String get dateInputLabel => throw UnimplementedError();
 
   @override
-  String get dateOutOfRangeLabel => r'Out of range.';
+  String get dateOutOfRangeLabel => throw UnimplementedError();
 
   @override
-  String get datePickerHelpText => r'SELECT DATE';
+  String get datePickerHelpText => throw UnimplementedError();
 
   @override
-  String get dateRangeEndDateSemanticLabelRaw => r'End date $fullDate';
+  String get dateRangeEndDateSemanticLabelRaw => throw UnimplementedError();
 
   @override
-  String get dateRangeEndLabel => r'End Date';
+  String get dateRangeEndLabel => throw UnimplementedError();
 
   @override
-  String get dateRangePickerHelpText => 'SELECT RANGE';
+  String get dateRangePickerHelpText => throw UnimplementedError();
 
   @override
-  String get dateRangeStartDateSemanticLabelRaw => 'Start date \$fullDate';
+  String get dateRangeStartDateSemanticLabelRaw => throw UnimplementedError();
 
   @override
-  String get dateRangeStartLabel => 'Start Date';
+  String get dateRangeStartLabel => throw UnimplementedError();
 
   @override
-  String get dateSeparator => '/';
+  String get dateSeparator => throw UnimplementedError();
 
   @override
-  String get dialModeButtonLabel => 'Switch to dial picker mode';
+  String get dialModeButtonLabel => throw UnimplementedError();
 
   @override
-  String get inputDateModeButtonLabel => 'Switch to input';
+  String get inputDateModeButtonLabel => throw UnimplementedError();
 
   @override
-  String get inputTimeModeButtonLabel => 'Switch to text input mode';
+  String get inputTimeModeButtonLabel => throw UnimplementedError();
 
   @override
-  String get invalidDateFormatLabel => 'Invalid format.';
+  String get invalidDateFormatLabel => throw UnimplementedError();
 
   @override
-  String get invalidDateRangeLabel => 'Invalid range.';
+  String get invalidDateRangeLabel => throw UnimplementedError();
 
   @override
-  String get invalidTimeLabel => 'Enter a valid time';
+  String get invalidTimeLabel => throw UnimplementedError();
 
   @override
-  String get licensesPackageDetailTextOther => '\$licenseCount licenses';
+  String get licensesPackageDetailTextOther => 'licensesPackageDetailTextOther';
 
   @override
-  String get saveButtonLabel => 'SAVE';
+  String get saveButtonLabel => throw UnimplementedError();
 
   @override
-  String get selectYearSemanticsLabel => 'Select year';
+  String get selectYearSemanticsLabel => throw UnimplementedError();
 
   @override
-  String get timePickerDialHelpText => 'SELECT TIME';
+  String get timePickerDialHelpText => throw UnimplementedError();
 
   @override
-  String get timePickerHourLabel => 'Hour';
+  String get timePickerHourLabel => throw UnimplementedError();
 
   @override
-  String get timePickerInputHelpText => 'ENTER TIME';
+  String get timePickerInputHelpText => throw UnimplementedError();
 
   @override
-  String get timePickerMinuteLabel => 'Minute';
+  String get timePickerMinuteLabel => throw UnimplementedError();
 
   @override
-  String get unspecifiedDate => 'Date';
+  String get unspecifiedDate => throw UnimplementedError();
 
   @override
-  String get unspecifiedDateRange => 'Date Range';
+  String get unspecifiedDateRange => throw UnimplementedError();
 
   @override
-  // TODO: implement bottomSheetLabel
   String get bottomSheetLabel => throw UnimplementedError();
 
   @override
-  // TODO: implement collapsedHint
   String get collapsedHint => throw UnimplementedError();
 
   @override
-  // TODO: implement currentDateLabel
   String get currentDateLabel => throw UnimplementedError();
 
   @override
-  // TODO: implement expandedHint
   String get expandedHint => throw UnimplementedError();
 
   @override
-  // TODO: implement expansionTileCollapsedHint
   String get expansionTileCollapsedHint => throw UnimplementedError();
 
   @override
-  // TODO: implement expansionTileCollapsedTapHint
   String get expansionTileCollapsedTapHint => throw UnimplementedError();
 
   @override
-  // TODO: implement expansionTileExpandedHint
   String get expansionTileExpandedHint => throw UnimplementedError();
 
   @override
-  // TODO: implement expansionTileExpandedTapHint
   String get expansionTileExpandedTapHint => throw UnimplementedError();
 
   @override
-  // TODO: implement keyboardKeyAlt
   String get keyboardKeyAlt => throw UnimplementedError();
 
   @override
-  // TODO: implement keyboardKeyAltGraph
   String get keyboardKeyAltGraph => throw UnimplementedError();
 
   @override
-  // TODO: implement keyboardKeyBackspace
   String get keyboardKeyBackspace => throw UnimplementedError();
 
   @override
-  // TODO: implement keyboardKeyCapsLock
   String get keyboardKeyCapsLock => throw UnimplementedError();
 
   @override
-  // TODO: implement keyboardKeyChannelDown
   String get keyboardKeyChannelDown => throw UnimplementedError();
 
   @override
-  // TODO: implement keyboardKeyChannelUp
   String get keyboardKeyChannelUp => throw UnimplementedError();
 
   @override
-  // TODO: implement keyboardKeyControl
   String get keyboardKeyControl => throw UnimplementedError();
 
   @override
-  // TODO: implement keyboardKeyDelete
   String get keyboardKeyDelete => throw UnimplementedError();
 
   @override
-  // TODO: implement keyboardKeyEject
   String get keyboardKeyEject => throw UnimplementedError();
 
   @override
-  // TODO: implement keyboardKeyEnd
   String get keyboardKeyEnd => throw UnimplementedError();
 
   @override
-  // TODO: implement keyboardKeyEscape
   String get keyboardKeyEscape => throw UnimplementedError();
 
   @override
-  // TODO: implement keyboardKeyFn
   String get keyboardKeyFn => throw UnimplementedError();
 
   @override
-  // TODO: implement keyboardKeyHome
   String get keyboardKeyHome => throw UnimplementedError();
 
   @override
-  // TODO: implement keyboardKeyInsert
   String get keyboardKeyInsert => throw UnimplementedError();
 
   @override
-  // TODO: implement keyboardKeyMeta
   String get keyboardKeyMeta => throw UnimplementedError();
 
   @override
-  // TODO: implement keyboardKeyMetaMacOs
   String get keyboardKeyMetaMacOs => throw UnimplementedError();
 
   @override
-  // TODO: implement keyboardKeyMetaWindows
   String get keyboardKeyMetaWindows => throw UnimplementedError();
 
   @override
-  // TODO: implement keyboardKeyNumLock
   String get keyboardKeyNumLock => throw UnimplementedError();
 
   @override
-  // TODO: implement keyboardKeyNumpad0
   String get keyboardKeyNumpad0 => throw UnimplementedError();
 
   @override
-  // TODO: implement keyboardKeyNumpad1
   String get keyboardKeyNumpad1 => throw UnimplementedError();
 
   @override
-  // TODO: implement keyboardKeyNumpad2
   String get keyboardKeyNumpad2 => throw UnimplementedError();
 
   @override
-  // TODO: implement keyboardKeyNumpad3
   String get keyboardKeyNumpad3 => throw UnimplementedError();
 
   @override
-  // TODO: implement keyboardKeyNumpad4
   String get keyboardKeyNumpad4 => throw UnimplementedError();
 
   @override
-  // TODO: implement keyboardKeyNumpad5
   String get keyboardKeyNumpad5 => throw UnimplementedError();
 
   @override
-  // TODO: implement keyboardKeyNumpad6
   String get keyboardKeyNumpad6 => throw UnimplementedError();
 
   @override
-  // TODO: implement keyboardKeyNumpad7
   String get keyboardKeyNumpad7 => throw UnimplementedError();
 
   @override
-  // TODO: implement keyboardKeyNumpad8
   String get keyboardKeyNumpad8 => throw UnimplementedError();
 
   @override
-  // TODO: implement keyboardKeyNumpad9
   String get keyboardKeyNumpad9 => throw UnimplementedError();
 
   @override
-  // TODO: implement keyboardKeyNumpadAdd
   String get keyboardKeyNumpadAdd => throw UnimplementedError();
 
   @override
-  // TODO: implement keyboardKeyNumpadComma
   String get keyboardKeyNumpadComma => throw UnimplementedError();
 
   @override
-  // TODO: implement keyboardKeyNumpadDecimal
   String get keyboardKeyNumpadDecimal => throw UnimplementedError();
 
   @override
-  // TODO: implement keyboardKeyNumpadDivide
   String get keyboardKeyNumpadDivide => throw UnimplementedError();
 
   @override
-  // TODO: implement keyboardKeyNumpadEnter
   String get keyboardKeyNumpadEnter => throw UnimplementedError();
 
   @override
-  // TODO: implement keyboardKeyNumpadEqual
   String get keyboardKeyNumpadEqual => throw UnimplementedError();
 
   @override
-  // TODO: implement keyboardKeyNumpadMultiply
   String get keyboardKeyNumpadMultiply => throw UnimplementedError();
 
   @override
-  // TODO: implement keyboardKeyNumpadParenLeft
   String get keyboardKeyNumpadParenLeft => throw UnimplementedError();
 
   @override
-  // TODO: implement keyboardKeyNumpadParenRight
   String get keyboardKeyNumpadParenRight => throw UnimplementedError();
 
   @override
-  // TODO: implement keyboardKeyNumpadSubtract
   String get keyboardKeyNumpadSubtract => throw UnimplementedError();
 
   @override
-  // TODO: implement keyboardKeyPageDown
   String get keyboardKeyPageDown => throw UnimplementedError();
 
   @override
-  // TODO: implement keyboardKeyPageUp
   String get keyboardKeyPageUp => throw UnimplementedError();
 
   @override
-  // TODO: implement keyboardKeyPower
   String get keyboardKeyPower => throw UnimplementedError();
 
   @override
-  // TODO: implement keyboardKeyPowerOff
   String get keyboardKeyPowerOff => throw UnimplementedError();
 
   @override
-  // TODO: implement keyboardKeyPrintScreen
   String get keyboardKeyPrintScreen => throw UnimplementedError();
 
   @override
-  // TODO: implement keyboardKeyScrollLock
   String get keyboardKeyScrollLock => throw UnimplementedError();
 
   @override
-  // TODO: implement keyboardKeySelect
   String get keyboardKeySelect => throw UnimplementedError();
 
   @override
-  // TODO: implement keyboardKeyShift
   String get keyboardKeyShift => throw UnimplementedError();
 
   @override
-  // TODO: implement keyboardKeySpace
   String get keyboardKeySpace => throw UnimplementedError();
 
   @override
-  // TODO: implement lookUpButtonLabel
   String get lookUpButtonLabel => throw UnimplementedError();
 
   @override
-  // TODO: implement menuBarMenuLabel
   String get menuBarMenuLabel => throw UnimplementedError();
 
   @override
-  // TODO: implement menuDismissLabel
-  String get menuDismissLabel => throw UnimplementedError();
+  // TODO: Translate
+  String get menuDismissLabel => 'menuDismissLabel';
 
   @override
-  // TODO: implement scanTextButtonLabel
   String get scanTextButtonLabel => throw UnimplementedError();
 
   @override
-  // TODO: implement scrimLabel
   String get scrimLabel => throw UnimplementedError();
 
   @override
-  // TODO: implement scrimOnTapHintRaw
   String get scrimOnTapHintRaw => throw UnimplementedError();
 
   @override
-  // TODO: implement searchWebButtonLabel
   String get searchWebButtonLabel => throw UnimplementedError();
 
   @override
-  // TODO: implement shareButtonLabel
   String get shareButtonLabel => throw UnimplementedError();
 
   @override
-  // TODO: implement clearButtonTooltip
   String get clearButtonTooltip => throw UnimplementedError();
 
   @override
-  // TODO: implement selectedDateLabel
   String get selectedDateLabel => throw UnimplementedError();
 }

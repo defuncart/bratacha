@@ -11,24 +11,24 @@ class OnboardingPage1 extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
         Text(
-          AppLocalizations.onboardingPage1TextLabel1,
+          context.l10n.onboardingPage1TextLabel1,
           style: Theme.of(context).textTheme.displaySmall,
         ),
         Text(
-          AppLocalizations.onboardingPage1TextLabel2,
+          context.l10n.onboardingPage1TextLabel2,
           style: Theme.of(context).textTheme.titleLarge,
           textAlign: TextAlign.justify,
         ),
         Column(
           children: [
-            Text(AppLocalizations.onboardingPage1TextLabel3),
+            Text(context.l10n.onboardingPage1TextLabel3),
             const SizedBox(height: 8),
             const LanguagePanel(presentConfirmationDialog: false),
           ],
         ),
         Center(
           child: Text(
-            AppLocalizations.onboardingGeneralSettingLabel,
+            context.l10n.onboardingGeneralSettingLabel,
             textAlign: TextAlign.center,
           ),
         ),
