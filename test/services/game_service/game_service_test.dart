@@ -28,7 +28,7 @@ void main() {
 
     test('ensure service correctly works', () async {
       final gameService = GameService(
-        isHardDifficulty: false,
+        isHardMode: false,
         playerDataService: MockPlayerDataService(),
         level: 0,
         levelManager: mockLevelManager,
@@ -60,7 +60,7 @@ void main() {
       final numberRounds = countries.length;
 
       final gameService = GameService(
-        isHardDifficulty: true,
+        isHardMode: true,
         playerDataService: MockPlayerDataService(),
         level: 0,
         levelManager: mockLevelManager,

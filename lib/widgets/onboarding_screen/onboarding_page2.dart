@@ -1,8 +1,8 @@
 import 'package:bratacha/extensions/country_extensions.dart';
 import 'package:bratacha/intl/localizations.dart';
 import 'package:bratacha/modules/country_database/country_database.dart';
-import 'package:bratacha/widgets/common/panels/hard_difficulty_panel/hard_difficulty_cubit.dart';
-import 'package:bratacha/widgets/common/panels/hard_difficulty_panel/hard_difficulty_panel.dart';
+import 'package:bratacha/widgets/common/panels/hard_mode_panel/hard_mode_cubit.dart';
+import 'package:bratacha/widgets/common/panels/hard_mode_panel/hard_mode_panel.dart';
 import 'package:bratacha/widgets/game_screen/game_cubit.dart';
 import 'package:bratacha/widgets/game_screen/question_answer_panel.dart';
 import 'package:flutter/material.dart';
@@ -13,11 +13,11 @@ class OnboardingPage2 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isHardDifficulty = context.watch<HardDifficultyCubit>().state;
+    final isHardMode = context.watch<HardModeCubit>().state;
 
     return LayoutBuilder(
       // unique key to trigger rebuilds
-      key: Key('OnboardingPage2$isHardDifficulty'),
+      key: Key('OnboardingPage2$isHardMode'),
       builder: (_, constraints) => Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
@@ -30,7 +30,7 @@ class OnboardingPage2 extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 16),
-              const HardDifficultyPanel(),
+              const HardModePanel(),
             ],
           ),
           SizedBox(
@@ -39,7 +39,7 @@ class OnboardingPage2 extends StatelessWidget {
             child: MultiBlocProvider(
               providers: [
                 BlocProvider<GameCubit>(
-                  create: (_) => _FakeGameCubit(isHardDifficulty: isHardDifficulty),
+                  create: (_) => _FakeGameCubit(isHardMode: isHardMode),
                 ),
               ],
               child: const QuestionAnswerPanel(),
@@ -61,11 +61,11 @@ class _FakeGameCubit extends Cubit<GameState> implements GameCubit {
   static const _answersEasy = ['de', 'us', 'gb', 'ie'];
   static const _answersHard = ['my', 'us', 'cl', 'lr'];
 
-  _FakeGameCubit({required bool isHardDifficulty})
+  _FakeGameCubit({required bool isHardMode})
       : super(GameStateStartRound(
           progress: 0,
           question: CountryService.countryWithId('us').localizedName,
-          answers: isHardDifficulty ? _answersHard : _answersEasy,
+          answers: isHardMode ? _answersHard : _answersEasy,
         ));
 
   @override

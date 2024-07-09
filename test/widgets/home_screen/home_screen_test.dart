@@ -3,7 +3,7 @@ import 'package:bratacha/intl/localizations.dart';
 import 'package:bratacha/managers/level_manager.dart';
 import 'package:bratacha/modules/player_data/src/services/i_player_data_service.dart';
 import 'package:bratacha/services/url_launcher_service/i_url_launcher_service.dart';
-import 'package:bratacha/widgets/common/panels/hard_difficulty_panel/hard_difficulty_cubit.dart';
+import 'package:bratacha/widgets/common/panels/hard_mode_panel/hard_mode_cubit.dart';
 import 'package:bratacha/widgets/common/panels/language_panel/language_cubit.dart';
 import 'package:bratacha/widgets/home_screen/flags_tab/flags_tab.dart';
 import 'package:bratacha/widgets/home_screen/home_screen.dart';
@@ -25,7 +25,7 @@ void main() {
     testWidgets('Ensure tabs can be selected', (tester) async {
       final mockPlayerDataService = MockPlayerDataService();
       when(() => mockPlayerDataService.language).thenReturn('en');
-      when(() => mockPlayerDataService.isHardDifficulty).thenReturn(false);
+      when(() => mockPlayerDataService.isHardMode).thenReturn(false);
       when(() => mockPlayerDataService.hasCorrectlyAnswered(id: any(named: 'id'))).thenReturn(true);
 
       final widget = MultiRepositoryProvider(
@@ -46,7 +46,7 @@ void main() {
               create: (context) => LanguageCubit(context.read<IPlayerDataService>()),
             ),
             BlocProvider(
-              create: (context) => HardDifficultyCubit(context.read<IPlayerDataService>()),
+              create: (context) => HardModeCubit(context.read<IPlayerDataService>()),
             )
           ],
           child: wrapWithMaterialApp(

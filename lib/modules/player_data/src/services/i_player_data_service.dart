@@ -8,11 +8,11 @@ abstract class IPlayerDataService {
   /// Sets the selected game language
   set language(String value);
 
-  /// Returns whether hard difficulty is enabled
-  bool get isHardDifficulty;
+  /// Returns whether hard mode is enabled
+  bool get isHardMode;
 
-  /// Sets whether hard difficulty is enabled
-  set isHardDifficulty(bool value);
+  /// Sets whether hard mode is enabled
+  set isHardMode(bool value);
 
   /// Updates the progress for a given id
   void updateProgress({required String id, required bool answeredCorrectly});

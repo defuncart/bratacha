@@ -24,10 +24,10 @@ class PlayerDataService implements IPlayerDataService {
   }
 
   @override
-  bool get isHardDifficulty => _box.get(_Keys.isHardDifficulty, defaultValue: _Defaults.isHardDifficulty);
+  bool get isHardMode => _box.get(_Keys.isHardMode, defaultValue: _Defaults.isHardMode);
 
   @override
-  set isHardDifficulty(bool value) => _box.put(_Keys.isHardDifficulty, value);
+  set isHardMode(bool value) => _box.put(_Keys.isHardMode, value);
 
   @override
   void updateProgress({required String id, required bool answeredCorrectly}) =>
@@ -76,11 +76,11 @@ class PlayerDataService implements IPlayerDataService {
 /// A class of keys used to store values
 class _Keys {
   static const language = 'language';
-  static const isHardDifficulty = 'isHardDifficulty';
+  static const isHardMode = 'isHardMode';
 }
 
 /// A class of defaults for each key
 class _Defaults {
   static const language = 'en';
-  static const isHardDifficulty = false;
+  static const isHardMode = false;
 }

@@ -29,7 +29,7 @@ class GameScreen extends StatelessWidget {
     return BlocProvider<GameCubit>(
       create: (contextRepository) => GameCubit(
         gameService: GameService(
-          isHardDifficulty: context.read<IPlayerDataService>().isHardDifficulty,
+          isHardMode: context.read<IPlayerDataService>().isHardMode,
           playerDataService: context.read<IPlayerDataService>(),
           level: level,
           levelManager: context.read<LevelManager>(),

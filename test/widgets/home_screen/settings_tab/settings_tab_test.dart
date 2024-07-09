@@ -4,8 +4,8 @@ import 'package:bratacha/modules/player_data/src/services/i_player_data_service.
 import 'package:bratacha/services/app_info_service/i_app_info_service.dart';
 import 'package:bratacha/services/url_launcher_service/i_url_launcher_service.dart';
 import 'package:bratacha/widgets/common/buttons/custom_elevated_button.dart';
-import 'package:bratacha/widgets/common/panels/hard_difficulty_panel/hard_difficulty_cubit.dart';
-import 'package:bratacha/widgets/common/panels/hard_difficulty_panel/hard_difficulty_panel.dart';
+import 'package:bratacha/widgets/common/panels/hard_mode_panel/hard_mode_cubit.dart';
+import 'package:bratacha/widgets/common/panels/hard_mode_panel/hard_mode_panel.dart';
 import 'package:bratacha/widgets/common/panels/language_panel/language_cubit.dart';
 import 'package:bratacha/widgets/common/panels/language_panel/language_panel.dart';
 import 'package:bratacha/widgets/home_screen/settings_tab/feedback_panel.dart';
@@ -20,20 +20,20 @@ import '../../../test_utils.dart';
 
 void main() {
   group('$SettingsTab', () {
-    late MockHardDifficultyCubit mockHardDifficultyCubit;
+    late MockHardModeCubit mockHardModeCubit;
     late MockLanguageCubit mockLanguageCubit;
     late Widget widget;
 
     setUp(() {
-      mockHardDifficultyCubit = MockHardDifficultyCubit();
-      whenState(mockHardDifficultyCubit, false);
+      mockHardModeCubit = MockHardModeCubit();
+      whenState(mockHardModeCubit, false);
       mockLanguageCubit = MockLanguageCubit();
       whenState(mockLanguageCubit, 'en');
 
       widget = MultiBlocProvider(
         providers: [
-          BlocProvider<HardDifficultyCubit>.value(
-            value: mockHardDifficultyCubit,
+          BlocProvider<HardModeCubit>.value(
+            value: mockHardModeCubit,
           ),
           BlocProvider<LanguageCubit>.value(
             value: mockLanguageCubit,
@@ -56,7 +56,7 @@ void main() {
       final context = tester.element(find.byType(SettingsTab));
       expect(find.text(context.l10n.settingsTabLanguageLabel), findsOneWidget);
       expect(find.byType(LanguagePanel), findsOneWidget);
-      expect(find.byType(HardDifficultyPanel), findsOneWidget);
+      expect(find.byType(HardModePanel), findsOneWidget);
       expect(find.byType(CustomElevatedButton), findsOneWidget);
       expect(find.byType(FeedbackPanel), findsOneWidget);
     });

@@ -6,7 +6,7 @@ import 'package:bratacha/modules/settings_database/src/services/i_settings_datab
 import 'package:bratacha/services/app_info_service/i_app_info_service.dart';
 import 'package:bratacha/services/game_service/i_game_service.dart';
 import 'package:bratacha/services/url_launcher_service/i_url_launcher_service.dart';
-import 'package:bratacha/widgets/common/panels/hard_difficulty_panel/hard_difficulty_cubit.dart';
+import 'package:bratacha/widgets/common/panels/hard_mode_panel/hard_mode_cubit.dart';
 import 'package:bratacha/widgets/common/panels/language_panel/language_cubit.dart';
 import 'package:bratacha/widgets/game_screen/game_cubit.dart';
 import 'package:flutter/material.dart';
@@ -36,6 +36,6 @@ class MockLanguageCubit extends Mock implements LanguageCubit {}
 
 class MockBuildContext extends Mock implements BuildContext {}
 
-class MockHardDifficultyCubit extends Mock implements HardDifficultyCubit {}
+class MockHardModeCubit extends Mock implements HardModeCubit {}
 
 class MockAppInfoService extends Mock implements IAppInfoService {}

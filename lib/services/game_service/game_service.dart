@@ -10,7 +10,7 @@ import 'package:flutter/widgets.dart';
 
 class GameService implements IGameService {
   GameService({
-    required this.isHardDifficulty,
+    required this.isHardMode,
     required this.playerDataService,
     required this.level,
     required LevelManager levelManager,
@@ -37,7 +37,7 @@ class GameService implements IGameService {
   final List<Country> _countries = CountryService.countries;
   late List<int> _indicesCountriesForLevel;
   late int _numberRounds;
-  final bool isHardDifficulty;
+  final bool isHardMode;
   final IPlayerDataService playerDataService;
   int _index = 0;
   List<int> _countriesDisplayed = [];
@@ -54,8 +54,8 @@ class GameService implements IGameService {
   GameRound nextRound() {
     _countriesDisplayed = [_indexForCurrentQuestion, -1, -1, -1];
 
-    // if on hard difficult, add up to three similar flags
-    if (isHardDifficulty) {
+    // if on hard mode, add up to three similar flags
+    if (isHardMode) {
       final similarFlags = List<String>.from(_questionCountry.similarFlags);
       similarFlags.shuffle();
       for (final similarFlag in similarFlags) {

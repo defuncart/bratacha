@@ -23,16 +23,16 @@ void main() {
         await playerDataService.initialize();
 
         expect(playerDataService.language, 'en');
-        expect(playerDataService.isHardDifficulty, isFalse);
+        expect(playerDataService.isHardMode, isFalse);
         expect(playerDataService.hasCorrectlyAnswered(id: 'id'), isFalse);
 
         // language
         playerDataService.language = 'de';
         expect(playerDataService.language, 'de');
 
-        // isHardDifficulty
-        playerDataService.isHardDifficulty = true;
-        expect(playerDataService.isHardDifficulty, true);
+        // isHardMode
+        playerDataService.isHardMode = true;
+        expect(playerDataService.isHardMode, true);
 
         // updateProgress, hasCorrectlyAnswered
         playerDataService.updateProgress(id: 'id', answeredCorrectly: true);
@@ -41,7 +41,7 @@ void main() {
         // reset
         await playerDataService.reset();
         expect(playerDataService.language, 'en');
-        expect(playerDataService.isHardDifficulty, isFalse);
+        expect(playerDataService.isHardMode, isFalse);
         expect(playerDataService.hasCorrectlyAnswered(id: 'id'), isFalse);
       },
     );

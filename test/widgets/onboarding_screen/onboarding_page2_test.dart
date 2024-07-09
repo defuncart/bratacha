@@ -1,8 +1,8 @@
 import 'package:bratacha/extensions/test_window_extensions.dart';
 import 'package:bratacha/intl/country_localizations.dart';
 import 'package:bratacha/intl/localizations.dart';
-import 'package:bratacha/widgets/common/panels/hard_difficulty_panel/hard_difficulty_cubit.dart';
-import 'package:bratacha/widgets/common/panels/hard_difficulty_panel/hard_difficulty_panel.dart';
+import 'package:bratacha/widgets/common/panels/hard_mode_panel/hard_mode_cubit.dart';
+import 'package:bratacha/widgets/common/panels/hard_mode_panel/hard_mode_panel.dart';
 import 'package:bratacha/widgets/game_screen/question_answer_panel.dart';
 import 'package:bratacha/widgets/onboarding_screen/onboarding_page2.dart';
 import 'package:flutter/material.dart';
@@ -17,15 +17,15 @@ void main() {
 
   group('$OnboardingPage2', () {
     testWidgets('Ensure widget tree is correct', (tester) async {
-      final mockHardDifficultyCubit = MockHardDifficultyCubit();
-      whenState(mockHardDifficultyCubit, false);
+      final mockHardModeCubit = MockHardModeCubit();
+      whenState(mockHardModeCubit, false);
 
       // set size to ensure portrait orientation
       tester.binding.window.simulateSize(const Size(540, 1170));
 
       await tester.pumpWidget(
-        BlocProvider<HardDifficultyCubit>.value(
-          value: mockHardDifficultyCubit,
+        BlocProvider<HardModeCubit>.value(
+          value: mockHardModeCubit,
           child: wrapWithMaterialApp(
             const Scaffold(
               body: OnboardingPage2(),
@@ -34,7 +34,7 @@ void main() {
         ),
       );
 
-      expect(find.byType(HardDifficultyPanel), findsOneWidget);
+      expect(find.byType(HardModePanel), findsOneWidget);
       expect(find.byType(QuestionAnswerPanel), findsOneWidget);
       expect(find.byType(Text), findsNWidgets(4));
 

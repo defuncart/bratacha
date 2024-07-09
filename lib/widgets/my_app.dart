@@ -10,7 +10,7 @@ import 'package:bratacha/services/app_info_service/app_info_service.dart';
 import 'package:bratacha/services/app_info_service/i_app_info_service.dart';
 import 'package:bratacha/services/url_launcher_service/i_url_launcher_service.dart';
 import 'package:bratacha/services/url_launcher_service/url_launcher_service.dart';
-import 'package:bratacha/widgets/common/panels/hard_difficulty_panel/hard_difficulty_cubit.dart';
+import 'package:bratacha/widgets/common/panels/hard_mode_panel/hard_mode_cubit.dart';
 import 'package:bratacha/widgets/common/panels/language_panel/language_cubit.dart';
 import 'package:bratacha/widgets/game_screen/game_screen.dart';
 import 'package:bratacha/widgets/home_screen/home_screen.dart';
@@ -58,8 +58,8 @@ class MyApp extends StatelessWidget {
           BlocProvider<LanguageCubit>(
             create: (contextRepositories) => LanguageCubit(contextRepositories.read<IPlayerDataService>()),
           ),
-          BlocProvider<HardDifficultyCubit>(
-            create: (contextRepositories) => HardDifficultyCubit(contextRepositories.read<IPlayerDataService>()),
+          BlocProvider<HardModeCubit>(
+            create: (contextRepositories) => HardModeCubit(contextRepositories.read<IPlayerDataService>()),
           ),
         ],
         child: BlocBuilder<LanguageCubit, String>(

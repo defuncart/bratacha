@@ -4,7 +4,7 @@ import 'package:bratacha/modules/player_data/player_data.dart';
 import 'package:bratacha/services/app_info_service/i_app_info_service.dart';
 import 'package:bratacha/services/url_launcher_service/i_url_launcher_service.dart';
 import 'package:bratacha/widgets/common/buttons/custom_elevated_button.dart';
-import 'package:bratacha/widgets/common/panels/hard_difficulty_panel/hard_difficulty_panel.dart';
+import 'package:bratacha/widgets/common/panels/hard_mode_panel/hard_mode_panel.dart';
 import 'package:bratacha/widgets/common/panels/language_panel/language_cubit.dart';
 import 'package:bratacha/widgets/common/panels/language_panel/language_panel.dart';
 import 'package:bratacha/widgets/home_screen/settings_tab/data_privacy_panel.dart';
@@ -69,7 +69,7 @@ class SettingsTab extends StatelessWidget {
                 const SizedBox(height: 8),
                 const LanguagePanel(),
                 const SizedBox(height: 16),
-                const HardDifficultyPanel(),
+                const HardModePanel(),
                 const SizedBox(height: 16),
                 Center(
                   child: CustomElevatedButton(
