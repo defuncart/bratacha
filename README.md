@@ -8,7 +8,7 @@ A fun flag quiz game as Gaeilge (and other languages)!
 
 *Bratacha* (Irish for flags) is an open source project targeting languages which are often ignored within the flag quiz space, for instance Irish, Welsh, Belarusian. English is also currently supported, while German and Polish may follow in the future.
 
-Note that only flags of countries recognized by the UN are present.
+Bratacha is apolitical. All flags adhere to full member states of the United Nations.
 
 ## Getting Started
 

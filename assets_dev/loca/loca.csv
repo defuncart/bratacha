@@ -16,6 +16,7 @@ resetProgressDialogDescription;Your progress will be permanently deleted and can
 dataPrivacyDialogTitle;Data Privacy;Канфідэнцыяльнасць дадзеных;Preifatrwydd Data;Príobháideacht sonraí
 dataPrivacyPanelLabel1;By using this application, you agree to the terms and conditions stated in the [privacy policy](https://github.com/defuncart/bratacha/blob/master/privacy_policy.md).;;;
 dataPrivacyPanelLabel2;No data is collected on how you use the app, nor is any data sent onto third parties.;;;
+disclaimerPoliticsLabel;Bratacha is apolitical. All flags adhere to full member states of the United Nations.;;;
 developerPanelLabel;Made with \u2764 in Berlin. [Source Code](https://github.com/defuncart/bratacha).;;;
 quitGameDialogTitle;Quit Game?;Выйсці з гульні?;Gadael y gêm?;Scoir an cluiche?
 quitGameDialogDescription;Your current progress will be lost.;Ваш бягучы прагрэс будзе страчаны.;Bydd eich cynnydd presennol yn cael ei golli.;Caillfear an dul chun cinn atá agat faoi láthair.

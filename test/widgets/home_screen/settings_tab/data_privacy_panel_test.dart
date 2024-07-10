@@ -8,13 +8,15 @@ import '../../../test_utils.dart';
 void main() {
   group('$DataPrivacyPanel', () {
     testWidgets('Ensure widget tree is correct', (tester) async {
+      tester.setSize(const Size(600, 1000));
       await tester.pumpWidget(
         wrapWithMaterialApp(const DataPrivacyPanel()),
       );
 
+      expect(find.byType(DataPrivacyPanel), findsOneWidget);
       expect(find.byType(Column), findsOneWidget);
       expect(find.byType(ClickableText), findsNWidgets(2));
-      expect(find.byType(Text), findsOneWidget);
+      expect(find.byType(Text), findsNWidgets(2));
     });
   });
 }
