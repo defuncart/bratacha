@@ -8,7 +8,7 @@ class CustomDialogRequest extends BaseDialogRequest {
     required this.content,
     required this.buttonTexts,
     super.isModal,
-  })  : assert(buttonTexts.length > 0);
+  }) : assert(buttonTexts.length > 0);
 
   final Widget content;
   final List<String> buttonTexts;
