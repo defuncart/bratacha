@@ -53,48 +53,50 @@ class SettingsTab extends StatelessWidget {
           ],
         ),
         body: SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const SizedBox(height: 16),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(context.l10n.settingsTabLanguageLabel),
-                    Text(state.languageTitle),
-                  ],
-                ),
-                const SizedBox(height: 8),
-                const LanguagePanel(),
-                const SizedBox(height: 16),
-                const HardModePanel(),
-                const SizedBox(height: 16),
-                Center(
-                  child: CustomElevatedButton(
-                    onPressed: () async {
-                      final playerDataService = context.read<IPlayerDataService>();
-                      final response = await context.read<IDialogService>().requestConfirmDialog(
-                            ConfirmDialogRequest(
-                              title: context.l10n.resetProgressDialogTitle,
-                              description: context.l10n.resetProgressDialogDescription,
-                              negativeButtonText: context.l10n.generalNo,
-                              positiveButtonText: context.l10n.generalYes,
-                            ),
-                          );
-                      if (response.isPositive) {
-                        await playerDataService.reset();
-                      }
-                    },
-                    buttonText: context.l10n.settingsTabResetProgressLabel,
+          child: SingleChildScrollView(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const SizedBox(height: 16),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(context.l10n.settingsTabLanguageLabel),
+                      Text(state.languageTitle),
+                    ],
                   ),
-                ),
-                const SizedBox(height: 16),
-                FeedbackPanel(
-                  urlLaucherService: context.read<IUrlLauncherService>(),
-                ),
-              ],
+                  const SizedBox(height: 8),
+                  const LanguagePanel(),
+                  const SizedBox(height: 16),
+                  const HardModePanel(),
+                  const SizedBox(height: 16),
+                  Center(
+                    child: CustomElevatedButton(
+                      onPressed: () async {
+                        final playerDataService = context.read<IPlayerDataService>();
+                        final response = await context.read<IDialogService>().requestConfirmDialog(
+                              ConfirmDialogRequest(
+                                title: context.l10n.resetProgressDialogTitle,
+                                description: context.l10n.resetProgressDialogDescription,
+                                negativeButtonText: context.l10n.generalNo,
+                                positiveButtonText: context.l10n.generalYes,
+                              ),
+                            );
+                        if (response.isPositive) {
+                          await playerDataService.reset();
+                        }
+                      },
+                      buttonText: context.l10n.settingsTabResetProgressLabel,
+                    ),
+                  ),
+                  const SizedBox(height: 16),
+                  FeedbackPanel(
+                    urlLaucherService: context.read<IUrlLauncherService>(),
+                  ),
+                ],
+              ),
             ),
           ),
         ),

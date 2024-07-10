@@ -16,6 +16,7 @@ abstract class AppThemes {
     scaffoldBackgroundColor: _AppColors.primary,
     appBarTheme: const AppBarTheme(
       color: _AppColors.primaryDark,
+      foregroundColor: _AppColors.card,
       surfaceTintColor: Colors.transparent,
       elevation: 0,
       systemOverlayStyle: SystemUiOverlayStyle(
