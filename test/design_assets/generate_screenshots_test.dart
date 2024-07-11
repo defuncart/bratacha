@@ -49,9 +49,13 @@ void main() {
         color: AppThemes.theme.colorScheme.secondary,
       ),
       theme: AppThemes.theme,
-      textStyle: const TextStyle(
-        fontSize: 96,
-        color: Colors.white,
+      textOptions: const ScreenshotTextOptions(
+        textStyle: TextStyle(
+          fontSize: 96,
+          color: Colors.white,
+        ),
+        textAlign: TextAlign.center,
+        spacer: 32,
       ),
     ),
     screens: [
@@ -71,8 +75,6 @@ void main() {
         onBuildScreen: () => const GameScreenContent(level: 0),
         text: ScreenshotText(
           onGenerateText: (_) => localizations.screenshot1Label,
-          textAlign: TextAlign.center,
-          spacer: 32,
         ),
         wrapper: (child) => BlocProvider<GameCubit>.value(
           value: mockGameCubit,
@@ -95,8 +97,6 @@ void main() {
         onBuildScreen: () => const GameScreenContent(level: 0),
         text: ScreenshotText(
           onGenerateText: (_) => localizations.screenshot2Label,
-          textAlign: TextAlign.center,
-          spacer: 32,
         ),
         wrapper: (child) => BlocProvider<GameCubit>.value(
           value: mockGameCubit,
@@ -111,8 +111,6 @@ void main() {
         onBuildScreen: () => const HomeScreen(),
         text: ScreenshotText(
           onGenerateText: (_) => localizations.screenshot3Label,
-          textAlign: TextAlign.center,
-          spacer: 32,
         ),
         wrapper: (child) => BlocProvider<LanguageCubit>.value(
           value: mockLanguageCubit,
