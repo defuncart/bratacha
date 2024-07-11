@@ -22,6 +22,7 @@ void main() {
   late MockLevelManager mockLevelManager;
   late MockLanguageCubit mockLanguageCubit;
   late MockGameCubit mockGameCubit;
+  late AppLocalizations localizations;
 
   setUp(() {
     mockLevelManager = MockLevelManager();
@@ -55,8 +56,9 @@ void main() {
     ),
     screens: [
       ScreenshotScenario(
-        onSetUp: (locale) {
+        onSetUp: (locale) async {
           CountryLocalizations.load(locale);
+          localizations = await AppLocalizations.delegate.load(locale);
           whenState(
             mockGameCubit,
             GameStateStartRound(
@@ -68,12 +70,7 @@ void main() {
         },
         onBuildScreen: () => const GameScreenContent(level: 0),
         text: ScreenshotText(
-          text: {
-            const Locale('en'): 'Test your knowledge of flags of the world!',
-            const Locale('be'): 'A',
-            const Locale('cy'): 'A',
-            const Locale('ga'): 'A',
-          },
+          onGenerateText: (_) => localizations.screenshot1Label,
           textAlign: TextAlign.center,
           spacer: 32,
         ),
@@ -83,8 +80,9 @@ void main() {
         ),
       ),
       ScreenshotScenario(
-        onSetUp: (locale) {
+        onSetUp: (locale) async {
           CountryLocalizations.load(locale);
+          localizations = await AppLocalizations.delegate.load(locale);
           whenState(
             mockGameCubit,
             GameStateStartRound(
@@ -96,12 +94,7 @@ void main() {
         },
         onBuildScreen: () => const GameScreenContent(level: 0),
         text: ScreenshotText(
-          text: {
-            const Locale('en'): 'Fancy a challenge? Enable hard mode!',
-            const Locale('be'): 'A',
-            const Locale('cy'): 'A',
-            const Locale('ga'): 'A',
-          },
+          onGenerateText: (_) => localizations.screenshot2Label,
           textAlign: TextAlign.center,
           spacer: 32,
         ),
@@ -111,17 +104,13 @@ void main() {
         ),
       ),
       ScreenshotScenario(
-        onSetUp: (locale) {
+        onSetUp: (locale) async {
+          localizations = await AppLocalizations.delegate.load(locale);
           whenState(mockLanguageCubit, locale.languageCode);
         },
         onBuildScreen: () => const HomeScreen(),
         text: ScreenshotText(
-          text: {
-            const Locale('en'): 'Over 190 flags\nacross 10 levels!',
-            const Locale('be'): 'A',
-            const Locale('cy'): 'A',
-            const Locale('ga'): 'A',
-          },
+          onGenerateText: (_) => localizations.screenshot3Label,
           textAlign: TextAlign.center,
           spacer: 32,
         ),
