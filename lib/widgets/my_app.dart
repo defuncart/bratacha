@@ -47,7 +47,7 @@ class MyApp extends StatelessWidget {
           create: (_) => DialogService(),
         ),
         RepositoryProvider<IAppInfoService>(
-          create: (_) => AppInfoService(),
+          create: (_) => AppInfoService()..init(),
         ),
         RepositoryProvider<IUrlLauncherService>(
           create: (_) => UrlLaucherService(),

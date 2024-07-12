@@ -4,6 +4,7 @@ import 'package:bratacha/modules/player_data/player_data.dart';
 import 'package:bratacha/services/app_info_service/i_app_info_service.dart';
 import 'package:bratacha/services/url_launcher_service/i_url_launcher_service.dart';
 import 'package:bratacha/widgets/common/buttons/custom_elevated_button.dart';
+import 'package:bratacha/widgets/common/icons/app_icon.dart';
 import 'package:bratacha/widgets/common/panels/hard_mode_panel/hard_mode_panel.dart';
 import 'package:bratacha/widgets/common/panels/language_panel/language_cubit.dart';
 import 'package:bratacha/widgets/common/panels/language_panel/language_panel.dart';
@@ -43,7 +44,10 @@ class SettingsTab extends StatelessWidget {
                     context: context,
                     applicationName: appInfoService.applicationName,
                     applicationVersion: appInfoService.applicationVersion,
-                    applicationIcon: appInfoService.applicationIcon,
+                    applicationIcon: const AppIcon(
+                      size: 96,
+                      hasBorder: true,
+                    ),
                     applicationLegalese: appInfoService.applicationLegalese,
                   );
                 }

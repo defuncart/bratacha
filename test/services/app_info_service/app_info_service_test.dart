@@ -1,28 +1,36 @@
 import 'package:bratacha/services/app_info_service/app_info_service.dart';
-import 'package:flutter/material.dart' show Widget;
 import 'package:flutter_test/flutter_test.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 
 void main() {
   group('AppInfoService', () {
-    final appInfoService = AppInfoService();
+    late AppInfoService service;
 
-    test('applicationName', () {
-      expect(appInfoService.applicationName, isA<String>());
-      expect(appInfoService.applicationName, 'Bratacha');
+    setUp(() {
+      service = AppInfoService();
+      PackageInfo.setMockInitialValues(
+        appName: 'Bratacha',
+        packageName: '',
+        version: '1.2.3',
+        buildNumber: '4',
+        buildSignature: '',
+      );
     });
 
-    test('applicationVersion', () {
-      expect(appInfoService.applicationVersion, isA<String>());
-      expect(appInfoService.applicationVersion, '0.0.1');
+    test('applicationName', () async {
+      await service.init();
+
+      expect(service.applicationName, 'Bratacha');
     });
 
-    test('applicationIcon', () {
-      expect(appInfoService.applicationIcon, isA<Widget>());
+    test('applicationVersion', () async {
+      await service.init();
+
+      expect(service.applicationVersion, '1.2.3 (4)');
     });
 
     test('applicationLegalese', () {
-      expect(appInfoService.applicationLegalese, isA<String>());
-      expect(appInfoService.applicationLegalese, '© 2024 defuncart');
+      expect(service.applicationLegalese, '© 2024 defuncart');
     });
   });
 }

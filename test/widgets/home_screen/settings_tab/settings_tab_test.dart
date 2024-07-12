@@ -87,7 +87,6 @@ void main() {
 
       when(() => mockAppInfoService.applicationName).thenReturn('');
       when(() => mockAppInfoService.applicationVersion).thenReturn('');
-      when(() => mockAppInfoService.applicationIcon).thenReturn(const SizedBox.shrink());
       when(() => mockAppInfoService.applicationLegalese).thenReturn('');
 
       await tester.tap(button);
