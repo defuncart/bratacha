@@ -10,7 +10,7 @@ import 'package:flutter_svg/svg.dart';
 void main() {
   final text = {
     const Locale('en'): 'A fun flag quiz game!',
-    const Locale('be'): 'A fun flag quiz game!',
+    const Locale('be'): 'Вясёлая віктарына са сцягам!',
     const Locale('cy'): 'A fun flag quiz game!',
     const Locale('ga'): 'A fun flag quiz game!',
   };
