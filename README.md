@@ -6,44 +6,23 @@ A fun flag quiz game as Gaeilge (and other languages)!
 
 ## About
 
-*Bratacha* (Irish for flags) is an open source project targeting languages which are often ignored within the flag quiz space, for instance Irish, Welsh, Belarusian. English is also currently supported, while German and Polish may follow in the future.
+*Bratacha* (Irish for flags) is an open source project targeting languages which are often ignored within the flag quiz space, for instance Irish, Welsh, Belarusian.
 
 Bratacha is apolitical. All flags adhere to full member states of the United Nations.
 
-## Getting Started
+## Download
 
-If you would like to build the app yourself, then you simply need:
-
-- Flutter >= 3.22
-- Dart >= 3.4
-- Xcode >= 15
-- Cocoapods >= 1.13.0
-- Android SDK >= 34
-- Chrome
-
-### Asset Generation
-
-To generate the app icons, run:
-
-```dart
-dart run flutter_launcher_icons
-```
-
-To download flag assets, run:
-
-```sh
-dart bin/flag_downloader.dart
-```
-
-To generate database assets, run:
-
-```sh
-dart bin/db_importer.dart
-```
+The application will soon be available for early alpha testing on iOS and Android. If you would prefer to build from source, please see [docs/build_locally.md](docs/build_locally.md).
 
 ## Contributing
 
-If you'd like to help translating the app into Irish/Welsh/Belarusian, please get in touch! Likewise if you'd like to work on another language!
+If you are a native speaker of Belarusian, Irish or Welsh, please consider proofreading and updating the auto-generated translations [here](https://docs.google.com/spreadsheets/d/1bfFT6_rA-9QEBTHy1YDpdP-lgQ42Cq4YV1AchvA21pY/edit?usp=sharing).
+
+If you have played Bratacha, please give your feedback [here](https://forms.gle/UL2nhvt8oeRH361E6).
+
+Please report bugs and issues, and raise feature requests [here](https://github.com/defuncart/der_die_das/issues).
+
+To contribute, submit a PR with a detailed description and tests, if applicable.
 
 ## Credits
 
