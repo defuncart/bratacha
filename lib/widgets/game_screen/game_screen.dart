@@ -3,13 +3,10 @@ import 'package:bratacha/managers/level_manager.dart';
 import 'package:bratacha/modules/dialog_manager/dialog_manager.dart';
 import 'package:bratacha/modules/player_data/player_data.dart';
 import 'package:bratacha/services/game_service/game_service.dart';
-import 'package:bratacha/services/game_service/i_game_service.dart';
-import 'package:bratacha/widgets/common/score.dart';
-import 'package:bratacha/widgets/game_screen/answers_cubit.dart';
+import 'package:bratacha/widgets/game_screen/game_cubit.dart';
 import 'package:bratacha/widgets/game_screen/question_answer_panel.dart';
-import 'package:bratacha/widgets/game_screen/question_cubit.dart';
-import 'package:bratacha/widgets/game_screen/score_cubit.dart';
 import 'package:bratacha/widgets/home_screen/home_screen.dart';
+import 'package:bratacha/widgets/results_screen/results_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -29,32 +26,30 @@ class GameScreen extends StatelessWidget {
     final args = ModalRoute.of(context)?.settings.arguments as GameScreenArguments;
     final level = args.level;
 
-    return RepositoryProvider<IGameService>(
-      create: (_) => GameService(
-        isHardDifficulty: context.read<IPlayerDataService>().isHardDifficulty,
-        playerDataService: context.read<IPlayerDataService>(),
-        level: level,
-        levelManager: context.read<LevelManager>(),
+    return BlocProvider<GameCubit>(
+      create: (contextRepository) => GameCubit(
+        gameService: GameService(
+          isHardMode: context.read<IPlayerDataService>().isHardMode,
+          playerDataService: context.read<IPlayerDataService>(),
+          level: level,
+          levelManager: context.read<LevelManager>(),
+        ),
       )..initialize(),
-      lazy: false,
-      child: MultiBlocProvider(
-        providers: [
-          BlocProvider<QuestionCubit>(
-            create: (contextRepository) => QuestionCubit(
-              gameService: contextRepository.read<IGameService>(),
-            ),
-          ),
-          BlocProvider<AnswersCubit>(
-            create: (contextRepository) => AnswersCubit(
-              gameService: contextRepository.read<IGameService>(),
-            ),
-          ),
-          BlocProvider<ScoreCubit>(
-            create: (contextRepository) => ScoreCubit(
-              gameService: contextRepository.read<IGameService>(),
-            ),
-          ),
-        ],
+      child: BlocListener<GameCubit, GameState>(
+        listener: (context, state) {
+          if (state is GameStateEndGame) {
+            Navigator.of(context).pushReplacementNamed(
+              ResultsScreen.routeName,
+              arguments: ResultsScreenArguments(
+                level: level,
+                correctPercentage: state.correctPercentage,
+                canPlayNextLevel: state.canPlayNextLevel,
+                nextLevelUnlocked: state.nextLevelUnlocked,
+                incorrectIds: state.incorrectIds,
+              ),
+            );
+          }
+        },
         child: Scaffold(
           appBar: AppBar(
             leading: IconButton(
@@ -75,20 +70,7 @@ class GameScreen extends StatelessWidget {
               },
             ),
             title: Text(context.l10n.generalLevelLabel(level + 1)),
-            actions: [
-              Center(
-                child: Padding(
-                  padding: const EdgeInsets.only(right: 16),
-                  child: BlocBuilder<ScoreCubit, int>(
-                    builder: (_, score) => Score(
-                      score: score,
-                      color: Colors.white,
-                      fontSize: 20.0,
-                    ),
-                  ),
-                ),
-              ),
-            ],
+            bottom: const _ProgressBar(),
           ),
           body: const SafeArea(
             child: Center(
@@ -99,4 +81,41 @@ class GameScreen extends StatelessWidget {
       ),
     );
   }
+}
+
+class _ProgressBar extends StatelessWidget implements PreferredSizeWidget {
+  const _ProgressBar();
+
+  static const _size = Size(double.infinity, 4);
+
+  @override
+  Widget build(BuildContext context) {
+    final state = context.watch<GameCubit>().state;
+    final progress = switch (state) {
+      GameStateStartRound(:final progress) => progress,
+      GameStateEndRound(:final progress) => progress,
+      _ => 1.0,
+    };
+
+    return SizedBox.fromSize(
+      size: _size,
+      child: TweenAnimationBuilder<double>(
+        duration: const Duration(milliseconds: 300),
+        curve: Curves.easeInOut,
+        tween: Tween<double>(
+          begin: 0,
+          end: progress,
+        ),
+        builder: (context, value, _) => LinearProgressIndicator(
+          // minHeight: _size.height,
+          backgroundColor: Colors.transparent,
+          color: Theme.of(context).colorScheme.secondary,
+          value: value,
+        ),
+      ),
+    );
+  }
+
+  @override
+  Size get preferredSize => _size;
 }

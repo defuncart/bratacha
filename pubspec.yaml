@@ -21,6 +21,7 @@ dependencies:
   flutter_svg:
   auto_size_text:
   material_design_icons_flutter:
+  package_info_plus:
 
 dev_dependencies:
   flutter_test:
@@ -62,3 +63,5 @@ flutter_launcher_icons:
   ios: true
   adaptive_icon_background: "#00ADB5"
   adaptive_icon_foreground: "assets_dev/app_icons/android_icon_foreground.png"
+  web:
+    generate: true

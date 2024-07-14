@@ -8,59 +8,77 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 
+import '../mocks.dart';
+
 void main() {
   group('$MyApp', () {
+    late MockPlayerDataService mockPlayerDataService;
+    late MockSettingsDatabase mockSettingsDatabase;
+
+    setUp(() {
+      mockPlayerDataService = MockPlayerDataService();
+      mockSettingsDatabase = MockSettingsDatabase();
+
+      when(() => mockPlayerDataService.language).thenReturn('en');
+      when(() => mockPlayerDataService.hasCorrectlyAnswered(id: any(named: 'id'))).thenReturn(false);
+    });
+
     testWidgets('Ensure widget tree is correct', (tester) async {
+      when(() => mockSettingsDatabase.hasSeenOnboarding).thenReturn(true);
+
       await tester.pumpWidget(
         MultiRepositoryProvider(
           providers: [
-            RepositoryProvider<IPlayerDataService>(
-              create: (_) => _MockPlayerDataService(),
+            RepositoryProvider<IPlayerDataService>.value(
+              value: mockPlayerDataService,
             ),
-            RepositoryProvider<ISettingsDatabase>(
-              create: (_) => _MockSettingsDatabase(),
+            RepositoryProvider<ISettingsDatabase>.value(
+              value: mockSettingsDatabase,
             ),
           ],
           child: const MyApp(),
         ),
       );
-
       await tester.pumpAndSettle();
 
       expect(find.byType(MultiRepositoryProvider), findsNWidgets(2));
       expect(find.byType(MultiBlocProvider), findsOneWidget);
+      expect(find.byType(MyApp), findsOneWidget);
       expect(find.byType(MaterialApp), findsOneWidget);
-    }, skip: true);
+    });
 
     testWidgets('Ensure home screen is displayed when user has seen onboarding', (tester) async {
+      when(() => mockSettingsDatabase.hasSeenOnboarding).thenReturn(true);
+
       await tester.pumpWidget(
         MultiRepositoryProvider(
           providers: [
-            RepositoryProvider<IPlayerDataService>(
-              create: (_) => _MockPlayerDataService(),
+            RepositoryProvider<IPlayerDataService>.value(
+              value: mockPlayerDataService,
             ),
-            RepositoryProvider<ISettingsDatabase>(
-              create: (_) => _MockSettingsDatabase(hasSeenOnboarding: true),
+            RepositoryProvider<ISettingsDatabase>.value(
+              value: mockSettingsDatabase,
             ),
           ],
           child: const MyApp(),
         ),
       );
-
       await tester.pumpAndSettle();
 
       expect(find.byType(HomeScreen), findsOneWidget);
-    }, skip: true);
+    });
 
     testWidgets('Ensure onboarding screen is displayed when user has not seen onboarding', (tester) async {
+      when(() => mockSettingsDatabase.hasSeenOnboarding).thenReturn(false);
+
       await tester.pumpWidget(
         MultiRepositoryProvider(
           providers: [
-            RepositoryProvider<IPlayerDataService>(
-              create: (_) => _MockPlayerDataService(),
+            RepositoryProvider<IPlayerDataService>.value(
+              value: mockPlayerDataService,
             ),
-            RepositoryProvider<ISettingsDatabase>(
-              create: (_) => _MockSettingsDatabase(hasSeenOnboarding: false),
+            RepositoryProvider<ISettingsDatabase>.value(
+              value: mockSettingsDatabase,
             ),
           ],
           child: const MyApp(),
@@ -70,23 +88,6 @@ void main() {
       await tester.pumpAndSettle();
 
       expect(find.byType(OnboardingScreen), findsOneWidget);
-    }, skip: true);
+    });
   });
-}
-
-class _MockPlayerDataService extends Mock implements IPlayerDataService {
-  @override
-  String get language => 'en';
-
-  @override
-  int get score => 0;
-}
-
-class _MockSettingsDatabase extends Mock implements ISettingsDatabase {
-  final bool _hasSeenOnboarding;
-
-  _MockSettingsDatabase({bool hasSeenOnboarding = true}) : _hasSeenOnboarding = hasSeenOnboarding;
-
-  @override
-  bool get hasSeenOnboarding => _hasSeenOnboarding;
 }

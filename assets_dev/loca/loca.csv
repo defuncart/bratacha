@@ -1,35 +1,31 @@
 key;en;be;cy;ga
-test;Hello World!;Здароўствуй свет!;Helo Byd!;Dia duit domhan!
-generalNo;No;Не;Na;
-generalYes;Yes;Так;Ie;
-generalLevelLabel;Level {level};;;
-homeTabLabelText;Home;Галоўная;;
-homeTabLeanFlagsButtonText;See all flags;;;
-settingsTabLabelText;Settings;Налады;;
+generalNo;No;Не;Na;Níl
+generalYes;Yes;Так;Ie;Tá
+generalLevelLabel;Level {level};Узровень {level};Lefel {level};Leibhéal {level}
+homeTabLabelText;Home;Галоўны;Prif;Abhaile
+flagsTabLabelText;Flags;Сцягі;Baneri;Bratacha
+flagsTabSearchTermHint;Country;Краіна;Gwlad;Tír
+settingsTabLabelText;Settings;Налады;Gosodiadau;Socruithe
 settingsTabLanguageLabel;Language;Мова;Iaith;Teanga
-settingsTabResetProgressLabel;Reset Progress;Скід прагрэсу;;
-settingsTabDataPrivacyLabel;Data Privacy;;;
-settingsTabCreditsLabel;Credits;;;
-hardDifficultyPanelLabel;Hard Difficulty;Складаная складанасць;;
-changeLanguageDialogTitle;Change Language?;;;
-changeLanguageDialogDescription;Your progress will be permantely deleted and cannot be recovered.;;;
-resetProgressDialogTitle;Reset progress?;;;
-resetProgressDialogDescription;Your progress will be permantely deleted and cannot be recovered.;;;
-creditsDialogTitle;Credits;;;
-creditsDialogDescriptionLabel1;Concept, Design and Programming by James Leahy.;;;
-dataPrivacyDialogTitle;Data Privacy;;;
-quitGameDialogTitle;Quit Game?;;;
-quitGameDialogDescription;Your current progress will be lost.;;;
-onboardingPage1TextLabel1;Bratacha;;;
-onboardingPage1TextLabel2;A fun flag quiz game with an emphasis on often overlooked languages.;;;
-onboardingPage1TextLabel3;What language would you like to use?;;;
-onboardingGeneralSettingLabel;This can be changed anything in the settings menu.;;;
-onboardingPage2TextLabel1;Fancy a challenge?;;;
-onboardingPage2TextLabel2;Earn extra points by enabling hard difficulty!;;;
-onboardingPage3TextLabel1;Bratacha is an open source project targeting languages which are often ignored within the flag quiz space.;;;
-onboardingPage3TextLabel2;If you'd like to help translating the app into Irish/Welsh/Belarusian, please get in touch! Likewise if you'd like to work on another language!;;;
-developerPanelLabel;Developed with \u2764 in Berlin. [Source Code](https://github.com/defuncart/bratacha).;;;
+settingsTabResetProgressLabel;Reset Progress;Скінуць прагрэс;Ailosod cynnydd;Cluiche athshocrú
+hardModePanelLabel;Hard Mode;Складаная складанасць;Anhawster Caled;Deacracht chrua
+changeLanguageDialogTitle;Change Language?;Змяніць мову?;Newid Iaith?;Athrú Teanga?
+changeLanguageDialogDescription;Your progress will be permanently deleted and cannot be recovered.;Ваш прагрэс будзе назаўсёды выдалены і не можа быць адноўлены.;Bydd eich cynnydd yn cael ei ddileu yn barhaol ac ni ellir ei adennill.;Scriosfar do dhul chun cinn go buan agus ní féidir é a aisghabháil.
+resetProgressDialogTitle;Reset progress?;Скінуць прагрэс?;Ailosod cynnydd?;Cluiche athshocrú?
+resetProgressDialogDescription;Your progress will be permanently deleted and cannot be recovered.;Ваш прагрэс будзе назаўсёды выдалены і не можа быць адноўлены.;Bydd eich cynnydd yn cael ei ddileu yn barhaol ac ni ellir ei adennill.;Scriosfar do dhul chun cinn go buan agus ní féidir é a aisghabháil.
+dataPrivacyDialogTitle;Data Privacy;Канфідэнцыяльнасць дадзеных;Preifatrwydd Data;Príobháideacht sonraí
 dataPrivacyPanelLabel1;By using this application, you agree to the terms and conditions stated in the [privacy policy](https://github.com/defuncart/bratacha/blob/master/privacy_policy.md).;;;
 dataPrivacyPanelLabel2;No data is collected on how you use the app, nor is any data sent onto third parties.;;;
-feedbackPanelLabel1;As the game is presently in development, all content is subject to change. Your feedback is greatly appreciated!;;;
-feedbackPanelGiveFeedbackButtonText;Give Feedback;;;
+disclaimerPoliticsLabel;Bratacha is apolitical. All flags adhere to full member states of the United Nations.;;;
+developerPanelLabel;Made with \u2764 in Berlin. [Source Code](https://github.com/defuncart/bratacha).;;;
+quitGameDialogTitle;Quit Game?;Выйсці з гульні?;Gadael y gêm?;Scoir an cluiche?
+quitGameDialogDescription;Your current progress will be lost.;Ваш бягучы прагрэс будзе страчаны.;Bydd eich cynnydd presennol yn cael ei golli.;Caillfear an dul chun cinn atá agat faoi láthair.
+resultsCongratulations;Congratulations!;Віншую!;Llongyfarchiadau!;Comhghairdeas!
+resultsWellDone;Well done!;Добра зроблена!;Da iawn!;An-mhaith!
+resultsNextLevelUnlocked;Next level unlocked!;Наступны ўзровень разблакіраваны!;Lefel nesaf heb ei gloi!;An chéad leibhéal eile díghlasáilte!
+resultsPerfectRound;Perfect round!;Ідэальны круглы!;Rownd perffaith!;Babhta foirfe!
+onboardingPage1TextLabel1;👋 Welcome;👋 Вітаю;👋 Croeso;👋 Fáilte
+onboardingPage1TextLabel2;Bratacha is a fun flag quiz game with an emphasis on often overlooked languages.;Bratacha - гэта вясёлая гульня-віктарына са сцягам з акцэнтам на мовах, якія часта забываюць.;Mae Bratacha yn gêm cwis baner hwyliog gyda phwyslais ar ieithoedd sy'n cael eu hanwybyddu'n aml.;Is cluiche spraíúil é Bratacha tráth na gceist bratach a chuireann béim ar theangacha a ndéantar faillí orthu go minic.
+onboardingPage1TextLabel3;What language would you like to use?;На якой мове?;Pa iaith hoffech chi ei defnyddio?;Cén teanga ar mhaith leat a úsáid?
+onboardingGeneralSettingLabel;This can be changed anytime in the settings menu.;Гэта можна змяніць у любы час у меню налад.;Gellir newid hyn unrhyw bryd yn y ddewislen gosodiadau.;Is féidir é seo a athrú am ar bith sa roghchlár socruithe.
+onboardingPage2TextLabel1;Fancy a challenge?;Хочаце кінуць выклік?;Ffansi her?;Mhaisiúil dúshlán?

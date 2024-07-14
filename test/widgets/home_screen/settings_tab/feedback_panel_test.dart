@@ -1,18 +1,17 @@
-import 'package:bratacha/intl/localizations.dart';
-import 'package:bratacha/services/url_launcher_service/i_url_launcher_service.dart';
 import 'package:bratacha/widgets/home_screen/settings_tab/feedback_panel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 
-import '../../../tester_utils.dart';
+import '../../../mocks.dart';
+import '../../../test_utils.dart';
 
 void main() {
   group('$FeedbackPanel', () {
-    late IUrlLaucherService mockUrlLauncherService;
+    late MockUrlLauncherService mockUrlLauncherService;
 
     setUp(() {
-      mockUrlLauncherService = _MockUrlLauncherService();
+      mockUrlLauncherService = MockUrlLauncherService();
       when(() => mockUrlLauncherService.openUrl(any())).thenAnswer((_) async {});
     });
 
@@ -25,13 +24,14 @@ void main() {
         ),
       );
 
+      expect(find.byType(FeedbackPanel), findsOneWidget);
       expect(find.byType(Card), findsOneWidget);
       expect(find.byType(Column), findsOneWidget);
-      expect(find.byType(Text), findsNWidgets(2));
-      expect(find.byType(TextButton), findsOneWidget);
+      expect(find.byType(Text), findsNWidgets(5));
+      expect(find.byType(TextButton), findsNWidgets(2));
     });
 
-    testWidgets('Ensure content is correct', (tester) async {
+    testWidgets('Ensure translations button is clickable', (tester) async {
       await tester.pumpWidget(
         wrapWithMaterialApp(
           FeedbackPanel(
@@ -40,9 +40,11 @@ void main() {
         ),
       );
 
-      final context = tester.element(find.byType(FeedbackPanel));
-      expect(find.text(context.l10n.feedbackPanelLabel1), findsOneWidget);
-      expect(find.text(context.l10n.feedbackPanelGiveFeedbackButtonText), findsOneWidget);
+      final button = find.byType(TextButton).at(0);
+
+      await tester.tap(button);
+
+      verify(() => mockUrlLauncherService.openUrl(any()));
     });
 
     testWidgets('Ensure feedback button is clickable', (tester) async {
@@ -54,7 +56,7 @@ void main() {
         ),
       );
 
-      final button = find.byType(TextButton);
+      final button = find.byType(TextButton).at(1);
 
       await tester.tap(button);
 
@@ -62,5 +64,3 @@ void main() {
     });
   });
 }
-
-class _MockUrlLauncherService extends Mock implements IUrlLaucherService {}

@@ -1,62 +1,44 @@
 import 'package:bratacha/intl/country_localizations.dart';
-import 'package:bratacha/services/game_service/i_game_service.dart';
-import 'package:bratacha/widgets/game_screen/answers_cubit.dart';
+import 'package:bratacha/widgets/common/flag.dart';
+import 'package:bratacha/widgets/game_screen/game_cubit.dart';
 import 'package:bratacha/widgets/game_screen/question_answer_panel.dart';
-import 'package:bratacha/widgets/game_screen/question_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
+
+import '../../mocks.dart';
+import '../../test_utils.dart';
 
 void main() {
   // ensure localizations are setup
   CountryLocalizations.load(const Locale('en'));
 
   group('$QuestionAnswerPanel', () {
-    testWidgets('Ensure widget tree is correct', (tester) async {
-      // set size to ensure portrait orientation
-      tester.binding.window.physicalSizeTestValue = const Size(540, 1170);
-      addTearDown(tester.binding.window.clearPhysicalSizeTestValue);
+    late MockGameCubit mockGameCubit;
 
-      final gameService = _MockGameService();
-      await tester.pumpWidget(
-        MultiBlocProvider(
-          providers: [
-            BlocProvider<QuestionCubit>(
-              create: (_) => QuestionCubit(gameService: gameService),
-            ),
-            BlocProvider<AnswersCubit>(
-              create: (_) => AnswersCubit(gameService: gameService),
-            ),
-          ],
-          child: const MaterialApp(
-            home: QuestionAnswerPanel(),
-          ),
-        ),
-      );
-
-      expect(find.byType(Column), findsOneWidget);
-      expect(find.byType(Text), findsOneWidget);
-      expect(find.byType(SizedBox), findsOneWidget);
-      expect(find.byType(Wrap), findsOneWidget);
-      // expect(find.byType(Flag), findsNWidgets(4));
-      // expect(find.byType(SvgPicture), findsNWidgets(4));
+    setUp(() {
+      mockGameCubit = MockGameCubit();
     });
 
-    testWidgets('Ensure widget content is correct', (tester) async {
+    testWidgets('when $GameStateStartRound, ensure correct widget tree', (tester) async {
       // set size to ensure portrait orientation
       tester.binding.window.physicalSizeTestValue = const Size(540, 1170);
       addTearDown(tester.binding.window.clearPhysicalSizeTestValue);
 
-      final gameService = _MockGameService();
+      final state = GameStateStartRound(
+        progress: 0,
+        question: 'Germany',
+        answers: ['de', 'ie', 'pl', 'fr'],
+      );
+      whenState(mockGameCubit, state);
+
       await tester.pumpWidget(
         MultiBlocProvider(
           providers: [
-            BlocProvider<QuestionCubit>(
-              create: (_) => QuestionCubit(gameService: gameService),
-            ),
-            BlocProvider<AnswersCubit>(
-              create: (_) => AnswersCubit(gameService: gameService),
+            BlocProvider<GameCubit>.value(
+              value: mockGameCubit,
             ),
           ],
           child: const MaterialApp(
@@ -65,63 +47,132 @@ void main() {
         ),
       );
 
-      await tester.pumpAndSettle();
-
-      expect(find.text(gameService._question), findsOneWidget);
+      expect(find.byType(QuestionAnswerPanel), findsOneWidget);
+      expect(find.byType(QuestionAnswerPanelContent), findsOneWidget);
+      expect(find.text('Germany'), findsOneWidget);
       expect(find.byType(GestureDetector), findsNWidgets(4));
+      expect(find.byType(Flag), findsNWidgets(4));
+      expect(find.byType(SvgPicture), findsNWidgets(4));
+
+      await tester.tap(find.byType(GestureDetector).first);
+      verify(() => mockGameCubit.answerWithId(any())).called(1);
     });
 
-    testWidgets('Ensure questions can be answered', (tester) async {
-      // set size to ensure portrait orientation
-      tester.binding.window.physicalSizeTestValue = const Size(540, 1170);
-      addTearDown(tester.binding.window.clearPhysicalSizeTestValue);
+    group('when $GameStateEndRound', () {
+      testWidgets('and user answered correctly, expect correct widget tree', (tester) async {
+        // set size to ensure portrait orientation
+        tester.binding.window.physicalSizeTestValue = const Size(540, 1170);
+        addTearDown(tester.binding.window.clearPhysicalSizeTestValue);
 
-      final gameService = _MockGameService();
-      await tester.pumpWidget(
-        MultiBlocProvider(
-          providers: [
-            BlocProvider<QuestionCubit>(
-              create: (_) => QuestionCubit(gameService: gameService),
-            ),
-            BlocProvider<AnswersCubit>(
-              create: (_) => AnswersCubit(gameService: gameService),
-            ),
-          ],
-          child: RepositoryProvider<IGameService>(
-            create: (_) => gameService,
+        final state = GameStateEndRound(
+          progress: 0,
+          question: 'Germany',
+          answers: ['de', 'ie', 'pl', 'fr'],
+          correctAnswer: 'de',
+          userAnswer: 'de',
+          userAnsweredLocalized: 'Germany',
+        );
+        whenState(mockGameCubit, state);
+
+        await tester.pumpWidget(
+          MultiBlocProvider(
+            providers: [
+              BlocProvider<GameCubit>.value(
+                value: mockGameCubit,
+              ),
+            ],
             child: const MaterialApp(
               home: QuestionAnswerPanel(),
             ),
           ),
+        );
+
+        expect(find.byType(QuestionAnswerPanel), findsOneWidget);
+        expect(find.byType(QuestionAnswerPanelContent), findsOneWidget);
+        expect(find.text('Germany'), findsOneWidget);
+        expect(find.byType(GestureDetector), findsNothing);
+        expect(find.byType(Flag), findsNWidgets(4));
+        expect(find.byType(SvgPicture), findsNWidgets(4));
+        expect(find.byIcon(Icons.check), findsOneWidget);
+        expect(find.byIcon(Icons.close), findsNothing);
+        expect(
+          tester.widgetList(find.byType(Opacity)).whereType<Opacity>().where((opacity) => opacity.opacity != 1),
+          hasLength(3),
+        );
+      });
+
+      testWidgets('and user answered incorrectly, expect correct widget tree', (tester) async {
+        // set size to ensure portrait orientation
+        tester.binding.window.physicalSizeTestValue = const Size(540, 1170);
+        addTearDown(tester.binding.window.clearPhysicalSizeTestValue);
+
+        final state = GameStateEndRound(
+          progress: 0,
+          question: 'Germany',
+          answers: ['de', 'ie', 'pl', 'fr'],
+          correctAnswer: 'de',
+          userAnswer: 'pl',
+          userAnsweredLocalized: 'Poland',
+        );
+        whenState(mockGameCubit, state);
+
+        await tester.pumpWidget(
+          MultiBlocProvider(
+            providers: [
+              BlocProvider<GameCubit>.value(
+                value: mockGameCubit,
+              ),
+            ],
+            child: const MaterialApp(
+              home: QuestionAnswerPanel(),
+            ),
+          ),
+        );
+
+        expect(find.byType(QuestionAnswerPanel), findsOneWidget);
+        expect(find.byType(QuestionAnswerPanelContent), findsOneWidget);
+        expect(find.text('Germany'), findsOneWidget);
+        expect(find.byType(GestureDetector), findsNothing);
+        expect(find.byType(Flag), findsNWidgets(4));
+        expect(find.byType(SvgPicture), findsNWidgets(4));
+        expect(find.byIcon(Icons.check), findsNothing);
+        expect(find.byIcon(Icons.close), findsOneWidget);
+        expect(find.text('Poland'), findsOneWidget);
+        expect(
+          tester.widgetList(find.byType(Opacity)).whereType<Opacity>().where((opacity) => opacity.opacity != 1),
+          hasLength(3),
+        );
+      });
+    });
+
+    testWidgets('when $GameStateEndGame, ensure correct widget tree', (tester) async {
+      // set size to ensure portrait orientation
+      tester.binding.window.physicalSizeTestValue = const Size(540, 1170);
+      addTearDown(tester.binding.window.clearPhysicalSizeTestValue);
+
+      final state = GameStateEndGame(
+        correctPercentage: 1,
+        canPlayNextLevel: true,
+        nextLevelUnlocked: true,
+        incorrectIds: [],
+      );
+      whenState(mockGameCubit, state);
+
+      await tester.pumpWidget(
+        MultiBlocProvider(
+          providers: [
+            BlocProvider<GameCubit>.value(
+              value: mockGameCubit,
+            ),
+          ],
+          child: const MaterialApp(
+            home: QuestionAnswerPanel(),
+          ),
         ),
       );
 
-      await tester.pumpAndSettle();
-
-      await tester.tap(find.byType(GestureDetector).first);
+      expect(find.byType(QuestionAnswerPanel), findsOneWidget);
+      expect(find.byType(QuestionAnswerPanelContent), findsNothing);
     });
   });
-}
-
-class _MockGameService extends Mock implements IGameService {
-  final _question = 'Germany';
-  final _answersEasy = ['de', 'ie', 'pl', 'fr'];
-
-  _MockGameService();
-
-  @override
-  Stream<List<String>> get answerCountries async* {
-    yield _answersEasy;
-  }
-
-  @override
-  Stream<String> get questionCountry async* {
-    yield _question;
-  }
-
-  @override
-  bool get levelCompleted => false;
-
-  @override
-  bool answerWithId(String id) => false;
 }

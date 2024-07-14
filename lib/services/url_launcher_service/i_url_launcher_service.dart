@@ -1,3 +1,3 @@
-abstract class IUrlLaucherService {
+abstract class IUrlLauncherService {
   Future<void> openUrl(String url);
 }

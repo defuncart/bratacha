@@ -1,75 +1,61 @@
-import 'dart:async';
 import 'dart:math';
 
+import 'package:bratacha/configs/progress_config.dart';
 import 'package:bratacha/extensions/country_extensions.dart';
 import 'package:bratacha/managers/level_manager.dart';
 import 'package:bratacha/modules/country_database/country_database.dart';
 import 'package:bratacha/modules/player_data/player_data.dart';
 import 'package:bratacha/services/game_service/i_game_service.dart';
+import 'package:flutter/widgets.dart';
 
 class GameService implements IGameService {
   GameService({
-    required this.isHardDifficulty,
+    required this.isHardMode,
     required this.playerDataService,
-    required int level,
+    required this.level,
     required LevelManager levelManager,
+    @visibleForTesting Random? random,
   }) {
     final levelCountries = levelManager.countriesForLevel(level);
-    final indices = <int>[];
-    for (final country in levelCountries) {
-      indices.add(_countries.indexOf(country));
-    }
-    _indicesCountriesForLevel = List.unmodifiable(indices);
+    _indicesCountriesForLevel = levelCountries
+        .map(
+          (country) => _countries.indexOf(country),
+        )
+        .toList(growable: false)
+      ..shuffle(random);
 
     _numberRounds = levelCountries.length;
+    isLastLevel = level == levelManager.numberLevels - 1;
+    isNextLevelUnlocked = isLastLevel ? false : levelManager.progressForLevel(level + 1) != 0;
+    _determineLevelProgress = () => levelManager.progressForLevel(level);
   }
 
+  final int level;
+  late final bool isLastLevel;
+  late final bool isNextLevelUnlocked;
+  late final double Function() _determineLevelProgress;
   final List<Country> _countries = CountryService.countries;
   late List<int> _indicesCountriesForLevel;
   late int _numberRounds;
-  final bool isHardDifficulty;
+  final bool isHardMode;
   final IPlayerDataService playerDataService;
-  late int _score;
-  late int _index;
-  late List<int> _countriesDisplayed;
-  late List<int> _countriesDisplayedLastRound;
-
-  void initialize() {
-    _score = 0;
-    _scoreController.add(_score);
-
-    _index = 0;
-    _countriesDisplayedLastRound = [];
-    _nextRound();
-  }
+  int _index = 0;
+  List<int> _countriesDisplayed = [];
+  List<int> _countriesDisplayedLastRound = [];
+  final _answeredQuestions = <String, bool>{};
 
   int get _indexForCurrentQuestion => _indicesCountriesForLevel[_index];
 
   Country get _questionCountry => _countries[_indexForCurrentQuestion];
 
-  final _questionController = StreamController<String>();
+  double get _progress => _index / _numberRounds;
 
   @override
-  Stream<String> get questionCountry => _questionController.stream;
-
-  final _answersController = StreamController<List<String>>();
-
-  @override
-  Stream<List<String>> get answerCountries => _answersController.stream;
-
-  final _scoreController = StreamController<int>();
-
-  @override
-  Stream<int> get currentScore => _scoreController.stream;
-
-  @override
-  bool get levelCompleted => _index >= _numberRounds;
-
-  void _nextRound() {
+  GameRound nextRound() {
     _countriesDisplayed = [_indexForCurrentQuestion, -1, -1, -1];
 
-    // if on hard difficult, add up to three similar flags
-    if (isHardDifficulty) {
+    // if on hard mode, add up to three similar flags
+    if (isHardMode) {
       final similarFlags = List<String>.from(_questionCountry.similarFlags);
       similarFlags.shuffle();
       for (final similarFlag in similarFlags) {
@@ -93,27 +79,45 @@ class GameService implements IGameService {
     _countriesDisplayed.shuffle();
     _countriesDisplayedLastRound = _countriesDisplayed;
 
-    _questionController.add(_questionCountry.localizedName);
-    _answersController.add(_countriesDisplayed.map((index) => _countries[index].id).toList());
+    return (
+      progress: _progress,
+      question: _questionCountry.localizedName,
+      answers: _countriesDisplayed.map((index) => _countries[index].id).toList(),
+      result: null,
+    );
   }
 
   @override
-  bool answerWithId(String id) {
+  (String, String, double, GameResult?) answerWithId(String id) {
     final correct = _questionCountry.id == id;
-    if (correct) {
-      _score += (isHardDifficulty ? 2 : 1);
-      _scoreController.add(_score);
-    }
-    playerDataService.updateProgress(id: id, answeredCorrectly: correct);
+    _answeredQuestions[_questionCountry.id] = correct;
+
+    final questionCountryId = _questionCountry.id;
+
+    GameResult? result;
 
     if (++_index < _numberRounds) {
-      _nextRound();
+      // do nothing
     } else {
-      // only update score on level completion
-      playerDataService.score += _score;
+      // level completed, update progress
+      for (final kvp in _answeredQuestions.entries) {
+        final id = kvp.key;
+        final correct = kvp.value;
+        playerDataService.updateProgress(id: id, answeredCorrectly: correct);
+      }
+
+      final progressAfter = _determineLevelProgress();
+      final canPlayNextLevel = progressAfter >= ProgressConfig.percentageToOpenNextLevel && !isLastLevel;
+
+      result = (
+        correctPercentage: _answeredQuestions.values.where((t) => t).length / _numberRounds,
+        canPlayNextLevel: canPlayNextLevel,
+        nextLevelUnlocked: canPlayNextLevel && !isNextLevelUnlocked,
+        incorrectIds: _answeredQuestions.entries.where((kvp) => !kvp.value).map((kvp) => kvp.key).toList(),
+      );
     }
 
-    return correct;
+    return (questionCountryId, CountryService.countryWithId(id).localizedName, _progress, result);
   }
 
   int _indexById(String id) => _countries.indexWhere((country) => country.id == id);

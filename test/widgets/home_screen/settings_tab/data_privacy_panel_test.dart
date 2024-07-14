@@ -1,20 +1,22 @@
-import 'package:bratacha/widgets/common/panels/data_privacy_panel.dart';
 import 'package:bratacha/widgets/common/text/clickable_text.dart';
+import 'package:bratacha/widgets/home_screen/settings_tab/data_privacy_panel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import '../../../tester_utils.dart';
+import '../../../test_utils.dart';
 
 void main() {
   group('$DataPrivacyPanel', () {
     testWidgets('Ensure widget tree is correct', (tester) async {
+      tester.setSize(const Size(600, 1000));
       await tester.pumpWidget(
         wrapWithMaterialApp(const DataPrivacyPanel()),
       );
 
+      expect(find.byType(DataPrivacyPanel), findsOneWidget);
       expect(find.byType(Column), findsOneWidget);
-      expect(find.byType(ClickableText), findsOneWidget);
-      expect(find.byType(Text), findsOneWidget);
+      expect(find.byType(ClickableText), findsNWidgets(2));
+      expect(find.byType(Text), findsNWidgets(2));
     });
   });
 }

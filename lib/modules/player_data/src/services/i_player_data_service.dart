@@ -8,20 +8,17 @@ abstract class IPlayerDataService {
   /// Sets the selected game language
   set language(String value);
 
-  /// Returns whether hard difficulty is enabled
-  bool get isHardDifficulty;
+  /// Returns whether hard mode is enabled
+  bool get isHardMode;
 
-  /// Sets whether hard difficulty is enabled
-  set isHardDifficulty(bool value);
-
-  /// Returns the player's score
-  int get score;
-
-  /// Sets the player's score
-  set score(int value);
+  /// Sets whether hard mode is enabled
+  set isHardMode(bool value);
 
   /// Updates the progress for a given id
   void updateProgress({required String id, required bool answeredCorrectly});
+
+  /// Whether player has at least once correctly answered id
+  bool hasCorrectlyAnswered({required String id});
 
   /// Resets all the player's country progress
   void resetAllCountryProgress();

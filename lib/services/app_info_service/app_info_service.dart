@@ -1,19 +1,22 @@
 import 'package:bratacha/services/app_info_service/i_app_info_service.dart';
-import 'package:bratacha/widgets/common/icons/app_icon.dart';
-import 'package:flutter/widgets.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 
 class AppInfoService implements IAppInfoService {
-  @override
-  String get applicationName => 'Bratacha';
+  late final String _applicationName;
+  late final String _applicationVersion;
+
+  Future<void> init() async {
+    final packageInfo = await PackageInfo.fromPlatform();
+
+    _applicationName = packageInfo.appName;
+    _applicationVersion = '${packageInfo.version} (${packageInfo.buildNumber})';
+  }
 
   @override
-  String get applicationVersion => '0.0.1'; //TODO use getVersion
+  String get applicationName => _applicationName;
 
   @override
-  Widget get applicationIcon => const AppIcon(
-        size: 96,
-        hasBorder: true,
-      );
+  String get applicationVersion => _applicationVersion;
 
   @override
   String get applicationLegalese => '© 2024 defuncart';

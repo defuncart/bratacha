@@ -2,7 +2,6 @@ import 'package:bratacha/modules/settings_database/settings_database.dart';
 import 'package:bratacha/widgets/home_screen/home_screen.dart';
 import 'package:bratacha/widgets/onboarding_screen/onboarding_page1.dart';
 import 'package:bratacha/widgets/onboarding_screen/onboarding_page2.dart';
-import 'package:bratacha/widgets/onboarding_screen/onboarding_page3.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -19,7 +18,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   final _pages = [
     const OnboardingPage1(),
     const OnboardingPage2(),
-    const OnboardingPage3(),
   ];
   var _index = 0;
 
@@ -30,7 +28,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     return Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.all(16),
           child: Column(
             children: [
               Expanded(
@@ -45,7 +43,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   minimumSize: MaterialStateProperty.all(
                     Size(
                       MediaQuery.of(context).size.width * 0.5,
-                      40,
+                      kMinInteractiveDimension,
                     ),
                   ),
                 ),

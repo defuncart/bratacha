@@ -20,11 +20,11 @@ jobs:
       - uses: actions/checkout@v1
       - uses: actions/setup-java@v1
         with:
-          java-version: '12.x'
+          java-version: '17.x'
       - uses: ./.github/actions/set_up_flutter
       - name: Build apk
         run:
-          flutter build apk --release --split-per-abi
+          flutter build apk --release
   build-iOS:
     name: Build iOS
     runs-on: macOS-latest

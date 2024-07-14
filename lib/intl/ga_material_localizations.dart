@@ -61,21 +61,21 @@ class GaMaterialLocalizations extends GlobalMaterialLocalizations {
 
   @override
   // TODO: Translate
-  String get alertDialogLabel => 'alertDialogLabel';
+  String get alertDialogLabel => 'Alert';
 
   @override
   String get anteMeridiemAbbreviation => throw UnimplementedError();
 
   @override
   // TODO: Translate
-  String get backButtonTooltip => 'backButtonTooltip';
+  String get backButtonTooltip => 'Ar ais';
 
   @override
   String get cancelButtonLabel => throw UnimplementedError();
 
   @override
   // TODO: Translate
-  String get closeButtonLabel => 'closeButtonLabel';
+  String get closeButtonLabel => 'Dhúnadh';
 
   @override
   String get closeButtonTooltip => throw UnimplementedError();
@@ -85,7 +85,7 @@ class GaMaterialLocalizations extends GlobalMaterialLocalizations {
 
   @override
   // TODO: Translate
-  String get continueButtonLabel => 'continueButtonLabel';
+  String get continueButtonLabel => 'Lean ort';
 
   @override
   String get copyButtonLabel => throw UnimplementedError();
@@ -115,10 +115,10 @@ class GaMaterialLocalizations extends GlobalMaterialLocalizations {
   String get lastPageTooltip => throw UnimplementedError();
 
   @override
-  String get licensesPageTitle => 'licensesPageTitle';
+  String get licensesPageTitle => 'Ceadúnais';
 
   @override
-  String get modalBarrierDismissLabel => 'modalBarrierDismissLabel';
+  String get modalBarrierDismissLabel => 'Díbhe';
 
   @override
   String get nextMonthTooltip => throw UnimplementedError();
@@ -142,7 +142,7 @@ class GaMaterialLocalizations extends GlobalMaterialLocalizations {
   String get pasteButtonLabel => throw UnimplementedError();
 
   @override
-  String get popupMenuLabel => 'popupMenuLabel';
+  String get popupMenuLabel => throw UnimplementedError();
 
   @override
   String get postMeridiemAbbreviation => throw UnimplementedError();
@@ -227,7 +227,7 @@ class GaMaterialLocalizations extends GlobalMaterialLocalizations {
 
   @override
   // TODO: Translate
-  String get showMenuTooltip => 'showMenuTooltip';
+  String get showMenuTooltip => throw UnimplementedError();
 
   @override
   String get signedInLabel => throw UnimplementedError();
@@ -247,7 +247,7 @@ class GaMaterialLocalizations extends GlobalMaterialLocalizations {
 
   @override
   // TODO: Translate
-  String get viewLicensesButtonLabel => 'viewLicensesButtonLabel';
+  String get viewLicensesButtonLabel => 'Féach ar cheadúnais';
 
   @override
   List<String> get narrowWeekdays => throw UnimplementedError();
@@ -308,7 +308,13 @@ class GaMaterialLocalizations extends GlobalMaterialLocalizations {
   String get invalidTimeLabel => throw UnimplementedError();
 
   @override
-  String get licensesPackageDetailTextOther => 'licensesPackageDetailTextOther';
+  String get licensesPackageDetailTextZero => '0 ceadúnas';
+
+  @override
+  String get licensesPackageDetailTextOne => '1 ceadúnas';
+
+  @override
+  String get licensesPackageDetailTextOther => '\$licenseCount cheadúnas';
 
   @override
   String get saveButtonLabel => throw UnimplementedError();
@@ -507,7 +513,7 @@ class GaMaterialLocalizations extends GlobalMaterialLocalizations {
 
   @override
   // TODO: Translate
-  String get menuDismissLabel => 'menuDismissLabel';
+  String get menuDismissLabel => throw UnimplementedError();
 
   @override
   String get scanTextButtonLabel => throw UnimplementedError();

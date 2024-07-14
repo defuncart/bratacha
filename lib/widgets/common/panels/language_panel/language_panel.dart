@@ -29,6 +29,10 @@ class LanguagePanel extends StatelessWidget {
                   languageCode: languageCode,
                   isSelected: languageCode == language,
                   onPressed: () async {
+                    if (languageCode == language) {
+                      return;
+                    }
+
                     final languageCubit = context.read<LanguageCubit>();
 
                     if (presentConfirmationDialog) {

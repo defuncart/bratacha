@@ -12,23 +12,12 @@ class LevelService {
 
     throw (ArgumentError('Invalid level $level'));
   }
-
-  /// Returns the score required to unlock a given level index (beginning at zero)
-  int scoreToUnlock(int level) {
-    if (level >= 0 && level < _levels.length) {
-      return _levels[level].scoreToUnlock;
-    }
-
-    throw (ArgumentError('Invalid level $level'));
-  }
 }
 
 class _Level {
-  final int scoreToUnlock;
   final List<String> countries;
 
   const _Level({
-    required this.scoreToUnlock,
     required this.countries,
   });
 }
