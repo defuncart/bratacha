@@ -36,14 +36,27 @@ extension on Country {
         'en' => localizedName.replaceAll('The ', ''),
         'be' => localizedName.toLowerCase().replaceAll('і', 'й'),
         'cy' => localizedName.replaceAll('Yr ', ''),
-        'ga' => localizedName.replaceAll('An t', '').replaceAll('An ', '').toLowerCase().normalize(language),
+        'ga' => localizedName
+            .replaceAll('An Bh', 'B')
+            .replaceAll('An Ch', 'C')
+            .replaceAll('An Fh', 'F')
+            .replaceAll('An Gh', 'G')
+            .replaceAll('An Mh', 'M')
+            .replaceAll('An Ph', 'P')
+            .replaceAll('An t', '')
+            .replaceAll('An ', '')
+            .replaceAll('Na h', '')
+            .replaceAll('Na ', '')
+            .toLowerCase()
+            .normalize(language),
         _ => throw ArgumentError('Unsupported language'),
       };
 }
 
 extension on String {
   String normalize(String language) => switch (language) {
-        'ga' => replaceAll('é', 'e').replaceAll('í', 'i').replaceAll('ó', 'o').replaceAll('ú', 'u'),
+        'ga' =>
+          replaceAll('á', 'a').replaceAll('é', 'e').replaceAll('í', 'i').replaceAll('ó', 'o').replaceAll('ú', 'u'),
         _ => this,
       };
 }
