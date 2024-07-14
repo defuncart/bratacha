@@ -10,8 +10,7 @@ abstract class AppThemes {
       surface: _AppColors.card,
       onSurface: _AppColors.card,
       surfaceContainerLow: _AppColors.card,
-      // TODO: better shade
-      error: Colors.red,
+      error: _AppColors.error,
     ),
     scaffoldBackgroundColor: _AppColors.primary,
     appBarTheme: const AppBarTheme(
@@ -44,5 +43,6 @@ class _AppColors {
   static const primary = Color(0xff3A4750);
   static const primaryDark = Color(0xff303841);
   static const accent = Color(0xff00adb5);
+  static const error = Color(0xffFF5449);
   static const card = Color(0xffeeeeee);
 }
