@@ -1,12 +1,10 @@
-import 'dart:io';
-
 import 'package:app_store_screenshots/app_store_screenshots.dart';
 import 'package:bratacha/configs/app_config.dart';
 import 'package:bratacha/configs/app_themes.dart';
 import 'package:bratacha/extensions/iterable_widget_extension.dart';
+import 'package:bratacha/widgets/common/panels/language_panel/langauge_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/localizations.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
@@ -46,13 +44,11 @@ class GooglePlayFeatureGraphics extends StatelessWidget {
                 Row(
                   mainAxisSize: MainAxisSize.min,
                   children: AppConfig.languageOrder
-                      // TODO: Migrate to LanguageButton & load assets in setup
-                      .map((countryCode) => ClipOval(
-                            child: SvgPicture.file(
-                              File('assets/languages/$countryCode.svg'),
-                              width: 48,
-                              height: 48,
-                            ),
+                      .map((languageCode) => LanguageButton(
+                            languageCode: languageCode,
+                            isSelected: true,
+                            onPressed: () {},
+                            size: 48,
                           ))
                       .intersperse(const SizedBox(width: 16))
                       .toList(),

@@ -1,4 +1,3 @@
-import 'package:bratacha/widgets/common/circular_widget.dart';
 import 'package:bratacha/widgets/common/panels/language_panel/langauge_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -19,7 +18,6 @@ void main() {
       expect(find.byType(LanguageButton), findsOneWidget);
       expect(find.byType(Opacity), findsOneWidget);
       expect(find.byType(GestureDetector), findsOneWidget);
-      expect(find.byType(CircularWidget), findsOneWidget);
       expect(find.byType(SvgPicture), findsOneWidget);
     });
 
