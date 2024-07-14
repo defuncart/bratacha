@@ -1,4 +1,4 @@
-import 'package:bratacha/configs/progress_config.dart';
+import 'package:bratacha/configs/app_config.dart';
 import 'package:bratacha/extensions/iterable_widget_extension.dart';
 import 'package:bratacha/intl/country_localizations.dart';
 import 'package:bratacha/intl/localizations.dart';
@@ -39,7 +39,7 @@ class ResultsScreen extends StatelessWidget {
     final canPlayNextLevel = args.canPlayNextLevel;
     final nextLevelUnlocked = args.nextLevelUnlocked;
 
-    final trophyScore = correctPercentage >= ProgressConfig.percentageToOpenNextLevel;
+    final trophyScore = correctPercentage >= AppConfig.percentageToOpenNextLevel;
     final headlineColor = trophyScore ? const Color(0xffFFE391) : Theme.of(context).colorScheme.secondary;
     final headlineText = trophyScore ? context.l10n.resultsCongratulations : context.l10n.resultsWellDone;
     final headlineIcon = trophyScore ? MdiIcons.trophyVariant : MdiIcons.medalOutline;

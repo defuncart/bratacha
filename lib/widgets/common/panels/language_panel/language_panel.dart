@@ -1,3 +1,4 @@
+import 'package:bratacha/configs/app_config.dart';
 import 'package:bratacha/intl/localizations.dart';
 import 'package:bratacha/modules/dialog_manager/dialog_manager.dart';
 import 'package:bratacha/widgets/common/panels/language_panel/langauge_button.dart';
@@ -17,14 +18,13 @@ class LanguagePanel extends StatelessWidget {
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (_, constraints) {
-        final languageCodes = ['en', 'be', 'cy', 'ga'];
-        final size = (constraints.maxWidth * 0.75) / languageCodes.length;
+        final size = (constraints.maxWidth * 0.75) / AppConfig.languageOrder.length;
 
         return BlocBuilder<LanguageCubit, String>(
           builder: (_, language) => Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              for (final languageCode in languageCodes)
+              for (final languageCode in AppConfig.languageOrder)
                 LanguageButton(
                   languageCode: languageCode,
                   isSelected: languageCode == language,

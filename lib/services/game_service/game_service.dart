@@ -1,6 +1,6 @@
 import 'dart:math';
 
-import 'package:bratacha/configs/progress_config.dart';
+import 'package:bratacha/configs/app_config.dart';
 import 'package:bratacha/extensions/country_extensions.dart';
 import 'package:bratacha/managers/level_manager.dart';
 import 'package:bratacha/modules/country_database/country_database.dart';
@@ -107,7 +107,7 @@ class GameService implements IGameService {
       }
 
       final progressAfter = _determineLevelProgress();
-      final canPlayNextLevel = progressAfter >= ProgressConfig.percentageToOpenNextLevel && !isLastLevel;
+      final canPlayNextLevel = progressAfter >= AppConfig.percentageToOpenNextLevel && !isLastLevel;
 
       result = (
         correctPercentage: _answeredQuestions.values.where((t) => t).length / _numberRounds,

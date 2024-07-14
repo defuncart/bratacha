@@ -22,7 +22,7 @@ packages:
     description:
       path: "."
       ref: main
-      resolved-ref: "75e9c4225822de80a5d76ac71106bdfd54d604be"
+      resolved-ref: "3395369132ff92beb96fc9b4a43b82591a81817d"
       url: "https://github.com/defuncart/app_store_screenshots"
     source: git
     version: "0.0.1"

@@ -1,4 +1,3 @@
-import 'package:bratacha/widgets/common/circular_widget.dart';
 import 'package:bratacha/widgets/common/platform_svg.dart';
 import 'package:flutter/material.dart';
 
@@ -24,10 +23,13 @@ class LanguageButton extends StatelessWidget {
       opacity: isSelected ? 1 : 0.4,
       child: GestureDetector(
         onTap: onPressed,
-        child: CircularWidget(
-          radius: size,
+        child: ClipOval(
+          // seems to look better than antiAlias with svgs
+          clipBehavior: Clip.antiAliasWithSaveLayer,
           child: PlatformSvg.asset(
             _path,
+            width: size,
+            height: size,
           ),
         ),
       ),
