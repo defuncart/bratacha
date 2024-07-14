@@ -15,7 +15,7 @@ void main() {
     onBuildGraphic: (locale) => FutureBuilder(
       future: AppLocalizations.delegate.load(locale),
       builder: (context, snapshot) => GooglePlayFeatureGraphics(
-        text: snapshot.data!.tagline,
+        text: snapshot.data!.assetgenTagline,
       ),
     ),
   );

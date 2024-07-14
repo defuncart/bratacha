@@ -74,7 +74,7 @@ void main() {
         },
         onBuildScreen: () => const GameScreenContent(level: 0),
         text: ScreenshotText(
-          onGenerateText: (_) => localizations.screenshot1Label,
+          onGenerateText: (_) => localizations.assetgenScreenshot1Label,
         ),
         wrapper: (child) => BlocProvider<GameCubit>.value(
           value: mockGameCubit,
@@ -96,7 +96,7 @@ void main() {
         },
         onBuildScreen: () => const GameScreenContent(level: 0),
         text: ScreenshotText(
-          onGenerateText: (_) => localizations.screenshot2Label,
+          onGenerateText: (_) => localizations.assetgenScreenshot2Label,
         ),
         wrapper: (child) => BlocProvider<GameCubit>.value(
           value: mockGameCubit,
@@ -110,7 +110,7 @@ void main() {
         },
         onBuildScreen: () => const HomeScreen(),
         text: ScreenshotText(
-          onGenerateText: (_) => localizations.screenshot3Label,
+          onGenerateText: (_) => localizations.assetgenScreenshot3Label,
         ),
         wrapper: (child) => BlocProvider<LanguageCubit>.value(
           value: mockLanguageCubit,
