@@ -1,4 +1,4 @@
-import 'package:bratacha/configs/progress_config.dart';
+import 'package:bratacha/configs/app_config.dart';
 import 'package:bratacha/intl/localizations.dart';
 import 'package:bratacha/managers/level_manager.dart';
 import 'package:bratacha/widgets/game_screen/game_screen.dart';
@@ -29,7 +29,7 @@ class HomeTab extends StatelessWidget {
                     child: _LevelButton(
                       levelIndex: i,
                       isLevelUnlocked: i == 0 ||
-                          levelManager.progressForLevel(i - 1) >= ProgressConfig.percentageToOpenNextLevel ||
+                          levelManager.progressForLevel(i - 1) >= AppConfig.percentageToOpenNextLevel ||
                           kDebugMode,
                       levelProgress: levelManager.progressForLevel(i),
                     ),
