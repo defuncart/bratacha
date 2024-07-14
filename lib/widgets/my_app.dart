@@ -81,6 +81,7 @@ class MyApp extends StatelessWidget {
               GlobalWidgetsLocalizations.delegate,
               GlobalCupertinoLocalizations.delegate,
               GaMaterialLocalizations.delegate,
+              // TODO: Fix GA
               // GaCupertinoLocalizations.delegate,
             ],
             locale: Locale(language),

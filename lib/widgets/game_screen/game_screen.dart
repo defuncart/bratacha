@@ -114,13 +114,6 @@ class _ProgressBar extends StatelessWidget implements PreferredSizeWidget {
         ),
       ),
     );
-
-    // return SizedBox.fromSize(
-    //   size: _size,
-    //   child: ColoredBox(
-    //     color: Theme.of(context).colorScheme.secondary,
-    //   ),
-    // );
   }
 
   @override
