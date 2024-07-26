@@ -1,1 +1,13 @@
-<svg width="15" height="15" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="a"><stop stop-color="#262626" offset="0%"/><stop stop-color="#0D0D0D" offset="100%"/></linearGradient><linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="b"><stop stop-color="#34B857" offset="0%"/><stop stop-color="#2B9E4A" offset="100%"/></linearGradient><linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="c"><stop stop-color="#F41F34" offset="0%"/><stop stop-color="#E60B21" offset="100%"/></linearGradient><linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="d"><stop stop-color="#FFF" offset="0%"/><stop stop-color="#F0F0F0" offset="100%"/></linearGradient></defs><g fill="none" fill-rule="evenodd"><path fill="url(#a)" d="M0 5h15v5H0z"/><path fill="url(#b)" d="M0 10h15v5H0z"/><path fill="url(#c)" d="M0 0h15v5H0z"/><path d="M8.333 6.253a1.25 1.25 0 1 0 0 2.495 1.5 1.5 0 1 1 0-2.495zM8.499 8a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1z" fill="url(#d)" fill-rule="nonzero"/></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" id="flag-icons-ly" viewBox="0 0 512 512">
+  <defs>
+    <clipPath id="ly-a">
+      <path d="M250 12h500v500H250z"/>
+    </clipPath>
+  </defs>
+  <g clip-path="url(#ly-a)" transform="translate(-256 -12.3)scale(1.024)">
+    <path fill="#239e46" d="M0 12h1000v500H0z"/>
+    <path fill="#000001" d="M0 12h1000v375H0z"/>
+    <path fill="#e70013" d="M0 12h1000v125H0z"/>
+    <path fill="#fff" d="M544.2 217.8a54.3 54.3 0 1 0 0 88.4 62.5 62.5 0 1 1 0-88.4M530.4 262l84.1-27.3-52 71.5v-88.4l52 71.5z"/>
+  </g>
+</svg>

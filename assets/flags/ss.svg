@@ -1,1 +1,8 @@
-<svg width="15" height="15" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="a"><stop stop-color="#262626" offset="0%"/><stop stop-color="#0D0D0D" offset="100%"/></linearGradient><linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="b"><stop stop-color="#E22A32" offset="0%"/><stop stop-color="#D61C24" offset="100%"/></linearGradient><linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="c"><stop stop-color="#FFF" offset="0%"/><stop stop-color="#F0F0F0" offset="100%"/></linearGradient><linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="d"><stop stop-color="#2CA244" offset="0%"/><stop stop-color="#218736" offset="100%"/></linearGradient><linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="e"><stop stop-color="#185AC6" offset="0%"/><stop stop-color="#104CAD" offset="100%"/></linearGradient><linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="f"><stop stop-color="#FDE14A" offset="0%"/><stop stop-color="#FCDC34" offset="100%"/></linearGradient></defs><g fill="none" fill-rule="evenodd"><path fill="url(#a)" d="M0 0h15v4H0z"/><path fill="url(#b)" d="M0 5h15v5H0z"/><path fill="url(#c)" d="M0 4h15v1H0z"/><path fill="url(#d)" d="M0 11h15v4H0z"/><path fill="url(#c)" d="M0 10h15v1H0z"/><path fill="url(#e)" d="M0 0l7 7.5L0 15z"/><path fill="url(#f)" d="M3.067 7.987l-.683 1.28-.205-1.437L.75 7.576l1.304-.639-.2-1.437 1.01 1.042 1.306-.634-.68 1.283 1.007 1.046z"/></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" id="flag-icons-ss" viewBox="0 0 512 512">
+  <path fill="#078930" d="M0 358.4h512V512H0z"/>
+  <path fill="#fff" d="M0 153.6h512v204.8H0z"/>
+  <path fill="#000001" d="M0 0h512v153.6H0z"/>
+  <path fill="#da121a" d="M0 179.2h512v153.6H0z"/>
+  <path fill="#0f47af" d="m0 0 433 256L0 512z"/>
+  <path fill="#fcdd09" d="M209 207.8 64.4 256l144.8 48.1-89.5-126v155.8z"/>
+</svg>

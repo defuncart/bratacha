@@ -1,1 +1,23 @@
-<svg width="15" height="15" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="a"><stop stop-color="#262626" offset="0%"/><stop stop-color="#0D0D0D" offset="100%"/></linearGradient><linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="b"><stop stop-color="#018301" offset="0%"/><stop stop-color="#006700" offset="100%"/></linearGradient><linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="c"><stop stop-color="#FFF" offset="0%"/><stop stop-color="#F0F0F0" offset="100%"/></linearGradient><linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="d"><stop stop-color="#DC0808" offset="0%"/><stop stop-color="#BC0000" offset="100%"/></linearGradient><path d="M2.5 10.5c1 0 2.5-1.962 2.5-5 0-3.038-1.5-5-2.5-5S0 2.462 0 5.5c0 3.038 1.5 5 2.5 5z" id="e"/><path d="M2.5 10.5c1 0 2.5-1.962 2.5-5 0-3.038-1.5-5-2.5-5S0 2.462 0 5.5c0 3.038 1.5 5 2.5 5z" id="g"/><path d="M2.5 10.5c1 0 2.5-1.962 2.5-5 0-3.038-1.5-5-2.5-5S0 2.462 0 5.5c0 3.038 1.5 5 2.5 5z" id="i"/></defs><g fill="none" fill-rule="evenodd"><path fill="url(#a)" d="M0 0h15v4H0z"/><path fill="url(#b)" d="M0 11h15v4H0z"/><path fill="url(#c)" d="M0 4h15v7H0z"/><path fill="url(#d)" d="M0 5h15v5H0z"/><path d="M7.5 12.5c1 0 2.5-1.962 2.5-5 0-3.038-1.5-5-2.5-5S5 4.462 5 7.5c0 3.038 1.5 5 2.5 5z" fill="#BC0000"/><g transform="translate(5 2)"><mask id="f" fill="#fff"><use xlink:href="#e"/></mask><ellipse fill="url(#a)" mask="url(#f)" cx="-1.5" cy="5.5" rx="2.5" ry="5.5"/></g><g transform="translate(5 2)"><mask id="h" fill="#fff"><use xlink:href="#g"/></mask><ellipse fill="url(#a)" mask="url(#h)" cx="6.5" cy="5.5" rx="2.5" ry="5.5"/></g><g transform="translate(5 2)"><mask id="j" fill="#fff"><use xlink:href="#i"/></mask><path d="M2.5 7C2.224 7 2 6.328 2 5.5S2.224 4 2.5 4s.5.672.5 1.5S2.776 7 2.5 7zm0-3C2.224 4 2 3.105 2 2s.224-2 .5-2 .5.895.5 2-.224 2-.5 2zm0 7c-.276 0-.5-.895-.5-2s.224-2 .5-2 .5.895.5 2-.224 2-.5 2z" fill="url(#c)" fill-rule="nonzero" mask="url(#j)"/></g></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="flag-icons-ke" viewBox="0 0 512 512">
+  <defs>
+    <path id="ke-a" stroke-miterlimit="10" d="m-28.6 47.5 1.8 1 46.7-81c2.7-.6 4.2-3.2 5.7-5.8 1-1.8 5-8.7 6.7-17.7a58 58 0 0 0-11.9 14.7c-1.5 2.6-3 5.2-2.3 7.9z"/>
+  </defs>
+  <path fill="#fff" d="M0 0h512v512H0z"/>
+  <path fill="#000001" d="M0 0h512v153.6H0z"/>
+  <path fill="#060" d="M0 358.4h512V512H0z"/>
+  <g id="ke-b" transform="matrix(3.2 0 0 3.2 255.8 256)">
+    <use xlink:href="#ke-a" width="100%" height="100%" stroke="#000"/>
+    <use xlink:href="#ke-a" width="100%" height="100%" fill="#fff"/>
+  </g>
+  <use xlink:href="#ke-b" width="100%" height="100%" transform="matrix(-1 0 0 1 511.7 0)"/>
+  <path fill="#b00" d="M255.8 102.4c-19.2 0-51.2 51.2-60.8 76.8H0v153.6h195c9.7 25.6 41.7 76.8 60.9 76.8 19.2 0 51.2-51.2 60.8-76.8H512V179.2H316.6c-9.6-25.6-41.6-76.8-60.8-76.8"/>
+  <path id="ke-c" d="M316.6 332.8a220 220 0 0 0 16-76.8 220 220 0 0 0-16-76.8 220 220 0 0 0-16 76.8 220 220 0 0 0 16 76.8"/>
+  <use xlink:href="#ke-c" width="100%" height="100%" transform="matrix(-1 0 0 1 511.7 0)"/>
+  <g fill="#fff" transform="matrix(3.2 0 0 3.2 255.8 256)">
+    <ellipse rx="4" ry="6"/>
+    <path id="ke-d" d="M1 5.8s4 8 4 21-4 21-4 21z"/>
+    <use xlink:href="#ke-d" width="100%" height="100%" transform="scale(-1)"/>
+    <use xlink:href="#ke-d" width="100%" height="100%" transform="scale(-1 1)"/>
+    <use xlink:href="#ke-d" width="100%" height="100%" transform="scale(1 -1)"/>
+  </g>
+</svg>

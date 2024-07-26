@@ -1,1 +1,11 @@
-<svg width="15" height="15" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="a"><stop stop-color="#EA403F" offset="0%"/><stop stop-color="#D82827" offset="100%"/></linearGradient><linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="b"><stop stop-color="#FFFE4E" offset="0%"/><stop stop-color="#FFFE38" offset="100%"/></linearGradient></defs><g fill="none" fill-rule="evenodd"><path fill="url(#a)" d="M0 0h15v15H0z"/><path fill="url(#b)" d="M7.28 9.255l-2.645 1.886.976-3.099L3 6.11l3.247-.029L7.28 3l1.032 3.08 3.248.03-2.61 1.932.975 3.099z"/></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" id="flag-icons-vn" viewBox="0 0 512 512">
+  <defs>
+    <clipPath id="vn-a">
+      <path fill-opacity=".7" d="M177.2 0h708.6v708.7H177.2z"/>
+    </clipPath>
+  </defs>
+  <g fill-rule="evenodd" clip-path="url(#vn-a)" transform="translate(-128)scale(.72249)">
+    <path fill="#da251d" d="M0 0h1063v708.7H0z"/>
+    <path fill="#ff0" d="m661 527.5-124-92.6-123.3 93.5 45.9-152-123.2-93.8 152.4-1.3L536 129.8 584.3 281l152.4.2-122.5 94.7z"/>
+  </g>
+</svg>

@@ -1,1 +1,12 @@
-<svg width="15" height="15" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="a"><stop stop-color="#0744A7" offset="0%"/><stop stop-color="#00307D" offset="100%"/></linearGradient><linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="b"><stop stop-color="#FCC747" offset="0%"/><stop stop-color="#FEC539" offset="100%"/></linearGradient><linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="c"><stop stop-color="#FFF" offset="0%"/><stop stop-color="#F0F0F0" offset="100%"/></linearGradient></defs><g fill="none" fill-rule="evenodd"><path fill="url(#a)" d="M0 0h15v15H0z"/><path fill="url(#b)" d="M0 6h15v2H0z"/><path fill="url(#c)" d="M5.5 12.25l-.773 1.128.038-1.367-1.288.458.834-1.083L3 11l1.311-.386-.834-1.083 1.288.458-.038-1.367L5.5 9.75l.773-1.128-.038 1.367 1.288-.458-.834 1.083L8 11l-1.311.386.834 1.083-1.288-.458.038 1.367z"/></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" id="flag-icons-nr" viewBox="0 0 512 512">
+  <defs>
+    <clipPath id="nr-a">
+      <path fill-opacity=".7" d="M135.6 0h496.1v496h-496z"/>
+    </clipPath>
+  </defs>
+  <g fill-rule="evenodd" stroke-width="1pt" clip-path="url(#nr-a)" transform="translate(-140)scale(1.0321)">
+    <path fill="#002170" d="M0 0h992.1v496H0z"/>
+    <path fill="#ffb20d" d="M0 226.8h992.1v42.4H0z"/>
+    <path fill="#fff" d="m292.4 424.4-31.9-32-10.2 44-11.7-43.7-30.9 33 11.8-43.6-43.2 13 32-31.8-44-10.3 43.6-11.6-33-31 43.6 11.8-13-43.2 31.8 32 10.3-44 11.7 43.6 30.8-32.9-11.7 43.6 43.2-13-32 31.8 44 10.3L290 362l33 30.9-43.7-11.7z"/>
+  </g>
+</svg>

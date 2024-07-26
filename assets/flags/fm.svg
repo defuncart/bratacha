@@ -1,1 +1,11 @@
-<svg width="15" height="15" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="a"><stop stop-color="#95CEF5" offset="0%"/><stop stop-color="#78B3DC" offset="100%"/></linearGradient><linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="b"><stop stop-color="#FFF" offset="0%"/><stop stop-color="#F0F0F0" offset="100%"/></linearGradient></defs><g fill="none" fill-rule="evenodd"><path fill="url(#a)" d="M0 0h15v15H0z"/><path d="M7.5 5.185l-.897.618.302-1.058-.855-.674 1.082-.035L7.5 3l.368 1.036 1.082.035-.855.674.302 1.058-.897-.618zm0 6.197L6.603 12l.302-1.057-.855-.675 1.082-.035.368-1.036.368 1.036 1.082.035-.855.675L8.397 12l-.897-.618zm3.05-3.099l-.897.618.302-1.057-.855-.675 1.082-.035.368-1.035.367 1.035L12 7.17l-.855.675.301 1.057-.896-.618zm-6.1 0l-.896.618.301-1.057L3 7.169l1.083-.035L4.45 6.1l.368 1.035L5.9 7.17l-.855.675.302 1.057-.897-.618z" fill="url(#b)" fill-rule="nonzero"/></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" id="flag-icons-fm" viewBox="0 0 512 512">
+  <defs>
+    <clipPath id="fm-a">
+      <path fill-opacity=".7" d="M244.2 0h496v496h-496z"/>
+    </clipPath>
+  </defs>
+  <g fill-rule="evenodd" stroke-width="1pt" clip-path="url(#fm-a)" transform="translate(-252)scale(1.032)">
+    <path fill="#6797d6" d="M0 0h992.1v496H0z"/>
+    <path fill="#fff" d="M507.9 84.5h38.8l-31.5 21.4 12 34.8-31.3-21.5-31.5 21.5 12-34.8L445 84.4h39l12-34.7m12 363h38.8l-31.5-21.5 12-34.8-31.3 21.5-31.5-21.5 12 34.8-31.4 21.5H484l12 34.7M346 230.1l37.2-11.4-23.9 29.8 21.7 29.7-36.3-11.4-23.8 29.8 1.4-36.8-36.4-11.4 37.2-11.3 1.3-36.8m321 29.8-37.1-11.4 23.8 29.7-21.7 29.8 36.4-11.4 23.7 29.8-1.3-36.8 36.4-11.4-37.2-11.3-1.3-36.8"/>
+  </g>
+</svg>

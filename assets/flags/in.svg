@@ -1,1 +1,25 @@
-<svg width="15" height="15" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="a"><stop stop-color="#FFA44A" offset="0%"/><stop stop-color="#FF9934" offset="100%"/></linearGradient><linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="b"><stop stop-color="#1A9F0B" offset="0%"/><stop stop-color="#138806" offset="100%"/></linearGradient><linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="c"><stop stop-color="#FFF" offset="0%"/><stop stop-color="#F0F0F0" offset="100%"/></linearGradient></defs><g fill="none" fill-rule="evenodd"><path fill="url(#a)" d="M0 0h15v5H0z"/><path fill="url(#b)" d="M0 10h15v5H0z"/><path fill="url(#c)" d="M0 5h15v5H0z"/><circle fill-opacity=".15" fill="#181A93" cx="7.5" cy="7.5" r="1.5"/><path d="M7.5 9.5a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z" fill="#181A93" fill-rule="nonzero"/><circle fill="#181A93" cx="7.5" cy="7.5" r="1"/></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="flag-icons-in" viewBox="0 0 512 512">
+  <path fill="#f93" d="M0 0h512v170.7H0z"/>
+  <path fill="#fff" d="M0 170.7h512v170.6H0z"/>
+  <path fill="#128807" d="M0 341.3h512V512H0z"/>
+  <g transform="translate(256 256)scale(3.41333)">
+    <circle r="20" fill="#008"/>
+    <circle r="17.5" fill="#fff"/>
+    <circle r="3.5" fill="#008"/>
+    <g id="in-d">
+      <g id="in-c">
+        <g id="in-b">
+          <g id="in-a" fill="#008">
+            <circle r=".9" transform="rotate(7.5 -8.8 133.5)"/>
+            <path d="M0 17.5.6 7 0 2l-.6 5z"/>
+          </g>
+          <use xlink:href="#in-a" width="100%" height="100%" transform="rotate(15)"/>
+        </g>
+        <use xlink:href="#in-b" width="100%" height="100%" transform="rotate(30)"/>
+      </g>
+      <use xlink:href="#in-c" width="100%" height="100%" transform="rotate(60)"/>
+    </g>
+    <use xlink:href="#in-d" width="100%" height="100%" transform="rotate(120)"/>
+    <use xlink:href="#in-d" width="100%" height="100%" transform="rotate(-120)"/>
+  </g>
+</svg>

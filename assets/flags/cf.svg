@@ -1,1 +1,15 @@
-<svg width="15" height="15" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="a"><stop stop-color="#FFF" offset="0%"/><stop stop-color="#F0F0F0" offset="100%"/></linearGradient><linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="b"><stop stop-color="#083D96" offset="0%"/><stop stop-color="#053380" offset="100%"/></linearGradient><linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="c"><stop stop-color="#37AE39" offset="0%"/><stop stop-color="#2E9630" offset="100%"/></linearGradient><linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="d"><stop stop-color="#FFD13F" offset="0%"/><stop stop-color="#FFCD2F" offset="100%"/></linearGradient><linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="e"><stop stop-color="#E42346" offset="0%"/><stop stop-color="#D01739" offset="100%"/></linearGradient><linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="f"><stop stop-color="#FFD03B" offset="0%"/><stop stop-color="#FFCD2F" offset="100%"/></linearGradient></defs><g fill="none" fill-rule="evenodd"><path fill="url(#a)" d="M0 0h15v15H0z"/><path fill="url(#b)" d="M0 0h15v4H0z"/><path fill="url(#c)" d="M0 7h15v4H0z"/><path fill="url(#d)" d="M0 11h15v4H0z"/><path fill="url(#a)" d="M0 4h15v3H0z"/><path fill="url(#e)" d="M6 0h4v15H6z"/><path fill="url(#f)" d="M3 2.536L2.38 3l.229-.761L2 1.763l.758-.007L3 1l.24.757.76.007-.61.475.228.761z"/></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" id="flag-icons-cf" viewBox="0 0 512 512">
+  <defs>
+    <clipPath id="cf-a">
+      <path fill-opacity=".7" d="M0 0h512v512H0z"/>
+    </clipPath>
+  </defs>
+  <g fill-rule="evenodd" clip-path="url(#cf-a)">
+    <path fill="#00f" d="M-52-.5h768v127H-52z"/>
+    <path fill="#ff0" d="M-52 383.5h768V512H-52z"/>
+    <path fill="#009a00" d="M-52 255h768v128.5H-52z"/>
+    <path fill="#fff" d="M-52 126.5h768V255H-52z"/>
+    <path fill="red" d="M268 0h128v512H268z"/>
+    <path fill="#ff0" d="M109.5 112.3 75.9 89.1l-33.4 23.4 11.6-39.2-32.5-24.6 40.7-1L75.7 8.8l13.5 38.6 40.8.8L97.6 73"/>
+  </g>
+</svg>

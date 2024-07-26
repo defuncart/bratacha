@@ -1,1 +1,18 @@
-<svg width="15" height="15" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="a"><stop stop-color="#0884E6" offset="0%"/><stop stop-color="#0074D0" offset="100%"/></linearGradient><linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="b"><stop stop-color="#FFF" offset="0%"/><stop stop-color="#F0F0F0" offset="100%"/></linearGradient><linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="c"><stop stop-color="#0E88E9" offset="0%"/><stop stop-color="#0074D0" offset="100%"/></linearGradient></defs><g fill="none" fill-rule="evenodd"><path d="M0 0h15v5H0V0zm0 10h15v5H0v-5z" fill="url(#a)" fill-rule="nonzero"/><path fill="url(#b)" d="M0 5h15v5H0z"/><path d="M7.5 8l-.707.207L7 7.5l-.207-.707L7.5 7l.707-.207L8 7.5l.207.707L7.5 8zm4-1l-.707.207L11 6.5l-.207-.707L11.5 6l.707-.207L12 6.5l.207.707L11.5 7zm0 2l-.707.207L11 8.5l-.207-.707L11.5 8l.707-.207L12 8.5l.207.707L11.5 9zm-8 0l-.707.207L3 8.5l-.207-.707L3.5 8l.707-.207L4 8.5l.207.707L3.5 9zm0-2l-.707.207L3 6.5l-.207-.707L3.5 6l.707-.207L4 6.5l.207.707L3.5 7z" fill="url(#c)" fill-rule="nonzero"/></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="flag-icons-hn" viewBox="0 0 512 512">
+  <path fill="#18c3df" d="M0 0h512v512H0z"/>
+  <path fill="#fff" d="M0 170.7h512v170.6H0z"/>
+  <g id="hn-c" fill="#18c3df" transform="translate(256 256)scale(28.44446)">
+    <g id="hn-b">
+      <path id="hn-a" d="m0-1-.3 1 .5.1z"/>
+      <use xlink:href="#hn-a" width="100%" height="100%" transform="scale(-1 1)"/>
+    </g>
+    <use xlink:href="#hn-b" width="100%" height="100%" transform="rotate(72)"/>
+    <use xlink:href="#hn-b" width="100%" height="100%" transform="rotate(-72)"/>
+    <use xlink:href="#hn-b" width="100%" height="100%" transform="rotate(144)"/>
+    <use xlink:href="#hn-b" width="100%" height="100%" transform="rotate(-144)"/>
+  </g>
+  <use xlink:href="#hn-c" width="100%" height="100%" transform="translate(142.2 -45.5)"/>
+  <use xlink:href="#hn-c" width="100%" height="100%" transform="translate(142.2 39.8)"/>
+  <use xlink:href="#hn-c" width="100%" height="100%" transform="translate(-142.2 -45.5)"/>
+  <use xlink:href="#hn-c" width="100%" height="100%" transform="translate(-142.2 39.8)"/>
+</svg>
