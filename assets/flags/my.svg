@@ -1,1 +1,18 @@
-<svg width="15" height="15" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="b"><stop stop-color="#FFF" offset="0%"/><stop stop-color="#F0F0F0" offset="100%"/></linearGradient><path id="a" d="M0 0h15v15H0z"/><linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="c"><stop stop-color="#E1244A" offset="0%"/><stop stop-color="#BE1134" offset="100%"/></linearGradient><linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="e"><stop stop-color="#0C3F8E" offset="0%"/><stop stop-color="#032A67" offset="100%"/></linearGradient><linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="f"><stop stop-color="#FFD34F" offset="0%"/><stop stop-color="#FFCB2F" offset="100%"/></linearGradient></defs><g fill="none" fill-rule="evenodd"><mask id="d" fill="#fff"><use xlink:href="#a"/></mask><use fill="url(#b)" xlink:href="#a"/><path d="M10 0h11v1H10V0zm0 2h11v1H10V2zm0 2h11v1H10V4zm0 2h11v1H10V6zM0 8h21v1H0V8zm0 2h21v1H0v-1zm0 2h21v1H0v-1zm0 2h21v1H0v-1z" fill="url(#c)" fill-rule="nonzero" mask="url(#d)"/><path fill="url(#e)" mask="url(#d)" d="M0 0h12v8H0z"/><path d="M6.874 1.657a2.5 2.5 0 1 0 0 4.686 3 3 0 1 1 0-4.686zM8 4.82l-.868.982.227-1.29-1.309-.067 1.15-.627-.764-1.065 1.208.508L8 2l.356 1.261 1.208-.508-.765 1.065 1.15.627-1.308.066.227 1.29L8 4.82z" fill="url(#f)" fill-rule="nonzero" mask="url(#d)"/></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" id="flag-icons-my" viewBox="0 0 512 512">
+  <path fill="#C00" d="M0 0h512v36.6H0z"/>
+  <path fill="#fff" d="M0 36.6h512V73H0z"/>
+  <path fill="#C00" d="M0 73.1h512v36.6H0z"/>
+  <path fill="#fff" d="M0 109.7h512v36.6H0z"/>
+  <path fill="#C00" d="M0 146.3h512v36.6H0z"/>
+  <path fill="#fff" d="M0 182.9h512v36.5H0z"/>
+  <path fill="#C00" d="M0 219.4h512V256H0z"/>
+  <path fill="#fff" d="M0 256h512v36.6H0z"/>
+  <path fill="#C00" d="M0 292.6h512V329H0z"/>
+  <path fill="#fff" d="M0 329.1h512v36.6H0z"/>
+  <path fill="#C00" d="M0 365.7h512v36.6H0z"/>
+  <path fill="#fff" d="M0 402.3h512v36.6H0z"/>
+  <path fill="#C00" d="M0 438.9h512v36.5H0z"/>
+  <path fill="#fff" d="M0 475.4h512V512H0z"/>
+  <path fill="#006" d="M0 0h256v292.6H0z"/>
+  <path fill="#FC0" d="m166 93 4.8 32.5 18.4-27.2-10 31.3 28.5-16.6-22.5 24 32.8-2.6-30.7 11.9L218 158l-32.8-2.5 22.5 24-28.4-16.7 9.8 31.5-18.4-27.3-4.8 32.5-4.7-32.5-18.4 27.2 9.9-31.4-28.4 16.7 22.4-24-32.8 2.5 30.7-11.8-30.6-11.9 32.8 2.6-22.5-24 28.4 16.6-10-31.4 18.5 27.3 4.8-32.6Zm-26.7 1.3a56.9 56.9 0 0 0-73 24.9 56.9 56.9 0 0 0 45.5 83.8 56.9 56.9 0 0 0 27.5-4.7 64 64 0 1 1 0-104"/>
+</svg>

@@ -1,1 +1,10 @@
-<svg width="15" height="15" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="a"><stop stop-color="#F13D4F" offset="0%"/><stop stop-color="#E92C3F" offset="100%"/></linearGradient><linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="b"><stop stop-color="#4AC94B" offset="0%"/><stop stop-color="#3BB13C" offset="100%"/></linearGradient><linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="c"><stop stop-color="#FFD043" offset="0%"/><stop stop-color="#FECA2F" offset="100%"/></linearGradient><linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="d"><stop stop-color="#FFF" offset="0%"/><stop stop-color="#F0F0F0" offset="100%"/></linearGradient></defs><g fill="none" fill-rule="evenodd"><path fill="url(#a)" d="M0 10h15v5H0z"/><path fill="url(#b)" d="M0 5h15v5H0z"/><path fill="url(#c)" d="M0 0h15v5H0z"/><path fill="url(#d)" d="M7.28 9.255l-2.645 1.886.976-3.099L3 6.11l3.247-.029L7.28 3l1.032 3.08 3.248.03-2.61 1.932.975 3.099z"/></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="flag-icons-mm" viewBox="0 0 512 512">
+  <path fill="#fecb00" d="M0 0h512v512H0z"/>
+  <path fill="#34b233" d="M0 170.7h512V512H0z"/>
+  <path fill="#ea2839" d="M0 341.3h512V512H0z"/>
+  <path id="mm-a" fill="#fff" stroke-width="188.7" d="M312.6 274H199.4L256 85.3Z"/>
+  <use xlink:href="#mm-a" width="100%" height="100%" transform="rotate(-144 256 274)"/>
+  <use xlink:href="#mm-a" width="100%" height="100%" transform="rotate(-72 256 274)"/>
+  <use xlink:href="#mm-a" width="100%" height="100%" transform="rotate(72 256 274)"/>
+  <use xlink:href="#mm-a" width="100%" height="100%" transform="rotate(144 256 274)"/>
+</svg>

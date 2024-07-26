@@ -32,4 +32,4 @@ To contribute, submit a PR with a detailed description and tests, if applicable.
 
 Concept, Design and Programming by James Leahy.
 
-Flags by [jackiboy](https://github.com/jackiboy/flagpack).
+Flags by [lipis](https://github.com/lipis/flag-icons/).

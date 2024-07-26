@@ -1,1 +1,7 @@
-<svg width="15" height="15" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="a"><stop stop-color="#00B051" offset="0%"/><stop stop-color="#009F49" offset="100%"/></linearGradient><linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="b"><stop stop-color="#FA494B" offset="0%"/><stop stop-color="#F02B2D" offset="100%"/></linearGradient></defs><g fill="none" fill-rule="evenodd"><path fill="url(#a)" d="M0 7.5h15v7.5H0z"/><path fill="url(#b)" d="M0 0h15v7.5H0z"/><path fill="#FDD216" d="M7.49 9.101L5.333 10.64l.795-2.526L4 6.535l2.648-.024L7.49 4l.842 2.511 2.648.025-2.128 1.577.795 2.526z"/></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" id="flag-icons-bf" viewBox="0 0 512 512">
+  <g fill-rule="evenodd">
+    <path fill="#de0000" d="M512 511.6H.5V0H512z"/>
+    <path fill="#35a100" d="M511.8 512H0V256.2h511.7z"/>
+  </g>
+  <path fill="#fff300" fill-rule="evenodd" d="m389 223.8-82.9 56.5 31.7 91.6-82.7-56.7-82.8 56.7 31.7-91.6-82.8-56.6 102.3.2 31.6-91.7 31.5 91.6"/>
+</svg>

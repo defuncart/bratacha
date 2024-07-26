@@ -1,1 +1,5 @@
-<svg width="15" height="15" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="b"><stop stop-color="#FFF" offset="0%"/><stop stop-color="#F0F0F0" offset="100%"/></linearGradient><path id="a" d="M0 0h15v15H0z"/><linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="c"><stop stop-color="#0848A6" offset="0%"/><stop stop-color="#003480" offset="100%"/></linearGradient></defs><g fill="none" fill-rule="evenodd"><mask id="d" fill="#fff"><use xlink:href="#a"/></mask><use fill="url(#b)" xlink:href="#a"/><path fill="url(#c)" mask="url(#d)" d="M0 9h6v6h3V9h12V6H9V0H6v6H0z"/></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" id="flag-icons-fi" viewBox="0 0 512 512">
+  <path fill="#fff" d="M0 0h512v512H0z"/>
+  <path fill="#002f6c" d="M0 186.2h512v139.6H0z"/>
+  <path fill="#002f6c" d="M123.2 0h139.6v512H123.1z"/>
+</svg>

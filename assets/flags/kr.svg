@@ -1,1 +1,17 @@
-<svg width="15" height="15" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="a"><stop stop-color="#FFF" offset="0%"/><stop stop-color="#F0F0F0" offset="100%"/></linearGradient><linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="b"><stop stop-color="#E01B41" offset="0%"/><stop stop-color="#C51335" offset="100%"/></linearGradient><ellipse id="c" cx="2.567" cy="2.545" rx="2.567" ry="2.545"/><linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="d"><stop stop-color="#0E4B9C" offset="0%"/><stop stop-color="#053677" offset="100%"/></linearGradient><linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="f"><stop stop-color="#262626" offset="0%"/><stop stop-color="#0D0D0D" offset="100%"/></linearGradient></defs><g fill="none" fill-rule="evenodd"><path fill="url(#a)" d="M0 0h15v15H0z"/><ellipse cx="2.567" cy="2.545" rx="2.567" ry="2.545" fill="url(#b)" transform="translate(4.933 5.455)"/><g transform="translate(4.933 5.455)"><mask id="e" fill="#fff"><use xlink:href="#c"/></mask><path d="M0 2.91c.733.68 1.833 1.09 2.567 0 .733-1.092 2.2-1.092 2.566 0 .367 1.09 0 2.18 0 2.18H0s-.733-2.862 0-2.18z" fill="url(#d)" mask="url(#e)"/></g><path d="M8.22 1.398a.18.18 0 0 1 .065-.253l.316-.18a.186.186 0 0 1 .253.07l.913 1.567a.18.18 0 0 1-.066.253l-.316.18a.187.187 0 0 1-.254-.07L8.22 1.399zm.953-.546A.18.18 0 0 1 9.239.6l.314-.18c.09-.05.203-.02.254.069l.912 1.568a.18.18 0 0 1-.066.252l-.315.18a.187.187 0 0 1-.254-.069L9.172.852zM.28 5.943a.18.18 0 0 1 .066-.252l.315-.18c.09-.05.203-.02.254.069l.912 1.568a.18.18 0 0 1-.066.252l-.315.18a.187.187 0 0 1-.254-.069L.281 5.943zm.952-.545a.18.18 0 0 1 .066-.253l.316-.18c.09-.05.203-.02.254.07l.912 1.567a.18.18 0 0 1-.066.253l-.316.18a.187.187 0 0 1-.253-.07l-.913-1.567zm7.898-.364a.183.183 0 0 1 .255-.069l.315.18a.184.184 0 0 1 .066.253l-.913 1.568a.183.183 0 0 1-.253.069l-.316-.18a.184.184 0 0 1-.066-.253l.912-1.568zm.954.546a.183.183 0 0 1 .254-.07l.314.18a.185.185 0 0 1 .066.253l-.912 1.568a.183.183 0 0 1-.254.07L9.238 7.4a.184.184 0 0 1-.066-.252l.912-1.568zM1.193.489a.183.183 0 0 1 .254-.07L1.762.6c.088.05.118.164.066.252L.916 2.42a.183.183 0 0 1-.255.07l-.314-.18a.184.184 0 0 1-.066-.253L1.193.489zm.953.545a.183.183 0 0 1 .253-.069l.316.18a.185.185 0 0 1 .066.253l-.912 1.568a.183.183 0 0 1-.255.069l-.315-.18a.184.184 0 0 1-.066-.253l.913-1.568z" fill="url(#f)" fill-rule="nonzero" opacity=".75" transform="translate(2 4)"/></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="flag-icons-kr" viewBox="0 0 512 512">
+  <path fill="#fff" fill-rule="evenodd" d="M0 0h512v512H0Z"/>
+  <g fill-rule="evenodd" transform="rotate(-56.3 367.2 -111.2)scale(9.375)">
+    <g id="kr-b">
+      <path id="kr-a" fill="#000001" d="M-6-26H6v2H-6Zm0 3H6v2H-6Zm0 3H6v2H-6Z"/>
+      <use xlink:href="#kr-a" width="100%" height="100%" y="44"/>
+    </g>
+    <path stroke="#fff" d="M0 17v10"/>
+    <path fill="#cd2e3a" d="M0-12a12 12 0 0 1 0 24Z"/>
+    <path fill="#0047a0" d="M0-12a12 12 0 0 0 0 24A6 6 0 0 0 0 0Z"/>
+    <circle cy="-6" r="6" fill="#cd2e3a"/>
+  </g>
+  <g fill-rule="evenodd" transform="rotate(-123.7 196.5 59.5)scale(9.375)">
+    <use xlink:href="#kr-b" width="100%" height="100%"/>
+    <path stroke="#fff" d="M0-23.5v3M0 17v3.5m0 3v3"/>
+  </g>
+</svg>

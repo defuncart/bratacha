@@ -1,1 +1,13 @@
-<svg width="15" height="15" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="a"><stop stop-color="#FFF" offset="0%"/><stop stop-color="#F0F0F0" offset="100%"/></linearGradient><linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="b"><stop stop-color="#22B7D5" offset="0%"/><stop stop-color="#1CACC8" offset="100%"/></linearGradient><linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="c"><stop stop-color="#FCE569" offset="0%"/><stop stop-color="#FADF52" offset="100%"/></linearGradient><linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="d"><stop stop-color="#262626" offset="0%"/><stop stop-color="#0D0D0D" offset="100%"/></linearGradient></defs><g fill="none" fill-rule="evenodd"><path fill="url(#a)" d="M0 0h15v15H0z"/><path d="M0 10h15v5H0v-5zM0 0h15v5H0V0z" fill="url(#b)" fill-rule="nonzero"/><path fill="url(#c)" d="M0 5h15v5H0z"/><path fill="url(#d)" d="M0 0l7 7.5L0 15z"/></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" id="flag-icons-bs" viewBox="0 0 512 512">
+  <defs>
+    <clipPath id="bs-a">
+      <path fill-opacity=".7" d="M56.6 26.4H537v480.3H56.6z"/>
+    </clipPath>
+  </defs>
+  <g fill-rule="evenodd" clip-path="url(#bs-a)" transform="matrix(1.066 0 0 1.067 -60.4 -28.1)">
+    <path fill="#fff" d="M990 506.2H9.4V27.6H990z"/>
+    <path fill="#ffe900" d="M990 370.6H9.4V169.2H990z"/>
+    <path fill="#08ced6" d="M990 506.2H9.4V346.7H990zm0-319H9.4V27.9H990z"/>
+    <path fill="#000001" d="M9 25.9c2.1 0 392.3 237 392.3 237L7.8 505.3z"/>
+  </g>
+</svg>

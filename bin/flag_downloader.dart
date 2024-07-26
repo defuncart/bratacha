@@ -31,7 +31,7 @@ void main() async {
 }
 
 String _urlForFlagId(String id, String fileExtension) {
-  const baseUrl = 'https://raw.githubusercontent.com/jackiboy/flagpack/master/flags/1x1/';
+  const baseUrl = 'https://raw.githubusercontent.com/lipis/flag-icons/main/flags/1x1/';
 
   return '$baseUrl$id$fileExtension';
 }

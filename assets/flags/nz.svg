@@ -1,1 +1,36 @@
-<svg width="15" height="15" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="b"><stop stop-color="#0A17A7" offset="0%"/><stop stop-color="#030E88" offset="100%"/></linearGradient><path id="a" d="M0 0h15v15H0z"/><linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="d"><stop stop-color="#FFF" offset="0%"/><stop stop-color="#F0F0F0" offset="100%"/></linearGradient><linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="e"><stop stop-color="#DB1E36" offset="0%"/><stop stop-color="#D51931" offset="100%"/></linearGradient></defs><g fill="none" fill-rule="evenodd"><mask id="c" fill="#fff"><use xlink:href="#a"/></mask><use fill="url(#b)" xlink:href="#a"/><g mask="url(#c)"><path d="M5 4.23L.648.5H2.66L6.16 3h.697L11.5.098V1.25c0 .303-.167.627-.418.806L8 4.257v.513l3.137 2.69c.462.395.204 1.04-.387 1.04-.245 0-.545-.096-.75-.242L6.84 6h-.697L1.5 8.902v-1.66l3.5-2.5V4.23z" fill="url(#d)" transform="translate(-2 -1)"/><path d="M5.5 4L2 1h.5L6 3.5h1L11 1v.25a.537.537 0 0 1-.208.399L7.5 4v1l3.312 2.839c.104.089.072.161-.062.161a.898.898 0 0 1-.458-.149L7 5.5H6L2 8v-.5L5.5 5V4z" fill="url(#e)" transform="translate(-2 -1)"/><path d="M2 3.5v2h3.5v2.505c0 .273.214.495.505.495h.99a.496.496 0 0 0 .505-.495V5.5h3.51a.49.49 0 0 0 .49-.505v-.99a.495.495 0 0 0-.49-.505H7.5V1h-2v2.5H2z" fill="url(#d)" transform="translate(-2 -1)"/><path fill="url(#e)" d="M2 4h4V1h1v3h4v1H7v3H6V5H2z" transform="translate(-2 -1)"/></g><path d="M10.787 12.867L10.37 13l.122-.453-.122-.454.418.133.417-.133-.122.454.122.453-.418-.133zm0-6.093l-.417.133.122-.454L10.37 6l.418.133.417-.133-.122.453.122.454-.418-.133zm1.77 1.924l-.416.133.122-.453-.122-.454.417.133.417-.133-.122.454.122.453-.417-.133zm-3.54.642l-.417.132.122-.453-.122-.453.417.132.417-.132-.122.453.122.453-.417-.132z" fill="#CA1931" fill-rule="nonzero" mask="url(#c)"/></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="flag-icons-nz" viewBox="0 0 512 512">
+  <defs>
+    <g id="nz-b">
+      <g id="nz-a">
+        <path d="M0-.3v.5l1-.5z"/>
+        <path d="M.2.3 0-.1l1-.2z"/>
+      </g>
+      <use xlink:href="#nz-a" transform="scale(-1 1)"/>
+      <use xlink:href="#nz-a" transform="rotate(72 0 0)"/>
+      <use xlink:href="#nz-a" transform="rotate(-72 0 0)"/>
+      <use xlink:href="#nz-a" transform="scale(-1 1)rotate(72)"/>
+    </g>
+  </defs>
+  <path fill="#00247d" fill-rule="evenodd" d="M0 0h512v512H0z"/>
+  <g transform="translate(-148.7 90.5)scale(.60566)">
+    <use xlink:href="#nz-b" width="100%" height="100%" fill="#fff" transform="translate(900 120)scale(45.4)"/>
+    <use xlink:href="#nz-b" width="100%" height="100%" fill="#cc142b" transform="matrix(30 0 0 30 900 120)"/>
+  </g>
+  <g transform="rotate(82 418.7 105.1)scale(.60566)">
+    <use xlink:href="#nz-b" width="100%" height="100%" fill="#fff" transform="rotate(-82 519 -457.7)scale(40.4)"/>
+    <use xlink:href="#nz-b" width="100%" height="100%" fill="#cc142b" transform="rotate(-82 519 -457.7)scale(25)"/>
+  </g>
+  <g transform="rotate(82 418.7 105.1)scale(.60566)">
+    <use xlink:href="#nz-b" width="100%" height="100%" fill="#fff" transform="rotate(-82 668.6 -327.7)scale(45.4)"/>
+    <use xlink:href="#nz-b" width="100%" height="100%" fill="#cc142b" transform="rotate(-82 668.6 -327.7)scale(30)"/>
+  </g>
+  <g transform="translate(-148.7 90.5)scale(.60566)">
+    <use xlink:href="#nz-b" width="100%" height="100%" fill="#fff" transform="translate(900 480)scale(50.4)"/>
+    <use xlink:href="#nz-b" width="100%" height="100%" fill="#cc142b" transform="matrix(35 0 0 35 900 480)"/>
+  </g>
+  <path fill="#012169" d="M0 0h256v256H0z"/>
+  <path fill="#fff" d="M256 0v32l-95 96 95 93.5V256h-33.5L127 162l-93 94H0v-34l93-93.5L0 37V0h31l96 94 93-94z"/>
+  <path fill="#c8102e" d="m92 162 5.5 17L21 256H0v-1.5zm62-6 27 4 75 73.5V256zM256 0l-96 98-2-22 75-76zM0 .5 96.5 95 67 91 0 24.5z"/>
+  <path fill="#fff" d="M88 0v256h80V0zM0 88v80h256V88z"/>
+  <path fill="#c8102e" d="M0 104v48h256v-48zM104 0v256h48V0z"/>
+</svg>
