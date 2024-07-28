@@ -1,5 +1,5 @@
-import 'package:bratacha/widgets/common/platform_svg.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class Flag extends StatelessWidget {
   const Flag(
@@ -19,7 +19,7 @@ class Flag extends StatelessWidget {
       borderRadius: BorderRadius.circular(size * 0.05),
       // seems to look better than antiAlias with svgs
       clipBehavior: Clip.antiAliasWithSaveLayer,
-      child: PlatformSvg.asset(
+      child: SvgPicture.asset(
         _path,
         width: size,
         height: size,
