@@ -6,7 +6,7 @@ A fun flag quiz game as Gaeilge (and other languages)!
 
 ## About
 
-*Bratacha* (Irish for flags) is a fun flag quiz game with an emphasis on often overlooked languages.
+Bratacha (Irish for flags) is a fun flag quiz game with an emphasis on underrepresented languages.
 
 - Supports 4 languages (Irish, Welsh, Belarusian, English)
 - Hard mode shows similar flags
@@ -16,7 +16,18 @@ Bratacha is apolitical. All flags adhere to full member states of the United Nat
 
 ## Download
 
-The application will soon be available for early alpha testing on iOS and Android. If you would prefer to build from source, please see [docs/build_locally.md](docs/build_locally.md).
+Bratacha is presently available to download in early access via Google Play on Android, or play in the browser.
+
+<table style="table-layout: fixed">
+<tr>
+    <td style="width: 50%"><a href="https://play.google.com/store/apps/details?id=com.defuncart.bratacha"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Google_Play_Store_badge_EN.svg/1200px-Google_Play_Store_badge_EN.svg.png"/></a></td>
+    <td style="width: 50%"><a href="https://defuncart.com/bratacha">Browser</a></td>
+</tr>
+</table>
+
+An iOS version will follow shortly.
+
+If you would prefer to build from source, please see [docs/build_locally.md](docs/build_locally.md).
 
 ## Contributing
 

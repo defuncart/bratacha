@@ -8,7 +8,7 @@ flagsTabSearchTermHint;Country;Краіна;Gwlad;Tír
 settingsTabLabelText;Settings;Налады;Gosodiadau;Socruithe
 settingsTabLanguageLabel;Language;Мова;Iaith;Teanga
 settingsTabResetProgressLabel;Reset Progress;Скінуць прагрэс;Ailosod cynnydd;Cluiche athshocrú
-hardModePanelLabel;Hard Mode;Складаная складанасць;Anhawster Caled;Deacracht chrua
+hardModePanelLabel;Hard Mode;Жорсткі рэжым;Modd caled;Modh crua
 changeLanguageDialogTitle;Change Language?;Змяніць мову?;Newid Iaith?;Athrú Teanga?
 changeLanguageDialogDescription;Your progress will be permanently deleted and cannot be recovered.;Ваш прагрэс будзе назаўсёды выдалены і не можа быць адноўлены.;Bydd eich cynnydd yn cael ei ddileu yn barhaol ac ni ellir ei adennill.;Scriosfar do dhul chun cinn go buan agus ní féidir é a aisghabháil.
 resetProgressDialogTitle;Reset progress?;Скінуць прагрэс?;Ailosod cynnydd?;Cluiche athshocrú?
@@ -25,7 +25,7 @@ resultsWellDone;Well done!;Добра зроблена!;Da iawn!;An-mhaith!
 resultsNextLevelUnlocked;Next level unlocked!;Наступны ўзровень разблакіраваны!;Lefel nesaf heb ei gloi!;An chéad leibhéal eile díghlasáilte!
 resultsPerfectRound;Perfect round!;Ідэальны круглы!;Rownd perffaith!;Babhta foirfe!
 onboardingPage1TextLabel1;👋 Welcome;👋 Вітаю;👋 Croeso;👋 Fáilte
-onboardingPage1TextLabel2;Bratacha is a fun flag quiz game with an emphasis on often overlooked languages.;Bratacha - гэта вясёлая гульня-віктарына са сцягам з акцэнтам на мовах, якія часта забываюць.;Mae Bratacha yn gêm cwis baner hwyliog gyda phwyslais ar ieithoedd sy'n cael eu hanwybyddu'n aml.;Is cluiche spraíúil é Bratacha tráth na gceist bratach a chuireann béim ar theangacha a ndéantar faillí orthu go minic.
+onboardingPage1TextLabel2;Bratacha is a fun flag quiz game with an emphasis on underrepresented languages.;Bratacha - гэта вясёлая гульня-віктарына са сцягам з акцэнтам на мала прадстаўленыя мовы.;Mae Bratacha yn gêm cwis baner hwyliog gyda phwyslais ar ieithoedd heb gynrychiolaeth ddigonol.;Is cluiche spraíúil é Bratacha tráth na gceist bratach a chuireann béim ar theangacha tearcionadaíochta.
 onboardingPage1TextLabel3;What language would you like to use?;На якой мове?;Pa iaith hoffech chi ei defnyddio?;Cén teanga ar mhaith leat a úsáid?
 onboardingGeneralSettingLabel;This can be changed anytime in the settings menu.;Гэта можна змяніць у любы час у меню налад.;Gellir newid hyn unrhyw bryd yn y ddewislen gosodiadau.;Is féidir é seo a athrú am ar bith sa roghchlár socruithe.
 onboardingPage2TextLabel1;Fancy a challenge?;Хочаце кінуць выклік?;Ffansi her?;Mhaisiúil dúshlán?

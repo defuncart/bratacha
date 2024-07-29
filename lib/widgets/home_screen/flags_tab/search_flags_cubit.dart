@@ -35,7 +35,7 @@ extension on Country {
   String sortTerm(String language) => switch (language) {
         'en' => localizedName.replaceAll('The ', ''),
         'be' => localizedName.toLowerCase().replaceAll('і', 'й'),
-        'cy' => localizedName.replaceAll('Yr ', ''),
+        'cy' => localizedName.replaceAll('Yr ', '').replaceAll('Y ', ''),
         'ga' => localizedName
             .replaceAll('An Bh', 'B')
             .replaceAll('An Ch', 'C')

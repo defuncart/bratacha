@@ -40,9 +40,13 @@ class FlagsTab extends StatelessWidget {
                       size: 48,
                     ),
                     title: Text(state[index].localizedName),
-                    trailing: _SimilarFlagsList(
-                      similarFlags: state[index].similarFlags,
-                    ),
+                    // trailing: _SimilarFlagsList(
+                    //   similarFlags: state[index].similarFlags,
+                    // ),
+                    // trailing: IconButton(
+                    //   icon: Icon(MdiIcons.wikipedia),
+                    //   onPressed: () {},
+                    // ),
                   ),
                 ),
               ),
@@ -132,6 +136,8 @@ class _FlagsAppBarState extends State<_FlagsAppBar> {
   }
 }
 
+/// TODO(Add back, remove entirely or replace with wiki link)
+// ignore: unused_element
 class _SimilarFlagsList extends StatelessWidget {
   const _SimilarFlagsList({
     required this.similarFlags,
