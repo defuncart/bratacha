@@ -58,7 +58,7 @@ void main() {
       expect(find.byIcon(Icons.close), findsNothing);
       expect(find.byType(ListView), findsOneWidget);
       expect(find.byType(ListTile), findsNWidgets(8));
-      expect(find.byType(Flag), findsNWidgets(26));
+      expect(find.byType(Flag), findsNWidgets(8));
     });
 
     testWidgets('Ensure search works correctly', (tester) async {

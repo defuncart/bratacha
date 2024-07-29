@@ -1,7 +1,7 @@
 name: bratacha
 description: A fun flag quiz game as Gaeilge (and other languages)!
 publish_to: 'none'
-version: 0.0.1+1
+version: 0.0.1+8
 
 environment:
   sdk: ">=3.4.0 <4.0.0"

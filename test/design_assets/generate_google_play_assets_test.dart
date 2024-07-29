@@ -48,23 +48,26 @@ class GooglePlayFeatureGraphics extends StatelessWidget {
                             languageCode: languageCode,
                             isSelected: true,
                             onPressed: () {},
-                            size: 48,
+                            size: 64,
                           ))
-                      .intersperse(const SizedBox(width: 16))
+                      .intersperse(const SizedBox(width: 24))
                       .toList(),
                 ),
+                const SizedBox(height: 16),
                 const Text(
                   'Bratacha',
                   maxLines: 1,
                   style: TextStyle(
                     fontSize: 128,
+                    fontWeight: FontWeight.w600,
                   ),
                 ),
                 Text(
                   text,
                   maxLines: 1,
                   style: const TextStyle(
-                    fontSize: 48,
+                    fontSize: 40,
+                    fontWeight: FontWeight.w300,
                   ),
                 ),
               ],
