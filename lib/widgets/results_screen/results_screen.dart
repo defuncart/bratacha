@@ -45,6 +45,7 @@ class ResultsScreen extends StatelessWidget {
     final headlineIcon = trophyScore ? MdiIcons.trophyVariant : MdiIcons.medalOutline;
 
     if (nextLevelUnlocked && _hasShownPopover[level] == null) {
+      // ignore_for_file: use_build_context_synchronously
       Future.microtask(
         () => ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
