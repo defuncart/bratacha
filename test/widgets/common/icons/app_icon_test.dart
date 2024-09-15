@@ -5,15 +5,17 @@ import 'package:flutter/material.dart';
 
 void main() {
   generateAppIcon(
-    onBuildIcon: () => Theme(
+    onBuildIcon: (size) => Theme(
       data: AppThemes.theme,
-      child: const AppIcon(),
+      child: AppIcon(
+        size: size,
+      ),
     ),
   );
 
   generateAppIconAndroidForeground(
-    onBuildIcon: () => const AppIcon(
-      size: 512 - 80 * 2,
+    onBuildIcon: (size) => AppIcon(
+      size: size - 80 * 2,
       hasTransparentBackground: true,
     ),
   );
