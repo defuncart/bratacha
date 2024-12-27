@@ -1,5 +1,3 @@
-library dialog_manager;
-
 export 'src/models/requests/confirm_dialog_request.dart';
 export 'src/models/requests/custom_dialog_request.dart';
 export 'src/models/requests/informative_dialog_request.dart';

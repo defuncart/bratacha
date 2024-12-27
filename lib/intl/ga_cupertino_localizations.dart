@@ -37,6 +37,7 @@ class _GaCupertinoLocalizationsDelegate extends LocalizationsDelegate<GaCupertin
       late intl.DateFormat doubleDigitMinuteFormat;
       late intl.DateFormat singleDigitSecondFormat;
       late intl.NumberFormat decimalFormat;
+      late intl.DateFormat weekdayFormat;
 
       void loadFormats(String? locale) {
         fullYearFormat = intl.DateFormat.y(locale);
@@ -48,6 +49,7 @@ class _GaCupertinoLocalizationsDelegate extends LocalizationsDelegate<GaCupertin
         doubleDigitMinuteFormat = intl.DateFormat('mm', locale);
         singleDigitSecondFormat = intl.DateFormat.s(locale);
         decimalFormat = intl.NumberFormat.decimalPattern(locale);
+        weekdayFormat = intl.DateFormat.E(locale);
       }
 
       if (intl.DateFormat.localeExists(localeName)) {
@@ -68,6 +70,7 @@ class _GaCupertinoLocalizationsDelegate extends LocalizationsDelegate<GaCupertin
           doubleDigitMinuteFormat: doubleDigitMinuteFormat,
           singleDigitSecondFormat: singleDigitSecondFormat,
           decimalFormat: decimalFormat,
+          weekdayFormat: weekdayFormat,
         ),
       );
     });
@@ -91,6 +94,7 @@ class GaCupertinoLocalizations extends GlobalCupertinoLocalizations {
     required super.doubleDigitMinuteFormat,
     required super.singleDigitSecondFormat,
     required super.decimalFormat,
+    required super.weekdayFormat,
   });
 
   static const LocalizationsDelegate<CupertinoLocalizations> delegate = _GaCupertinoLocalizationsDelegate();
