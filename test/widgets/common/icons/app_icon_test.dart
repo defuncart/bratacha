@@ -14,8 +14,9 @@ void main() {
   );
 
   generateAppIconAndroidForeground(
+    padding: EdgeInsets.zero,
     onBuildIcon: (size) => AppIcon(
-      size: size - 80 * 2,
+      size: size,
       hasTransparentBackground: true,
     ),
   );
