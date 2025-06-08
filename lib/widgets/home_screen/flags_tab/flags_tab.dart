@@ -25,7 +25,7 @@ class FlagsTab extends StatelessWidget {
           body: SafeArea(
             child: BlocBuilder<SearchFlagsCubit, List<Country>>(
               builder: (context, state) => ListView.separated(
-                separatorBuilder: (_, __) => Divider(
+                separatorBuilder: (_, _) => Divider(
                   color: Theme.of(context).colorScheme.onPrimary,
                 ),
                 itemCount: state.length,

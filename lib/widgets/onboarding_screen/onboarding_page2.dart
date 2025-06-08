@@ -62,11 +62,13 @@ class _FakeGameCubit extends Cubit<GameState> implements GameCubit {
   static const _answersHard = ['my', 'us', 'cl', 'lr'];
 
   _FakeGameCubit({required bool isHardMode})
-      : super(GameStateStartRound(
+    : super(
+        GameStateStartRound(
           progress: 0,
           question: CountryService.countryWithId('us').localizedName,
           answers: isHardMode ? _answersHard : _answersEasy,
-        ));
+        ),
+      );
 
   @override
   void initialize() {}

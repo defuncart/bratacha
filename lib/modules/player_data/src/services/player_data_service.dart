@@ -70,6 +70,7 @@ class PlayerDataService implements IPlayerDataService {
     // ignore: avoid_print
     print('---------------------------');
   }
+
   // coverage:ignore-end
 }
 

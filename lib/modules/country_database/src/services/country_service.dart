@@ -9,6 +9,6 @@ abstract class CountryService {
 
   /// Returns a country by id
   static Country countryWithId(String id) => _countries.firstWhere(
-        (country) => country.id == id,
-      );
+    (country) => country.id == id,
+  );
 }

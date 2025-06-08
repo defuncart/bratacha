@@ -12,12 +12,13 @@ void main() {
       cleanUpOnSetUp: false,
       callback: () async {
         await hiveWrapper(
-            cleanUpOnSetUp: false,
-            callback: () async {
-              final flagDataService = FlagDataService();
-              await flagDataService.initialize();
-              flagDataService.resync(ids: ['id']);
-            });
+          cleanUpOnSetUp: false,
+          callback: () async {
+            final flagDataService = FlagDataService();
+            await flagDataService.initialize();
+            flagDataService.resync(ids: ['id']);
+          },
+        );
 
         final playerDataService = PlayerDataService();
         await playerDataService.initialize();
@@ -64,9 +65,11 @@ void main() {
         playerDataService.updateProgress(id: 'de', answeredCorrectly: true);
         verify(() => mockFlagDataService.updateProgress(id: 'de', answeredCorrectly: true)).called(1);
 
-        when(() => mockFlagDataService.flagDataWithId('de')).thenReturn(FlagData(id: 'de')
-          ..reset()
-          ..updateProgress(answeredCorrectly: true));
+        when(() => mockFlagDataService.flagDataWithId('de')).thenReturn(
+          FlagData(id: 'de')
+            ..reset()
+            ..updateProgress(answeredCorrectly: true),
+        );
         expect(playerDataService.hasCorrectlyAnswered(id: 'de'), isTrue);
 
         when(() => mockFlagDataService.reset()).thenAnswer((_) async {});

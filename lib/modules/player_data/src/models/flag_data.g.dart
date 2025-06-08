@@ -17,8 +17,8 @@ class FlagDataAdapter extends TypeAdapter<FlagData> {
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
     return FlagData(
-      id: fields[0] as String,
-    )
+        id: fields[0] as String,
+      )
       .._attempts = fields[1] as int
       .._timesCorrect = fields[2] as int;
   }

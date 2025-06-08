@@ -28,15 +28,15 @@ class SettingsTab extends StatelessWidget {
               onPressed: () async {
                 final appInfoService = context.read<IAppInfoService>();
                 final response = await context.read<IDialogService>().requestCustomDialog(
-                      CustomDialogRequest(
-                        title: context.l10n.dataPrivacyDialogTitle,
-                        content: const DataPrivacyPanel(),
-                        buttonTexts: [
-                          MaterialLocalizations.of(context).viewLicensesButtonLabel,
-                          MaterialLocalizations.of(context).closeButtonLabel,
-                        ],
-                      ),
-                    );
+                  CustomDialogRequest(
+                    title: context.l10n.dataPrivacyDialogTitle,
+                    content: const DataPrivacyPanel(),
+                    buttonTexts: [
+                      MaterialLocalizations.of(context).viewLicensesButtonLabel,
+                      MaterialLocalizations.of(context).closeButtonLabel,
+                    ],
+                  ),
+                );
 
                 if (response.buttonIndexPressed == 0) {
                   showLicensePage(
@@ -81,13 +81,13 @@ class SettingsTab extends StatelessWidget {
                       onPressed: () async {
                         final playerDataService = context.read<IPlayerDataService>();
                         final response = await context.read<IDialogService>().requestConfirmDialog(
-                              ConfirmDialogRequest(
-                                title: context.l10n.resetProgressDialogTitle,
-                                description: context.l10n.resetProgressDialogDescription,
-                                negativeButtonText: context.l10n.generalNo,
-                                positiveButtonText: context.l10n.generalYes,
-                              ),
-                            );
+                          ConfirmDialogRequest(
+                            title: context.l10n.resetProgressDialogTitle,
+                            description: context.l10n.resetProgressDialogDescription,
+                            negativeButtonText: context.l10n.generalNo,
+                            positiveButtonText: context.l10n.generalYes,
+                          ),
+                        );
                         if (response.isPositive) {
                           await playerDataService.reset();
                         }
@@ -111,10 +111,10 @@ class SettingsTab extends StatelessWidget {
 
 extension LanguageTitle on String {
   String get languageTitle => switch (this) {
-        'en' => 'English',
-        'be' => 'Беларуская',
-        'cy' => 'Cymraeg',
-        'ga' => 'Gaeilge',
-        _ => throw ArgumentError('Unsupported language'),
-      };
+    'en' => 'English',
+    'be' => 'Беларуская',
+    'cy' => 'Cymraeg',
+    'ga' => 'Gaeilge',
+    _ => throw ArgumentError('Unsupported language'),
+  };
 }

@@ -36,14 +36,15 @@ void main() {
       });
 
       test(
-          'when only one flag has been answered correctly for level 0, expect 5% for level 0 and 0% for all other levels',
-          () {
-        when(() => mockPlayerDataService.hasCorrectlyAnswered(id: any(named: 'id'))).thenReturn(false);
-        when(() => mockPlayerDataService.hasCorrectlyAnswered(id: 'de')).thenReturn(true);
-        for (var i = 0; i < levelManager.numberLevels; i++) {
-          expect(levelManager.progressForLevel(i), i == 0 ? 0.05 : 0);
-        }
-      });
+        'when only one flag has been answered correctly for level 0, expect 5% for level 0 and 0% for all other levels',
+        () {
+          when(() => mockPlayerDataService.hasCorrectlyAnswered(id: any(named: 'id'))).thenReturn(false);
+          when(() => mockPlayerDataService.hasCorrectlyAnswered(id: 'de')).thenReturn(true);
+          for (var i = 0; i < levelManager.numberLevels; i++) {
+            expect(levelManager.progressForLevel(i), i == 0 ? 0.05 : 0);
+          }
+        },
+      );
     });
   });
 }

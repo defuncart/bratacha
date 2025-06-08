@@ -92,8 +92,8 @@ class ResultsScreen extends StatelessWidget {
                   headlineText,
                   textAlign: TextAlign.center,
                   style: Theme.of(context).textTheme.displaySmall?.apply(
-                        color: headlineColor,
-                      ),
+                    color: headlineColor,
+                  ),
                 ),
               ),
               const Spacer(),
@@ -159,8 +159,8 @@ class PerfectRoundWidget extends StatelessWidget {
         Text(
           context.l10n.resultsPerfectRound,
           style: Theme.of(context).textTheme.headlineMedium?.apply(
-                color: Theme.of(context).colorScheme.secondary,
-              ),
+            color: Theme.of(context).colorScheme.secondary,
+          ),
         ),
         Icon(
           MdiIcons.partyPopper,
@@ -222,7 +222,7 @@ class MistakesScrollList extends StatelessWidget {
             ],
           );
         },
-        separatorBuilder: (_, __) => const SizedBox(width: 8),
+        separatorBuilder: (_, _) => const SizedBox(width: 8),
       ),
     );
   }

@@ -74,13 +74,13 @@ class GameScreenContent extends StatelessWidget {
           onPressed: () async {
             final navigator = Navigator.of(context);
             final response = await context.read<IDialogService>().requestConfirmDialog(
-                  ConfirmDialogRequest(
-                    title: context.l10n.quitGameDialogTitle,
-                    description: context.l10n.quitGameDialogDescription,
-                    negativeButtonText: context.l10n.generalNo,
-                    positiveButtonText: context.l10n.generalYes,
-                  ),
-                );
+              ConfirmDialogRequest(
+                title: context.l10n.quitGameDialogTitle,
+                description: context.l10n.quitGameDialogDescription,
+                negativeButtonText: context.l10n.generalNo,
+                positiveButtonText: context.l10n.generalYes,
+              ),
+            );
             if (response.isPositive) {
               await navigator.pushReplacementNamed(HomeScreen.routeName);
             }

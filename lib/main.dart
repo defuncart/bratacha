@@ -20,11 +20,11 @@ void main() async {
   }
 
   LicenseRegistry.addLicense(() async* {
-    yield _CustomLicenseEntry([
-      'flag-icons'
-    ], [
-      const LicenseParagraph(
-        '''
+    yield _CustomLicenseEntry(
+      ['flag-icons'],
+      [
+        const LicenseParagraph(
+          '''
 The MIT License (MIT)
 
 Copyright (c) 2013 Panayiotis Lipiridis
@@ -47,9 +47,10 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ''',
-        0,
-      ),
-    ]);
+          0,
+        ),
+      ],
+    );
   });
 
   if (!kIsWeb) {

@@ -67,5 +67,6 @@ class FlagDataService implements IFlagDataService {
       print(flagData);
     }
   }
+
   // coverage:ignore-end
 }
