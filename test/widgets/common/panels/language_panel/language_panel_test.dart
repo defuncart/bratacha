@@ -1,10 +1,10 @@
+import 'package:bratacha/intl/generated/localizations.dart';
 import 'package:bratacha/modules/dialog_manager/dialog_manager.dart';
 import 'package:bratacha/widgets/common/panels/language_panel/langauge_button.dart';
 import 'package:bratacha/widgets/common/panels/language_panel/language_cubit.dart';
 import 'package:bratacha/widgets/common/panels/language_panel/language_panel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_gen/gen_l10n/localizations.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 
@@ -68,8 +68,9 @@ void main() {
         });
 
         testWidgets('and user rejected deleting data, expect nothing happens', (tester) async {
-          when(() => mockDialogService.requestConfirmDialog(any()))
-              .thenAnswer((_) async => const ConfirmDialogResponse.negative());
+          when(
+            () => mockDialogService.requestConfirmDialog(any()),
+          ).thenAnswer((_) async => const ConfirmDialogResponse.negative());
 
           await tester.pumpWidget(
             BlocProvider<LanguageCubit>.value(
@@ -94,8 +95,9 @@ void main() {
         });
 
         testWidgets('and user accepted deleting data, expect language updated', (tester) async {
-          when(() => mockDialogService.requestConfirmDialog(any()))
-              .thenAnswer((_) async => const ConfirmDialogResponse.positive());
+          when(
+            () => mockDialogService.requestConfirmDialog(any()),
+          ).thenAnswer((_) async => const ConfirmDialogResponse.positive());
 
           await tester.pumpWidget(
             BlocProvider<LanguageCubit>.value(

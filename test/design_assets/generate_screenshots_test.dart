@@ -2,6 +2,7 @@ import 'package:app_store_screenshots/app_store_screenshots.dart';
 import 'package:bratacha/configs/app_themes.dart';
 import 'package:bratacha/intl/country_localizations.dart';
 import 'package:bratacha/intl/ga_material_localizations.dart';
+import 'package:bratacha/intl/generated/localizations.dart';
 import 'package:bratacha/managers/level_manager.dart';
 import 'package:bratacha/widgets/common/panels/language_panel/language_cubit.dart';
 import 'package:bratacha/widgets/game_screen/game_cubit.dart';
@@ -9,7 +10,6 @@ import 'package:bratacha/widgets/game_screen/game_screen.dart';
 import 'package:bratacha/widgets/home_screen/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_gen/gen_l10n/localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
@@ -49,7 +49,7 @@ void main() {
         color: AppThemes.theme.colorScheme.secondary,
       ),
       theme: AppThemes.theme,
-      textOptions: const ScreenshotTextOptions(
+      foregroundOptions: const ScreenshotForegroundOptions.top(
         textStyle: TextStyle(
           fontSize: 96,
           color: Colors.white,
@@ -73,9 +73,7 @@ void main() {
           );
         },
         onBuildScreen: () => const GameScreenContent(level: 0),
-        text: ScreenshotText(
-          onGenerateText: (_) => localizations.assetgenScreenshot1Label,
-        ),
+        onGenerateText: (_) => localizations.assetgenScreenshot1Label,
         wrapper: (child) => BlocProvider<GameCubit>.value(
           value: mockGameCubit,
           child: child,
@@ -95,9 +93,7 @@ void main() {
           );
         },
         onBuildScreen: () => const GameScreenContent(level: 0),
-        text: ScreenshotText(
-          onGenerateText: (_) => localizations.assetgenScreenshot2Label,
-        ),
+        onGenerateText: (_) => localizations.assetgenScreenshot2Label,
         wrapper: (child) => BlocProvider<GameCubit>.value(
           value: mockGameCubit,
           child: child,
@@ -109,9 +105,7 @@ void main() {
           whenState(mockLanguageCubit, locale.languageCode);
         },
         onBuildScreen: () => const HomeScreen(),
-        text: ScreenshotText(
-          onGenerateText: (_) => localizations.assetgenScreenshot3Label,
-        ),
+        onGenerateText: (_) => localizations.assetgenScreenshot3Label,
         wrapper: (child) => BlocProvider<LanguageCubit>.value(
           value: mockLanguageCubit,
           child: RepositoryProvider<LevelManager>.value(

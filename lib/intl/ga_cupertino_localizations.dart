@@ -245,4 +245,10 @@ class GaCupertinoLocalizations extends GlobalCupertinoLocalizations {
 
   @override
   String get todayLabel => throw UnimplementedError();
+
+  @override
+  String get backButtonLabel => throw UnimplementedError();
+
+  @override
+  String get cancelButtonLabel => throw UnimplementedError();
 }

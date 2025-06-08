@@ -1,4 +1,4 @@
-import 'package:flutter_gen/gen_l10n/localizations.dart';
+import 'package:bratacha/intl/generated/localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
 abstract class IntlHelper {
