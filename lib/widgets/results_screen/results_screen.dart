@@ -1,5 +1,4 @@
 import 'package:bratacha/configs/app_config.dart';
-import 'package:bratacha/extensions/iterable_widget_extension.dart';
 import 'package:bratacha/intl/country_localizations.dart';
 import 'package:bratacha/intl/localizations.dart';
 import 'package:bratacha/widgets/common/flag.dart';
@@ -150,6 +149,7 @@ class PerfectRoundWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       mainAxisSize: MainAxisSize.min,
+      spacing: 8,
       children: [
         Icon(
           MdiIcons.partyPopper,
@@ -167,7 +167,7 @@ class PerfectRoundWidget extends StatelessWidget {
           size: 48,
           color: Theme.of(context).colorScheme.secondary,
         ),
-      ].intersperse(const SizedBox(width: 8)),
+      ],
     );
   }
 }
