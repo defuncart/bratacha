@@ -37,13 +37,13 @@ class LanguagePanel extends StatelessWidget {
 
                     if (presentConfirmationDialog) {
                       final response = await context.read<IDialogService>().requestConfirmDialog(
-                            ConfirmDialogRequest(
-                              title: context.l10n.changeLanguageDialogTitle,
-                              description: context.l10n.changeLanguageDialogDescription,
-                              negativeButtonText: context.l10n.generalNo,
-                              positiveButtonText: context.l10n.generalYes,
-                            ),
-                          );
+                        ConfirmDialogRequest(
+                          title: context.l10n.changeLanguageDialogTitle,
+                          description: context.l10n.changeLanguageDialogDescription,
+                          negativeButtonText: context.l10n.generalNo,
+                          positiveButtonText: context.l10n.generalYes,
+                        ),
+                      );
 
                       if (!response.isPositive) {
                         return;
@@ -53,7 +53,7 @@ class LanguagePanel extends StatelessWidget {
                     languageCubit.setLanguage(languageCode);
                   },
                   size: size,
-                )
+                ),
             ],
           ),
         );

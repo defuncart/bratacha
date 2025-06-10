@@ -112,7 +112,7 @@ void main() {
               correctPercentage: 1,
               incorrectIds: [],
               nextLevelUnlocked: false,
-            )
+            ),
           ));
         },
         build: () => GameCubit(gameService: mockGameService),

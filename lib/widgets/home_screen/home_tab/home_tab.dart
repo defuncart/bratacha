@@ -28,7 +28,8 @@ class HomeTab extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
                     child: _LevelButton(
                       levelIndex: i,
-                      isLevelUnlocked: i == 0 ||
+                      isLevelUnlocked:
+                          i == 0 ||
                           levelManager.progressForLevel(i - 1) >= AppConfig.percentageToOpenNextLevel ||
                           kDebugMode,
                       levelProgress: levelManager.progressForLevel(i),
@@ -59,9 +60,9 @@ class _LevelButton extends StatelessWidget {
     return GestureDetector(
       onTap: isLevelUnlocked
           ? () => Navigator.of(context).pushReplacementNamed(
-                GameScreen.routeName,
-                arguments: GameScreenArguments(level: levelIndex),
-              )
+              GameScreen.routeName,
+              arguments: GameScreenArguments(level: levelIndex),
+            )
           : null,
       child: Opacity(
         opacity: isLevelUnlocked ? 1 : 0.4,

@@ -56,8 +56,8 @@ class GameCubit extends Cubit<GameState> {
 
   GameCubit({
     required IGameService gameService,
-  })  : _gameService = gameService,
-        super(GameStateStartRound(progress: 0, question: '', answers: []));
+  }) : _gameService = gameService,
+       super(GameStateStartRound(progress: 0, question: '', answers: []));
 
   GameRound? _gameRound;
 
@@ -68,25 +68,29 @@ class GameCubit extends Cubit<GameState> {
     final isCorrect = result.$1 == id;
     final isGameOver = result.$3 == 1;
 
-    emit(GameStateEndRound(
-      progress: result.$3,
-      question: _gameRound!.question,
-      answers: _gameRound!.answers,
-      correctAnswer: result.$1,
-      userAnswer: id,
-      userAnsweredLocalized: result.$2,
-    ));
+    emit(
+      GameStateEndRound(
+        progress: result.$3,
+        question: _gameRound!.question,
+        answers: _gameRound!.answers,
+        correctAnswer: result.$1,
+        userAnswer: id,
+        userAnsweredLocalized: result.$2,
+      ),
+    );
 
     Timer.periodic(Duration(milliseconds: isCorrect ? 1000 : 2000), (timer) {
       timer.cancel();
 
       if (isGameOver) {
-        emit(GameStateEndGame(
-          correctPercentage: result.$4!.correctPercentage,
-          canPlayNextLevel: result.$4!.canPlayNextLevel,
-          nextLevelUnlocked: result.$4!.nextLevelUnlocked,
-          incorrectIds: result.$4!.incorrectIds,
-        ));
+        emit(
+          GameStateEndGame(
+            correctPercentage: result.$4!.correctPercentage,
+            canPlayNextLevel: result.$4!.canPlayNextLevel,
+            nextLevelUnlocked: result.$4!.nextLevelUnlocked,
+            incorrectIds: result.$4!.incorrectIds,
+          ),
+        );
       } else {
         _nextRoundAndEmit();
       }
@@ -95,10 +99,12 @@ class GameCubit extends Cubit<GameState> {
 
   void _nextRoundAndEmit() {
     _gameRound = _gameService.nextRound();
-    emit(GameStateStartRound(
-      progress: _gameRound!.progress,
-      question: _gameRound!.question,
-      answers: _gameRound!.answers,
-    ));
+    emit(
+      GameStateStartRound(
+        progress: _gameRound!.progress,
+        question: _gameRound!.question,
+        answers: _gameRound!.answers,
+      ),
+    );
   }
 }

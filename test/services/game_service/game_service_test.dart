@@ -21,8 +21,9 @@ void main() {
 
     setUp(() {
       mockLevelManager = MockLevelManager();
-      when(() => mockLevelManager.countriesForLevel(any()))
-          .thenReturn(countries.map((code) => CountryService.countryWithId(code)).toList());
+      when(
+        () => mockLevelManager.countriesForLevel(any()),
+      ).thenReturn(countries.map((code) => CountryService.countryWithId(code)).toList());
       when(() => mockLevelManager.numberLevels).thenReturn(1);
     });
 

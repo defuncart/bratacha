@@ -21,8 +21,8 @@ class SearchFlagsCubit extends Cubit<List<Country>> {
       _searchTerm.isEmpty
           ? CountryService.countries
           : CountryService.countries
-              .where((country) => country.localizedName.toLowerCase().normalize(_language).contains(_searchTerm))
-              .toList(),
+                .where((country) => country.localizedName.toLowerCase().normalize(_language).contains(_searchTerm))
+                .toList(),
     );
 
     countries.sort((a, b) => a.sortTerm(_language).compareTo(b.sortTerm(_language)));
@@ -33,30 +33,30 @@ class SearchFlagsCubit extends Cubit<List<Country>> {
 
 extension on Country {
   String sortTerm(String language) => switch (language) {
-        'en' => localizedName.replaceAll('The ', ''),
-        'be' => localizedName.toLowerCase().replaceAll('і', 'й'),
-        'cy' => localizedName.replaceAll('Yr ', '').replaceAll('Y ', ''),
-        'ga' => localizedName
-            .replaceAll('An Bh', 'B')
-            .replaceAll('An Ch', 'C')
-            .replaceAll('An Fh', 'F')
-            .replaceAll('An Gh', 'G')
-            .replaceAll('An Mh', 'M')
-            .replaceAll('An Ph', 'P')
-            .replaceAll('An t', '')
-            .replaceAll('An ', '')
-            .replaceAll('Na h', '')
-            .replaceAll('Na ', '')
-            .toLowerCase()
-            .normalize(language),
-        _ => throw ArgumentError('Unsupported language'),
-      };
+    'en' => localizedName.replaceAll('The ', ''),
+    'be' => localizedName.toLowerCase().replaceAll('і', 'й'),
+    'cy' => localizedName.replaceAll('Yr ', '').replaceAll('Y ', ''),
+    'ga' =>
+      localizedName
+          .replaceAll('An Bh', 'B')
+          .replaceAll('An Ch', 'C')
+          .replaceAll('An Fh', 'F')
+          .replaceAll('An Gh', 'G')
+          .replaceAll('An Mh', 'M')
+          .replaceAll('An Ph', 'P')
+          .replaceAll('An t', '')
+          .replaceAll('An ', '')
+          .replaceAll('Na h', '')
+          .replaceAll('Na ', '')
+          .toLowerCase()
+          .normalize(language),
+    _ => throw ArgumentError('Unsupported language'),
+  };
 }
 
 extension on String {
   String normalize(String language) => switch (language) {
-        'ga' =>
-          replaceAll('á', 'a').replaceAll('é', 'e').replaceAll('í', 'i').replaceAll('ó', 'o').replaceAll('ú', 'u'),
-        _ => this,
-      };
+    'ga' => replaceAll('á', 'a').replaceAll('é', 'e').replaceAll('í', 'i').replaceAll('ó', 'o').replaceAll('ú', 'u'),
+    _ => this,
+  };
 }

@@ -1,6 +1,7 @@
 import 'package:bratacha/configs/app_themes.dart';
 import 'package:bratacha/intl/country_localizations.dart';
 import 'package:bratacha/intl/ga_material_localizations.dart';
+import 'package:bratacha/intl/generated/localizations.dart';
 import 'package:bratacha/managers/level_manager.dart';
 import 'package:bratacha/modules/country_database/country_database.dart';
 import 'package:bratacha/modules/dialog_manager/dialog_manager.dart';
@@ -19,8 +20,6 @@ import 'package:bratacha/widgets/results_screen/results_screen.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_gen/gen_l10n/localizations.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_svg/svg.dart';
 
 class MyApp extends StatelessWidget {
@@ -75,11 +74,8 @@ class MyApp extends StatelessWidget {
               ),
             ),
             localizationsDelegates: const [
-              AppLocalizations.delegate,
+              ...AppLocalizations.localizationsDelegates,
               CountryLocalizationsDelegate(),
-              GlobalMaterialLocalizations.delegate,
-              GlobalWidgetsLocalizations.delegate,
-              GlobalCupertinoLocalizations.delegate,
               GaMaterialLocalizations.delegate,
               // TODO: Fix GA
               // GaCupertinoLocalizations.delegate,
@@ -104,7 +100,7 @@ class MyApp extends StatelessWidget {
 class _AppScrollBehavior extends MaterialScrollBehavior {
   @override
   Set<PointerDeviceKind> get dragDevices => {
-        PointerDeviceKind.touch,
-        PointerDeviceKind.mouse,
-      };
+    PointerDeviceKind.touch,
+    PointerDeviceKind.mouse,
+  };
 }

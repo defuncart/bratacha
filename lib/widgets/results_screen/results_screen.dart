@@ -1,5 +1,4 @@
 import 'package:bratacha/configs/app_config.dart';
-import 'package:bratacha/extensions/iterable_widget_extension.dart';
 import 'package:bratacha/intl/country_localizations.dart';
 import 'package:bratacha/intl/localizations.dart';
 import 'package:bratacha/widgets/common/flag.dart';
@@ -92,8 +91,8 @@ class ResultsScreen extends StatelessWidget {
                   headlineText,
                   textAlign: TextAlign.center,
                   style: Theme.of(context).textTheme.displaySmall?.apply(
-                        color: headlineColor,
-                      ),
+                    color: headlineColor,
+                  ),
                 ),
               ),
               const Spacer(),
@@ -150,6 +149,7 @@ class PerfectRoundWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       mainAxisSize: MainAxisSize.min,
+      spacing: 8,
       children: [
         Icon(
           MdiIcons.partyPopper,
@@ -159,15 +159,15 @@ class PerfectRoundWidget extends StatelessWidget {
         Text(
           context.l10n.resultsPerfectRound,
           style: Theme.of(context).textTheme.headlineMedium?.apply(
-                color: Theme.of(context).colorScheme.secondary,
-              ),
+            color: Theme.of(context).colorScheme.secondary,
+          ),
         ),
         Icon(
           MdiIcons.partyPopper,
           size: 48,
           color: Theme.of(context).colorScheme.secondary,
         ),
-      ].intersperse(const SizedBox(width: 8)),
+      ],
     );
   }
 }
@@ -222,7 +222,7 @@ class MistakesScrollList extends StatelessWidget {
             ],
           );
         },
-        separatorBuilder: (_, __) => const SizedBox(width: 8),
+        separatorBuilder: (_, _) => const SizedBox(width: 8),
       ),
     );
   }

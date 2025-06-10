@@ -82,8 +82,9 @@ void main() {
 
       final button = find.byType(IconButton);
 
-      when(() => mockDialogService.requestCustomDialog(any()))
-          .thenAnswer((_) async => const CustomDialogResponse(buttonIndexPressed: 0));
+      when(
+        () => mockDialogService.requestCustomDialog(any()),
+      ).thenAnswer((_) async => const CustomDialogResponse(buttonIndexPressed: 0));
 
       when(() => mockAppInfoService.applicationName).thenReturn('');
       when(() => mockAppInfoService.applicationVersion).thenReturn('');
@@ -113,16 +114,18 @@ void main() {
 
       final button = find.byType(CustomElevatedButton);
 
-      when(() => mockDialogService.requestConfirmDialog(any()))
-          .thenAnswer((_) async => const ConfirmDialogResponse.positive());
+      when(
+        () => mockDialogService.requestConfirmDialog(any()),
+      ).thenAnswer((_) async => const ConfirmDialogResponse.positive());
       when(() => mockPlayerDataService.reset()).thenAnswer((_) async {});
 
       await tester.tap(button);
 
       verify(() => mockPlayerDataService.reset());
 
-      when(() => mockDialogService.requestConfirmDialog(any()))
-          .thenAnswer((_) async => const ConfirmDialogResponse.negative());
+      when(
+        () => mockDialogService.requestConfirmDialog(any()),
+      ).thenAnswer((_) async => const ConfirmDialogResponse.negative());
 
       await tester.tap(button);
 

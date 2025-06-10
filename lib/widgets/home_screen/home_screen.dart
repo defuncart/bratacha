@@ -60,7 +60,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   _currentIndex == 2 ? Icons.settings : Icons.settings_outlined,
                 ),
                 label: context.l10n.settingsTabLabelText,
-              )
+              ),
             ],
             currentIndex: _currentIndex,
             onTap: (newIndex) => setState(() {

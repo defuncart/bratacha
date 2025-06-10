@@ -17,12 +17,13 @@ class GameService implements IGameService {
     @visibleForTesting Random? random,
   }) {
     final levelCountries = levelManager.countriesForLevel(level);
-    _indicesCountriesForLevel = levelCountries
-        .map(
-          (country) => _countries.indexOf(country),
-        )
-        .toList(growable: false)
-      ..shuffle(random);
+    _indicesCountriesForLevel =
+        levelCountries
+            .map(
+              (country) => _countries.indexOf(country),
+            )
+            .toList(growable: false)
+          ..shuffle(random);
 
     _numberRounds = levelCountries.length;
     isLastLevel = level == levelManager.numberLevels - 1;

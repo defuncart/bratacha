@@ -1,17 +1,11 @@
 import 'base_dialog_response.dart';
 
 class ConfirmDialogResponse extends BaseDialogResponse {
-  const ConfirmDialogResponse.positive()
-      : _isPositive = true,
-        super();
+  const ConfirmDialogResponse.positive() : _isPositive = true, super();
 
-  const ConfirmDialogResponse.negative()
-      : _isPositive = false,
-        super();
+  const ConfirmDialogResponse.negative() : _isPositive = false, super();
 
-  const ConfirmDialogResponse.hasError()
-      : _isPositive = null,
-        super(hasError: true);
+  const ConfirmDialogResponse.hasError() : _isPositive = null, super(hasError: true);
 
   final bool? _isPositive;
   bool get isPositive {

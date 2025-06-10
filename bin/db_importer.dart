@@ -128,11 +128,11 @@ class _CountryImportModel {
   final List<String> similarFlags;
 
   factory _CountryImportModel.fromJson(Map<String, dynamic> json) => _CountryImportModel(
-        id: json['id'],
-        continent: Continent.values[json['continent']],
-        names: Map<String, String>.from(json['names']),
-        similarFlags: List<String>.from(json['similarFlags'].map((item) => item)),
-      );
+    id: json['id'],
+    continent: Continent.values[json['continent']],
+    names: Map<String, String>.from(json['names']),
+    similarFlags: List<String>.from(json['similarFlags'].map((item) => item)),
+  );
 }
 
 String _listToCodeString(List<dynamic> list) {
@@ -155,7 +155,7 @@ class _LevelImportModel {
   final List<String> countries;
 
   factory _LevelImportModel.fromJson(Map<String, dynamic> json) => _LevelImportModel(
-        key: json['key'],
-        countries: List<String>.from(json['countries'].map((item) => item)),
-      );
+    key: json['key'],
+    countries: List<String>.from(json['countries'].map((item) => item)),
+  );
 }

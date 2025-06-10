@@ -1,5 +1,4 @@
 import 'package:bratacha/extensions/country_extensions.dart';
-import 'package:bratacha/extensions/iterable_widget_extension.dart';
 import 'package:bratacha/intl/localizations.dart';
 import 'package:bratacha/modules/country_database/country_database.dart';
 import 'package:bratacha/widgets/common/flag.dart';
@@ -25,7 +24,7 @@ class FlagsTab extends StatelessWidget {
           body: SafeArea(
             child: BlocBuilder<SearchFlagsCubit, List<Country>>(
               builder: (context, state) => ListView.separated(
-                separatorBuilder: (_, __) => Divider(
+                separatorBuilder: (_, _) => Divider(
                   color: Theme.of(context).colorScheme.onPrimary,
                 ),
                 itemCount: state.length,
@@ -149,13 +148,14 @@ class _SimilarFlagsList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       mainAxisSize: MainAxisSize.min,
+      spacing: 4,
       children: [
         for (final flag in similarFlags)
           Flag(
             flag,
             size: 24,
           ),
-      ].intersperse(const SizedBox(width: 4)),
+      ],
     );
   }
 }

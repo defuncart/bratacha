@@ -23,8 +23,10 @@ class LevelManager {
   /// Returns the progress for a given level index (beginning at zero)
   double progressForLevel(int level) {
     final ids = countriesForLevel(level).map((country) => country.id).toList();
-    final numCorrectlyAnswered =
-        ids.map((id) => _playerDataService.hasCorrectlyAnswered(id: id)).where((e) => e).length;
+    final numCorrectlyAnswered = ids
+        .map((id) => _playerDataService.hasCorrectlyAnswered(id: id))
+        .where((e) => e)
+        .length;
     return numCorrectlyAnswered / (ids.length);
   }
 }

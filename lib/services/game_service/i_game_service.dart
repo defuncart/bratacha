@@ -4,12 +4,7 @@ abstract class IGameService {
   (String, String, double, GameResult?) answerWithId(String id);
 }
 
-typedef GameRound = ({
-  double progress,
-  String question,
-  List<String> answers,
-  GameResult? result,
-});
+typedef GameRound = ({double progress, String question, List<String> answers, GameResult? result});
 
 typedef GameResult = ({
   double correctPercentage,

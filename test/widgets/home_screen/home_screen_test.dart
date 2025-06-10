@@ -47,7 +47,7 @@ void main() {
             ),
             BlocProvider(
               create: (context) => HardModeCubit(context.read<IPlayerDataService>()),
-            )
+            ),
           ],
           child: wrapWithMaterialApp(
             const HomeScreen(),
