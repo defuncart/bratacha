@@ -40,6 +40,7 @@ Widget wrapWithMaterialAppGeneratedRoute({
   ),
 );
 
+// ignore: avoid_types_as_parameter_names
 void whenState<State>(
   BlocBase<State> bloc,
   State state,
