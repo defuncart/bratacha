@@ -22,7 +22,7 @@ packages:
     description:
       path: "."
       ref: main
-      resolved-ref: d993f6eec053375b8e1594cdde7f4dd2b81a65af
+      resolved-ref: d91629e187ed5bcca3822194ff25fd47f8069ec6
       url: "https://github.com/defuncart/app_store_screenshots"
     source: git
     version: "0.0.1"
@@ -723,10 +723,10 @@ packages:
     dependency: transitive
     description:
       name: provider
-      sha256: "4abbd070a04e9ddc287673bf5a030c7ca8b685ff70218720abab8b092f53dd84"
+      sha256: "4e82183fa20e5ca25703ead7e05de9e4cceed1fbd1eadc1ac3cb6f565a09f272"
       url: "https://pub.dev"
     source: hosted
-    version: "6.1.5"
+    version: "6.1.5+1"
   pub_semver:
     dependency: transitive
     description:
