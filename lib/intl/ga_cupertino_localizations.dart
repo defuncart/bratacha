@@ -251,4 +251,22 @@ class GaCupertinoLocalizations extends GlobalCupertinoLocalizations {
 
   @override
   String get cancelButtonLabel => throw UnimplementedError();
+
+  @override
+  String get collapsedHint => throw UnimplementedError();
+
+  @override
+  String get expandedHint => throw UnimplementedError();
+
+  @override
+  String get expansionTileCollapsedHint => throw UnimplementedError();
+
+  @override
+  String get expansionTileCollapsedTapHint => throw UnimplementedError();
+
+  @override
+  String get expansionTileExpandedHint => throw UnimplementedError();
+
+  @override
+  String get expansionTileExpandedTapHint => throw UnimplementedError();
 }
