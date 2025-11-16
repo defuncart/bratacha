@@ -13,7 +13,7 @@ void main() {
     ),
   );
 
-  generateAppIconAndroidForeground(
+  generateAppIconForeground(
     onBuildIcon: (size) => AppIcon(
       size: size,
       hasTransparentBackground: true,

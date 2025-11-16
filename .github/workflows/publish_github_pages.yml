@@ -11,7 +11,7 @@ jobs:
       my_secret: ${{secrets.commit}}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v5
       - uses: ./.github/actions/set_up_flutter
       - name: Build + Commit
         run: |

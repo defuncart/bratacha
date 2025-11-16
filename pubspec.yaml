@@ -4,8 +4,8 @@ publish_to: 'none'
 version: 0.0.1+8
 
 environment:
-  sdk: ^3.8.0
-  flutter: ^3.32.0
+  sdk: ^3.10.0
+  flutter: ^3.38.0
 
 dependencies:
   flutter:
@@ -60,9 +60,12 @@ arb_generator:
 flutter_launcher_icons:
   image_path: "assets_dev/app_icons/app_icon.png"
   android: true
-  ios: true
   adaptive_icon_background: "#00ADB5"
-  adaptive_icon_foreground: "assets_dev/app_icons/android_icon_foreground.png"
-  adaptive_icon_monochrome: "assets_dev/app_icons/android_icon_foreground.png"
+  adaptive_icon_foreground: "assets_dev/app_icons/app_icon_foreground.png"
+  adaptive_icon_monochrome: "assets_dev/app_icons/app_icon_foreground.png"
+  ios: true
+  image_path_ios_dark_transparent: "assets_dev/app_icons/app_icon_foreground.png"
+  image_path_ios_tinted_grayscale: "assets_dev/app_icons/app_icon_foreground.png"
+  desaturate_tinted_to_grayscale_ios: true
   web:
     generate: true
