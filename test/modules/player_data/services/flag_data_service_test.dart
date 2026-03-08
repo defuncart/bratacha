@@ -1,7 +1,7 @@
 import 'package:bratacha/modules/player_data/src/configs/hive_adapter_type.dart';
 import 'package:bratacha/modules/player_data/src/services/flag_data_service.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:hive/hive.dart';
+import 'package:hive_ce/hive.dart';
 
 import '../../hive_wrapper.dart';
 

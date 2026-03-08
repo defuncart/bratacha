@@ -1,4 +1,4 @@
-import 'package:hive/hive.dart';
+import 'package:hive_ce/hive.dart';
 
 import 'flag_data_service.dart';
 import 'i_flag_data_service.dart';
