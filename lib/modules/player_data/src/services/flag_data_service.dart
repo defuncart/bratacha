@@ -1,5 +1,5 @@
 import 'package:flutter/foundation.dart';
-import 'package:hive/hive.dart';
+import 'package:hive_ce/hive.dart';
 
 import '../../player_data.dart';
 import '../configs/hive_adapter_type.dart';

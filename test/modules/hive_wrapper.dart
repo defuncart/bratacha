@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:hive/hive.dart';
+import 'package:hive_ce/hive.dart';
 
 Future<void> hiveWrapper({
   required Future<void> Function() callback,
