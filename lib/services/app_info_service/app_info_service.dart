@@ -19,5 +19,5 @@ class AppInfoService implements IAppInfoService {
   String get applicationVersion => _applicationVersion;
 
   @override
-  String get applicationLegalese => '© 2024 defuncart';
+  String get applicationLegalese => '© 2026 defuncart';
 }
