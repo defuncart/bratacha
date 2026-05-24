@@ -55,9 +55,8 @@ class GameCubit extends Cubit<GameState> {
   final IGameService _gameService;
 
   GameCubit({
-    required IGameService gameService,
-  }) : _gameService = gameService,
-       super(GameStateStartRound(progress: 0, question: '', answers: []));
+    required this._gameService,
+  }) : super(GameStateStartRound(progress: 0, question: '', answers: []));
 
   GameRound? _gameRound;
 
