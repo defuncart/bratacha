@@ -3,7 +3,7 @@ import 'package:bratacha/widgets/home_screen/flags_tab/flags_tab.dart';
 import 'package:bratacha/widgets/home_screen/home_tab/home_tab.dart';
 import 'package:bratacha/widgets/home_screen/settings_tab/settings_tab.dart';
 import 'package:flutter/material.dart';
-import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:flutter_material_design_icons/flutter_material_design_icons.dart';
 
 class HomeScreen extends StatefulWidget {
   static const routeName = 'HomeScreen';
