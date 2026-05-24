@@ -20,7 +20,7 @@ Bratacha is presently available to download in early access via Google Play on A
 
 <table style="table-layout: fixed">
 <tr>
-    <td style="width: 50%"><a href="https://play.google.com/store/apps/details?id=com.defuncart.bratacha"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Google_Play_Store_badge_EN.svg/1200px-Google_Play_Store_badge_EN.svg.png"/></a></td>
+    <td style="width: 50%"><a href="https://play.google.com/store/apps/details?id=com.defuncart.bratacha"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Google_Play_Store_badge_EN.svg/330px-Google_Play_Store_badge_EN.svg.png"/></a></td>
     <td style="width: 50%"><a href="https://defuncart.com/bratacha">Browser</a></td>
 </tr>
 </table>
@@ -35,7 +35,7 @@ If you are a native speaker of Belarusian, Irish or Welsh, please consider proof
 
 If you have played Bratacha, please give your feedback [here](https://forms.gle/UL2nhvt8oeRH361E6).
 
-Please report bugs and issues, and raise feature requests [here](https://github.com/defuncart/der_die_das/issues).
+Please report bugs and issues, and raise feature requests [here](https://github.com/defuncart/bratacha/issues).
 
 To contribute, submit a PR with a detailed description and tests, if applicable.
 
