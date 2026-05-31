@@ -13,6 +13,7 @@ class OnboardingPage1 extends StatelessWidget {
         Text(
           context.l10n.onboardingPage1TextLabel1,
           style: Theme.of(context).textTheme.displaySmall,
+          textAlign: TextAlign.center,
         ),
         Text(
           context.l10n.onboardingPage1TextLabel2,

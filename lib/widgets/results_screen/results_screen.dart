@@ -5,7 +5,7 @@ import 'package:bratacha/widgets/common/flag.dart';
 import 'package:bratacha/widgets/game_screen/game_screen.dart';
 import 'package:bratacha/widgets/home_screen/home_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:flutter_material_design_icons/flutter_material_design_icons.dart';
 
 class ResultsScreenArguments {
   final int level;
