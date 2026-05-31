@@ -30,7 +30,7 @@ void main() {
     });
 
     test('applicationLegalese', () {
-      expect(service.applicationLegalese, '© 2024 defuncart');
+      expect(service.applicationLegalese, '© 2026 defuncart');
     });
   });
 }
